@@ -17,7 +17,7 @@
         - cleanup
 
         -->
-<project xmlns:webproject1="http://www.netbeans.org/ns/web-project/1" xmlns:webproject2="http://www.netbeans.org/ns/web-project/2" xmlns:webproject3="http://www.netbeans.org/ns/web-project/3" basedir=".." default="default" name="viewerConfig-impl">
+<project xmlns:webproject1="http://www.netbeans.org/ns/web-project/1" xmlns:webproject2="http://www.netbeans.org/ns/web-project/2" xmlns:webproject3="http://www.netbeans.org/ns/web-project/3" basedir=".." default="default" name="gisviewerConfig-impl">
     <import file="ant-deploy.xml"/>
     <fail message="Please build using Ant 1.7.1 or higher.">
         <condition>
@@ -434,7 +434,7 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.b3p-gisviewer}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
-        <ant antfile="${project.b3p-viewerConfig}/build.xml" inheritall="false" target="jar">
+        <ant antfile="${project.b3p-gisviewerConfig}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
         <ant antfile="${project.b3p-zoeker}/build.xml" inheritall="false" target="jar">
@@ -466,7 +466,7 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.b3p-gisviewer}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
-        <ant antfile="${project.b3p-viewerConfig}/build.xml" inheritall="false" target="jar">
+        <ant antfile="${project.b3p-gisviewerConfig}/build.xml" inheritall="false" target="jar">
             <property name="deploy.on.save" value="false"/>
         </ant>
         <ant antfile="${project.b3p-zoeker}/build.xml" inheritall="false" target="jar">
@@ -639,7 +639,7 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${libs.GeotoolsJdbc2.5.5.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.GeotoolsCommon2.5.5.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.GeotoolsOracle2.5.5.classpath}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${reference.b3p-viewerConfig.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.b3p-gisviewerConfig.jar}" iftldtodir="${build.web.dir}/WEB-INF" todir="${dist.ear.dir}/lib"/>
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
@@ -669,7 +669,7 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${libs.GeotoolsJdbc2.5.5.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${libs.GeotoolsCommon2.5.5.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copyfiles files="${libs.GeotoolsOracle2.5.5.classpath}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copyfiles files="${reference.b3p-viewerConfig.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copyfiles files="${reference.b3p-gisviewerConfig.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
     </target>
     <target depends="init" if="dist.ear.dir" name="-clean-webinf-lib">
         <delete dir="${build.web.dir}/WEB-INF/lib"/>
@@ -973,7 +973,7 @@ exists or setup the property manually. For example like this:
         <ant antfile="${project.b3p-commons-hibernate}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.b3p-geotools-filterImpl2}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.b3p-gisviewer}/build.xml" inheritall="false" target="clean"/>
-        <ant antfile="${project.b3p-viewerConfig}/build.xml" inheritall="false" target="clean"/>
+        <ant antfile="${project.b3p-gisviewerConfig}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.b3p-zoeker}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.jump-b3p}/build.xml" inheritall="false" target="clean"/>
         <ant antfile="${project.securityfilter-b3p}/build.xml" inheritall="false" target="clean"/>
