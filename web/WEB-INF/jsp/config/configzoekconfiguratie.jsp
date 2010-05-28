@@ -2,7 +2,7 @@
 B3P Gisviewer is an extension to Flamingo MapComponents making      
 it a complete webbased GIS viewer and configuration tool that    
 works in cooperation with B3P Kaartenbalie.  
-                    
+
 Copyright 2006, 2007, 2008 B3Partners BV
 
 This file is part of B3P Gisviewer.
@@ -24,45 +24,133 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page isELIgnored="false"%>
 
 
+<c:set var="form" value="${zoekConfiguratieForm}"/>
+
 <div class="infobalk">
-    <div class="infobalk_description">CONNECTIE CONFIG</div>
+    <div class="infobalk_description">ZOEKCONFIGURATIE CONFIG</div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
-<div>
-    <table id="zoekconfiguratieTable" class="tablesorter">
-        <thead>
-            <tr>
-                <th><fmt:message key="configzoeker.id"/></th>
-                <th><fmt:message key="configzoeker.naam"/></th>
-                <th><fmt:message key="configzoeker.featuretype"/></th>
-                <th><fmt:message key="configzoeker.parentbron"/></th>
-                <th><fmt:message key="configzoeker.parentzoekconfiguratie"/></th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach var="zc" varStatus="status" items="${zoekconfiguraties}">
-                <c:set var="id_selected" value="" />
-                <c:if test="${zc.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
-                <c:url var="link" value="/configConnectie.do?edit=submit&id=${ci.id}"/>
+<c:if test="${!empty zoekConfiguraties}">
+    <div style="float: left; clear: both; margin-left: 5px; height: 180px; overflow: hidden;">
+        <table id="zoekconfiguratieTable" class="tablesorter">
+            <thead>
                 <tr>
-                    <td><c:out value="${zc.id}"/></td>
-                    <td><c:out value="${zc.naam}"/></td>
-                    <td><c:out value="${zc.featureType}"/></td>
-                    <td><c:out value="${zc.parentBron}"/></td>
-                    <td><c:out value="${zc.parentZoekConfiguratie}"/></td>
+                    <th><fmt:message key="configzoekconfiguratie.id"/></th>
+                    <th><fmt:message key="configzoekconfiguratie.naam"/></th>
+                    <th><fmt:message key="configzoekconfiguratie.featuretype"/></th>
+                    <th><fmt:message key="configzoekconfiguratie.parentbron"/></th>
+                    <th><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></th>
                 </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <c:forEach var="zc" varStatus="status" items="${zoekConfiguraties}">
+                    <c:set var="id_selected" value="" />
+                    <c:if test="${zc.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
+                    <c:url var="link" value="/configZoekConfiguratie.do?edit=submit&id=${zc.id}"/>
+                    <tr>
+                        <td><c:out value="${zc.id}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
+                        <td><c:out value="${zc.naam}"/></td>
+                        <td><c:out value="${zc.featureType}"/></td>
+                        <td><c:out value="${zc.parentBron}"/></td>
+                        <td><c:out value="${zc.parentZoekConfiguratie}"/></td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+    </div>
+</c:if>
+<div id="content_style" style="float: left; clear: left;">
+    <div class="berichtenbalk" style="margin-top: 5px;">
+        <html:messages id="error" message="true">
+            <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
+        </html:messages>
+    </div>
+    <div class="maintable" style="margin-top: 5px;">
+        <html:javascript formName="zoekConfiguratieForm" staticJavascript="false"/>
+        <html:form action="/configZoekConfiguratie" onsubmit="return validateZoekConfiguratieForm(this)" focus="${focus}">
+            <table>
+                <tr>
+                    <td><fmt:message key="configzoekconfiguratie.id"/>
+                    </td>
+                    <td><c:out value="${form.map.zoekConfiguratieId}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="configzoekconfiguratie.naam"/></td>
+                    <td><html:text property="naam"/></td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="configzoekconfiguratie.featuretype"/></td>
+                    <td><c:out value="${form.map.featureType}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="configzoekconfiguratie.parentbron"/></td>
+                    <td><c:out value="${form.map.parentBron}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></td>
+                    <td><c:out value="${form.map.parentZoekConfiguratie}"/>
+                    </td>
+                </tr>
+                
+                <%--
+                <tr>
+                    <td><fmt:message key="configzoekconfiguratie.featuretype"/></td>
+                    <td><html:select property="featureType">
+                            <html:option value="">
+                                Geen
+                            </html:option>
+                            <c:forEach var="f" items="${featureTypes}">
+                                <html:option value="${f}">
+                                    <c:out value="${f}"/>
+                                </html:option>
+                            </c:forEach>
+                        </html:select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="configzoekconfiguratie.parentbron"/></td>
+                    <td><html:select property="parentBron">
+                            <html:option value="">
+                                Geen
+                            </html:option>
+                            <c:forEach var="b" items="${bronnen}">
+                                <html:option value="${b.id}">
+                                    <c:out value="${b}"/>
+                                </html:option>
+                            </c:forEach>
+                        </html:select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></td>
+                    <td><html:select property="parentZoekConfiguratie">
+                            <html:option value="">
+                                Geen
+                            </html:option>
+                            <c:forEach var="z" items="${zoekConfiguratieList}">
+                                <html:option value="${z.id}">
+                                    <c:out value="${z}"/>
+                                </html:option>
+                            </c:forEach>
+                        </html:select>
+                    </td>
+                </tr>
+                --%>
+            </table>
+        </html:form>
+    </div>
 </div>
-       
+
 <script type="text/javascript">
     $j(document).ready(function() {
         tablesort(
-            'zoekconfiguratieTable',
-            '153',
-            '900'
-        );
+        'zoekconfiguratieTable',
+        '153',
+        '900'
+    );
         $j("#zoekconfiguratieTable > tbody > tr").each(function(){
             if($j(this).find("input[name=selected]").val() == "selected") {
                 $j(this).addClass("ui-state-highlight");

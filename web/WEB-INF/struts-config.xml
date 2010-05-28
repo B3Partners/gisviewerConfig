@@ -89,6 +89,15 @@
             <form-property name="kolomnaam" type="java.lang.String"/>
             <form-property name="dataorder" type="java.lang.String"/>
         </form-bean>
+        <form-bean name="zoekConfiguratieForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="zoekConfiguratieId" type="java.lang.String"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="featureType" type="java.lang.String"/>
+            <form-property name="parentBron" type="java.lang.String"/>
+            <form-property name="parentZoekConfiguratie" type="java.lang.String"/>
+        </form-bean>
     </form-beans>
     
     <global-exceptions>
@@ -128,9 +137,9 @@
             <forward name="success" path="configthemadata"/>
             <forward name="failure" path="configthemadata"/>
         </action>
-        <action path="/configZoeker" type="nl.b3p.gis.viewer.ConfigZoekerAction" scope="request" validate="false">
-            <forward name="success" path="configzoeker"/>
-            <forward name="failure" path="configzoeker"/>
+        <action path="/configZoekConfiguratie" type="nl.b3p.gis.viewer.ConfigZoekConfiguratieAction" name="zoekConfiguratieForm" scope="request" validate="false">
+            <forward name="success" path="configzoekconfiguratie"/>
+            <forward name="failure" path="configzoekconfiguratie"/>
         </action>
     </action-mappings>
     

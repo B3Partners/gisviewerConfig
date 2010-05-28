@@ -21,6 +21,15 @@
                     <arg key="configconnectie.naam"/>
             </field>
         </form>
+        <form name="zoekConfiguratieForm">
+
+            <field
+                property="naam"
+                depends="required">
+                    <arg key="configzoekconfiguratie"/>
+            </field>
+        </form>
+
 
     </formset>  
 

@@ -48,7 +48,7 @@
         <put name="title" value="Configureer connecties" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configconnecties.jsp"/>
     </definition>
-    <definition name="configzoeker" extends="config">
+    <definition name="configzoekconfiguratie" extends="config">
         <put name="title" value="Configureer de zoeker(s)" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configzoekconfiguratie.jsp"/>
     </definition>
