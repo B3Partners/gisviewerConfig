@@ -180,3 +180,10 @@
     white-space: nowrap;
     text-align: left;
 }
+
+/*Voor zoeker*/
+.zoekConfiguratieVeldenContainer{
+    border: 1px solid;
+    width: 300px;
+    vertical-align: top;
+}

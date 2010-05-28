@@ -88,13 +88,54 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                     <td><fmt:message key="configzoekconfiguratie.parentbron"/></td>
                     <td><c:out value="${form.map.parentBron}"/>
                     </td>
-                </tr>
+                </tr> 
                 <tr>
                     <td><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></td>
-                    <td><c:out value="${form.map.parentZoekConfiguratie}"/>
+                    <td><html:select property="parentZoekConfiguratie">
+                            <html:option value="">
+                                Geen
+                            </html:option>
+                            <c:forEach var="z" items="${zoekConfiguratieList}">
+                                <html:option value="${z.id}">
+                                    <c:out value="${z}"/>
+                                </html:option>
+                            </c:forEach>
+                        </html:select>
                     </td>
                 </tr>
-                
+                <tr><td>&nbsp;</td><td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="configzoekconfiguratie.zoekattribuut"/>
+                    </td>
+                    <td valign="top">
+                        <div class="zoekConfiguratieVeldenContainer">
+                            <table>
+                            <c:forEach var="z" items="${zoekVelden}">
+                                <tr>
+                                    <td><c:out value="${z}"/></td>
+                                    <td>delete</td>
+                                </tr>
+                            </c:forEach>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><fmt:message key="configzoekconfiguratie.resultaatattribuut"/>
+                    </td>                    
+                    <td valign="top">
+                        <div class="zoekConfiguratieVeldenContainer">
+                            <table>
+                            <c:forEach var="r" items="${resultaatVelden}">
+                                <tr>
+                                    <td><c:out value="${r}"/></td><td>delete</td>
+                                </tr>
+                            </c:forEach>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
                 <%--
                 <tr>
                     <td><fmt:message key="configzoekconfiguratie.featuretype"/></td>
