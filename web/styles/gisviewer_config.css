@@ -183,7 +183,12 @@
 
 /*Voor zoeker*/
 .zoekConfiguratieVeldenContainer{
+    float: left;
     border: 1px solid;
     width: 300px;
     vertical-align: top;
+}
+.zoekConfiguratieVeldenButtons{
+    float:left;
+    margin-left: 10px;
 }

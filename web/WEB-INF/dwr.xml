@@ -3,10 +3,17 @@
     "http://www.getahead.ltd.uk/dwr/dwr10.dtd">
 <dwr>
     <allow>
-        <create creator="new" javascript="JConfigListsUtil">
+        <create creator="new" javascript="JConfigListsUtil">            
             <param name="class" value="nl.b3p.gis.viewer.ConfigListsUtil"/>
             <include method="getPossibleFeaturesById"/>
             <include method="getPossibleAttributesById"/>
+        </create>
+        <create creator="new" javascript="JZoekConfiguratieUtil">
+            <param name="class" value="nl.b3p.gis.viewer.zoekconfiguratie.ZoekConfiguratieListUtil"/>
+            <filter class="nl.b3p.gis.viewer.DwrTransactionFilter"/>
+            <include method="getTypeNames"/>
+            <include method="removeZoekAttribuut"/>
+            <include method="removeResultaatAttribuut"/>
         </create>
         <create creator="new" javascript="EditUtil">
             <param name="class" value="nl.b3p.gis.utils.EditUtil"/>
