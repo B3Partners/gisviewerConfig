@@ -21,6 +21,10 @@
  * along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
  */
 dwr.engine.setErrorHandler(errorHandler);
+function errorHandler(exception){
+    alert(exception);
+}
+
 function removeZoekAttribuut(id){
     if(confirm('Weet u zeker dat u dit zoek attribuut wilt verwijderen?')){
         JZoekConfiguratieUtil.removeZoekAttribuut(id,handleRemove);
@@ -32,9 +36,19 @@ function removeResultaatAttribuut (id){
     }
 }
 function handleRemove(){
-    window.location.reload();
+    refreshPage();
+}
+function refreshPage(){
+    window.location=window.location;
 }
 
-function errorHandler(exception){
-    alert(exception);
+function openZoekAttribuutForm(id){
+    openAttribuutForm(id,"zoekAttribuutId");
+}
+function openResultaatAttribuutForm(id){
+    openAttribuutForm(id,"resultaatAttribuutId");
+}
+function openAttribuutForm(id,paramName){
+    var url=attribuutFormUrl+"?"+paramName+"="+id;
+    document.getElementById("iframeZoekConfiguratieVeld").src=url;
 }

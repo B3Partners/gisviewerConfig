@@ -98,8 +98,18 @@
             <form-property name="parentBron" type="java.lang.String"/>
             <form-property name="parentZoekConfiguratie" type="java.lang.String"/>
         </form-bean>
+        <form-bean name="zoekConfiguratieVeldForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="zoekAttribuutId" type="java.lang.String"/>
+            <form-property name="resultaatAttribuutId" type="java.lang.String"/>
+            <form-property name="label" type="java.lang.String"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="type" type="java.lang.String"/>
+            <form-property name="volgorde" type="java.lang.String"/>
+            <form-property name="attribuutnaam" type="java.lang.String"/>
+        </form-bean>
     </form-beans>
-    
     <global-exceptions>
     </global-exceptions>
     
@@ -140,6 +150,10 @@
         <action path="/configZoekConfiguratie" type="nl.b3p.gis.viewer.ConfigZoekConfiguratieAction" name="zoekConfiguratieForm" scope="request" validate="false">
             <forward name="success" path="configzoekconfiguratie"/>
             <forward name="failure" path="configzoekconfiguratie"/>
+        </action>
+        <action path="/configZoekConfiguratieVeld" type="nl.b3p.gis.viewer.zoekconfiguratie.ConfigZoekConfiguratieVeldAction" name="zoekConfiguratieVeldForm" scope="request" validate="false">
+            <forward name="success" path="configzoekconfiguratieveld"/>
+            <forward name="failure" path="configzoekconfiguratieveld"/>
         </action>
     </action-mappings>
     

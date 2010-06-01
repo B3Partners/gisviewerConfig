@@ -7,6 +7,7 @@
 <tiles-definitions>
     <definition name="template" path="/WEB-INF/jsp/templates/template.jsp"/>
     <definition name="templateConfig" path="/WEB-INF/jsp/templates/templateConfig.jsp"/>
+    <definition name="templatePopup" path="/WEB-INF/jsp/templates/templatePopup.jsp"/>
     <!-- algemeen -->
     <definition name="algemeen" extends="template">
         <put name="menu" value="/WEB-INF/jsp/commons/topmenu.jsp"/>
@@ -53,7 +54,12 @@
         <put name="content" value="/WEB-INF/jsp/config/configzoekconfiguratie.jsp"/>
     </definition>
 
-
     <!-- tiles met herbruikbare onderdelen die in de content pagina's kunnen worden ge-insert  -->
     <definition name="loginblock" path="/WEB-INF/jsp/commons/userAndLogout.jsp"/>
+
+    <!-- pop up-->
+    <definition name="configzoekconfiguratieveld" extends="templatePopup">
+        <put name="title" value="Configureer de zoekervelden" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/config/configzoekconfiguratieveld.jsp"/>
+    </definition>
 </tiles-definitions>

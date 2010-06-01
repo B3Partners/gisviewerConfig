@@ -29,6 +29,14 @@
                     <arg key="configzoekconfiguratie"/>
             </field>
         </form>
+        <form name="zoekConfiguratieVeldForm">
+
+            <field
+                property="attribuutnaam"
+                depends="required">
+                    <arg key="configzoekconfiguratieveld.attribuutnaam"/>
+            </field>
+        </form>
 
 
     </formset>  

@@ -23,7 +23,11 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
 <%@ page isELIgnored="false"%>
 
-<script type='text/javascript' src="<html:rewrite page='/dwr/interface/JZoekConfiguratieUtil.js' module=''/>"</script>
+<script type="text/javascript">
+    var attribuutFormUrl="<html:rewrite page='/configZoekConfiguratieVeld.do' module=''/>";
+</script>
+<script type='text/javascript' src="<html:rewrite page='/dwr/interface/JZoekConfiguratieUtil.js' module=''/>">
+</script>
 <script type='text/javascript' src="<html:rewrite page='/dwr/engine.js' module=''/>"></script>
 <script type="text/javascript" src="<html:rewrite page='/scripts/zoekConfiguratie.js' module=''/>"></script>
 
@@ -62,6 +66,11 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         </table>
     </div>
 </c:if>
+<div class="berichtenbalk">
+    <html:messages id="error" message="true">
+        <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
+    </html:messages>
+</div>
 <div id="content_style" style="float: left; clear: left;">
     <div class="berichtenbalk" style="margin-top: 5px;">
         <html:messages id="error" message="true">
@@ -114,12 +123,16 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                     <td valign="top">
                         <div class="zoekConfiguratieVeldenContainer">
                             <table>
-                            <c:forEach var="z" items="${zoekVelden}">
-                                <tr title="<c:out value='${z}'/>">
-                                    <td style="width: 300px;"><c:out value="${z.attribuutnaam}"/></td>
-                                    <td><a href="#" title="Delete: <c:out value='${z}'/>" onclick="removeZoekAttribuut(${z.id})">delete</a></td>
-                                </tr>
-                            </c:forEach>
+                                <c:forEach var="z" items="${zoekVelden}">
+                                    <tr title="<c:out value='${z}'/>">
+                                        <td class="zoekConfiguratieAttribuutNaam" onclick="openZoekAttribuutForm(${z.id})">
+                                            <c:out value="${z.attribuutnaam}"/>
+                                        </td>
+                                        <td>
+                                            <a href="#" title="Delete: <c:out value='${z}'/>" onclick="removeZoekAttribuut(${z.id})">delete</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                             </table>
                         </div>
                         <div class="zoekConfiguratieVeldenButtons">Nieuw</div>
@@ -131,15 +144,19 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                     <td valign="top">
                         <div class="zoekConfiguratieVeldenContainer">
                             <table>
-                            <c:forEach var="r" items="${resultaatVelden}">
-                                <tr title="<c:out value='${r}'/>">
-                                    <td style="width: 300px;"><c:out value="${r.attribuutnaam}"/></td>
-                                    <td><a href="#" title="Delete: <c:out value='${r}'/>" onclick="removeResultaatAttribuut(${r.id})">delete</a></td>
-                                </tr>
-                            </c:forEach>
+                                <c:forEach var="r" items="${resultaatVelden}">
+                                    <tr title="<c:out value='${r}'/>">
+                                        <td class="zoekConfiguratieAttribuutNaam" onclick="openResultaatAttribuutForm(${r.id})">
+                                            <c:out value="${r.attribuutnaam}"/>
+                                        </td>
+                                        <td>
+                                            <a href="#" title="Delete: <c:out value='${r}'/>" onclick="removeResultaatAttribuut(${r.id})">delete</a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                             </table>
                         </div>
-                        <div class="zoekConfiguratieVeldenButtons">Nieuw</div>
+                        <div class="zoekConfiguratieVeldenButtons">Nieuw <%--zoekConfiguratieId en attribuutType mee geven--%></div>
                     </td>
                 </tr>
                 <%--
@@ -193,7 +210,6 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         </html:form>
     </div>
 </div>
-
 <script type="text/javascript">
     $j(document).ready(function() {
         tablesort(
