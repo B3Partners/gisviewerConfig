@@ -30,7 +30,6 @@
             </field>
         </form>
         <form name="zoekConfiguratieVeldForm">
-
             <field
                 property="attribuutnaam"
                 depends="required">

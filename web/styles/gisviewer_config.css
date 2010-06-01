@@ -191,6 +191,7 @@
 .zoekConfiguratieVeldenButtons{
     float:left;
     margin-left: 10px;
+    cursor: pointer;
 }
 .zoekConfiguratieAttribuutNaam{
     width: 300px;

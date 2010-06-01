@@ -38,6 +38,8 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         <table style="float: left;">
             <html:hidden property="resultaatAttribuutId"/>
             <html:hidden property="zoekAttribuutId"/>
+            <input type="text" name="zoekConfiguratieId" value="${zoekConfiguratieId}"/>
+            <input type="text" name="attribuutType" value="${attribuutType}"/>
             <tr>
                 <td><fmt:message key="configzoekconfiguratieveld.label"/>
                 </td>

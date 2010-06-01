@@ -39,16 +39,35 @@ function handleRemove(){
     refreshPage();
 }
 function refreshPage(){
+    //alert("refresh page");
     window.location=window.location;
+    //window.location.refresh();
 }
 
+/*Voor het muteren van de attributen*/
+/**
+ * Open zoekAttribuut met id
+ */
 function openZoekAttribuutForm(id){
     openAttribuutForm(id,"zoekAttribuutId");
 }
+/**
+ * Open resultaatAttribuut met id
+ */
 function openResultaatAttribuutForm(id){
     openAttribuutForm(id,"resultaatAttribuutId");
 }
+/**
+ * Open attribuut met id
+ */
 function openAttribuutForm(id,paramName){
     var url=attribuutFormUrl+"?"+paramName+"="+id;
+    document.getElementById("iframeZoekConfiguratieVeld").src=url;
+}
+/**
+ *Open een nieuw attribuut in het form
+ */
+function addAttribuut(zoekConfigid,paramName){
+    var url=attribuutFormUrl+"?attribuutType="+paramName+"&zoekConfiguratieId="+zoekConfigid;
     document.getElementById("iframeZoekConfiguratieVeld").src=url;
 }

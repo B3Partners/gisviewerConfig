@@ -124,18 +124,18 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <div class="zoekConfiguratieVeldenContainer">
                             <table>
                                 <c:forEach var="z" items="${zoekVelden}">
-                                    <tr title="<c:out value='${z}'/>">
+                                    <tr title="Wijzig: <c:out value='${z}'/>">
                                         <td class="zoekConfiguratieAttribuutNaam" onclick="openZoekAttribuutForm(${z.id})">
                                             <c:out value="${z.attribuutnaam}"/>
                                         </td>
                                         <td>
-                                            <a href="#" title="Delete: <c:out value='${z}'/>" onclick="removeZoekAttribuut(${z.id})">delete</a>
+                                            <div style="cursor: pointer;" title="Delete: <c:out value='${z}'/>" onclick="removeZoekAttribuut(${z.id})">delete</div>
                                         </td>
                                     </tr>
                                 </c:forEach>
                             </table>
                         </div>
-                        <div class="zoekConfiguratieVeldenButtons">Nieuw</div>
+                        <div class="zoekConfiguratieVeldenButtons"><div onclick="addAttribuut(${form.map.zoekConfiguratieId},'zoek')">Nieuw</div></div>
                     </td>
                 </tr>
                 <tr>
@@ -145,18 +145,18 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <div class="zoekConfiguratieVeldenContainer">
                             <table>
                                 <c:forEach var="r" items="${resultaatVelden}">
-                                    <tr title="<c:out value='${r}'/>">
+                                    <tr title="Wijzig: <c:out value='${r}'/>">
                                         <td class="zoekConfiguratieAttribuutNaam" onclick="openResultaatAttribuutForm(${r.id})">
                                             <c:out value="${r.attribuutnaam}"/>
                                         </td>
                                         <td>
-                                            <a href="#" title="Delete: <c:out value='${r}'/>" onclick="removeResultaatAttribuut(${r.id})">delete</a>
+                                            <div style="cursor: pointer;" title="Delete: <c:out value='${r}'/>" onclick="removeResultaatAttribuut(${r.id})">delete</div>
                                         </td>
                                     </tr>
                                 </c:forEach>
                             </table>
                         </div>
-                        <div class="zoekConfiguratieVeldenButtons">Nieuw <%--zoekConfiguratieId en attribuutType mee geven--%></div>
+                        <div class="zoekConfiguratieVeldenButtons"><div onclick="addAttribuut(${form.map.zoekConfiguratieId},'resultaat')">Nieuw</div> <%--zoekConfiguratieId en attribuutType mee geven--%></div>
                     </td>
                 </tr>
                 <%--
