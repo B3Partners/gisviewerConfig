@@ -109,6 +109,10 @@
             <form-property name="volgorde" type="java.lang.String"/>
             <form-property name="attribuutnaam" type="java.lang.String"/>
         </form-bean>
+        <form-bean name="wizardZoekConfiguratieForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+        </form-bean>
     </form-beans>
     <global-exceptions>
     </global-exceptions>
@@ -154,6 +158,15 @@
         <action path="/configZoekConfiguratieVeld" type="nl.b3p.gis.viewer.zoekconfiguratie.ConfigZoekConfiguratieVeldAction" name="zoekConfiguratieVeldForm" scope="request" validate="false">
             <forward name="success" path="configzoekconfiguratieveld"/>
             <forward name="failure" path="configzoekconfiguratieveld"/>
+        </action>
+        <action path="/wizardZoekConfiguratie" name="wizardZoekConfiguratieForm" type="nl.b3p.gis.viewer.zoekconfiguratie.WizardZoekConfiguratieAction" scope="request" validate="false">
+            <forward name="success" path="wizardzoekconfiguratie"/>
+            <forward name="failure" path="wizardzoekconfiguratie"/>
+            <forward name="step2" path="wizardzoekconfiguratie2"/>
+            <forward name="step3" path="wizardzoekconfiguratie3"/>
+            <forward name="step4" path="wizardzoekconfiguratie4"/>
+            <forward name="step5" path="wizardzoekconfiguratie5"/>
+            <forward name="wizardDone" path="/configZoekConfiguratie.do"/>
         </action>
     </action-mappings>
     

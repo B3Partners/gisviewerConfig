@@ -36,7 +36,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <div class="infobalk">
     <div class="infobalk_description">ZOEKCONFIGURATIE</div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
-</div>
+</div>    
 <c:if test="${!empty zoekConfiguraties}">
     <div style="float: left; clear: both; margin-left: 5px; height: 180px; overflow: hidden;">
         <table id="zoekconfiguratieTable" class="tablesorter">
@@ -53,7 +53,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 <c:forEach var="zc" varStatus="status" items="${zoekConfiguraties}">
                     <c:set var="id_selected" value="" />
                     <c:if test="${zc.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
-                    <c:url var="link" value="/configZoekConfiguratie.do?edit=submit&id=${zc.id}"/>
+                    <c:url var="link" value="/configZoekConfiguratie.do?edit=submit&zoekConfiguratieId=${zc.id}"/>
                     <tr>
                         <td><c:out value="${zc.id}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                         <td><c:out value="${zc.naam}"/></td>
@@ -65,150 +65,152 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             </tbody>
         </table>
     </div>
+    <input type="button" onclick="window.location='<html:rewrite page='/wizardZoekConfiguratie.do'/>'" value="<fmt:message key='button.new'/>"/>
 </c:if>
-<div class="berichtenbalk">
-    <html:messages id="error" message="true">
-        <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
-    </html:messages>
-</div>
 <div id="content_style" style="float: left; clear: left;">
     <div class="berichtenbalk" style="margin-top: 5px;">
         <html:messages id="error" message="true">
             <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
         </html:messages>
     </div>
-    <div class="maintable" style="margin-top: 5px;">
-        <html:javascript formName="zoekConfiguratieForm" staticJavascript="false"/>
-        <html:form action="/configZoekConfiguratie" onsubmit="return validateZoekConfiguratieForm(this)" focus="${focus}">
-            <table style="float: left; width: 500px;">
-                <tr>
-                    <td><fmt:message key="configzoekconfiguratie.id"/>
-                    </td>
-                    <td><c:out value="${form.map.zoekConfiguratieId}"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="configzoekconfiguratie.naam"/></td>
-                    <td><html:text property="naam"/></td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="configzoekconfiguratie.featuretype"/></td>
-                    <td><c:out value="${form.map.featureType}"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="configzoekconfiguratie.parentbron"/></td>
-                    <td><c:out value="${form.map.parentBron}"/>
-                    </td>
-                </tr> 
-                <tr>
-                    <td><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></td>
-                    <td><html:select property="parentZoekConfiguratie">
-                            <html:option value="">
-                                Geen
-                            </html:option>
-                            <c:forEach var="z" items="${zoekConfiguratieList}">
-                                <html:option value="${z.id}">
-                                    <c:out value="${z}"/>
+    <c:if test="${not empty form.map.zoekConfiguratieId}">
+        <div class="maintable" style="margin-top: 5px;">
+            <html:javascript formName="zoekConfiguratieForm" staticJavascript="false"/>
+            <html:form action="/configZoekConfiguratie" onsubmit="return validateZoekConfiguratieForm(this)" focus="${focus}">
+                <table style="float: left; width: 500px;">
+                    <tr>
+                        <td><fmt:message key="configzoekconfiguratie.id"/>
+                        </td>
+                        <td><c:out value="${form.map.zoekConfiguratieId}"/><html:hidden property="zoekConfiguratieId"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><fmt:message key="configzoekconfiguratie.naam"/></td>
+                        <td><html:text property="naam"/></td>
+                    </tr>
+                    <tr>
+                        <td><fmt:message key="configzoekconfiguratie.featuretype"/></td>
+                        <td><c:out value="${form.map.featureType}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><fmt:message key="configzoekconfiguratie.parentbron"/></td>
+                        <td><c:out value="${form.map.parentBron}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></td>
+                        <td><html:select property="parentZoekConfiguratie">
+                                <html:option value="">
+                                    Geen
                                 </html:option>
-                            </c:forEach>
-                        </html:select>
-                    </td>
-                </tr>
-                <tr><td>&nbsp;</td><td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="configzoekconfiguratie.zoekattribuut"/>
-                    </td>
-                    <td valign="top">
-                        <div class="zoekConfiguratieVeldenContainer">
-                            <table>
-                                <c:forEach var="z" items="${zoekVelden}">
-                                    <tr title="Wijzig: <c:out value='${z}'/>">
-                                        <td class="zoekConfiguratieAttribuutNaam" onclick="openZoekAttribuutForm(${z.id})">
-                                            <c:out value="${z.attribuutnaam}"/>
-                                        </td>
-                                        <td>
-                                            <div style="cursor: pointer;" title="Delete: <c:out value='${z}'/>" onclick="removeZoekAttribuut(${z.id})">delete</div>
-                                        </td>
-                                    </tr>
+                                <c:forEach var="z" items="${zoekConfiguratieList}">
+                                    <html:option value="${z.id}">
+                                        <c:out value="${z}"/>
+                                    </html:option>
                                 </c:forEach>
-                            </table>
-                        </div>
-                        <div class="zoekConfiguratieVeldenButtons"><div onclick="addAttribuut(${form.map.zoekConfiguratieId},'zoek')">Nieuw</div></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="configzoekconfiguratie.resultaatattribuut"/>
-                    </td>                    
-                    <td valign="top">
-                        <div class="zoekConfiguratieVeldenContainer">
-                            <table>
-                                <c:forEach var="r" items="${resultaatVelden}">
-                                    <tr title="Wijzig: <c:out value='${r}'/>">
-                                        <td class="zoekConfiguratieAttribuutNaam" onclick="openResultaatAttribuutForm(${r.id})">
-                                            <c:out value="${r.attribuutnaam}"/>
-                                        </td>
-                                        <td>
-                                            <div style="cursor: pointer;" title="Delete: <c:out value='${r}'/>" onclick="removeResultaatAttribuut(${r.id})">delete</div>
-                                        </td>
-                                    </tr>
+                            </html:select>
+                        </td>
+                    </tr>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><fmt:message key="configzoekconfiguratie.zoekattribuut"/>
+                        </td>
+                        <td valign="top">
+                            <div class="zoekConfiguratieVeldenContainer">
+                                <table>
+                                    <c:forEach var="z" items="${zoekVelden}">
+                                        <tr title="Wijzig: <c:out value='${z}'/>">
+                                            <td class="zoekConfiguratieAttribuutNaam" onclick="openZoekAttribuutForm(${z.id})">
+                                                <c:out value="${z.attribuutnaam}"/>
+                                            </td>
+                                            <td>
+                                                <div style="cursor: pointer;" title="Delete: <c:out value='${z}'/>" onclick="removeZoekAttribuut(${z.id})">delete</div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </table>
+                            </div>
+                            <div class="zoekConfiguratieVeldenButtons"><div onclick="addAttribuut(${form.map.zoekConfiguratieId},'zoek')">Nieuw</div></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><fmt:message key="configzoekconfiguratie.resultaatattribuut"/>
+                        </td>
+                        <td valign="top">
+                            <div class="zoekConfiguratieVeldenContainer">
+                                <table>
+                                    <c:forEach var="r" items="${resultaatVelden}">
+                                        <tr title="Wijzig: <c:out value='${r}'/>">
+                                            <td class="zoekConfiguratieAttribuutNaam" onclick="openResultaatAttribuutForm(${r.id})">
+                                                <c:out value="${r.attribuutnaam}"/>
+                                            </td>
+                                            <td>
+                                                <div style="cursor: pointer;" title="Delete: <c:out value='${r}'/>" onclick="removeResultaatAttribuut(${r.id})">delete</div>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </table>
+                            </div>
+                            <div class="zoekConfiguratieVeldenButtons"><div onclick="addAttribuut(${form.map.zoekConfiguratieId},'resultaat')">Nieuw</div> <%--zoekConfiguratieId en attribuutType mee geven--%></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><html:submit property="save"><fmt:message key="button.ok"/></html:submit></td>
+                    </tr>
+                    <%--
+                    <tr>
+                        <td><fmt:message key="configzoekconfiguratie.featuretype"/></td>
+                        <td><html:select property="featureType">
+                                <html:option value="">
+                                    Geen
+                                </html:option>
+                                <c:forEach var="f" items="${featureTypes}">
+                                    <html:option value="${f}">
+                                        <c:out value="${f}"/>
+                                    </html:option>
                                 </c:forEach>
-                            </table>
-                        </div>
-                        <div class="zoekConfiguratieVeldenButtons"><div onclick="addAttribuut(${form.map.zoekConfiguratieId},'resultaat')">Nieuw</div> <%--zoekConfiguratieId en attribuutType mee geven--%></div>
-                    </td>
-                </tr>
-                <%--
-                <tr>
-                    <td><fmt:message key="configzoekconfiguratie.featuretype"/></td>
-                    <td><html:select property="featureType">
-                            <html:option value="">
-                                Geen
-                            </html:option>
-                            <c:forEach var="f" items="${featureTypes}">
-                                <html:option value="${f}">
-                                    <c:out value="${f}"/>
+                            </html:select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><fmt:message key="configzoekconfiguratie.parentbron"/></td>
+                        <td><html:select property="parentBron">
+                                <html:option value="">
+                                    Geen
                                 </html:option>
-                            </c:forEach>
-                        </html:select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="configzoekconfiguratie.parentbron"/></td>
-                    <td><html:select property="parentBron">
-                            <html:option value="">
-                                Geen
-                            </html:option>
-                            <c:forEach var="b" items="${bronnen}">
-                                <html:option value="${b.id}">
-                                    <c:out value="${b}"/>
+                                <c:forEach var="b" items="${bronnen}">
+                                    <html:option value="${b.id}">
+                                        <c:out value="${b}"/>
+                                    </html:option>
+                                </c:forEach>
+                            </html:select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></td>
+                        <td><html:select property="parentZoekConfiguratie">
+                                <html:option value="">
+                                    Geen
                                 </html:option>
-                            </c:forEach>
-                        </html:select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></td>
-                    <td><html:select property="parentZoekConfiguratie">
-                            <html:option value="">
-                                Geen
-                            </html:option>
-                            <c:forEach var="z" items="${zoekConfiguratieList}">
-                                <html:option value="${z.id}">
-                                    <c:out value="${z}"/>
-                                </html:option>
-                            </c:forEach>
-                        </html:select>
-                    </td>
-                </tr>
-                --%>
-            </table>
-            <div style="margin-top: 150px;float: left; width: 400px; height: 200px;">
-                <iframe style="height: 100%; width: 100%;"id="iframeZoekConfiguratieVeld"/>
-            </div>
-        </html:form>
-    </div>
+                                <c:forEach var="z" items="${zoekConfiguratieList}">
+                                    <html:option value="${z.id}">
+                                        <c:out value="${z}"/>
+                                    </html:option>
+                                </c:forEach>
+                            </html:select>
+                        </td>
+                    </tr>
+                    --%>
+                </table>
+                <div style="margin-top: 150px;float: left; width: 400px; height: 200px;">
+                    <iframe style="height: 100%; width: 100%;"id="iframeZoekConfiguratieVeld"/>
+                </div>
+            </html:form>
+        </div>
+    </c:if>
 </div>
 <script type="text/javascript">
     $j(document).ready(function() {

@@ -53,6 +53,23 @@
         <put name="title" value="Configureer de zoeker(s)" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configzoekconfiguratie.jsp"/>
     </definition>
+    <definition name="wizardzoekconfiguratie" extends="config">
+        <put name="title" value="Wizard Zoek Configuratie" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie.jsp"/>
+    </definition>
+    <definition name="wizardzoekconfiguratie2" extends="wizardzoekconfiguratie">
+        <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie2.jsp"/>
+    </definition>
+    <definition name="wizardzoekconfiguratie3" extends="wizardzoekconfiguratie">
+        <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie3.jsp"/>
+    </definition>
+    <definition name="wizardzoekconfiguratie4" extends="wizardzoekconfiguratie">
+        <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie4.jsp"/>
+    </definition>
+    <definition name="wizardzoekconfiguratie5" extends="wizardzoekconfiguratie">
+        <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie5.jsp"/>
+    </definition>
+
 
     <!-- tiles met herbruikbare onderdelen die in de content pagina's kunnen worden ge-insert  -->
     <definition name="loginblock" path="/WEB-INF/jsp/commons/userAndLogout.jsp"/>
