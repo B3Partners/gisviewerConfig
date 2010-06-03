@@ -54,7 +54,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             <script type="text/javascript" src="<html:rewrite page='/scripts/cssfixes_ie.js' module=''/>"></script>
         <![endif]-->       
     </head>
-    <body>       
+    <body style="background-color: #ffffff;">
         <div id="content">            
             <tiles:insert attribute="content" />
         </div>

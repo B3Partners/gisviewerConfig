@@ -36,12 +36,11 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         <p>
             <fmt:message key="wizardzoekconfiguratie.vraag.nieuweofbestaandebron"/>
         </p>
-        <c:forEach items="${bronnen}" var="b">
-            <c:out value="${b}"/><br/>
-        </c:forEach>
         <br/>
-        <input id="bestaandebron" checked="true" type="radio" name="nieuwofbestaandebron" value="bestaande"> <fmt:message key="wizardzoekconfiguratie.antwoord.bestaandebron"/><br>
-        <input id="nieuwebron" type="radio"  name="nieuwofbestaandebron" value="nieuw"> <fmt:message key="wizardzoekconfiguratie.antwoord.nieuwebron"/>
+        <c:forEach items="${bronnen}" var="b">
+            <input type="radio" name="bronId" value="${b.id}"/><c:out value="${b}"/><br/>
+        </c:forEach>
+        <input type="radio" name="bronId" value="new"><fmt:message key="wizardzoekconfiguratie.antwoord.nieuwebron"/>
     </div>
     <div class="wizardButtonBar">
         <html:submit property="step1"><fmt:message key='button.next'/></html:submit>

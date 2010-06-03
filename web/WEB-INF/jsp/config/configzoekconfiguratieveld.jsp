@@ -25,7 +25,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 
 <c:set var="form" value="${zoekConfiguratieVeldForm}"/>
 <c:set var="doClose" value="${doClose}"/>
-<div class="maintable">
+<div>
     <div class="berichtenbalk">
         <html:messages id="error" message="true">
             <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>

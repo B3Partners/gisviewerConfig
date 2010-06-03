@@ -32,6 +32,8 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
 <html:form action="/wizardZoekConfiguratie">
+    <input type="hidden" name="bronId" value="${bronId}"/>
+    <input type="hidden" name="featureType" value="${featureType}"/>
     <div class="berichtenbalk">
         <html:messages id="error" message="true">
             <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
@@ -39,15 +41,29 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     </div>
     <div class="wizardQuestionBlock">
         <p>
-        <fmt:message key="wizardzoekconfiguratie.vraag.kiesbron"/>
+            <fmt:message key="wizardzoekconfiguratie.vraag.geefnaam"/>
         </p>
-        <c:forEach items="${bronnen}" var="b">
-            <input type="radio" name="bronId" value="${b.id}"/><c:out value="${b}"/><br/>
-        </c:forEach>
-        
+        <table>
+            <tr>
+                <td><fmt:message key="configzoekconfiguratieveld.naam"/>:</td>
+                <td><input type="text" name="naam"/></td>
+            </tr>
+            <tr>
+                <td><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></td>
+                <td>
+                    <select name="parentZoekConfiguratie">
+                        <option value="">Geen</option>
+                        <c:forEach items="${zoekConfiguraties}" var="z">
+                            <option value="${z.id}"><c:out value="${z}"/></option>
+                        </c:forEach>
+                    </select>
+                </td>
+
+            </tr>
+        </table>
     </div>
     <div class="wizardButtonBar">
-        <html:submit property="unspecified"><fmt:message key='button.previous'/></html:submit>
-        <html:submit property="step3"><fmt:message key='button.next'/></html:submit>        
+        <html:submit property="step1"><fmt:message key='button.previous'/></html:submit>
+        <html:submit property="step3"><fmt:message key='button.next'/></html:submit>
     </div>
 </html:form>

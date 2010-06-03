@@ -32,15 +32,24 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
 <html:form action="/wizardZoekConfiguratie">
+    <input type="hidden" name="bronId" value="${bronId}"/>
     <div class="berichtenbalk">
         <html:messages id="error" message="true">
             <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
         </html:messages>
     </div>
     <div class="wizardQuestionBlock">
-        <p>Maak een nieuwe aanSfasfas</p>
+        <p>
+            <fmt:message key="wizardzoekconfiguratie.vraag.featuretype"/>
+        </p>
+        <fmt:message key="configzoekconfiguratie.featuretype"/> <select name="featureType">
+        <c:forEach items="${featureTypes}" var="f">
+            <option value="${f}">${f}</option>
+        </c:forEach>
+        </select>
     </div>
     <div class="wizardButtonBar">
-        <html:submit property="step1"><fmt:message key='button.next'/></html:submit>
+        <html:submit property="unspecified"><fmt:message key='button.previous'/></html:submit>
+        <html:submit property="step2"><fmt:message key='button.next'/></html:submit>
     </div>
 </html:form>
