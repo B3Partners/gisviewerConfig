@@ -106,8 +106,9 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
  *types[index].forZoek= bij undefined en true wordt deze getoond voor een zoekAttribuut
  *types[index].forResultaat= bij undefined en true wordt deze getoond voor een zoekResultaat
  *types[index].allowedBindings= een commaseperated list met class namen die betrekking hebben op dit type
- *     als undefined is dan is dit type voor alle bindings toegankelijk
+ *     als undefined is dan wordt er niet op toegestaan gecontroleerd.
  *types[index]disallowedBindings=De bindings die niet zijn toegestaan in combinatie met dit type.
+ *      als undefined is dan wordt er niet op niet toegestaan gecontroleerd.
  **/
     var types = new Array();
     var index=0;
@@ -154,10 +155,11 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     index++
     types[index]=new Object();
     types[index].option={"100" : "Binnen een straal van geometry"};
-    types[index].forResultaat=false;
+    types[index].forResultaat=false; 
     types[index].allowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
 
     var previousValueSet="";
+    /*Wordt aangeroepen als het attribuut veld wordt gewijzigd.*/
     function attribuutChanged(element){
         rebuildTypeSelect(element.value);
         var labelValue=document.getElementById("label").value;
@@ -166,6 +168,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             document.getElementById("label").value=element.value;
         }
     }
+    /*Herbouw het drop down 'type' component.*/
     function rebuildTypeSelect(attribuutNaam){
         //$j('#type').children().remove()
         dwr.util.removeAllOptions("type");

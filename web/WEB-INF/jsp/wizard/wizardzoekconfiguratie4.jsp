@@ -28,7 +28,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <script type='text/javascript' src="<html:rewrite page='/dwr/engine.js' module=''/>"></script>
 <script type="text/javascript" src="<html:rewrite page='/scripts/wizardZoekConfiguratie.js' module=''/>"></script>
 <div class="infobalk">
-    <div class="infobalk_description">Stap 4</div>
+    <div class="infobalk_description"><fmt:message key="wizardzoekconfiguratie.step4"/></div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
 <script type="text/javascript">
@@ -91,14 +91,24 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             </tr>
             <tr>
                 <td valign="top">
-                    <div onclick="addAttribuut(${zoekConfiguratieId},'zoek')">Nieuw</div>
+                    <div style="cursor: pointer;" onclick="addAttribuut(${zoekConfiguratieId},'zoek')">+</div>
                 </td>
 
                 <td valign="top">
-                    <div onclick="addAttribuut(${zoekConfiguratieId},'resultaat')">Nieuw</div>
+                    <div style="cursor: pointer;" onclick="addAttribuut(${zoekConfiguratieId},'resultaat')">+</div>
                 </td>
             </tr>
         </table>
+        <c:if test="${not empty tips}">
+            <div class="tipsContainer">
+                Tips
+                <ul>
+                    <c:forEach items="${tips}" var="tip">
+                        <li><fmt:message key="${tip}"/></li>
+                    </c:forEach>                    
+                </ul>
+            </div>
+        </c:if>
     </div>
     <div class="wizardButtonBar">
         <html:submit property="step2"><fmt:message key='button.previous'/></html:submit>

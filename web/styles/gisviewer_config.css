@@ -213,6 +213,9 @@
     height: 200px;
     display: none;
 }
+.tipsContainer{
+    float: left;
+}
 /*Dialog popup iframe voor wizard*/
 #dialogPopUp iframe{
     border: 0px;

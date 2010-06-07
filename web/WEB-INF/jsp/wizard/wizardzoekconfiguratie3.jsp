@@ -28,7 +28,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <script type='text/javascript' src="<html:rewrite page='/dwr/engine.js' module=''/>"></script>
 <script type="text/javascript" src="<html:rewrite page='/scripts/wizardZoekConfiguratie.js' module=''/>"></script>
 <div class="infobalk">
-    <div class="infobalk_description">Stap 3</div>
+    <div class="infobalk_description"><fmt:message key="wizardzoekconfiguratie.step3"/></div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
 <html:form action="/wizardZoekConfiguratie">

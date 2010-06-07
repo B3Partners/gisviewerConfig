@@ -23,7 +23,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
 <%@ page isELIgnored="false"%>
 <div class="infobalk">
-    <div class="infobalk_description">Stap 1</div>
+    <div class="infobalk_description"><fmt:message key="wizardzoekconfiguratie.step1"/></div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
 <html:form action="/wizardZoekConfiguratie">
