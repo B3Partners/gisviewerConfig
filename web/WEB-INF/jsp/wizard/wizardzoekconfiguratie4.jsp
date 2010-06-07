@@ -33,10 +33,13 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 </div>
 <script type="text/javascript">
     var attribuutFormUrl="<html:rewrite page='/configZoekConfiguratieVeld.do' module=''/>";
+    var startPage="<html:rewrite page='/configZoekConfiguratie.do' module=''/>";
 </script>
 <html:form action="/wizardZoekConfiguratie">
+    <input type="hidden" name="step3" id="stepElement"/>
     <input type="hidden" name="bronId" value="${bronId}"/>
     <input type="hidden" name="featureType" value="${featureType}"/>
+    <input type="hidden" id="zoekConfiguratieId" name="zoekConfiguratieId" value="${zoekConfiguratieId}"/>
     <div class="berichtenbalk">
         <html:messages id="error" message="true">
             <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
@@ -96,12 +99,13 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 </td>
             </tr>
         </table>
-        <div id ="dialogPopUp">
-            <iframe id="iframeZoekConfiguratieVeld"/>
-        </div>
     </div>
     <div class="wizardButtonBar">
         <html:submit property="step2"><fmt:message key='button.previous'/></html:submit>
-        <html:submit property="step4"><fmt:message key='button.next'/></html:submit>
+        <input type="button" onclick="openStartPage()"value="<fmt:message key='button.ok'/>"/>
     </div>
 </html:form>
+
+<div id ="dialogPopUp">
+    <iframe id="iframeZoekConfiguratieVeld"/>
+</div>

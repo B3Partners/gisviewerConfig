@@ -53,7 +53,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 <c:forEach var="zc" varStatus="status" items="${zoekConfiguraties}">
                     <c:set var="id_selected" value="" />
                     <c:if test="${zc.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
-                    <c:url var="link" value="/configZoekConfiguratie.do?edit=submit&zoekConfiguratieId=${zc.id}"/>
+                    <c:url var="link" value="/wizardZoekConfiguratie.do?step2=submit&zoekConfiguratieId=${zc.id}"/>
                     <tr>
                         <td><c:out value="${zc.id}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                         <td><c:out value="${zc.naam}"/></td>

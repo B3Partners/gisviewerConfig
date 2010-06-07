@@ -38,9 +38,13 @@ function removeResultaatAttribuut (id){
 function handleRemove(){
     refreshPage();
 }
-function refreshPage(){
-    //alert("refresh page");
-    window.location=window.location;
+/*Reload de pagina als er een stepElement aanwezig is.(met als naam de naam van de step)*/
+function refreshPage(){    
+    if (document.getElementById("stepElement")){
+        document.getElementById("stepElement").value="submit";
+        document.forms[0].submit();
+    }
+    
     //window.location.refresh();
 }
 
@@ -81,4 +85,9 @@ function openAsDialog(divid){
         hide: 'slide'
     });
     $j("#" + divid).dialog('open');
+}
+
+/*Return naar het begin van de wizard/lijst*/
+function openStartPage(){
+    window.location=startPage;
 }

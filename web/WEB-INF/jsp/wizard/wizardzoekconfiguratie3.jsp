@@ -33,6 +33,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 </div>
 <html:form action="/wizardZoekConfiguratie">
     <input type="hidden" name="bronId" value="${bronId}"/>
+    <input type="hidden" name="zoekConfiguratieId" value="${zoekConfiguratieId}"/>
     <input type="hidden" name="featureType" value="${featureType}"/>
     <div class="berichtenbalk">
         <html:messages id="error" message="true">
@@ -46,15 +47,22 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         <table>
             <tr>
                 <td><fmt:message key="configzoekconfiguratieveld.naam"/>:</td>
-                <td><input type="text" name="naam"/></td>
+                <td><input type="text" name="naam" value="${naam}"/></td>
             </tr>
             <tr>
                 <td><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></td>
                 <td>
                     <select name="parentZoekConfiguratie">
                         <option value="">Geen</option>
-                        <c:forEach items="${zoekConfiguraties}" var="z">
-                            <option value="${z.id}"><c:out value="${z}"/></option>
+                        <c:forEach items="${zoekConfiguraties}" var="z">                           
+                            <c:choose>                                
+                                <c:when test="${z.id == parentZoekConfiguratie}">
+                                    <option value="${z.id}" selected="true"><c:out value="${z}"/></option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${z.id}"><c:out value="${z}"/></option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </td>
@@ -63,7 +71,9 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         </table>
     </div>
     <div class="wizardButtonBar">
-        <html:submit property="step1"><fmt:message key='button.previous'/></html:submit>
+        <c:if test="${empty zoekConfiguratieId}">
+            <html:submit property="step1"><fmt:message key='button.previous'/></html:submit>
+        </c:if>
         <html:submit property="step3"><fmt:message key='button.next'/></html:submit>
     </div>
 </html:form>
