@@ -60,7 +60,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <c:url var="link" value="/configConnectie.do?edit=submit&id=${ci.id}"/>
                         <tr>
                             <td style="width: 30%;"><c:out value="${ci.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                            <td style="width: 70%;"><c:out value="${ci.connectie_url}"/></td>
+                            <td style="width: 70%;"><c:out value="${ci.url}"/></td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -111,6 +111,14 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                     </td>
                     <td colspan="3">
                         <html:password property="wachtwoord"  size="140"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <fmt:message key="configconnectie.volgorde"/>:
+                    </td>
+                    <td colspan="3">
+                        <html:text property="volgorde"  size="140"/>
                     </td>
                 </tr>
             </table>

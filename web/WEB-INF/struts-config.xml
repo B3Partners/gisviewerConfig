@@ -70,6 +70,7 @@
             <form-property name="url" type="java.lang.String"/>
             <form-property name="gebruikersnaam" type="java.lang.String"/>
             <form-property name="wachtwoord" type="java.lang.String"/>
+            <form-property name="volgorde" type="java.lang.String"/>
         </form-bean>
         <form-bean name="themaDataForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
