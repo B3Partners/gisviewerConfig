@@ -19,9 +19,9 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Config</web-resource-name>
-            <!--url-pattern>/config*</url-pattern>
+            <url-pattern>/config*</url-pattern>
             <url-pattern>/services/*</url-pattern>
-            <url-pattern>/wizard*</url-pattern-->
+            <url-pattern>/wizard*</url-pattern>
         </web-resource-collection>       
         <auth-constraint>
             <role-name>*</role-name>

@@ -99,9 +99,25 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 </td>
             </tr>
         </table>
+        <c:if test="${not empty parentResultaatVelden}">
+            <div class="tipsContainer">
+                <fmt:message key="wizardzoekconfiguratie.parentresultaatvelden"/>
+                <ul>
+                    <c:forEach items="${parentResultaatVelden}" var="r">
+                        <c:set value="Tekst of nummer" var="type"/>
+                        <c:if test="${r.type == 3}">
+                            <c:set var="type" value="Geometry"/>
+                        </c:if>
+                        <li>
+                            <c:out value="${r.attribuutnaam}"/>(<c:out value="${type}"/>)
+                        </li>
+                    </c:forEach>
+                </ul>
+            </div>
+        </c:if>
         <c:if test="${not empty tips}">
             <div class="tipsContainer">
-                Tips
+                <fmt:message key="wizardzoekconfiguratie.tip"/>
                 <ul>
                     <c:forEach items="${tips}" var="tip">
                         <li><fmt:message key="${tip}"/></li>
