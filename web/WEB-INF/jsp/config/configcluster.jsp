@@ -296,7 +296,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 </c:otherwise>
             </c:choose>
         </div>
-        <a href="#" onclick="$j('#clustertable').setSelection('20', true);">Click!</a>
+        <!--<a href="#" onclick="$j('#clustertable').setSelection('20', true);">Click!</a>-->
     </div>
 </html:form>
 
