@@ -14,9 +14,15 @@
     width: 800px;
 }
 
-.configbody .infobalk .infobalk_actions {
+.configbody .infobalk_description {
+    width: 325px;
+    float: left;
+    margin-top: 1px;
+}
+
+.configbody .infobalk_actions {
     text-align: right;
-    width: 765px;
+    width: 550px;
     float: left;
     margin-top: 1px;
 }

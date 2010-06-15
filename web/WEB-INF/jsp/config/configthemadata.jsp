@@ -33,7 +33,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <c:set var="focus" value="label"/>
 
 <div class="infobalk">
-    <div class="infobalk_description">DATA CONFIG</div>
+    <div class="infobalk_description"><fmt:message key="configadmindata.infobalk"/></div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
 
@@ -47,7 +47,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         <table>
             <tr>
                 <td style="color: #196299;">
-                    Thema:
+                    <fmt:message key="thema.naam"/>
                 </td>
                 <td colspan="3">
                     <html:select property="themaID">
@@ -60,9 +60,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                     <html:submit property="change"  styleClass="knop">
                         <fmt:message key="button.change"/>
                     </html:submit>
-                    <html:submit property="createAllThemaData" styleClass="knop">
-                        Maak ontbrekende Themadata voor thema
-                    </html:submit>
+                    <html:submit property="createAllThemaData" styleClass="knop"><fmt:message key="configthemadata.automagisch.button"/></html:submit>
                     <%--<c:if test="${!save && !delete}">
                         <a href="#" class="datalink" onclick="javascript: document.getElementById('createAllThemaData').value='doe';submit()">Maak ontbrekende Themadata objecten voor thema</a>
                     </c:if>--%>

@@ -37,9 +37,10 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <script type="text/javascript" src="<html:rewrite page="/scripts/configthema.js"/>"></script>
 
 <div class="infobalk">
-    <div class="infobalk_description">THEMA CONFIG</div>
+    <div class="infobalk_description"><fmt:message key="configthema.infobalk"/></div>
     <div class="infobalk_actions"> <tiles:insert name="loginblock"/> </div>
 </div>
+    
 <html:form action="/configThema" focus="${focus}">
     <div style="display: none;">
         <html:hidden property="action"/>
@@ -142,7 +143,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                     <tr><td><fmt:message key="configthema.belangnr"/> <a href="#" onclick="return showHelpDialog('help_configthemabelangnr');">(?)</a><div id="help_configthemabelangnr" style="display: none;" title="<fmt:message key="configthema.belangnr"/>"><p><fmt:message key="configthema.belangnr.uitleg"/></p></div></td><td colspan="3"><html:text property="belangnr" size="140"/></td></tr>
                     <tr>
                         <td>
-                            <fmt:message key="configthema.cluser"/> <a href="#" onclick="return showHelpDialog('help_configthemacluser');">(?)</a><div id="help_configthemacluser" style="display: none;" title="<fmt:message key="configthema.cluser"/>"><p><fmt:message key="configthema.cluser.uitleg"/></p></div>
+                            <fmt:message key="configthema.cluster"/> <a href="#" onclick="return showHelpDialog('help_configthemacluser');">(?)</a><div id="help_configthemacluser" style="display: none;" title="<fmt:message key="configthema.cluster"/>"><p><fmt:message key="configthema.cluster.uitleg"/></p></div>
                         </td>
                         <td colspan="3">
                             <html:select property="clusterID" styleClass="configSelect">
