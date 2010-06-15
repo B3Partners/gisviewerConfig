@@ -35,6 +35,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     <input type="hidden" name="bronId" value="${bronId}"/>
     <input type="hidden" name="zoekConfiguratieId" value="${zoekConfiguratieId}"/>
     <input type="hidden" name="featureType" value="${featureType}"/>
+    <input type="hidden" id="hiddenDelete" name="delete"/>
     <div class="berichtenbalk">
         <html:messages id="error" message="true">
             <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
@@ -75,5 +76,8 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             <html:submit property="step1"><fmt:message key='button.previous'/></html:submit>
         </c:if>
         <html:submit property="step3"><fmt:message key='button.next'/></html:submit>
+        <c:if test="${not empty zoekConfiguratieId}">
+            <input type="button" onclick="deleteZoekConfiguratie(${zoekConfiguratieId})" value="<fmt:message key='button.remove'/>"></input>
+        </c:if>
     </div>
 </html:form>

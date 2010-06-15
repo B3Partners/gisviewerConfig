@@ -91,3 +91,13 @@ function openAsDialog(divid){
 function openStartPage(){
     window.location=startPage;
 }
+
+function deleteZoekConfiguratie(id){
+    var answer = confirm("Weet u zeker dat u dit record wilt verwijderen?")
+    if(answer){
+        if (document.getElementById("hiddenDelete")){
+            document.getElementById("hiddenDelete").value="submit";
+            document.forms[0].submit();
+        }
+    }
+}
