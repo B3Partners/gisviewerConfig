@@ -1,25 +1,3 @@
-<%--
-B3P Gisviewer is an extension to Flamingo MapComponents making
-it a complete webbased GIS viewer and configuration tool that
-works in cooperation with B3P Kaartenbalie.
-
-Copyright 2006, 2007, 2008 B3Partners BV
-
-This file is part of B3P Gisviewer.
-
-B3P Gisviewer is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-B3P Gisviewer is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
---%>
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
 
 <script type="text/javascript">
@@ -33,19 +11,63 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     }
 </script>
 
-<div id="content_style">
-    <hr>
-    <table class="kolomtabel">
-        <tr>
-            <td valign="top">
-                <html:messages id="message" message="true">
-                    <div style="color: red; font-weight: bold"><c:out value="${message}"/></div>
-                </html:messages><br>
-                <h1><fmt:message key="algemeen.home.titel"/></h1>
+<div class="content_block">
+    <html:messages id="message" message="true">
+        <div class="message"><c:out value="${message}"/></div>
+    </html:messages>
 
-            </td>
-        </tr>
-    </table>
-    <hr>
-    <tiles:insert name="loginblock"/>
+    <div class="content_title"><fmt:message key="algemeen.home.titel"/></div>
+
+    <div class="inleiding_body">
+        <p>
+            <fmt:message key="algemeen.home.introductie.content1"/>
+        </p>
+        <p>
+            <fmt:message key="algemeen.home.introductie.content2"/>
+        </p>
+    </div>
 </div>
+
+<c:if test="${pageContext.request.remoteUser == null}">
+
+<div class="content_block">
+    <div class="content_title">Inloggen</div>
+
+    <div class="content_body">
+        <form id="loginForm" action="j_security_check" method="POST">
+        <table>
+            <tr>
+                <td><fmt:message key="algemeen.login.gebruikersnaam"/></td>
+                <td><input class="inputfield" type="text" name="j_username" size="36"></td>
+            </tr>
+            <tr>
+                <td><fmt:message key="algemeen.login.wachtwoord"/></td>
+                <td><input class="inputfield" type="password" name="j_password" size="36"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><fmt:message key="algemeen.login.of"/></td>
+            </tr>
+            <tr>
+                <td><fmt:message key="algemeen.login.code"/></td>
+                <td><input class="inputfield" type="text" name="j_code" size="36"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><input class="inlogbutton" type="Submit" value="<fmt:message key="algemeen.login.login"/>"></td>
+            </tr>
+        </table>
+        </form>
+        <script type="text/javascript">
+            <!--
+            document.forms.loginForm.j_username.focus();
+            // -->
+        </script>
+    </div>
+</div>
+</c:if>
+
+<c:if test="${pageContext.request.remoteUser != null}">
+    <div class="uitloggen">
+        <p><tiles:insert name="loginblock"/></p>
+    </div>
+</c:if>
