@@ -68,7 +68,6 @@
         <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie4.jsp"/>
     </definition>
 
-
     <!-- tiles met herbruikbare onderdelen die in de content pagina's kunnen worden ge-insert  -->
     <definition name="loginblock" path="/WEB-INF/jsp/commons/userAndLogout.jsp"/>
 
@@ -76,5 +75,10 @@
     <definition name="configzoekconfiguratieveld" extends="templatePopup">
         <put name="title" value="Configureer de zoekervelden" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configzoekconfiguratieveld.jsp"/>
+    </definition>
+
+    <definition name="configKeeper" extends="config">
+        <put name="title" value="Config Keeper" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/config/configkeeper.jsp"/>
     </definition>
 </tiles-definitions>
