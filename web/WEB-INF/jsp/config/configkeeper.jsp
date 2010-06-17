@@ -7,8 +7,8 @@
 </div>
 
 <html:form action="/configKeeper">
-    <html:hidden property="action" value="save" />
-    <html:hidden property="alt_action" value="" />
+    <html:hidden property="action" />
+    <html:hidden property="alt_action" />
 
     <table>
         <tr>
@@ -73,7 +73,7 @@
         </tr>
         <tr>
             <td>cfg_expandAll</td>
-            <td><html:checkbox property="cfg_maxResults"/></td>
+            <td><html:checkbox property="cfg_expandAll"/></td>
         </tr>
         <tr>
             <td>cfg_tabbladenBeheerder</td>
@@ -94,7 +94,7 @@
     </table>
     
     <p>
-    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u dit wilt opslaan?');">
+    <html:submit property="save" accesskey="s" styleClass="knop" onclick="return confirm('Weet u zeker dat u dit wilt opslaan?');">
         Opslaan
     </html:submit>
     </p>
