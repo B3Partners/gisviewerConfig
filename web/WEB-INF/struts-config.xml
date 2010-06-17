@@ -119,16 +119,9 @@
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
             <form-property name="cfg_useCookies" type="java.lang.Boolean"/>
-            <form-property name="cfg_multipleActiveThemas" type="java.lang.Boolean"/>
-            <form-property name="cfg_usePopup" type="java.lang.Boolean"/>
-            <form-property name="cfg_useDivPopup" type="java.lang.Boolean"/>
-            <form-property name="cfg_dataframepopupHandle" type="java.lang.Boolean"/>
-            <form-property name="cfg_usePanelControls" type="java.lang.Boolean"/>
-            <form-property name="cfg_showLeftPanel" type="java.lang.Boolean"/>
+            <form-property name="cfg_objectInfo" type="java.lang.String"/>
             <form-property name="cfg_autoRedirect" type="java.lang.Integer"/>
             <form-property name="cfg_tolerance" type="java.lang.Integer"/>
-            <form-property name="cfg_useSortableFunction" type="java.lang.Boolean"/>
-            <form-property name="cfg_layerDelay" type="java.lang.Integer"/>
             <form-property name="cfg_refreshDelay" type="java.lang.Integer"/>
             <form-property name="cfg_zoekConfigIds" type="java.lang.String"/>
             <form-property name="cfg_minBboxZoeken" type="java.lang.Integer"/>
