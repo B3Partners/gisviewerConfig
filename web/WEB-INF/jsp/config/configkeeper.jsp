@@ -206,6 +206,18 @@
             </td>
             <td><html:text property="cfg_maxResults" size="5"/></td>
         </tr>
+
+        <tr>
+            <td>Toon zoekconfiguraties</td>
+            <td>
+                <html:select property="zoekconfigids" multiple="TRUE" style="width: 200px">
+                    <html:option value="1">id 1</html:option>
+                    <html:option value="2">id 2</html:option>
+                    <html:option value="3">id 3</html:option>
+                </html:select>
+            </td>
+        </tr>
+        
         </table>
         </div>
         </fieldset>

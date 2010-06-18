@@ -155,7 +155,7 @@
             <form-property name="cfg_tab_ano_gebied" type="java.lang.Boolean"/>
             <form-property name="cfg_tab_ano_analyse" type="java.lang.Boolean"/>
             <form-property name="cfg_tab_ano_plansel" type="java.lang.Boolean"/>
-
+            <form-property name="zoekconfigids" type="java.lang.String[]"/>
         </form-bean>
     </form-beans>
     <global-exceptions>
