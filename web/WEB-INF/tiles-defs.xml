@@ -78,7 +78,7 @@
     </definition>
 
     <definition name="configKeeper" extends="config">
-        <put name="title" value="Config Keeper" type="string"/>
+        <put name="title" value="Viewer instellingen" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configkeeper.jsp"/>
     </definition>
 </tiles-definitions>

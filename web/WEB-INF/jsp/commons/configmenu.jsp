@@ -4,7 +4,7 @@
 <c:set var="requestJSP" value="${requestURI[fn:length(requestURI) - 1]}" />
 
 <c:set var="links">
-	<a class="*" href="configKeeper.do">Config Keeper</a>%<a class="*" href="configZoekConfiguratie.do"><fmt:message key="commons.configmenu.zoeker"/></a>%<a class="*" href="configConnectie.do"><fmt:message key="commons.configmenu.connectie"/></a>%<a class="*" href="configThemaData.do"><fmt:message key="commons.configmenu.themadata"/></a>%<a class="*" href="configCluster.do"><fmt:message key="commons.configmenu.cluster"/></a>%<a class="*" href="configThema.do"><fmt:message key="commons.configmenu.thema"/></a>%<a class="*" href="index.do"><fmt:message key="commons.configmenu.home"/></a>
+	<a class="*" href="configKeeper.do">Instellingen</a>%<a class="*" href="configZoekConfiguratie.do"><fmt:message key="commons.configmenu.zoeker"/></a>%<a class="*" href="configConnectie.do"><fmt:message key="commons.configmenu.connectie"/></a>%<a class="*" href="configThemaData.do"><fmt:message key="commons.configmenu.themadata"/></a>%<a class="*" href="configCluster.do"><fmt:message key="commons.configmenu.cluster"/></a>%<a class="*" href="configThema.do"><fmt:message key="commons.configmenu.thema"/></a>%<a class="*" href="index.do"><fmt:message key="commons.configmenu.home"/></a>
 </c:set>
 
 <div id="topmenu">
