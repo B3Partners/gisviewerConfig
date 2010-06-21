@@ -165,6 +165,18 @@
             </td>
             <td><html:text property="cfg_autoRedirect" size="5"/></td>
         </tr>
+
+        <tr>
+            <td>
+                <fmt:message key="cfg_multipleActiveThemas.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_multipleActiveThemas');">(?)</a>
+                <div id="help_cfg_multipleActiveThemas" style="display: none;" title="<fmt:message key="cfg_multipleActiveThemas.label"/>">
+                    <p><fmt:message key="cfg_multipleActiveThemas.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:checkbox property="cfg_multipleActiveThemas"/></td>
+        </tr>
+
         </table>
         </div>
         </fieldset>
@@ -184,7 +196,16 @@
                     <p><fmt:message key="cfg_zoekConfigIds.uitleg"/></p>
                 </div>
             </td>
-            <td><html:text property="cfg_zoekConfigIds" size="30"/></td>
+            <td>
+                <html:select property="zoekconfigids" multiple="TRUE" style="width: 220px">
+                <c:forEach items="${zoekConfigs}" var="zItem">
+                    <c:set var="zc_id" value="${zItem.id}" />
+                    <c:set var="zc_naam" value="${zItem.naam}" />
+
+                    <html:option value="${zc_id}">${zc_naam}</html:option>
+                </c:forEach>
+                </html:select>
+            </td>
         </tr>
         <tr>
             <td>
@@ -205,17 +226,6 @@
                 </div>
             </td>
             <td><html:text property="cfg_maxResults" size="5"/></td>
-        </tr>
-
-        <tr>
-            <td>Toon zoekconfiguraties</td>
-            <td>
-                <html:select property="zoekconfigids" multiple="TRUE" style="width: 200px">
-                    <html:option value="1">id 1</html:option>
-                    <html:option value="2">id 2</html:option>
-                    <html:option value="3">id 3</html:option>
-                </html:select>
-            </td>
         </tr>
         
         </table>

@@ -123,7 +123,6 @@
             <form-property name="cfg_autoRedirect" type="java.lang.Integer"/>
             <form-property name="cfg_tolerance" type="java.lang.Integer"/>
             <form-property name="cfg_refreshDelay" type="java.lang.Integer"/>
-            <form-property name="cfg_zoekConfigIds" type="java.lang.String"/>
             <form-property name="cfg_minBboxZoeken" type="java.lang.Integer"/>
             <form-property name="cfg_maxResults" type="java.lang.Integer"/>
             <form-property name="cfg_expandAll" type="java.lang.Boolean"/>
@@ -156,6 +155,7 @@
             <form-property name="cfg_tab_ano_analyse" type="java.lang.Boolean"/>
             <form-property name="cfg_tab_ano_plansel" type="java.lang.Boolean"/>
             <form-property name="zoekconfigids" type="java.lang.String[]"/>
+            <form-property name="cfg_multipleActiveThemas" type="java.lang.Boolean"/>
         </form-bean>
     </form-beans>
     <global-exceptions>
