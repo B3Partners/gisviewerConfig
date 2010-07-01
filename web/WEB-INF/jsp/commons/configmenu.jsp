@@ -4,13 +4,15 @@
 <c:set var="requestJSP" value="${requestURI[fn:length(requestURI) - 1]}" />
 
 <c:set var="links">
-	<a class="*" href="configKeeper.do">Instellingen</a>%<a class="*" href="configZoekConfiguratie.do"><fmt:message key="commons.configmenu.zoeker"/></a>%<a class="*" href="configConnectie.do"><fmt:message key="commons.configmenu.connectie"/></a>%<a class="*" href="configThemaData.do"><fmt:message key="commons.configmenu.themadata"/></a>%<a class="*" href="configCluster.do"><fmt:message key="commons.configmenu.cluster"/></a>%<a class="*" href="configThema.do"><fmt:message key="commons.configmenu.thema"/></a>%<a class="*" href="index.do"><fmt:message key="commons.configmenu.home"/></a>
+	<a class="*" href="configRolPrio.do">Instellingen</a>%<a class="*" href="configZoekConfiguratie.do"><fmt:message key="commons.configmenu.zoeker"/></a>%<a class="*" href="configConnectie.do"><fmt:message key="commons.configmenu.connectie"/></a>%<a class="*" href="configThemaData.do"><fmt:message key="commons.configmenu.themadata"/></a>%<a class="*" href="configCluster.do"><fmt:message key="commons.configmenu.cluster"/></a>%<a class="*" href="configThema.do"><fmt:message key="commons.configmenu.thema"/></a>%<a class="*" href="index.do"><fmt:message key="commons.configmenu.home"/></a>
 </c:set>
 
 <div id="topmenu">
     <c:set var="lnkArray" value="${fn:split(links, '%')}" />
 
-
+    <c:if test="${requestJSP eq 'configRolPrio.do'}">
+        <c:set var="activelink" value="7" />
+    </c:if>
     <c:if test="${requestJSP eq 'index.do'}">
         <c:set var="activelink" value="6" />
     </c:if>

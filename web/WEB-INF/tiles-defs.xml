@@ -71,14 +71,19 @@
     <!-- tiles met herbruikbare onderdelen die in de content pagina's kunnen worden ge-insert  -->
     <definition name="loginblock" path="/WEB-INF/jsp/commons/userAndLogout.jsp"/>
 
+    <definition name="configKeeper" extends="config">
+        <put name="title" value="Viewer instellingen" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/config/configkeeper.jsp"/>
+    </definition>
+
+    <definition name="configRolPrio" extends="config">
+        <put name="title" value="Rol prioriteit instellingen" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/config/configrolprio.jsp"/>
+    </definition>
+
     <!-- pop up-->
     <definition name="configzoekconfiguratieveld" extends="templatePopup">
         <put name="title" value="Configureer de zoekervelden" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configzoekconfiguratieveld.jsp"/>
-    </definition>
-
-    <definition name="configKeeper" extends="config">
-        <put name="title" value="Viewer instellingen" type="string"/>
-        <put name="content" value="/WEB-INF/jsp/config/configkeeper.jsp"/>
     </definition>
 </tiles-definitions>

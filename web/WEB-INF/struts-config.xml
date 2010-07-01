@@ -157,6 +157,13 @@
             <form-property name="zoekconfigids" type="java.lang.String[]"/>
             <form-property name="cfg_multipleActiveThemas" type="java.lang.Boolean"/>
         </form-bean>
+
+        <form-bean name="configRolPrioForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="nieuwe_rol" type="java.lang.String"/>
+        </form-bean>
+
     </form-beans>
     <global-exceptions>
     </global-exceptions>
@@ -216,6 +223,11 @@
         <action path="/configKeeper" type="nl.b3p.gis.viewer.ConfigKeeperAction" name="configKeeperForm" scope="request" validate="false">
             <forward name="success" path="configKeeper"/>
             <forward name="failure" path="configKeeper"/>
+        </action>
+
+        <action path="/configRolPrio" type="nl.b3p.gis.viewer.ConfigRolPrioAction" name="configRolPrioForm" scope="request" validate="false">
+            <forward name="success" path="configRolPrio"/>
+            <forward name="failure" path="configRolPrio"/>
         </action>
     </action-mappings>
     
