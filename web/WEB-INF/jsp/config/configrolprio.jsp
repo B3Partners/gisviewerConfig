@@ -15,9 +15,10 @@
 <div class="content_body">
 
     <p>
-        Kies settings om de configuratie voor een rol aan te passen of gebruik de<br/>
-        pijltjes om de prioriteit te veranderen. Indien een gebruiker meerdere rollen<br/>
-        heeft wordt de configuratie van de bovenste rol geladen.
+        Klik op het configuratie icoon naast de rol om de instellingen voor een rol<br/>
+        aan te passen of gebruik de pijltjes om de prioriteit van een rol te veranderen.<br/>
+        Indien een gebruiker meerdere rollen  heeft wordt de configuratie van de<br/>
+        bovenste rol geladen.
     </p>
     
     <html:form action="/configRolPrio">
@@ -29,12 +30,14 @@
             <c:url var="link_up" value="/configRolPrio.do?moveAction=${item}@@UP" />
             <c:url var="link_down" value="/configRolPrio.do?moveAction=${item}@@DOWN" />
             <c:url var="link_delete" value="/configRolPrio.do?delete=${item}" />
+            <c:url var="link_settings" value="/configRolPrio.do?config=${item}" />
 
             <tr>
                 <td>${item}</td>
-                <td><a href="${link_up}"><img src="images/up_30h.png" border="0" alt="Omhoog" height="20"/></a></td>
-                <td><a href="${link_down}"><img src="images/down_30h.png" border="0" alt="Omlaag" height="20"/></a></td>
-                <td><a href="${link_delete}"><img src="images/delete_30h.png" border="0" alt="Verwijderen" height="20"/></a></td>
+                <td><a href="${link_up}"><img src="images/up_30h.png" border="0" alt="Omhoog" title="Omhoog" height="20"/></a></td>
+                <td><a href="${link_down}"><img src="images/down_30h.png" border="0" alt="Omlaag" title="Omlaag" height="20"/></a></td>
+                <td><a href="${link_delete}" onclick="return confirm('Weet u zeker dat u de rol wilt verwijderen?');"><img src="images/delete_30h.png" border="0" alt="Verwijderen" title="Verwijderen" height="20"/></a></td>
+                <td><a href="${link_settings}"><img src="images/settings.png" border="0" alt="Configureren" title="Configuratie" height="20"/></a></td>
             </tr>
         </c:forEach>
         </table>
