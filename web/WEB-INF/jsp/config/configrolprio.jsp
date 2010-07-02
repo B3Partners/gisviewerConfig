@@ -20,6 +20,8 @@
         Indien een gebruiker meerdere rollen  heeft wordt de configuratie van de<br/>
         bovenste rol geladen.
     </p>
+
+    <h1>Rollen</h1>
     
     <html:form action="/configRolPrio">
         <html:hidden property="action" />
@@ -30,10 +32,10 @@
             <c:url var="link_up" value="/configRolPrio.do?moveAction=${item}@@UP" />
             <c:url var="link_down" value="/configRolPrio.do?moveAction=${item}@@DOWN" />
             <c:url var="link_delete" value="/configRolPrio.do?delete=${item}" />
-            <c:url var="link_settings" value="/configRolPrio.do?config=${item}" />
+            <c:url var="link_settings" value="/configKeeper.do?rolnaam=${item}" />
 
             <tr>
-                <td>${item}</td>
+                <td><h2>${item}</h2></td>
                 <td><a href="${link_up}"><img src="images/up_30h.png" border="0" alt="Omhoog" title="Omhoog" height="20"/></a></td>
                 <td><a href="${link_down}"><img src="images/down_30h.png" border="0" alt="Omlaag" title="Omlaag" height="20"/></a></td>
                 <td><a href="${link_delete}" onclick="return confirm('Weet u zeker dat u de rol wilt verwijderen?');"><img src="images/delete_30h.png" border="0" alt="Verwijderen" title="Verwijderen" height="20"/></a></td>
@@ -42,13 +44,11 @@
         </c:forEach>
         </table>
 
+        <br>
         <table>
             <tr>
                 <td>Nieuwe rol: </td>
                 <td><html:text property="nieuwe_rol" size="20"/></td>
-            </tr>
-            <tr>
-                <td></td>
                 <td>
                     <html:submit property="save" accesskey="s" styleClass="knop" onclick="return confirm('Weet u zeker dat u de rol wilt opslaan?');">
                         Opslaan

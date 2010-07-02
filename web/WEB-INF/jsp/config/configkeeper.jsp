@@ -36,44 +36,14 @@
                 <td class="colored2" align="center">Planselectie</td>
             </tr>
             <tr>
-                <td class="colored1">Rol Beheerder</td>
-                <td align="center"><html:checkbox property="cfg_tab_beh_thema"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_beh_legenda"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_beh_zoek"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_beh_info"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_beh_gebied"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_beh_analyse"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_beh_plansel"/></td>
-            </tr>
-            <tr>
-                <td class="colored1">Rol Gebruiker</td>
-                <td align="center"><html:checkbox property="cfg_tab_geb_thema"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_geb_legenda"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_geb_zoek"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_geb_info"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_geb_gebied"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_geb_analyse"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_geb_plansel"/></td>
-            </tr>
-            <tr>
-                <td class="colored1">Rol Demo</td>
-                <td align="center"><html:checkbox property="cfg_tab_dem_thema"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_dem_legenda"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_dem_zoek"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_dem_info"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_dem_gebied"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_dem_analyse"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_dem_plansel"/></td>
-            </tr>
-            <tr>
-                <td class="colored1">Rol Anoniem</td>
-                <td align="center"><html:checkbox property="cfg_tab_ano_thema"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_ano_legenda"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_ano_zoek"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_ano_info"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_ano_gebied"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_ano_analyse"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_ano_plansel"/></td>
+                <td class="colored1">Rol</td>
+                <td align="center"><html:checkbox property="cfg_tab_thema"/></td>
+                <td align="center"><html:checkbox property="cfg_tab_legenda"/></td>
+                <td align="center"><html:checkbox property="cfg_tab_zoek"/></td>
+                <td align="center"><html:checkbox property="cfg_tab_info"/></td>
+                <td align="center"><html:checkbox property="cfg_tab_gebied"/></td>
+                <td align="center"><html:checkbox property="cfg_tab_analyse"/></td>
+                <td align="center"><html:checkbox property="cfg_tab_plansel"/></td>
             </tr>
         </table>
 

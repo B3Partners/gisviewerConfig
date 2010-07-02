@@ -126,34 +126,13 @@
             <form-property name="cfg_minBboxZoeken" type="java.lang.Integer"/>
             <form-property name="cfg_maxResults" type="java.lang.Integer"/>
             <form-property name="cfg_expandAll" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_beh_thema" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_beh_legenda" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_beh_zoek" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_beh_info" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_beh_gebied" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_beh_analyse" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_beh_plansel" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_geb_thema" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_geb_legenda" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_geb_zoek" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_geb_info" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_geb_gebied" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_geb_analyse" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_geb_plansel" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_dem_thema" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_dem_legenda" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_dem_zoek" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_dem_info" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_dem_gebied" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_dem_analyse" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_dem_plansel" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_ano_thema" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_ano_legenda" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_ano_zoek" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_ano_info" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_ano_gebied" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_ano_analyse" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_ano_plansel" type="java.lang.Boolean"/>
+            <form-property name="cfg_tab_thema" type="java.lang.Boolean"/>
+            <form-property name="cfg_tab_legenda" type="java.lang.Boolean"/>
+            <form-property name="cfg_tab_zoek" type="java.lang.Boolean"/>
+            <form-property name="cfg_tab_info" type="java.lang.Boolean"/>
+            <form-property name="cfg_tab_gebied" type="java.lang.Boolean"/>
+            <form-property name="cfg_tab_analyse" type="java.lang.Boolean"/>
+            <form-property name="cfg_tab_plansel" type="java.lang.Boolean"/>
             <form-property name="zoekconfigids" type="java.lang.String[]"/>
             <form-property name="cfg_multipleActiveThemas" type="java.lang.Boolean"/>
         </form-bean>
