@@ -15,6 +15,7 @@
 <html:form action="/configKeeper">
     <html:hidden property="action" />
     <html:hidden property="alt_action" />
+    <html:hidden property="rolnaam" />
 
     <div class="fieldset_block_wide">
         <fieldset class="fieldset_wide">
@@ -26,7 +27,6 @@
 
         <table>
             <tr>
-                <td>&nbsp;</td>
                 <td class="colored2" align="center">Kaarten</td>
                 <td class="colored2" align="center">Legenda</td>
                 <td class="colored2" align="center">Zoeken</td>
@@ -36,7 +36,6 @@
                 <td class="colored2" align="center">Planselectie</td>
             </tr>
             <tr>
-                <td class="colored1">Rol</td>
                 <td align="center"><html:checkbox property="cfg_tab_thema"/></td>
                 <td align="center"><html:checkbox property="cfg_tab_legenda"/></td>
                 <td align="center"><html:checkbox property="cfg_tab_zoek"/></td>

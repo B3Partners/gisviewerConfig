@@ -135,6 +135,7 @@
             <form-property name="cfg_tab_plansel" type="java.lang.Boolean"/>
             <form-property name="zoekconfigids" type="java.lang.String[]"/>
             <form-property name="cfg_multipleActiveThemas" type="java.lang.Boolean"/>
+            <form-property name="rolnaam" type="java.lang.String"/>
         </form-bean>
 
         <form-bean name="configRolPrioForm" type="org.apache.struts.validator.DynaValidatorForm">
