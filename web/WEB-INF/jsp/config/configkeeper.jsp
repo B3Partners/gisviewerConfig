@@ -86,6 +86,18 @@
             </td>
             <td><html:text property="cfg_refreshDelay" size="10"/></td>
         </tr>
+
+        <tr>
+            <td>
+                <fmt:message key="cfg_useInheritCheckbox.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_useInheritCheckbox');">(?)</a>
+                <div id="help_cfg_useInheritCheckbox" style="display: none;" title="<fmt:message key="cfg_useInheritCheckbox.label"/>">
+                    <p><fmt:message key="cfg_useInheritCheckbox.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:checkbox property="cfg_useInheritCheckbox"/></td>
+        </tr>
+
         </table>
         </div>
         </fieldset>
