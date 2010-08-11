@@ -46,6 +46,16 @@
             </tr>
         </table>
 
+        <br/><br/>
+        <fmt:message key="cfg_useMouseOverTabs.label"/>
+        <a href="#" onclick="return showHelpDialog('help_cfg_useMouseOverTabs');">(?)</a>
+        <div id="help_cfg_useMouseOverTabs" style="display: none;" title="<fmt:message key="cfg_useMouseOverTabs.label"/>">
+            <p><fmt:message key="cfg_useMouseOverTabs.uitleg"/></p>
+        </div>
+
+        <html:checkbox property="cfg_useMouseOverTabs"/>
+        
+        
         </div>
         </fieldset>
     </div>
