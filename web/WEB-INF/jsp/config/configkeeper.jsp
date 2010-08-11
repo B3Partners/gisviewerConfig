@@ -98,6 +98,17 @@
             <td><html:checkbox property="cfg_useInheritCheckbox"/></td>
         </tr>
 
+        <tr>
+            <td>
+                <fmt:message key="cfg_showLegendInTree.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_showLegendInTree');">(?)</a>
+                <div id="help_cfg_showLegendInTree" style="display: none;" title="<fmt:message key="cfg_showLegendInTree.label"/>">
+                    <p><fmt:message key="cfg_showLegendInTree.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:checkbox property="cfg_showLegendInTree"/></td>
+        </tr>
+
         </table>
         </div>
         </fieldset>
