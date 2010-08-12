@@ -44,6 +44,7 @@
             <form-property name="thema_maptip" type="java.lang.String"/>
             <form-property name="sldattribuut" type="java.lang.String"/>
             <form-property name="uitgebreid" type="java.lang.Boolean"/>
+            <form-property name="layoutadmindata" type="java.lang.String"/>
         </form-bean>
         <form-bean name="clusterForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
@@ -139,6 +140,7 @@
             <form-property name="cfg_useInheritCheckbox" type="java.lang.Boolean"/>
             <form-property name="cfg_showLegendInTree" type="java.lang.Boolean"/>
             <form-property name="cfg_useMouseOverTabs" type="java.lang.Boolean"/>
+            <form-property name="cfg_layoutAdminData" type="java.lang.String"/>
         </form-bean>
 
         <form-bean name="configRolPrioForm" type="org.apache.struts.validator.DynaValidatorForm">

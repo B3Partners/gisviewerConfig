@@ -164,6 +164,25 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                     <tr><td><fmt:message key="configthema.locatiethema"/> <a href="#" onclick="return showHelpDialog('help_configthemalocatiethema');">(?)</a><div id="help_configthemalocatiethema" style="display: none;" title="<fmt:message key="configthema.locatiethema"/>"><p><fmt:message key="configthema.locatiethema.uitleg"/></p></div></td><td colspan="3"><html:checkbox property="locatie_thema"/></td></tr>
                     <tr><td><fmt:message key="configthema.analysethema"/> <a href="#" onclick="return showHelpDialog('help_configthemaanalysethema');">(?)</a><div id="help_configthemaanalysethema" style="display: none;" title="<fmt:message key="configthema.analysethema"/>"><p><fmt:message key="configthema.analysethema.uitleg"/></p></div></td><td colspan="3"><html:checkbox property="analyse_thema"/></td></tr>
                     <tr><td><fmt:message key="configthema.defaultvisible"/> <a href="#" onclick="return showHelpDialog('help_configthemadefaultvisible');">(?)</a><div id="help_configthemadefaultvisible" style="display: none;" title="<fmt:message key="configthema.defaultvisible"/>"><p><fmt:message key="configthema.defaultvisible.uitleg"/></p></div></td><td colspan="3"><html:checkbox property="visible"/></td></tr>
+                
+                    <tr>
+                        <td>
+                            <fmt:message key="cfg_layoutAdminData.label"/>
+                            <a href="#" onclick="return showHelpDialog('help_cfg_layoutAdminData');">(?)</a>
+                            <div id="help_cfg_layoutAdminData" style="display: none;" title="<fmt:message key="cfg_layoutAdminData.label"/>">
+                                <p><fmt:message key="cfg_layoutAdminData.uitleg"/></p>
+                            </div>
+                        </td>
+                        <td>
+                            <html:select property="layoutadmindata">
+                                <html:option value=""><fmt:message key="cfg_layoutAdminData.0"/></html:option>
+                                <html:option value="admindata1"><fmt:message key="cfg_layoutAdminData.1"/></html:option>
+                                <html:option value="admindata2"><fmt:message key="cfg_layoutAdminData.2"/></html:option>
+                                <html:option value="admindata3"><fmt:message key="cfg_layoutAdminData.3"/></html:option>
+                            </html:select>
+                        </td>
+                    </tr>
+
                 </table>
             </div>
 

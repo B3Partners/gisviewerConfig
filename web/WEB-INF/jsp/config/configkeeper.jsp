@@ -179,6 +179,23 @@
             <td><html:checkbox property="cfg_multipleActiveThemas"/></td>
         </tr>
 
+        <tr>
+            <td>
+                <fmt:message key="cfg_layoutAdminData.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_layoutAdminData');">(?)</a>
+                <div id="help_cfg_layoutAdminData" style="display: none;" title="<fmt:message key="cfg_layoutAdminData.label"/>">
+                    <p><fmt:message key="cfg_layoutAdminData.uitleg"/></p>
+                </div>
+            </td>
+            <td>
+                <html:select property="cfg_layoutAdminData">
+                    <html:option value="admindata1"><fmt:message key="cfg_layoutAdminData.1"/></html:option>
+                    <html:option value="admindata2"><fmt:message key="cfg_layoutAdminData.2"/></html:option>
+                    <html:option value="admindata3"><fmt:message key="cfg_layoutAdminData.3"/></html:option>
+                </html:select>
+            </td>
+        </tr>
+
         </table>
         </div>
         </fieldset>
