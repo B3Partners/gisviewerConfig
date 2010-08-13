@@ -1,6 +1,8 @@
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
 <%@ page isELIgnored="false"%>
 
+<script type="text/javascript" src="<html:rewrite page="/scripts/config-tab.js"/>"></script>
+
 <div class="infobalk">
     <div class="infobalk_description"><fmt:message key="configkeeper.infobalk"/></div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
@@ -16,49 +18,6 @@
     <html:hidden property="action" />
     <html:hidden property="alt_action" />
     <html:hidden property="rolnaam" />
-
-    <div class="fieldset_block_wide">
-        <fieldset class="fieldset_wide">
-        <legend class="fieldLegend">Tabbladen</legend>
-
-        <div class="content_body">
-
-        <p><fmt:message key="config.tabbladen.label"/></p>
-
-        <table>
-            <tr>
-                <td class="colored2" align="center">Kaarten</td>
-                <td class="colored2" align="center">Legenda</td>
-                <td class="colored2" align="center">Zoeken</td>
-                <td class="colored2" align="center">Informatie</td>
-                <td class="colored2" align="center">Gebieden</td>
-                <td class="colored2" align="center">Analyse</td>
-                <td class="colored2" align="center">Planselectie</td>
-            </tr>
-            <tr>
-                <td align="center"><html:checkbox property="cfg_tab_thema"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_legenda"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_zoek"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_info"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_gebied"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_analyse"/></td>
-                <td align="center"><html:checkbox property="cfg_tab_plansel"/></td>
-            </tr>
-        </table>
-
-        <br/><br/>
-        <fmt:message key="cfg_useMouseOverTabs.label"/>
-        <a href="#" onclick="return showHelpDialog('help_cfg_useMouseOverTabs');">(?)</a>
-        <div id="help_cfg_useMouseOverTabs" style="display: none;" title="<fmt:message key="cfg_useMouseOverTabs.label"/>">
-            <p><fmt:message key="cfg_useMouseOverTabs.uitleg"/></p>
-        </div>
-
-        <html:checkbox property="cfg_useMouseOverTabs"/>
-        
-        
-        </div>
-        </fieldset>
-    </div>
 
     <div class="fieldset_block">
         <fieldset class="fieldset1">
@@ -117,6 +76,26 @@
                 </div>
             </td>
             <td><html:checkbox property="cfg_showLegendInTree"/></td>
+        </tr>
+        <tr>
+            <td>
+                <fmt:message key="cfg_minBboxZoeken.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_minBboxZoeken');">(?)</a>
+                <div id="help_cfg_minBboxZoeken" style="display: none;" title="<fmt:message key="cfg_minBboxZoeken.label"/>">
+                    <p><fmt:message key="cfg_minBboxZoeken.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:text property="cfg_minBboxZoeken" size="10"/></td>
+        </tr>
+        <tr>
+            <td>
+                <fmt:message key="cfg_maxResults.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_maxResults');">(?)</a>
+                <div id="help_cfg_maxResults" style="display: none;" title="<fmt:message key="cfg_maxResults.label"/>">
+                    <p><fmt:message key="cfg_maxResults.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:text property="cfg_maxResults" size="5"/></td>
         </tr>
 
         </table>
@@ -201,60 +180,185 @@
         </fieldset>
     </div>
 
-    <div class="fieldset_block">
-        <fieldset class="fieldset1">
-        <legend class="fieldLegend">Zoeker</legend>
+    <div class="fieldset_block_small">
+        <fieldset class="fieldset_small">
+        <legend class="fieldLegend">Tabbladen</legend>
 
         <div class="content_body">
+
+        <fmt:message key="cfg_useMouseOverTabs.label"/>
+        <a href="#" onclick="return showHelpDialog('help_cfg_useMouseOverTabs');">(?)</a>
+        <div id="help_cfg_useMouseOverTabs" style="display: none;" title="<fmt:message key="cfg_useMouseOverTabs.label"/>">
+            <p><fmt:message key="cfg_useMouseOverTabs.uitleg"/></p>
+        </div>
+
+        <html:checkbox property="cfg_useMouseOverTabs"/>
+        <br/>
+
+        <p><fmt:message key="config.tabbladen.label"/></p>
+
         <table>
         <tr>
+            <td>Tab 1</td>
             <td>
-                <fmt:message key="cfg_zoekConfigIds.label"/>
-                <a href="#" onclick="return showHelpDialog('help_cfg_zoekConfigIds');">(?)</a>
-                <div id="help_cfg_zoekConfigIds" style="display: none;" title="<fmt:message key="cfg_zoekConfigIds.label"/>">
-                    <p><fmt:message key="cfg_zoekConfigIds.uitleg"/></p>
-                </div>
-            </td>
-            <td>
-                <html:select property="zoekconfigids" multiple="TRUE" style="width: 220px">
-                <c:forEach items="${zoekConfigs}" var="zItem">
-                    <c:set var="zc_id" value="${zItem.id}" />
-                    <c:set var="zc_naam" value="${zItem.naam}" />
-
-                    <html:option value="${zc_id}">${zc_naam}</html:option>
-                </c:forEach>
+                <html:select property="cfg_tab1">
+                    <c:forEach items="${tabLabels}" var="item" varStatus="status">
+                        <html:option value="${tabValues[status.count-1]}">${item}</html:option>
+                    </c:forEach>
                 </html:select>
             </td>
         </tr>
         <tr>
+            <td>Tab 2</td>
             <td>
-                <fmt:message key="cfg_minBboxZoeken.label"/>
-                <a href="#" onclick="return showHelpDialog('help_cfg_minBboxZoeken');">(?)</a>
-                <div id="help_cfg_minBboxZoeken" style="display: none;" title="<fmt:message key="cfg_minBboxZoeken.label"/>">
-                    <p><fmt:message key="cfg_minBboxZoeken.uitleg"/></p>
-                </div>
+                <html:select property="cfg_tab2">
+                    <c:forEach items="${tabLabels}" var="item" varStatus="status">
+                        <html:option value="${tabValues[status.count-1]}">${item}</html:option>
+                    </c:forEach>
+                </html:select>
             </td>
-            <td><html:text property="cfg_minBboxZoeken" size="10"/></td>
         </tr>
         <tr>
+            <td>Tab 3</td>
             <td>
-                <fmt:message key="cfg_maxResults.label"/>
-                <a href="#" onclick="return showHelpDialog('help_cfg_maxResults');">(?)</a>
-                <div id="help_cfg_maxResults" style="display: none;" title="<fmt:message key="cfg_maxResults.label"/>">
-                    <p><fmt:message key="cfg_maxResults.uitleg"/></p>
-                </div>
+                <html:select property="cfg_tab3">
+                    <c:forEach items="${tabLabels}" var="item" varStatus="status">
+                        <html:option value="${tabValues[status.count-1]}">${item}</html:option>
+                    </c:forEach>
+                </html:select>
             </td>
-            <td><html:text property="cfg_maxResults" size="5"/></td>
         </tr>
-        
+        <tr>
+            <td>Tab 4</td>
+            <td>
+                <html:select property="cfg_tab4">
+                    <c:forEach items="${tabLabels}" var="item" varStatus="status">
+                        <html:option value="${tabValues[status.count-1]}">${item}</html:option>
+                    </c:forEach>
+                </html:select>
+            </td>
+        </tr>
+        <tr>
+            <td>Tab 5</td>
+            <td>
+                <html:select property="cfg_tab5">
+                <c:forEach items="${tabLabels}" var="item" varStatus="status">
+                    <html:option value="${tabValues[status.count-1]}">${item}</html:option>
+                </c:forEach>
+                </html:select>
+            </td>
+        </tr>
         </table>
+        
         </div>
         </fieldset>
     </div>
+
+    <div class="fieldset_block_modules">
+        <fieldset class="fieldset_small">
+        <legend class="fieldLegend">Modules</legend>
+
+        <div id="configkeeper_style">
+            
+            <div id="configkeeper_tab_header_container">
+                <div class="configkeeper_tab_header" id="tab-zoeken-header">Zoeken</div>
+                <div class="configkeeper_tab_header" id="tab-planselectie-header">Planselectie</div>
+            </div>
+
+            <div class="maintable">
+
+                <div class="configkeeper_tab" id="tab-zoeken-content">
+                    <table cellpadding="2" cellspacing="2" border="0">
+                    <tr>
+                        <td>Zoekingang 1</td>
+                        <td>
+                            <html:select property="cfg_zoekenid1">
+                                <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                <c:forEach items="${zoekConfigs}" var="item">
+                                    <html:option value="${item.id}">${item.naam}</html:option>
+                                </c:forEach>
+                            </html:select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Zoekingang 2</td>
+                        <td>
+                            <html:select property="cfg_zoekenid2">
+                                <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                <c:forEach items="${zoekConfigs}" var="item">
+                                    <html:option value="${item.id}">${item.naam}</html:option>
+                                </c:forEach>
+                            </html:select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Zoekingang 3</td>
+                        <td>
+                            <html:select property="cfg_zoekenid3">
+                                <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                <c:forEach items="${zoekConfigs}" var="item">
+                                    <html:option value="${item.id}">${item.naam}</html:option>
+                                </c:forEach>
+                            </html:select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Zoekingang 4</td>
+                        <td>
+                            <html:select property="cfg_zoekenid4">
+                                <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                <c:forEach items="${zoekConfigs}" var="item">
+                                    <html:option value="${item.id}">${item.naam}</html:option>
+                                </c:forEach>
+                            </html:select>
+                        </td>
+                    </tr>
+                    </table>
+                </div> <!-- Einde zoeken tabje -->
+
+                <div class="configkeeper_tab" id="tab-planselectie-content">
+                    <table cellpadding="2" cellspacing="2" border="0">
+                    <tr>
+                        <td>Zoekingang 1</td>
+                        <td>
+                            <html:select property="cfg_planselectieid1">
+                                <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                <c:forEach items="${zoekConfigs}" var="item">
+                                    <html:option value="${item.id}">${item.naam}</html:option>
+                                </c:forEach>
+                            </html:select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Zoekingang 2</td>
+                        <td>
+                            <html:select property="cfg_planselectieid2">
+                                <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                <c:forEach items="${zoekConfigs}" var="item">
+                                    <html:option value="${item.id}">${item.naam}</html:option>
+                                </c:forEach>
+                            </html:select>
+                        </td>
+                    </tr>
+                    </table>
+                </div>
+
+            </div> <!-- einde main table -->
+
+        </div> <!-- einde configkeeper_style -->
+
+        </fieldset>
+        </div>
+
+        <script type="text/javascript">
+            // Maak de tabjes
+            createTabs('configkeeper_tab_header_container');
+            firstTab('tab-zoeken-header');
+        </script>
     
-    <div class="clearBoth">
-    <html:submit property="save" accesskey="s" styleClass="knop" onclick="return confirm('Weet u zeker dat u dit wilt opslaan?');">
-        Opslaan
-    </html:submit>
-    </div>
+        <div class="clearBoth">
+            <html:submit property="save" accesskey="s" styleClass="knop" onclick="return confirm('Weet u zeker dat u dit wilt opslaan?');">
+                Opslaan
+            </html:submit>
+        </div>
 </html:form>

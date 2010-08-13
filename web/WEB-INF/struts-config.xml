@@ -127,20 +127,25 @@
             <form-property name="cfg_minBboxZoeken" type="java.lang.Integer"/>
             <form-property name="cfg_maxResults" type="java.lang.Integer"/>
             <form-property name="cfg_expandAll" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_thema" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_legenda" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_zoek" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_info" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_gebied" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_analyse" type="java.lang.Boolean"/>
-            <form-property name="cfg_tab_plansel" type="java.lang.Boolean"/>
-            <form-property name="zoekconfigids" type="java.lang.String[]"/>
             <form-property name="cfg_multipleActiveThemas" type="java.lang.Boolean"/>
             <form-property name="rolnaam" type="java.lang.String"/>
             <form-property name="cfg_useInheritCheckbox" type="java.lang.Boolean"/>
             <form-property name="cfg_showLegendInTree" type="java.lang.Boolean"/>
             <form-property name="cfg_useMouseOverTabs" type="java.lang.Boolean"/>
             <form-property name="cfg_layoutAdminData" type="java.lang.String"/>
+            <form-property name="cfg_tab1" type="java.lang.String"/>
+            <form-property name="cfg_tab2" type="java.lang.String"/>
+            <form-property name="cfg_tab3" type="java.lang.String"/>
+            <form-property name="cfg_tab4" type="java.lang.String"/>
+            <form-property name="cfg_tab5" type="java.lang.String"/>
+            <!-- 4 zoekingangen keuze voor zoekerIds -->
+            <form-property name="cfg_zoekenid1" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid2" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid3" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid4" type="java.lang.String"/>
+            <!-- 2 zoekingangen keuze voor planselectieIds -->
+            <form-property name="cfg_planselectieid1" type="java.lang.String"/>
+            <form-property name="cfg_planselectieid2" type="java.lang.String"/>
         </form-bean>
 
         <form-bean name="configRolPrioForm" type="org.apache.struts.validator.DynaValidatorForm">
