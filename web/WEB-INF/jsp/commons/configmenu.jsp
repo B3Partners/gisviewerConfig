@@ -11,25 +11,25 @@
     <c:set var="lnkArray" value="${fn:split(links, '%')}" />
 
     <c:if test="${requestJSP eq 'configRolPrio.do'}">
-        <c:set var="activelink" value="7" />
-    </c:if>
-    <c:if test="${requestJSP eq 'index.do'}">
-        <c:set var="activelink" value="6" />
-    </c:if>
-    <c:if test="${requestJSP eq 'configThema.do'}">
-        <c:set var="activelink" value="5" />
-    </c:if>
-    <c:if test="${requestJSP eq 'configCluster.do'}">
-        <c:set var="activelink" value="4" />
-    </c:if>
-    <c:if test="${requestJSP eq 'configThemaData.do'}">
-        <c:set var="activelink" value="3" />
-    </c:if>
-    <c:if test="${requestJSP eq 'configConnectie.do'}">
-        <c:set var="activelink" value="2" />
+        <c:set var="activelink" value="1" />
     </c:if>
     <c:if test="${requestJSP eq 'configZoekConfiguratie.do'}">
-        <c:set var="activelink" value="1" />
+        <c:set var="activelink" value="2" />
+    </c:if>
+    <c:if test="${requestJSP eq 'configConnectie.do'}">
+        <c:set var="activelink" value="3" />
+    </c:if>
+    <c:if test="${requestJSP eq 'configThemaData.do'}">
+        <c:set var="activelink" value="4" />
+    </c:if>
+    <c:if test="${requestJSP eq 'configCluster.do'}">
+        <c:set var="activelink" value="5" />
+    </c:if>
+    <c:if test="${requestJSP eq 'configThema.do'}">
+        <c:set var="activelink" value="6" />
+    </c:if>
+    <c:if test="${requestJSP eq 'index.do'}">
+        <c:set var="activelink" value="7" />
     </c:if>
 
     <c:forEach items="${lnkArray}" var="link" varStatus="counter">

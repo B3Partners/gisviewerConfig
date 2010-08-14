@@ -45,7 +45,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         <html:hidden property="id"/>
     </div>
     <c:if test="${!empty allConnecties}">
-        <div style="float: left; clear: both; margin-left: 5px; height: 180px; overflow: hidden;">
+        <div style="margin-left: 5px;">
             <table id="connectietable" class="tablesorter">
                 <thead>
                     <tr>
@@ -59,8 +59,8 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
                         <c:url var="link" value="/configConnectie.do?edit=submit&id=${ci.id}"/>
                         <tr>
-                            <td style="width: 30%;"><c:out value="${ci.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                            <td style="width: 70%;"><c:out value="${ci.url}"/></td>
+                            <td><c:out value="${ci.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
+                            <td><c:out value="${ci.url}"/></td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -160,20 +160,10 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     </div>
 </html:form>
 <script type="text/javascript">
-    $j(document).ready(function() {
-        tablesort(
-            'connectietable',
-            '153',
-            '900'
-        );
-        $j("#connectietable > tbody > tr").each(function(){
-            if($j(this).find("input[name=selected]").val() == "selected") {
-                $j(this).addClass("ui-state-highlight");
-                $j("#connectietable").parent().parent().scrollTop(($j(this).position().top - $j(this).parent().position().top)-1);
-            }
-            $j(this).click(function() {
-                window.location.href=$j(this).find("input[name=link]").val();
-            });
-        });
-    });
+    var globalrows;
+    tablepager(
+        'connectietable',
+        '900',
+        '14'
+    );
 </script>

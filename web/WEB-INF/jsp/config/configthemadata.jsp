@@ -43,7 +43,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         <html:hidden property="alt_action"/>
         <html:hidden property="themaDataID"/>
     </div>
-    <div class="maintable" style="margin-bottom: 10px; margin-left: 15px; float: left; clear: left;">
+    <div class="maintable" style="margin-bottom: 10px; margin-left: 5px;">
         <table>
             <tr>
                 <td style="color: #196299;">
@@ -70,7 +70,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     </div>
 
     <c:if test="${!empty listThemaData}">
-        <div style="float: left; clear: both; margin-left: 5px; height: 180px; overflow: hidden;">
+        <div style="margin-left: 5px;">
                 <table id="themadatatable" class="tablesorter">
                     <thead>
                         <tr>
@@ -86,10 +86,10 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
                             <c:url var="link" value="/configThemaData.do?edit=submit&themaDataID=${ci.id}"/>
                             <tr>
-                                <td style="width: 21%;"><c:out value="${ci.dataorder}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                                <td style="width: 23%;"><c:out value="${ci.label}"/></td>
-                                <td style="width: 23%;"><c:out value="${ci.kolomnaam}"/></td>
-                                <td style="width: 33%;">
+                                <td><c:out value="${ci.dataorder}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
+                                <td><c:out value="${ci.label}"/></td>
+                                <td><c:out value="${ci.kolomnaam}"/></td>
+                                <td>
                                     <c:if test="${ci.basisregel}">Ja</c:if>
                                 </td>
                             </tr>
@@ -207,20 +207,9 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 </html:form>
 <iframe src="BLOCKED SCRIPT'&lt;html&gt;&lt;/html&gt;';" id="iframeBehindHelp" scrolling="no" frameborder="0" style="position:absolute; width:1px; height:0px; top:0px; left:0px; border:none; display:none; z-index:100"></iframe>
 <script type="text/javascript">
-    $j(document).ready(function() {
-        tablesort(
-            'themadatatable',
-            '153',
-            '900'
-        );
-        $j("#themadatatable > tbody > tr").each(function(){
-            if($j(this).find("input[name=selected]").val() == "selected") {
-                $j(this).addClass("ui-state-highlight");
-                $j("#themadatatable").parent().parent().scrollTop(($j(this).position().top - $j(this).parent().position().top)-1);
-            }
-            $j(this).click(function() {
-                window.location.href=$j(this).find("input[name=link]").val();
-            });
-        });
-    });
+    tablepager(
+        'themadatatable',
+        '900',
+        '14'
+    );
 </script>

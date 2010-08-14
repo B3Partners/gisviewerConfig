@@ -40,7 +40,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     <div class="infobalk_description"><fmt:message key="configthema.infobalk"/></div>
     <div class="infobalk_actions"> <tiles:insert name="loginblock"/> </div>
 </div>
-    
+
 <html:form action="/configThema" focus="${focus}">
     <div style="display: none;">
         <html:hidden property="action"/>
@@ -57,7 +57,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     </div>
 
     <c:if test="${!empty allThemas}">
-        <div style="float: left; clear: both; margin-left: 5px; height: 180px; overflow: hidden;">
+        <div style="margin-left: 5px;">
             <table id="themalisttable" class="tablesorter">
                 <thead>
                     <tr>
@@ -75,12 +75,12 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <c:set var="id_selected" value='' />
                         <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
                         <tr>
-                            <td style="width: 7%;"><c:out value="${ci.belangnr}"/>&nbsp;<input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                            <td style="width: 35%;"><c:out value="${ci.naam}"/>&nbsp;</td>
-                            <td style="width: 10%;"><c:out value="${ci.code}"/>&nbsp;</td>
-                            <td style="width: 19%;"><c:out value="${ci.admin_tabel}"/>&nbsp;</td>
-                            <td style="width: 19%;"><c:out value="${ci.spatial_tabel}"/>&nbsp;</td>
-                            <td style="width: 10%;">
+                            <td><c:out value="${ci.belangnr}"/>&nbsp;<input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
+                            <td><c:out value="${ci.naam}"/>&nbsp;</td>
+                            <td><c:out value="${ci.code}"/>&nbsp;</td>
+                            <td><c:out value="${ci.admin_tabel}"/>&nbsp;</td>
+                            <td><c:out value="${ci.spatial_tabel}"/>&nbsp;</td>
+                            <td>
                                 <c:if test="${ci.code!='3'}">
                                     &nbsp;<html:link page="/configThemaData.do?edit=submit&themaID=${ci.id}">TD</html:link>&nbsp;
                                 </c:if>
@@ -91,7 +91,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             </table>
         </div>
     </c:if>
-    <div id="content_style" style="float: left; clear: left;">
+    <div id="content_style">
         <div class="berichtenbalk">
             <html:messages id="error" message="true">
                 <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
@@ -463,22 +463,12 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 </html:form>
 
 <script type="text/javascript">
-    $j(document).ready(function() {
-        tablesort(
-            'themalisttable',
-            '153',
-            '900'
-        );
-        $j("#themalisttable > tbody > tr").each(function(){
-            if($j(this).find("input[name=selected]").val() == "selected") {
-                $j(this).addClass("ui-state-highlight");
-                $j("#themalisttable").parent().parent().scrollTop(($j(this).position().top - $j(this).parent().position().top)-1);
-            }
-            $j(this).click(function() {
-                window.location.href=$j(this).find("input[name=link]").val();
-            });
-        });
-    });
+    tablepager(
+        'themalisttable',
+        '930',
+        '14'
+    );
+
     var pageConnectionType="${connectieType}";
     var currentConnectionType="${connectieType}";
     var connectionTypes=new Array();

@@ -38,7 +38,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>    
 <c:if test="${!empty zoekConfiguraties}">
-    <div style="float: left; clear: both; margin-left: 5px; height: 180px; overflow: hidden;">
+    <div style="margin-left: 5px;">
         <table id="zoekconfiguratieTable" class="tablesorter">
             <thead>
                 <tr>
@@ -52,7 +52,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             <tbody>
                 <c:forEach var="zc" varStatus="status" items="${zoekConfiguraties}">
                     <c:set var="id_selected" value="" />
-                    <c:if test="${zc.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
+                    <c:if test="${zc.id == form.map.zoekConfiguratieId}"><c:set var="id_selected" value='selected' /></c:if>
                     <c:url var="link" value="/wizardZoekConfiguratie.do?step2=submit&zoekConfiguratieId=${zc.id}"/>
                     <tr>
                         <td><c:out value="${zc.id}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
@@ -215,20 +215,9 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     </c:if>
 </div>
 <script type="text/javascript">
-    $j(document).ready(function() {
-        tablesort(
+    tablepager(
         'zoekconfiguratieTable',
-        '153',
-        '900'
+        '900',
+        '14'
     );
-        $j("#zoekconfiguratieTable > tbody > tr").each(function(){
-            if($j(this).find("input[name=selected]").val() == "selected") {
-                $j(this).addClass("ui-state-highlight");
-                $j("#zoekconfiguratieTable").parent().parent().scrollTop(($j(this).position().top - $j(this).parent().position().top)-1);
-            }
-            $j(this).click(function() {
-                window.location.href=$j(this).find("input[name=link]").val();
-            });
-        });
-    });
 </script>

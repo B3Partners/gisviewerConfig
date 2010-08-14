@@ -45,7 +45,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     </div>
 
     <c:if test="${!empty allClusters}">
-        <div style="float: left; clear: both; margin-left: 5px; height: 180px; overflow: hidden;">
+        <div style="margin-left: 5px;">
             <table id="clustertable" class="tablesorter">
                 <thead>
                     <tr>
@@ -301,20 +301,9 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 </html:form>
 
 <script type="text/javascript">
-    $j(document).ready(function() {
-        tablesort(
-            'clustertable',
-            '153',
-            '900'
-        );
-        $j("#clustertable > tbody > tr").each(function(){
-            if($j(this).find("input[name=selected]").val() == "selected") {
-                $j(this).addClass("ui-state-highlight");
-                $j("#clustertable").parent().parent().scrollTop(($j(this).position().top - $j(this).parent().position().top)-1);
-            }
-            $j(this).click(function() {
-                window.location.href=$j(this).find("input[name=link]").val();
-            });
-        });
-    });
+    tablepager(
+        'clustertable',
+        '900',
+        '14'
+    );
 </script>
