@@ -1452,6 +1452,27 @@ $.fn.metadata = function( opts ){
 
 })(jQuery);
 
+// add parser for ducth dates (dd-mm-yyyy)
+jQuery.tablesorter.addParser({
+    // set a unique id
+    id: 'dutchdates',
+    is: function(s) {
+        return false;
+    },
+    format: function(s) {
+        s = '' + s;
+        var hit = s.match(/(\d{2})-(\d{2})-(\d{4})/);
+        if (hit && hit.length == 4) {
+            return hit[3] + hit[2] + hit[1];
+        }
+        else {
+            return s;
+        }
+    },
+    type: 'text'
+});
+
+
 function tablepager(tableid, tablewidth, cellheight) {
     // Load IE6 immediatly because of positioning of elements. For the rest of the browsers: wait until DOM tree is loaded
     if(ieVersion <= 6 && ieVersion != -1) tablepagerfunc(tableid, tablewidth, cellheight);
@@ -1479,6 +1500,7 @@ function tablepagerfunc(tableid, tablewidth, cellheight) {
 
 		// Add extra tr for inputfilters
 		var trCode = '<tr class="filterrow">';
+                var addedinputfilters = false;
 		jQuery(tableid).find("th").each(function(index) {
 			if(!jQuery(this).hasClass("no-filter")) {
 				var id = "filterbox" + counter;
@@ -1487,13 +1509,14 @@ function tablepagerfunc(tableid, tablewidth, cellheight) {
 				filters.push({
 					filterContainer: id, filterColumns: [counter]
 				});
+                                addedinputfilters = true;
 			} else {
 				trCode += '<td>&nbsp;</td>';
 			}
 			counter++;
 		});
 		trCode = trCode + '</th>';
-		jQuery(tableid).find("thead").append(trCode);
+		if(addedinputfilters) jQuery(tableid).find("thead").append(trCode);
 
 		// add pager controls
 		jQuery(tableid).parent().after(createPagercontrols());
