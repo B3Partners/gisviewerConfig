@@ -88,7 +88,17 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             <tr>
                                 <td><c:out value="${ci.dataorder}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                                 <td><c:out value="${ci.label}"/></td>
-                                <td><c:out value="${ci.kolomnaam}"/></td>
+                                <c:set var="accolade" value="}"/>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${fn:contains(ci.kolomnaam, accolade)}">
+                                            <c:out value='${fn:substringAfter(ci.kolomnaam, accolade)}'/>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:out value='${ci.kolomnaam}'/>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    &nbsp;</td>
                                 <td>
                                     <c:if test="${ci.basisregel}">Ja</c:if>
                                 </td>

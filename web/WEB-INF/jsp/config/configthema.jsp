@@ -78,8 +78,28 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             <td><c:out value="${ci.belangnr}"/>&nbsp;<input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                             <td><c:out value="${ci.naam}"/>&nbsp;</td>
                             <td><c:out value="${ci.code}"/>&nbsp;</td>
-                            <td><c:out value="${ci.admin_tabel}"/>&nbsp;</td>
-                            <td><c:out value="${ci.spatial_tabel}"/>&nbsp;</td>
+
+                            <c:set var="accolade" value="}"/>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${fn:contains(ci.admin_tabel, accolade)}">
+                                        <c:out value='${fn:substringAfter(ci.admin_tabel, accolade)}'/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:out value='${ci.admin_tabel}'/>
+                                    </c:otherwise>
+                                </c:choose>
+                                &nbsp;</td>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${fn:contains(ci.spatial_tabel, accolade)}">
+                                        <c:out value='${fn:substringAfter(ci.spatial_tabel, accolade)}'/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:out value='${ci.spatial_tabel}'/>
+                                    </c:otherwise>
+                                </c:choose>
+                                &nbsp;</td>
                             <td>
                                 <c:if test="${ci.code!='3'}">
                                     &nbsp;<html:link page="/configThemaData.do?edit=submit&themaID=${ci.id}">TD</html:link>&nbsp;
