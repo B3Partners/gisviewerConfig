@@ -74,10 +74,10 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 <table id="themadatatable" class="tablesorter">
                     <thead>
                         <tr>
-                            <th style="width: 21%;" class="sorttype-int">Volgorde</th>
-                            <th style="width: 23%;"><fmt:message key="configthemadata.label"/></th>
-                            <th style="width: 23%;"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></th>
-                            <th style="width: 33%;"><fmt:message key="configthemadata.basisregel"/></th>
+                            <th style="width: 10%;" class="sorttype-int">Volgorde</th>
+                            <th style="width: 40%;"><fmt:message key="configthemadata.label"/></th>
+                            <th style="width: 40%;"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></th>
+                            <th style="width: 10%;"><fmt:message key="configthemadata.basisregel"/></th>
                         </tr>
                     </thead>
                     <tbody>

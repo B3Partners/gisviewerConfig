@@ -49,8 +49,9 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             <table id="clustertable" class="tablesorter">
                 <thead>
                     <tr>
-                        <th style="width: 30%;"><fmt:message key="configcluster.naam"/></th>
-                        <th style="width: 70%;"><fmt:message key="configcluster.ouder"/></th>
+                        <th style="width: 10%;" class="sorttype-int">Volgorde</th>
+                        <th style="width: 40%;"><fmt:message key="configcluster.naam"/></th>
+                        <th style="width: 40%;"><fmt:message key="configcluster.ouder"/></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,6 +60,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
                         <c:url var="link" value="/configCluster.do?edit=submit&clusterID=${ci.id}"/>
                         <tr>
+                            <td><c:out value="${ci.belangnr}"/>&nbsp;<input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                             <td><c:out value="${ci.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                             <td><c:out value="${ci.parent.naam}"/></td>
                         </tr>

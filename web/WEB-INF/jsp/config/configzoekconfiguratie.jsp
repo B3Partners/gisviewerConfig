@@ -42,11 +42,11 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         <table id="zoekconfiguratieTable" class="tablesorter">
             <thead>
                 <tr>
-                    <th><fmt:message key="configzoekconfiguratie.id"/></th>
-                    <th><fmt:message key="configzoekconfiguratie.naam"/></th>
-                    <th><fmt:message key="configzoekconfiguratie.featuretype"/></th>
-                    <th><fmt:message key="configzoekconfiguratie.parentbron"/></th>
-                    <th><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></th>
+                    <th style="width: 5%;" class="sorttype-int">ID</th>
+                    <th style="width: 25%;"><fmt:message key="configzoekconfiguratie.naam"/></th>
+                    <th style="width: 25%;"><fmt:message key="configzoekconfiguratie.featuretype"/></th>
+                    <th style="width: 25%;"><fmt:message key="configzoekconfiguratie.parentbron"/></th>
+                    <th style="width: 20%;"><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></th>
                 </tr>
             </thead>
             <tbody>

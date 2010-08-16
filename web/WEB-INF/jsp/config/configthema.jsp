@@ -61,11 +61,12 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             <table id="themalisttable" class="tablesorter">
                 <thead>
                     <tr>
-                        <th style="width: 7%;" class="sorttype-int">Nr</th>
-                        <th style="width: 35%;">Naam</th>
-                        <th style="width: 10%;" class="sorttype-int">Code</th>
-                        <th style="width: 19%;">Admin Table</th>
-                        <th style="width: 19%;">Spatial Tabel</th>
+                        <th style="width: 10%;" class="sorttype-int">Volgorde</th>
+                        <th style="width: 30%;">Naam</th>
+                        <th style="width: 20%;"><fmt:message key="configthema.cluster"/></th>
+                        <!-- <th style="width: 10%;" class="sorttype-int">Code</th> -->
+                        <th style="width: 15%;">Gegevenstabel</th>
+                        <th style="width: 15%;">Geometrietabel</th>
                         <th style="width: 10%;">Data</th>
                     </tr>
                 </thead>
@@ -77,7 +78,8 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <tr>
                             <td><c:out value="${ci.belangnr}"/>&nbsp;<input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                             <td><c:out value="${ci.naam}"/>&nbsp;</td>
-                            <td><c:out value="${ci.code}"/>&nbsp;</td>
+                            <td><c:out value="${ci.cluster.naam}"/></td>
+                            <!-- <td><c:out value="${ci.code}"/>&nbsp;</td> -->
 
                             <c:set var="accolade" value="}"/>
                             <td>
@@ -214,7 +216,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         </td>
                         <td colspan="3">
                             <html:select property="connectie" onchange="refreshFeatureList(this);" styleId='connectie_select' styleClass="configSelect">
-                                <html:option value="-1">Geen Connectie</html:option>
+                                <html:option value="-1">Geen bron</html:option>
                                 <html:option value="0">Kaartenbalie Wfs</html:option>
                                 <c:forEach var="cuItem" items="${listConnecties}">
                                     <html:option value="${cuItem.id}">

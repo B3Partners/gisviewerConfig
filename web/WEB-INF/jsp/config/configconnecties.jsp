@@ -49,8 +49,9 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             <table id="connectietable" class="tablesorter">
                 <thead>
                     <tr>
-                        <th style="width: 30%;"><fmt:message key="configconnectie.naam"/></th>
-                        <th style="width: 70%;"><fmt:message key="configconnectie.url"/></th>
+                        <th style="width: 10%;" class="sorttype-int">Volgorde</th>
+                        <th style="width: 40%;"><fmt:message key="configconnectie.naam"/></th>
+                        <th style="width: 50%;"><fmt:message key="configconnectie.url"/></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,6 +60,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
                         <c:url var="link" value="/configConnectie.do?edit=submit&id=${ci.id}"/>
                         <tr>
+                            <td><c:out value="${ci.volgorde}"/></td>
                             <td><c:out value="${ci.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                             <td><c:out value="${ci.url}"/></td>
                         </tr>
