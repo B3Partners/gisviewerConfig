@@ -268,9 +268,12 @@
             <div class="maintable">
 
                 <div class="configkeeper_tab" id="tab-zoeken-content">
+
+                    <p><fmt:message key="tab-zoeken-content.header"/></p>
+
                     <table cellpadding="2" cellspacing="2" border="0">
                     <tr>
-                        <td>Zoekingang 1</td>
+                        <td><fmt:message key="cfg_zoekenid1.label"/></td>
                         <td>
                             <html:select property="cfg_zoekenid1">
                                 <html:option value="leeg">-Kies een zoekingang-</html:option>
@@ -281,7 +284,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Zoekingang 2</td>
+                        <td><fmt:message key="cfg_zoekenid2.label"/></td>
                         <td>
                             <html:select property="cfg_zoekenid2">
                                 <html:option value="leeg">-Kies een zoekingang-</html:option>
@@ -292,7 +295,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Zoekingang 3</td>
+                        <td><fmt:message key="cfg_zoekenid3.label"/></td>
                         <td>
                             <html:select property="cfg_zoekenid3">
                                 <html:option value="leeg">-Kies een zoekingang-</html:option>
@@ -303,7 +306,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Zoekingang 4</td>
+                        <td><fmt:message key="cfg_zoekenid4.label"/></td>
                         <td>
                             <html:select property="cfg_zoekenid4">
                                 <html:option value="leeg">-Kies een zoekingang-</html:option>
@@ -317,9 +320,12 @@
                 </div> <!-- Einde zoeken tabje -->
 
                 <div class="configkeeper_tab" id="tab-planselectie-content">
+
+                    <p><fmt:message key="tab-planselectie-content.header"/></p>
+
                     <table cellpadding="2" cellspacing="2" border="0">
                     <tr>
-                        <td>Zoekingang 1</td>
+                        <td><fmt:message key="cfg_planselectieid1.label"/></td>
                         <td>
                             <html:select property="cfg_planselectieid1">
                                 <html:option value="leeg">-Kies een zoekingang-</html:option>
@@ -330,7 +336,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Zoekingang 2</td>
+                        <td><fmt:message key="cfg_planselectieid2.label"/></td>
                         <td>
                             <html:select property="cfg_planselectieid2">
                                 <html:option value="leeg">-Kies een zoekingang-</html:option>

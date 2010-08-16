@@ -672,26 +672,38 @@ table.tablesorter thead tr .headerSortDown {
 }
 
 /* Design configuratie tabjes van configkeeper */
-#configkeeper_style, #configkeeper_style h1, #configkeeper_style h2, #configkeeper_style div, #configkeeper_style td, #configkeeper_style th, #configkeeper_style a, #configkeeper_style li {
+#configkeeper_style, #configkeeper_style div {
     color: #196299;
-    width: 99%;
+    width: 550px;
 }
 
 #configkeeper_style {
-    padding: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+#configkeeper_style p {
+    color: #000;
+}
+
+#configkeeper_style td {
+    padding-bottom: 5px;
 }
 
 #configkeeper_style .configkeeper_tab {
-    border: 1px solid #000;
+    display: none;
 }
 
 #configkeeper_style .configkeeper_tab_header {
     border: 1px solid #1C6CA7;
     color: #1C6CA7;
-    background-color: #fff;;
-    width: 60px;
+    width: 80px;
     float: left;
+    text-align: center;
+    font-size: 1.2em;
     padding: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
 }
 
 #configkeeper_style .active_tab {
