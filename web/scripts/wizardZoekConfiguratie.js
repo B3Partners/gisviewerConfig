@@ -67,6 +67,7 @@ function openResultaatAttribuutForm(id){
 function openAttribuutForm(id,paramName){
     var url=attribuutFormUrl+"?"+paramName+"="+id;
     document.getElementById("iframeZoekConfiguratieVeld").src=url;
+    openAsDialog("dialogPopUp")
 }
 /**
  *Open een nieuw attribuut in het form

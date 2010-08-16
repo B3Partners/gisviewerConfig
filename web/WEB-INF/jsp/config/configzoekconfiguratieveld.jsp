@@ -69,7 +69,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 </td>
                 <td>
                     <html:select styleId="type" property="type">
-                        
+                    
                     </html:select>
                 </td>
             </tr>
@@ -87,13 +87,13 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     </html:form>
     </c:when>
         <c:otherwise>
-            <script>   
+            <script type='text/javascript'>
                 setTimeout("window.parent.refreshPage()",500);
             </script>
         </c:otherwise>
     </c:choose>
 </div>
-<script>
+<script type='text/javascript'>
     var bindings= new Object();
     <c:forEach items="${attribuutNamen}" var="a">
         bindings["${a[0]}"]="${a[1]}";

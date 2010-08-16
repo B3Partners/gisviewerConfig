@@ -71,14 +71,15 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             </tr>
         </table>
     </div>
+
     <div class="wizardButtonBar">
         <c:if test="${empty zoekConfiguratieId}">
             <html:submit property="step1"><fmt:message key='button.previous'/></html:submit>
         </c:if>
         <html:submit property="step3"><fmt:message key='button.next'/></html:submit>
         <c:if test="${not empty zoekConfiguratieId}">
-            <input type="button" onclick="deleteZoekConfiguratie(${zoekConfiguratieId})" value="<fmt:message key='button.remove'/>"></input>
-            <input type="button" onclick="window.location='<html:rewrite page='/configZoekConfiguratie.do'/>'" value="<fmt:message key='button.cancel'/>"></input>
+            <input type="button" onclick="deleteZoekConfiguratie(${zoekConfiguratieId})" value="<fmt:message key='button.remove'/>" />
+            <input type="button" onclick="window.location='<html:rewrite page='/configZoekConfiguratie.do'/>'" value="<fmt:message key='button.cancel'/>" />
         </c:if>
     </div>
 </html:form>

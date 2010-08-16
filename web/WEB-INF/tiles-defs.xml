@@ -65,6 +65,7 @@
         <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie3.jsp"/>
     </definition>
     <definition name="wizardzoekconfiguratie4" extends="wizardzoekconfiguratie">
+        <put name="title" value="Configureer de velden" type="string"/>
         <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie4.jsp"/>
     </definition>
 

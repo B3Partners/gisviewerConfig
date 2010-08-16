@@ -1,50 +1,34 @@
-<%--
-B3P Gisviewer is an extension to Flamingo MapComponents making      
-it a complete webbased GIS viewer and configuration tool that    
-works in cooperation with B3P Kaartenbalie.  
-
-Copyright 2006, 2007, 2008 B3Partners BV
-
-This file is part of B3P Gisviewer.
-
-B3P Gisviewer is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-B3P Gisviewer is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
---%>
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
 <%@ page isELIgnored="false"%>
 
-<script type='text/javascript' src="<html:rewrite page='/dwr/interface/JZoekConfiguratieUtil.js' module=''/>">
-</script>
+<script type='text/javascript' src="<html:rewrite page='/dwr/interface/JZoekConfiguratieUtil.js' module=''/>"></script>
 <script type='text/javascript' src="<html:rewrite page='/dwr/engine.js' module=''/>"></script>
 <script type="text/javascript" src="<html:rewrite page='/scripts/wizardZoekConfiguratie.js' module=''/>"></script>
+
 <div class="infobalk">
     <div class="infobalk_description"><fmt:message key="wizardzoekconfiguratie.step4"/></div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
+
 <script type="text/javascript">
     var attribuutFormUrl="<html:rewrite page='/configZoekConfiguratieVeld.do' module=''/>";
     var startPage="<html:rewrite page='/configZoekConfiguratie.do' module=''/>";
 </script>
+
 <html:form action="/wizardZoekConfiguratie">
-    <input type="hidden" name="step3" id="stepElement"/>
-    <input type="hidden" name="bronId" value="${bronId}"/>
-    <input type="hidden" name="featureType" value="${featureType}"/>
-    <input type="hidden" id="zoekConfiguratieId" name="zoekConfiguratieId" value="${zoekConfiguratieId}"/>
-    <div class="berichtenbalk">
-        <html:messages id="error" message="true">
-            <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
-        </html:messages>
-    </div>
+
+<input type="hidden" name="step3" id="stepElement"/>
+<input type="hidden" name="bronId" value="${bronId}"/>
+<input type="hidden" name="featureType" value="${featureType}"/>
+<input type="hidden" id="zoekConfiguratieId" name="zoekConfiguratieId" value="${zoekConfiguratieId}"/>
+
+<div class="berichtenbalk">
+    <html:messages id="error" message="true">
+        <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
+    </html:messages>
+</div>
+
+<div style="margin-left: 5px;">
     <div class="wizardQuestionBlock">
         <p>
             <fmt:message key="wizardzoekconfiguratie.vraag.geefattributen"/>
@@ -55,7 +39,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 </td>
                 <td>
                     <fmt:message key="configzoekconfiguratie.resultaatattribuut"/>
-                </td>          
+                </td>
             </tr>
             <tr>
                 <td><div class="zoekConfiguratieVeldenContainer">
@@ -91,11 +75,11 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             </tr>
             <tr>
                 <td valign="top">
-                    <div style="cursor: pointer;" onclick="addAttribuut(${zoekConfiguratieId},'zoek')">+</div>
+                    <div class="addZoekerVeld" onclick="addAttribuut(${zoekConfiguratieId},'zoek')">+ Nieuw zoekveld</div>
                 </td>
 
                 <td valign="top">
-                    <div style="cursor: pointer;" onclick="addAttribuut(${zoekConfiguratieId},'resultaat')">+</div>
+                    <div class="addZoekerVeld" onclick="addAttribuut(${zoekConfiguratieId},'resultaat')">+ Nieuw resultaatveld</div>
                 </td>
             </tr>
         </table>
@@ -121,17 +105,22 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 <ul>
                     <c:forEach items="${tips}" var="tip">
                         <li><fmt:message key="${tip}"/></li>
-                    </c:forEach>                    
+                    </c:forEach>
                 </ul>
             </div>
         </c:if>
-    </div>
-    <div class="wizardButtonBar">
+    </div> <!-- einde div wizardQuestionBlock -->
+
+    <div class="knoppenbalk">
         <html:submit property="step2"><fmt:message key='button.previous'/></html:submit>
         <input type="button" onclick="openStartPage()"value="<fmt:message key='button.ok'/>"/>
     </div>
+    
+</div> <!-- einde div content -->
+
 </html:form>
 
-<div id ="dialogPopUp">
-    <iframe id="iframeZoekConfiguratieVeld"/>
+<!-- Als je /> gebruikt om iframe tag af te sluiten wordt footer niet getoont ? -->
+<div id="dialogPopUp">
+    <iframe id="iframeZoekConfiguratieVeld"></iframe>
 </div>

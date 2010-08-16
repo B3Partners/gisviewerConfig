@@ -207,6 +207,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                     </tr>
                     --%>
                 </table>
+
                 <div style="margin-top: 150px;float: left; width: 400px; height: 200px;">
                     <iframe style="height: 100%; width: 100%;"id="iframeZoekConfiguratieVeld"/>
                 </div>

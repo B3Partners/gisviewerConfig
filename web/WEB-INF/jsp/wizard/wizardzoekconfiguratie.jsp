@@ -42,6 +42,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         </c:forEach>
         <input type="radio" name="bronId" value="new"><fmt:message key="wizardzoekconfiguratie.antwoord.nieuwebron"/>
     </div>
+    
     <div class="wizardButtonBar">
         <html:submit property="step1"><fmt:message key='button.next'/></html:submit>
         <input type="button" onclick="window.location='<html:rewrite page='/configZoekConfiguratie.do'/>'" value="<fmt:message key='button.cancel'/>"></input>

@@ -195,6 +195,7 @@
     overflow: auto;
     height: 100px;
     vertical-align: top;
+    background-color: #fff;
 }
 .zoekConfiguratieAttribuutNaam{
     width: 300px;
@@ -213,18 +214,27 @@
 .wizardButtonBar{
     margin-top: 10px;
 }
+
 #dialogPopUp{
     float: left;
     width: 400px;
     height: 200px;
     display: none;
 }
-.tipsContainer{
-    float: left;
-}
+
 /*Dialog popup iframe voor wizard*/
 #dialogPopUp iframe{
-    border: 0px;
-    height: 100%;
-    width: 100%;
+    width: 320px;
+    height: 240px;
+    padding: 5px;
+}
+
+.tipsContainer{
+    float: left;
+    padding-top: 10px;
+}
+
+.addZoekerVeld {
+    cursor: pointer;
+    font-size: 1.2em;
 }
