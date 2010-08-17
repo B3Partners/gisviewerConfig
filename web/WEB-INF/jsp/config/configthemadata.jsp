@@ -104,7 +104,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                                 <td>
                                     <c:choose>
                                         <c:when test="${fn:contains(ci.kolomnaam, accolade)}">
-                                            <c:out value='${fn:substringAfter(ci.kolomnaam, accolade)}'/>
+                                            <span title="<c:out value='${ci.kolomnaam}'/>"><c:out value='${fn:substringAfter(ci.kolomnaam, accolade)}'/></span>
                                         </c:when>
                                         <c:otherwise>
                                             <c:out value='${ci.kolomnaam}'/>
