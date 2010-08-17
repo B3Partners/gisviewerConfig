@@ -74,9 +74,10 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 <table id="themadatatable" class="tablesorter">
                     <thead>
                         <tr>
+                            <th style="width: 10%;">Status</th>
                             <th style="width: 10%;" class="sorttype-int">Volgorde</th>
-                            <th style="width: 40%;"><fmt:message key="configthemadata.label"/></th>
-                            <th style="width: 40%;"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></th>
+                            <th style="width: 35%;"><fmt:message key="configthemadata.label"/></th>
+                            <th style="width: 35%;"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></th>
                             <th style="width: 10%;"><fmt:message key="configthemadata.basisregel"/></th>
                         </tr>
                     </thead>
@@ -86,6 +87,17 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
                             <c:url var="link" value="/configThemaData.do?edit=submit&themaDataID=${ci.id}"/>
                             <tr>
+                                <td>
+                                    <c:set var="bracketKolom" value="[${ci.kolomnaam}]"/>
+                                    <c:choose>
+                                        <c:when test="${fn:contains(listUglyThemaData, bracketKolom)}">
+                                            <span style="color: red"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span style="color: green">GOED</span>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </td>
                                 <td><c:out value="${ci.dataorder}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                                 <td><c:out value="${ci.label}"/></td>
                                 <c:set var="accolade" value="}"/>
