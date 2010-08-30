@@ -250,7 +250,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                     <tr>
                         <td><fmt:message key="configthema.${connectieType}.adminpk"/> <a href="#" onclick="return showHelpDialog('help_configthema${connectieType}adminpk');">(?)</a><div id="help_configthema${connectieType}adminpk" style="display: none;" title="<fmt:message key="configthema.${connectieType}.adminpk"/>"><fmt:message key="configthema.${connectieType}.adminpk.uitleg"/></div></td>
                         <td colspan="3">
-                            <html:select property="admin_pk" onchange="createAdminQ();" styleId="admin_pk_select" styleClass="configSelect">
+                            <html:select property="admin_pk" styleId="admin_pk_select" styleClass="configSelect">
                                 <html:option value=""/>
                                 <c:choose>
                                     <c:when test="${fn:length(listAdminTableColumns)>1}">
