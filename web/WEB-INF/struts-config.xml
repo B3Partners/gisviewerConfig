@@ -126,6 +126,7 @@
             <form-property name="cfg_refreshDelay" type="java.lang.Integer"/>
             <form-property name="cfg_minBboxZoeken" type="java.lang.Integer"/>
             <form-property name="cfg_maxResults" type="java.lang.Integer"/>
+            <form-property name="cfg_hideAdvancedButtons" type="java.lang.Boolean"/>
             <form-property name="cfg_expandAll" type="java.lang.Boolean"/>
             <form-property name="cfg_multipleActiveThemas" type="java.lang.Boolean"/>
             <form-property name="rolnaam" type="java.lang.String"/>

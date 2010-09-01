@@ -98,6 +98,17 @@
             <td><html:text property="cfg_maxResults" size="5"/></td>
         </tr>
 
+        <tr>
+            <td>
+                <fmt:message key="cfg_multipleActiveThemas.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_multipleActiveThemas');">(?)</a>
+                <div id="help_cfg_multipleActiveThemas" style="display: none;" title="<fmt:message key="cfg_multipleActiveThemas.label"/>">
+                    <p><fmt:message key="cfg_multipleActiveThemas.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:checkbox property="cfg_multipleActiveThemas"/></td>
+        </tr>
+
         </table>
         </div>
         </fieldset>
@@ -105,7 +116,7 @@
 
     <div class="fieldset_block">
         <fieldset class="fieldset1">
-        <legend class="fieldLegend">Object informatie</legend>
+        <legend class="fieldLegend">Layout</legend>
         
         <div class="content_body">
         <table>
@@ -146,18 +157,6 @@
             </td>
             <td><html:text property="cfg_autoRedirect" size="5"/></td>
         </tr>
-
-        <tr>
-            <td>
-                <fmt:message key="cfg_multipleActiveThemas.label"/>
-                <a href="#" onclick="return showHelpDialog('help_cfg_multipleActiveThemas');">(?)</a>
-                <div id="help_cfg_multipleActiveThemas" style="display: none;" title="<fmt:message key="cfg_multipleActiveThemas.label"/>">
-                    <p><fmt:message key="cfg_multipleActiveThemas.uitleg"/></p>
-                </div>
-            </td>
-            <td><html:checkbox property="cfg_multipleActiveThemas"/></td>
-        </tr>
-
         <tr>
             <td>
                 <fmt:message key="cfg_layoutAdminData.label"/>
@@ -173,6 +172,17 @@
                     <html:option value="admindata3"><fmt:message key="cfg_layoutAdminData.3"/></html:option>
                 </html:select>
             </td>
+        </tr>
+
+        <tr>
+            <td>
+                <fmt:message key="cfg_hideAdvancedButtons.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_hideAdvancedButtons');">(?)</a>
+                <div id="help_cfg_hideAdvancedButtons" style="display: none;" title="<fmt:message key="cfg_hideAdvancedButtons.label"/>">
+                    <p><fmt:message key="cfg_hideAdvancedButtons.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:checkbox property="cfg_hideAdvancedButtons"/></td>
         </tr>
 
         </table>
