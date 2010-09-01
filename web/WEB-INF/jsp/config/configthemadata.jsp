@@ -91,7 +91,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                                     <c:set var="bracketKolom" value="[${ci.kolomnaam}]"/>
                                     <c:choose>
                                         <c:when test="${fn:contains(listUglyThemaData, bracketKolom)}">
-                                            <span style="color: red"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></span>
+                                            <span style="color: red"><fmt:message key="configthemadata.${connectieType}.fout"/></span>
                                         </c:when>
                                         <c:otherwise>
                                             <span style="color: green">GOED</span>
