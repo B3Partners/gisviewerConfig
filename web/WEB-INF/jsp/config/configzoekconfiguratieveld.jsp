@@ -1,25 +1,3 @@
-<%--
-B3P Gisviewer is an extension to Flamingo MapComponents making
-it a complete webbased GIS viewer and configuration tool that
-works in cooperation with B3P Kaartenbalie.
-
-Copyright 2006, 2007, 2008 B3Partners BV
-
-This file is part of B3P Gisviewer.
-
-B3P Gisviewer is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-B3P Gisviewer is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
---%>
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
 <%@ page isELIgnored="false"%>
 <script type='text/javascript' src="<html:rewrite page='/dwr/util.js' module=''/>">
@@ -58,18 +36,13 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 <td><html:text styleId="label" property="label"></html:text>
                 </td>
             </tr>
-            <%--tr>
-                <td><fmt:message key="configzoekconfiguratieveld.naam"/>
-                </td>
-                <td><html:text property="naam"></html:text>
-                </td>
-            </tr--%>
             <tr>
+
                 <td><fmt:message key="configzoekconfiguratieveld.type"/>
                 </td>
                 <td>
                     <html:select styleId="type" property="type">
-                    
+
                     </html:select>
                 </td>
             </tr>
@@ -115,6 +88,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     types[index]=new Object();
     types[index].option={"2" : "Toon"};
     types[index].forZoek=false;
+    types[index].forResultaat=true;
     types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
 
     index++;
@@ -122,6 +96,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     types[index].option={"0":"Geen"};//new Option("Geen","0");//
     types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
     types[index].forZoek=false;
+    types[index].forResultaat=true;
 
     index++;
     types[index]=new Object();
@@ -133,11 +108,12 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     types[index]=new Object();
     types[index].option={"1" : "Id"};
     types[index].forZoek=false;
-    types[index].forResultaat=false;
+    types[index].forResultaat=true;
     
     index++;
     types[index]=new Object();
     types[index].option={"3" : "Geometry"};
+    types[index].forResultaat=true;
     types[index].allowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
     
     index++;
