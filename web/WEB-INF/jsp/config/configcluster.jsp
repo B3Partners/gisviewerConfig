@@ -89,7 +89,9 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             <p><fmt:message key="config.copypastelink.uitleg"/></p>
                         </div>
                         </td>
-                        <td><html:link page="/viewer.do?clusterId=${form.map.clusterID}"><fmt:message key="config.linknaam.copypastelink"/></html:link></td>
+                        <td>
+                            <a href="${absoluteURIPrefix}/gisviewer/viewer.do?clusterId=${form.map.clusterID}" target="_new"><fmt:message key="config.linknaam.copypastelink"/></a>
+                        </td>
                     </tr>
                 </c:if>
 

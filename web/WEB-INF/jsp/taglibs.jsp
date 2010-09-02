@@ -29,3 +29,22 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <%@taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
 
 <%@taglib uri="http://commons.b3p.nl/jstl-functions" prefix="f" %>
+
+<%@page import="java.net.URL"%>
+
+<c:set var="absoluteURIPrefix">
+<%
+    boolean needPort = "http".equals(request.getScheme()) && request.getServerPort() != 80
+    || "https".equals(request.getScheme()) && request.getServerPort() != 443;
+
+    URL u;
+
+    if (needPort) {
+        u = new URL(request.getScheme(), request.getServerName(), request.getServerPort(), "");
+    } else {
+        u = new URL(request.getScheme(), request.getServerName(), "");
+    }
+
+    out.print(u.toString());
+%>
+</c:set>

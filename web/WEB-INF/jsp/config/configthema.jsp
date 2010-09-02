@@ -142,7 +142,9 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             <p><fmt:message key="config.copypastelink.uitleg"/></p>
                         </div>
                         </td>
-                        <td><html:link page="/viewer.do?id=${form.map.themaID}"><fmt:message key="config.linknaam.copypastelink"/></html:link></td>
+                        <td>
+                            <a href="${absoluteURIPrefix}/gisviewer/viewer.do?id=${form.map.themaID}" target="_new"><fmt:message key="config.linknaam.copypastelink"/></a>
+                        </td>
                     </tr>
                     </c:if>
 
@@ -234,8 +236,10 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             </c:if>
                         </c:forEach>
                     </c:if>
-                    <tr><td colspan="4">&nbsp;</td></tr>
-                    <tr><td><fmt:message key="configthema.${connectieType}.admintabelopmerkingen"/> <a href="#" onclick="return showHelpDialog('help_configthema${connectieType}admintabelopmerkingen');">(?)</a><div id="help_configthema${connectieType}admintabelopmerkingen" style="display: none;" title="<fmt:message key="configthema.${connectieType}.admintabelopmerkingen"/>"><fmt:message key="configthema.${connectieType}.admintabelopmerkingen.uitleg"/></div></td><td colspan="3"><html:text property="admin_tabel_opmerkingen" size="140"/></td></tr>
+                    <tr>
+                        <td colspan="4">&nbsp;</td>
+                    </tr>
+                    
                     <tr>
                         <td><fmt:message key="configthema.${connectieType}.admintabel"/> <a href="#" onclick="return showHelpDialog('help_configthema${connectieType}admintabel');">(?)</a><div id="help_configthema${connectieType}admintabel" style="display: none;" title="<fmt:message key="configthema.${connectieType}.admintabel"/>"><fmt:message key="configthema.${connectieType}.admintabel.uitleg"/></div></td>
                         <td colspan="3">
@@ -266,6 +270,9 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         </td>
                     </tr>
                     <tr><td><span id="adminqueryrow"><fmt:message key="configthema.${connectieType}.adminquery"/> <a href="#" onclick="return showHelpDialog('help_configthema${connectieType}adminquery');">(?)</a></span><div id="help_configthema${connectieType}adminquery" style="display: none;" title="<fmt:message key="configthema.${connectieType}.adminquery"/>"><fmt:message key="configthema.${connectieType}.adminquery.uitleg"/></div></td><td colspan="3"><html:text property="admin_query" size="140" styleId="admin_query_text"/></td></tr>
+                    <tr>
+                        <td><fmt:message key="configthema.${connectieType}.admintabelopmerkingen"/> <a href="#" onclick="return showHelpDialog('help_configthema${connectieType}admintabelopmerkingen');">(?)</a><div id="help_configthema${connectieType}admintabelopmerkingen" style="display: none;" title="<fmt:message key="configthema.${connectieType}.admintabelopmerkingen"/>"><fmt:message key="configthema.${connectieType}.admintabelopmerkingen.uitleg"/></div></td><td colspan="3"><html:text property="admin_tabel_opmerkingen" size="140"/></td>
+                    </tr>
                 </table>
             </div>
 
