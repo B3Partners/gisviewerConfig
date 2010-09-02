@@ -144,13 +144,16 @@
             document.getElementById("label").value=element.value;
         }
     }
+
     /*Herbouw het drop down 'type' component.*/
-    function rebuildTypeSelect(attribuutNaam){
-        //$j('#type').children().remove()
+    function rebuildTypeSelect(attribuutNaam) {
+        
         dwr.util.removeAllOptions("type");
-        for (var i=0; i < types.length; i ++){
+
+        for (var i=0; i < types.length; i ++) {
             var type=types[i];
             var pastType=false;
+
             if (zoekConfiguratieAttribuutType=="zoek" &&
                 (type.forZoek==undefined || type.forZoek==true)){
                 pastType=true;
@@ -158,8 +161,10 @@
                 (type.forResultaat==undefined || type.forResultaat==true)){
                 pastType=true;
             }
+
             if (pastType){
                 var pastBinding=true;
+
                 if (type.allowedBindings!=undefined &&
                     type.allowedBindings.toLowerCase().indexOf(bindings[attribuutNaam].toLowerCase())<0){
                     pastBinding=false;
@@ -167,12 +172,19 @@
                     type.disallowedBindings.toLowerCase().indexOf(bindings[attribuutNaam].toLowerCase())>=0){
                     pastBinding=false;
                 }
+
                 if (pastBinding){
                     dwr.util.addOptions("type",type.option);
+
+                    <c:if test="${!empty selType}">
+                        dwr.util.setValue("type", ${selType});
+                    </c:if>
                 }
+
             }
         }
     }
+
     //init type box:
     attribuutChanged(document.getElementById("attribuutNaam"));
 </script>
