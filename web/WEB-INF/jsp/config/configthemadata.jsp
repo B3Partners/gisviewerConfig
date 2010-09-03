@@ -126,12 +126,17 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
             </html:messages>
         </div>
-        
+
+        <p>Is er een veld wat u niet wil tonen aan de gebruiker
+        <a href="#" onclick="return showHelpDialog('help_configthemadata_niet_tonen');">(?)</a>
+        <div id="help_configthemadata_niet_tonen" style="display: none;" title="<fmt:message key="configthemadata_niet_tonen.label"/>">
+            <p><fmt:message key="configthemadata_niet_tonen.uitleg"/></p>
+        </div></p>
+
         <div class="maintable" style="margin-top: 5px;">
             <table cellpadding="2" cellspacing="2" border="0">
                 <tr><td><fmt:message key="configthemadata.label"/> <a href="#" onclick="return showHelpDialog('help_configthemadatalabel');">(?)</a><div id="help_configthemadatalabel" style="display: none;" title="<fmt:message key="configthemadata.label"/>"><p><fmt:message key="configthemadata.label.uitleg"/></p></div></td><td colspan="3"><html:text property="label" size="140"/></td></tr>
                 <tr><td><fmt:message key="configthemadata.eenheid"/> <a href="#" onclick="return showHelpDialog('help_configthemadataeenheid');">(?)</a><div id="help_configthemadataeenheid" style="display: none;" title="<fmt:message key="configthemadata.eenheid"/>"><p><fmt:message key="configthemadata.eenheid.uitleg"/></p></div></td><td colspan="3"><html:text property="eenheid" size="140"/></td></tr>
-                <tr><td><fmt:message key="configthemadata.omschrijving"/> <a href="#" onclick="return showHelpDialog('help_configthemadataomschrijving');">(?)</a><div id="help_configthemadataomschrijving" style="display: none;" title="<fmt:message key="configthemadata.omschrijving"/>"><p><fmt:message key="configthemadata.omschrijving.uitleg"/></p></div></td><td colspan="3"><html:text property="omschrijving" size="140"/></td></tr>
                 <tr><td><fmt:message key="configthemadata.basisregel"/> <a href="#" onclick="return showHelpDialog('help_configthemadatabasisregel');">(?)</a><div id="help_configthemadatabasisregel" style="display: none;" title="<fmt:message key="configthemadata.basisregel"/>"><p><fmt:message key="configthemadata.basisregel.uitleg"/></p></div></td><td colspan="3"><html:checkbox property="basisregel"/></td></tr>
                 <!--
                 <tr><td><fmt:message key="configthemadata.uitgebreid"/> <a href="#" onclick="return showHelpDialog('help_configthemadatauitgebreid');">(?)</a><div id="help_configthemadatauitgebreid" style="display: none;" title="<fmt:message key="configthemadata.uitgebreid"/>"><p><fmt:message key="configthemadata.uitgebreid.uitleg"/></p></div></td><td colspan="3"><html:checkbox property="uitgebreid"/></td></tr>
@@ -188,6 +193,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                     </c:otherwise>
                 </c:choose>
                 <tr><td><fmt:message key="configthemadata.dataorder"/> <a href="#" onclick="return showHelpDialog('help_configthemadatadataorder');">(?)</a><div id="help_configthemadatadataorder" style="display: none;" title="<fmt:message key="configthemadata.dataorder"/>"><p><fmt:message key="configthemadata.dataorder.uitleg"/></p></div></td><td colspan="3"><html:text property="dataorder" size="140"/></td></tr>
+                <tr><td><fmt:message key="configthemadata.omschrijving"/> <a href="#" onclick="return showHelpDialog('help_configthemadataomschrijving');">(?)</a><div id="help_configthemadataomschrijving" style="display: none;" title="<fmt:message key="configthemadata.omschrijving"/>"><p><fmt:message key="configthemadata.omschrijving.uitleg"/></p></div></td><td colspan="3"><html:text property="omschrijving" size="140"/></td></tr>
             </table>
         </div>
 

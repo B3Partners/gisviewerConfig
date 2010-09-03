@@ -105,20 +105,6 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 </tr>
                 <tr>
                     <td>
-                        <fmt:message key="configcluster.omschrijving"/>:
-
-                        <a href="#" onclick="return showHelpDialog('help_cluster_omschr');">(?)</a>
-                        <div id="help_cluster_omschr" style="display: none;" title="<fmt:message key="configcluster.omschrijving"/>">
-                            <p><fmt:message key="configcluster.omschrijving.uitleg"/></p>
-                        </div>
-
-                    </td>
-                    <td colspan="3">
-                        <html:text property="omschrijving"  size="140"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
                         <fmt:message key="configcluster.metadatalink"/>:
 
                         <a href="#" onclick="return showHelpDialog('help_cluster_meta');">(?)</a>
@@ -130,7 +116,6 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <html:text property="metadatalink"  size="140"/>
                     </td>
                 </tr>
-
                 <tr>
                     <td>
                         <fmt:message key="configcluster.volgorde"/>:
@@ -144,8 +129,20 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <html:text property="belangnr" size="10"/>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <fmt:message key="configcluster.omschrijving"/>:
 
+                        <a href="#" onclick="return showHelpDialog('help_cluster_omschr');">(?)</a>
+                        <div id="help_cluster_omschr" style="display: none;" title="<fmt:message key="configcluster.omschrijving"/>">
+                            <p><fmt:message key="configcluster.omschrijving.uitleg"/></p>
+                        </div>
 
+                    </td>
+                    <td colspan="3">
+                        <html:text property="omschrijving"  size="140"/>
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         <html:checkbox property="default_cluster"/>
