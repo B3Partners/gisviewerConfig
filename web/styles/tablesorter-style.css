@@ -1,10 +1,16 @@
 /* tables */
+div.tablesortercontainer {
+     margin-left: 5px;
+     height: 325px;
+}
+
 table.tablesorter {
 	font-family:arial;
 	background-color: #CDCDCD;
 	font-size: 8pt;
 	text-align: left;
 	table-layout:fixed;
+        display: none;
 }
 table.tablesorter thead tr th, table.tablesorter tfoot tr th, table.tablesorter thead tr td {
 	font-weight: bold;

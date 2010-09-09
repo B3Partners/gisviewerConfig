@@ -45,7 +45,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     </div>
 
     <c:if test="${!empty allClusters}">
-        <div style="margin-left: 5px;">
+        <div class="tablesortercontainer">
             <table id="clustertable" class="tablesorter">
                 <thead>
                     <tr>

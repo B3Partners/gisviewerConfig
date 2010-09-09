@@ -45,7 +45,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         <html:hidden property="id"/>
     </div>
     <c:if test="${!empty allConnecties}">
-        <div style="margin-left: 5px;">
+        <div class="tablesortercontainer">
             <table id="connectietable" class="tablesorter">
                 <thead>
                     <tr>

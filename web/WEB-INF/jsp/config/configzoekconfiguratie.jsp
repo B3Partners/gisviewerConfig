@@ -38,7 +38,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>    
 <c:if test="${!empty zoekConfiguraties}">
-    <div style="margin-left: 5px;">
+    <div class="tablesortercontainer">
         <table id="zoekconfiguratieTable" class="tablesorter">
             <thead>
                 <tr>
