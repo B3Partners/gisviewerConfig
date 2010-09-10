@@ -35,7 +35,12 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     <input type="hidden" name="bronId" value="${bronId}"/>
     <div class="berichtenbalk">
         <html:messages id="error" message="true">
-            <div class="messages">&#8594; <c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
+            <div id="error"><c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
+        </html:messages>
+        <html:messages id="message" name="acknowledgeMessages">
+            <div id="acknowledge">
+              <c:out value="${message}"/>
+            </div>
         </html:messages>
     </div>
     <div class="wizardQuestionBlock">
