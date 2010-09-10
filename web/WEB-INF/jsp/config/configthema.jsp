@@ -115,14 +115,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     </c:if>
     <div id="content_style">
         <div class="berichtenbalk">
-            <html:messages id="error" message="true">
-                <div id="error"><c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
-            </html:messages>
-            <html:messages id="message" name="acknowledgeMessages">
-                <div id="acknowledge">
-                  <c:out value="${message}"/>
-                </div>
-            </html:messages>
+            <tiles:insert definition="actionMessages"/>
         </div>
 
         <div id="config_tab_header_container">

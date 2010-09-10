@@ -37,14 +37,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     <input type="hidden" name="featureType" value="${featureType}"/>
     <input type="hidden" id="hiddenDelete" name="delete"/>
     <div class="berichtenbalk">
-        <html:messages id="error" message="true">
-            <div id="error"><c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
-        </html:messages>
-       <html:messages id="message" name="acknowledgeMessages">
-            <div id="acknowledge">
-              <c:out value="${message}"/>
-            </div>
-        </html:messages>
+            <tiles:insert definition="actionMessages"/>
     </div>
     <div class="wizardQuestionBlock">
         <p>

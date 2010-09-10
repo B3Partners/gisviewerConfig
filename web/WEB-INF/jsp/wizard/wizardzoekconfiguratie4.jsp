@@ -23,14 +23,7 @@
 <input type="hidden" id="zoekConfiguratieId" name="zoekConfiguratieId" value="${zoekConfiguratieId}"/>
 
 <div class="berichtenbalk">
-    <html:messages id="error" message="true">
-        <div id="error"><c:out value="${error}" escapeXml="false"/>&#160;&#160;</div>
-    </html:messages>
-   <html:messages id="message" name="acknowledgeMessages">
-        <div id="acknowledge">
-          <c:out value="${message}"/>
-        </div>
-    </html:messages>
+            <tiles:insert definition="actionMessages"/>
 </div>
 
 <div style="margin-left: 5px;">
