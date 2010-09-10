@@ -499,8 +499,9 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <script type="text/javascript">
     tablepager(
         'themalisttable',
-        '930',
-        '14'
+        '930', // table width in pixels
+        '14', // cell height
+        false // display numberOfPages dropdown
     );
 
     var pageConnectionType="${connectieType}";

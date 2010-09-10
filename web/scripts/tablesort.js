@@ -1473,20 +1473,25 @@ jQuery.tablesorter.addParser({
 });
 
 
-function tablepager(tableid, tablewidth, cellheight) {
+function tablepager(tableid, tablewidth, cellheight, displayselect) {
     // Load IE6 immediatly because of positioning of elements. For the rest of the browsers: wait until DOM tree is loaded
-    if(ieVersion <= 6 && ieVersion != -1) tablepagerfunc(tableid, tablewidth, cellheight);
-    else {
+    if (ieVersion <= 6 && ieVersion != -1) {
+
+        tablepagerfunc(tableid, tablewidth, cellheight, displayselect);
+    } else {
+
         jQuery(document).ready(function() {
-            tablepagerfunc(tableid, tablewidth, cellheight);
+            tablepagerfunc(tableid, tablewidth, cellheight, displayselect);
         });
     }
 }
 
-function tablepagerfunc(tableid, tablewidth, cellheight) {
+function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
 
 		var filters = [];
 		var counter = 0;
+
+                if(displayselect == undefined) displayselect = true;
 
 		tableid = "#" + tableid;
 
@@ -1521,7 +1526,7 @@ function tablepagerfunc(tableid, tablewidth, cellheight) {
 		if(addedinputfilters) jQuery(tableid).find("thead").append(trCode);
 
 		// add pager controls
-		jQuery(tableid).parent().after(createPagercontrols());
+		jQuery(tableid).parent().after(createPagercontrols(displayselect));
 
 		// init tablesorter
 		jQuery(tableid).tablesorter({
@@ -1568,21 +1573,25 @@ function tablepagerfunc(tableid, tablewidth, cellheight) {
 
 }
 
-function createPagercontrols() {
-	return '<div id="pager" class="pager" style="padding-top: 3px;">' +
+function createPagercontrols(displayselect) {
+	var controls = '<div id="pager" class="pager" style="padding-top: 3px;">' +
 		'<form>' +
 			'<img src="/gisviewerConfig/images/icons/first.png" class="first"/> ' +
 			'<img src="/gisviewerConfig/images/icons/prev.png" class="prev"/> ' +
 			'<input type="text" class="pagedisplay"/> ' +
 			'<img src="/gisviewerConfig/images/icons/next.png" class="next"/> ' +
-			'<img src="/gisviewerConfig/images/icons/last.png" class="last"/> ' +
-			'<select class="pagesize">' +
+			'<img src="/gisviewerConfig/images/icons/last.png" class="last"/> ';
+                    if(displayselect) {
+                        controls += '<select class="pagesize">' +
 				'<option selected="selected" value="10">10</option>' +
 				'<option value="20">20</option>' +
 				'<option value="30">30</option>' +
 				'<option  value="40">40</option>' +
-			'</select>' +
-                        /* '<input type="hidden" class="pagesize" value="10" />' + */
+			'</select>';
+                    } else {
+                        controls += '<input type="hidden" class="pagesize" value="10" />';
+                    }
 		'</form>' +
 	'</div>';
+    return controls;
 }
