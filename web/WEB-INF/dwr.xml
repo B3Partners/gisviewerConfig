@@ -4,7 +4,7 @@
 <dwr>
     <allow>
         <create creator="new" javascript="JConfigListsUtil">            
-            <param name="class" value="nl.b3p.gis.viewer.ConfigListsUtil"/>
+            <param name="class" value="nl.b3p.gis.utils.ConfigListsUtil"/>
             <include method="getPossibleFeaturesById"/>
             <include method="getPossibleAttributesById"/>
         </create>
