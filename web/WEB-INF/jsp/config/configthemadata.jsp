@@ -125,11 +125,12 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <tiles:insert definition="actionMessages"/>
         </div>
 
-        <p>Is er een veld wat u niet wil tonen aan de gebruiker
+        <span class="rolprio_intro">
+        Is er een veld wat u niet wil tonen aan de gebruiker
         <a href="#" onclick="return showHelpDialog('help_configthemadata_niet_tonen');">(?)</a>
         <div id="help_configthemadata_niet_tonen" style="display: none;" title="<fmt:message key="configthemadata_niet_tonen.label"/>">
             <p><fmt:message key="configthemadata_niet_tonen.uitleg"/></p>
-        </div></p>
+        </div></span>
 
         <div class="maintable" style="margin-top: 5px;">
             <table cellpadding="2" cellspacing="2" border="0">

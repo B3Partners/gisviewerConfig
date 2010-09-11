@@ -11,13 +11,12 @@
 </div>
 
 <div class="content_body">
-    <br/><br/>
-    <p>
+    <span class="rolprio_intro">
         Klik op het configuratie icoon naast de rol om de instellingen voor een rol<br/>
         aan te passen of gebruik de pijltjes om de prioriteit van een rol te veranderen.<br/>
         Indien een gebruiker meerdere rollen  heeft wordt de configuratie van de<br/>
         bovenste rol geladen.
-    </p>
+    </span>
 
     <h1>Rollen</h1>
     
