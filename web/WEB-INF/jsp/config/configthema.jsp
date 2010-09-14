@@ -120,8 +120,8 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 
         <div id="config_tab_header_container">
             <div class="config_tab_header" id="tab-algemeen-header">Algemeen</div>
-            <div class="config_tab_header" id="tab-kaart-header">Kaart</div>
             <div class="config_tab_header" id="tab-gegevensbron-header">Gegevensbron</div>
+            <div class="config_tab_header" id="tab-kaart-header">Kaart</div>         
             <div class="config_tab_header" id="tab-themaopties-header">Opties</div>
             <div class="config_tab_header" id="tab-geavanceerd-header">Geavanceerd</div>
         </div>

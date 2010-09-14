@@ -12,6 +12,8 @@
     <tiles:insert definition="actionMessages"/>
 </div>
 
+<span class="rolnaamHeader">Rolinstellingen voor  ${header_Rolnaam}</span>
+    
 <html:form action="/configKeeper">
     <html:hidden property="action" />
     <html:hidden property="alt_action" />

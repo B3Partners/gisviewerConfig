@@ -67,7 +67,11 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     </div>
 </c:if>
 
-<input type="button" onclick="window.location='<html:rewrite page='/wizardZoekConfiguratie.do'/>'" value="<fmt:message key='button.new'/>"/>
+<html:form>
+    <input type="button" onclick="window.location='<html:rewrite page='/wizardZoekConfiguratie.do'/>'" value="<fmt:message key='button.new'/>"/>
+</html:form>
+
+
 
 <div id="content_style" style="float: left; clear: left;">
     <div class="berichtenbalk" style="margin-top: 5px;">
