@@ -2,7 +2,7 @@
 <%@ page isELIgnored="false"%>
 
 <div class="infobalk">
-    <div class="infobalk_description">KIES EEN ROL</div>
+    <div class="infobalk_description">INSTELLINGEN</div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
 
@@ -11,19 +11,26 @@
 </div>
 
 <div class="content_body">
-    <span class="rolprio_intro">
-        Klik op het configuratie icoon naast de rol om de instellingen voor een rol<br/>
-        aan te passen of gebruik de pijltjes om de prioriteit van een rol te veranderen.<br/>
-        Indien een gebruiker meerdere rollen  heeft wordt de configuratie van de<br/>
-        bovenste rol geladen.
-    </span>
 
-    <h1>Rollen</h1>
-    
     <html:form action="/configRolPrio">
+
         <html:hidden property="action" />
         <html:hidden property="alt_action" />
 
+        <h1>Rechten</h1>
+
+        <c:url var="opnieuwRechtenLink" value="/configRolPrio.do?reset=1" />
+        <a href="${opnieuwRechtenLink}">Rechten opnieuw ophalen</a>
+
+        <h1>Rollen</h1>
+
+        <span class="rolprio_intro">
+            Klik op het configuratie icoon naast de rol om de instellingen voor een rol<br/>
+            aan te passen of gebruik de pijltjes om de prioriteit van een rol te veranderen.<br/>
+            Indien een gebruiker meerdere rollen  heeft wordt de configuratie van de<br/>
+            bovenste rol geladen.
+        </span>
+    
         <table>
         <c:forEach items="${rollen}" var="item">
             <c:url var="link_up" value="/configRolPrio.do?moveAction=${item}@@UP" />
