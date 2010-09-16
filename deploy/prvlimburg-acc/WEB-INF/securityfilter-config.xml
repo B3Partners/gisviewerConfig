@@ -5,46 +5,25 @@
     "http://www.securityfilter.org/dtd/securityfilter-config_2_0.dtd">
 
 <securityfilter-config>
-
-    <!-- Indexpagina door iedereen te bekijken -->
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>Index</web-resource-name>
-            <url-pattern>/indexlist.do</url-pattern>
-        </web-resource-collection>
-    </security-constraint>
-
     <!-- Viewer alleen door ingelogde personen -->
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>Viewer</web-resource-name>
-            <url-pattern>/viewer.do</url-pattern>
-            <url-pattern>/viewerdata.do</url-pattern>
-            <url-pattern>/viewerlist.do</url-pattern>
+            <web-resource-name>Config</web-resource-name>
+            <url-pattern>/config*</url-pattern>
             <url-pattern>/services/*</url-pattern>
+            <url-pattern>/wizard*</url-pattern>
         </web-resource-collection>       
         <auth-constraint>
-            <role-name>*</role-name>
+            <role-name>beheerder</role-name>
         </auth-constraint>
     </security-constraint>
 
-    <!-- /config* alleen voor (organisatie)beheerders -->
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>Configuratie</web-resource-name>
-            <url-pattern>/config*</url-pattern>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>beheerder</role-name>
-            <role-name>organisatiebeheerder</role-name>
-        </auth-constraint>
-    </security-constraint>
-   <login-config>
+  <login-config>
       <auth-method>FORM_COOKIE_TOKEN</auth-method>
       <form-login-config>
           <form-login-page>/login.do</form-login-page>
           <form-error-page>/loginError.do</form-error-page>
-          <form-default-page>/index.do</form-default-page>
+          <form-default-page>/configRolPrio.do</form-default-page>
           <form-logout-page>/logout.do</form-logout-page>
       </form-login-config>
       <cookie-auth-token-config>
@@ -53,8 +32,8 @@
             <!-- deze waardes zijn voor (HOU DEZE INFORMATIE UP-TO-DATE!): www.kaartenbalie.nl 81BF677C3015E66FE5F2A71DDA21160B Extra hash: s6AWd5MYe39B5NP3UaLl4 -->
             <secret-key>5CA5418F8C72C048E279902561BE7C22</secret-key>
             <extra-hash-string>CVDHQoOiPcmiTmVZt851</extra-hash-string>
-          <cookie-paths>/kaartenbalie</cookie-paths>
-          <cookie-expire>28800</cookie-expire>
+            <cookie-paths>/kaartenbalie</cookie-paths>
+            <cookie-expire>28800</cookie-expire>
       </cookie-auth-token-config>
    </login-config>
 
