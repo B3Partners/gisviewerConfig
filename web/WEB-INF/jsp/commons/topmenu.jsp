@@ -11,10 +11,10 @@
     </c:if>
 
     <c:set var="stijlklasse" value="menulink" />
-    <c:if test="${requestJSP eq 'configThema.do'}">
+    <c:if test="${requestJSP eq 'beheer.do'}">
         <c:set var="stijlklasse" value="activemenulink" />
     </c:if>
-    <html:link page="/configThema.do?id=${kaartid}" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.configuratie"/></html:link>
+    <html:link page="/beheer.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.configuratie"/></html:link>
 
 
     <c:set var="stijlklasse" value="menulink" />

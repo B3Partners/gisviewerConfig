@@ -11,9 +11,9 @@
     }
 </script>
 
-<div class="content_block">
-            <tiles:insert definition="actionMessages"/>
+<tiles:insert definition="actionMessages"/>
 
+<div class="content_block">
     <div class="content_title"><fmt:message key="algemeen.home.titel"/></div>
 
     <div class="inleiding_body">
@@ -67,5 +67,6 @@
 <c:if test="${pageContext.request.remoteUser != null}">
     <div class="uitloggen">
         <p><tiles:insert name="loginblock"/></p>
+        <p><html:link page="/index.do?resetCache=t&cachelifecycle=0">Rechten opnieuw ophalen</html:link></p>
     </div>
 </c:if>

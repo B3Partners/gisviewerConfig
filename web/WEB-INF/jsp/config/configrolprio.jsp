@@ -17,11 +17,6 @@
         <html:hidden property="action" />
         <html:hidden property="alt_action" />
 
-        <h1>Rechten</h1>
-
-        <c:url var="opnieuwRechtenLink" value="/configRolPrio.do?reset=1" />
-        <a href="${opnieuwRechtenLink}">Rechten opnieuw ophalen</a>
-
         <h1>Rollen</h1>
 
         <span class="rolprio_intro">

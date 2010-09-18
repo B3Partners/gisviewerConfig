@@ -13,12 +13,12 @@
             <field
                 property="url"
                 depends="required">
-                    <arg key="configconnectie.url"/>
+                <arg key="configconnectie.url"/>
             </field>
             <field
                 property="naam"
                 depends="required">
-                    <arg key="configconnectie.naam"/>
+                <arg key="configconnectie.naam"/>
             </field>
         </form>
         <form name="zoekConfiguratieForm">
@@ -26,18 +26,18 @@
             <field
                 property="naam"
                 depends="required">
-                    <arg key="configzoekconfiguratie"/>
+                <arg key="configzoekconfiguratie"/>
             </field>
         </form>
         <form name="zoekConfiguratieVeldForm">
             <field
                 property="attribuutnaam"
                 depends="required">
-                    <arg key="configzoekconfiguratieveld.attribuutnaam"/>
+                <arg key="configzoekconfiguratieveld.attribuutnaam"/>
             </field>
         </form>
 
 
-    </formset>  
+    </formset>
 
 </form-validation>
