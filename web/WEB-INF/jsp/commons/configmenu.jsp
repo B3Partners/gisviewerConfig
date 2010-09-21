@@ -1,45 +1,50 @@
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
 
-<c:set var="requestURI" value="${fn:split(requestScope['javax.servlet.forward.request_uri'], '/')}" />
-<c:set var="requestJSP" value="${requestURI[fn:length(requestURI) - 1]}" />
-
-<c:set var="links">
-	<a class="*" href="configRolPrio.do">Instellingen</a>%<a class="*" href="configZoekConfiguratie.do"><fmt:message key="commons.configmenu.zoeker"/></a>%<a class="*" href="configConnectie.do"><fmt:message key="commons.configmenu.connectie"/></a>%<a class="*" href="configThemaData.do"><fmt:message key="commons.configmenu.themadata"/></a>%<a class="*" href="configCluster.do"><fmt:message key="commons.configmenu.cluster"/></a>%<a class="*" href="configThema.do"><fmt:message key="commons.configmenu.thema"/></a>%<a class="*" href="index.do"><fmt:message key="commons.configmenu.home"/></a>
-</c:set>
-
 <div id="topmenu">
-    <c:set var="lnkArray" value="${fn:split(links, '%')}" />
+    <c:set var="requestURI" value="${fn:split(requestScope['javax.servlet.forward.request_uri'], '/')}" />
+    <c:set var="requestJSP" value="${requestURI[fn:length(requestURI) - 1]}" />
 
-    <c:if test="${requestJSP eq 'configRolPrio.do'}">
-        <c:set var="activelink" value="1" />
-    </c:if>
-    <c:if test="${requestJSP eq 'configZoekConfiguratie.do'}">
-        <c:set var="activelink" value="2" />
-    </c:if>
+    <c:set var="stijlklasse" value="menulink" />
     <c:if test="${requestJSP eq 'configConnectie.do'}">
-        <c:set var="activelink" value="3" />
+        <c:set var="stijlklasse" value="activemenulink" />
     </c:if>
-    <c:if test="${requestJSP eq 'configThemaData.do'}">
-        <c:set var="activelink" value="4" />
-    </c:if>
-    <c:if test="${requestJSP eq 'configCluster.do'}">
-        <c:set var="activelink" value="5" />
-    </c:if>
-    <c:if test="${requestJSP eq 'configThema.do'}">
-        <c:set var="activelink" value="6" />
-    </c:if>
-    <c:if test="${requestJSP eq 'index.do'}">
-        <c:set var="activelink" value="7" />
-    </c:if>
+    <html:link page="/configConnectie.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.connectie"/></html:link>
 
-    <c:forEach items="${lnkArray}" var="link" varStatus="counter">
-        <c:choose>
-            <c:when test="${counter.count == activelink}">
-                <c:out value="${fn:replace(link, '*', 'activemenulink')}" escapeXml="false" />
-            </c:when>
-            <c:otherwise>
-                <c:out value="${fn:replace(link, '*', 'menulink')}" escapeXml="false" />
-            </c:otherwise>
-        </c:choose>
-    </c:forEach>
+    <c:set var="stijlklasse" value="menulink" />
+    <c:if test="${requestJSP eq 'configThemaData.do'}">
+        <c:set var="stijlklasse" value="activemenulink" />
+    </c:if>
+    <html:link page="/configThemaData.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.themadata"/></html:link>
+
+    <c:set var="stijlklasse" value="menulink" />
+    <c:if test="${requestJSP eq 'configThema.do'}">
+        <c:set var="stijlklasse" value="activemenulink" />
+    </c:if>
+    <html:link page="/configThema.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.thema"/></html:link>
+
+    <c:set var="stijlklasse" value="menulink" />
+    <c:if test="${requestJSP eq 'configCluster.do'}">
+        <c:set var="stijlklasse" value="activemenulink" />
+    </c:if>
+    <html:link page="/configCluster.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.cluster"/></html:link>
+
+    <c:set var="stijlklasse" value="menulink" />
+    <c:if test="${requestJSP eq 'configZoekConfiguratie.do'}">
+        <c:set var="stijlklasse" value="activemenulink" />
+    </c:if>
+    <html:link page="/configZoekConfiguratie.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.zoeker"/></html:link>
+
+    <c:set var="stijlklasse" value="menulink" />
+    <c:if test="${requestJSP eq 'configRolPrio.do'}">
+        <c:set var="stijlklasse" value="activemenulink" />
+    </c:if>
+    <html:link page="/configRolPrio.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.instellingen"/></html:link>
+
+    <c:set var="stijlklasse" value="menulink" />
+    <c:if test="${requestJSP eq 'index.do'}">
+        <c:set var="stijlklasse" value="activemenulink" />
+    </c:if>
+    <html:link page="/index.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.home"/></html:link>
+
+
 </div>

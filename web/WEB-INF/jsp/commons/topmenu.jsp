@@ -6,15 +6,7 @@
     <c:set var="requestJSP" value="${requestURI[fn:length(requestURI) - 1]}" />
 
     <c:set var="stijlklasse" value="menulink" />
-    <c:if test="${requestJSP eq 'help.do'}">
-        <c:set var="stijlklasse" value="activemenulink" />
-    </c:if>
-
-    <c:set var="stijlklasse" value="menulink" />
-    <c:if test="${requestJSP eq 'beheer.do'}">
-        <c:set var="stijlklasse" value="activemenulink" />
-    </c:if>
-    <html:link page="/beheer.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.configuratie"/></html:link>
+    <html:link page="/configRolPrio.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.configuratie"/></html:link>
 
 
     <c:set var="stijlklasse" value="menulink" />
