@@ -173,16 +173,45 @@
                 </html:select>
             </td>
         </tr>
-
         <tr>
             <td>
-                <fmt:message key="cfg_hideAdvancedButtons.label"/>
-                <a href="#" onclick="return showHelpDialog('help_cfg_hideAdvancedButtons');">(?)</a>
-                <div id="help_cfg_hideAdvancedButtons" style="display: none;" title="<fmt:message key="cfg_hideAdvancedButtons.label"/>">
-                    <p><fmt:message key="cfg_hideAdvancedButtons.uitleg"/></p>
+                <fmt:message key="cfg_showRedliningTools.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_showRedliningTools');">(?)</a>
+                <div id="help_cfg_showRedliningTools" style="display: none;" title="<fmt:message key="cfg_showRedliningTools.label"/>">
+                    <p><fmt:message key="cfg_showRedliningTools.uitleg"/></p>
                 </div>
             </td>
-            <td><html:checkbox property="cfg_hideAdvancedButtons"/></td>
+            <td><html:checkbox property="cfg_showRedliningTools"/></td>
+        </tr>
+        <tr>
+            <td>
+                <fmt:message key="cfg_showBufferTool.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_showBufferTool');">(?)</a>
+                <div id="help_cfg_showBufferTool" style="display: none;" title="<fmt:message key="cfg_showBufferTool.label"/>">
+                    <p><fmt:message key="cfg_showBufferTool.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:checkbox property="cfg_showBufferTool"/></td>
+        </tr>
+        <tr>
+            <td>
+                <fmt:message key="cfg_showSelectBulkTool.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_showSelectBulkTool');">(?)</a>
+                <div id="help_cfg_showSelectBulkTool" style="display: none;" title="<fmt:message key="cfg_showSelectBulkTool.label"/>">
+                    <p><fmt:message key="cfg_showSelectBulkTool.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:checkbox property="cfg_showSelectBulkTool"/></td>
+        </tr>
+        <tr>
+            <td>
+                <fmt:message key="cfg_showNeedleTool.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_showNeedleTool');">(?)</a>
+                <div id="help_cfg_showNeedleTool" style="display: none;" title="<fmt:message key="cfg_showNeedleTool.label"/>">
+                    <p><fmt:message key="cfg_showNeedleTool.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:checkbox property="cfg_showNeedleTool"/></td>
         </tr>
 
         </table>

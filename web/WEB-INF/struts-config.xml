@@ -126,7 +126,6 @@
             <form-property name="cfg_refreshDelay" type="java.lang.Integer"/>
             <form-property name="cfg_minBboxZoeken" type="java.lang.Integer"/>
             <form-property name="cfg_maxResults" type="java.lang.Integer"/>
-            <form-property name="cfg_hideAdvancedButtons" type="java.lang.Boolean"/>
             <form-property name="cfg_expandAll" type="java.lang.Boolean"/>
             <form-property name="cfg_multipleActiveThemas" type="java.lang.Boolean"/>
             <form-property name="rolnaam" type="java.lang.String"/>
@@ -147,6 +146,11 @@
             <!-- 2 zoekingangen keuze voor planselectieIds -->
             <form-property name="cfg_planselectieid1" type="java.lang.String"/>
             <form-property name="cfg_planselectieid2" type="java.lang.String"/>
+            <!-- Viewer tools aan/uit -->
+            <form-property name="cfg_showRedliningTools" type="java.lang.Boolean"/>
+            <form-property name="cfg_showBufferTool" type="java.lang.Boolean"/>
+            <form-property name="cfg_showSelectBulkTool" type="java.lang.Boolean"/>
+            <form-property name="cfg_showNeedleTool" type="java.lang.Boolean"/>
         </form-bean>
 
         <form-bean name="configRolPrioForm" type="org.apache.struts.validator.DynaValidatorForm">
