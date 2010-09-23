@@ -1,0 +1,29 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
+}
+
+body, div, td, th, span, input, textarea, select, option, button {
+    font-size: 8pt;
+    color: #000000;
+    font-family: arial, sans-serif;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 11pt;
+    color: #196299;
+}
+
+a, a:visited, a:active {
+    color: #FFF0C4;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}

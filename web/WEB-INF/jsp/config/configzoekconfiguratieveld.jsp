@@ -138,7 +138,7 @@
         rebuildTypeSelect(element.value);
         var labelValue=document.getElementById("label").value;
         if (labelValue=="" || previousValueSet==labelValue){
-            previousValueSet= element.value;
+            previousValueSet = element.value;
             document.getElementById("label").value=element.value;
         }
     }
@@ -174,6 +174,7 @@
                 if (pastBinding){
                     dwr.util.addOptions("type",type.option);
 
+                    
                     <c:if test="${!empty selType}">
                         dwr.util.setValue("type", ${selType});
                     </c:if>

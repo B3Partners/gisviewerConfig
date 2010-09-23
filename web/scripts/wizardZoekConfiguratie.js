@@ -74,11 +74,13 @@ function openAttribuutForm(id,paramName){
  */
 function addAttribuut(zoekConfigid,paramName){
     var url=attribuutFormUrl+"?attribuutType="+paramName+"&zoekConfiguratieId="+zoekConfigid;
-    document.getElementById("iframeZoekConfiguratieVeld").src=url;    
+    document.getElementById("iframeZoekConfiguratieVeld").src=url;
     openAsDialog("dialogPopUp")
 }
 function openAsDialog(divid){
     $j("#" + divid).dialog({
+        height: 200,
+        width: 350,
         resizable: false,
         draggable: true,
         modal: true,
@@ -86,6 +88,7 @@ function openAsDialog(divid){
         hide: 'slide'
     });
     $j("#" + divid).dialog('open');
+    $j("#" + divid).dialog('enable');
 }
 
 /*Return naar het begin van de wizard/lijst*/

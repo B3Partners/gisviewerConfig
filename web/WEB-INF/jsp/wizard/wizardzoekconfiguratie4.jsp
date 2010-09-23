@@ -120,5 +120,5 @@
 
 <!-- Als je /> gebruikt om iframe tag af te sluiten wordt footer niet getoont ? -->
 <div id="dialogPopUp">
-    <iframe id="iframeZoekConfiguratieVeld"></iframe>
+    <iframe id="iframeZoekConfiguratieVeld" frameborder="0"></iframe>
 </div>

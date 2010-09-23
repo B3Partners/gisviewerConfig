@@ -34,25 +34,11 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         <meta http-equiv=”X-UA-Compatible” content=”IE=edge” />
 
         <title><tiles:insert name='title'/> - B3P GIS Viewer</title>
-        <link href="styles/gisviewer_base.css" rel="stylesheet" type="text/css">
-        <link href="styles/gisviewer_config.css" rel="stylesheet" type="text/css">
-        <link href="styles/gisviewer_tables.css" rel="stylesheet" type="text/css">
-        <link href="styles/gisviewer_b3p.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="styles/tablesorter-style.css"/>
+        <link href="styles/gisviewer_popup.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="<html:rewrite page='/scripts/validation.jsp' module=''/>"></script>
         <script type="text/javascript" src="scripts/jquery-1.3.2.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui-1.7.2.custom.min.js"></script>
-        <script type="text/javascript" src="<html:rewrite page='/scripts/commonfunctions.js' module=''/>"></script>
-        <script type="text/javascript" src="<html:rewrite page='/scripts/tablesort.js' module=''/>"></script>
-        <script type="text/javascript" src="scripts/config-tab.js"></script>
-
-        <!--[if lte IE 6]>
-            <link href="styles/gisviewer_ie6.css" rel="stylesheet" type="text/css" />
-        <![endif]-->
-        <!--[if lte IE 7]>
-            <link href="styles/gisviewer_ie7.css" rel="stylesheet" type="text/css" />
-            <script type="text/javascript" src="<html:rewrite page='/scripts/cssfixes_ie.js' module=''/>"></script>
-        <![endif]-->       
+        <script type="text/javascript" src="<html:rewrite page='/scripts/commonfunctions.js' module=''/>"></script>     
     </head>
     <body style="background-color: #ffffff;">
         <div id="content">            

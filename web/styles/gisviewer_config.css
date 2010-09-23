@@ -216,17 +216,15 @@
 }
 
 #dialogPopUp{
-    float: left;
-    width: 400px;
-    height: 200px;
     display: none;
+    overflow: auto;
 }
 
 /*Dialog popup iframe voor wizard*/
 #dialogPopUp iframe{
-    width: 320px;
-    height: 240px;
-    padding: 5px;
+    width: 95%;
+    height: 95%;
+    border: 0px none;
 }
 
 .tipsContainer{
