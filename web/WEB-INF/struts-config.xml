@@ -115,7 +115,6 @@
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
         </form-bean>
-
         <form-bean name="configKeeperForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
@@ -152,11 +151,27 @@
             <form-property name="cfg_showSelectBulkTool" type="java.lang.Boolean"/>
             <form-property name="cfg_showNeedleTool" type="java.lang.Boolean"/>
         </form-bean>
-
         <form-bean name="configRolPrioForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
             <form-property name="nieuwe_rol" type="java.lang.String"/>
+        </form-bean>
+        <form-bean name="kaartgroepForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="clusterID" type="java.lang.String"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="omschrijving" type="java.lang.String"/>
+            <form-property name="belangnr" type="java.lang.String"/>
+            <form-property name="metadatalink" type="java.lang.String"/>
+            <form-property name="parentID" type="java.lang.String"/>
+            <form-property name="default_cluster" type="java.lang.Boolean"/>
+            <form-property name="hide_legend" type="java.lang.Boolean"/>
+            <form-property name="hide_tree" type="java.lang.Boolean"/>
+            <form-property name="background_cluster" type="java.lang.Boolean"/>
+            <form-property name="extra_level" type="java.lang.Boolean"/>
+            <form-property name="callable" type="java.lang.Boolean"/>
+            <form-property name="default_visible" type="java.lang.Boolean"/>
         </form-bean>
 
     </form-beans>
@@ -215,15 +230,17 @@
             <forward name="wizardDone" path="/configZoekConfiguratie.do"/>
             <forward name="wizardCreateBron" path="/configConnectie.do"/>
         </action>
-
         <action path="/configKeeper" type="nl.b3p.gis.viewer.ConfigKeeperAction" name="configKeeperForm" scope="request" validate="false">
             <forward name="success" path="configKeeper"/>
             <forward name="failure" path="configKeeper"/>
         </action>
-
         <action path="/configRolPrio" type="nl.b3p.gis.viewer.ConfigRolPrioAction" name="configRolPrioForm" scope="request" validate="false">
             <forward name="success" path="configRolPrio"/>
             <forward name="failure" path="configRolPrio"/>
+        </action>
+        <action path="/configKaartGroep" type="nl.b3p.gis.viewer.ConfigKaartGroepAction" name="kaartgroepForm" scope="request" validate="false">
+            <forward name="success" path="configkaartgroep"/>
+            <forward name="failure" path="configkaartgroep"/>
         </action>
     </action-mappings>
     
