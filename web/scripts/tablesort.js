@@ -1476,122 +1476,268 @@ jQuery.tablesorter.addParser({
 function tablepager(tableid, tablewidth, cellheight, displayselect) {
     // Load IE6 immediatly because of positioning of elements. For the rest of the browsers: wait until DOM tree is loaded
     if (ieVersion <= 6 && ieVersion != -1) {
-
         tablepagerfunc(tableid, tablewidth, cellheight, displayselect);
     } else {
-
         jQuery(document).ready(function() {
             tablepagerfunc(tableid, tablewidth, cellheight, displayselect);
         });
     }
 }
 
+var imageurl = "/gisviewerConfig/images/icons/";
 function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
 
-		var filters = [];
-		var counter = 0;
+    var filters = [];
+    var counter = 0;
+    var cookieoptions = readCookie();
+    var hasCookie = false;
+    if(cookieoptions != null) hasCookie = true;
 
-                if(displayselect == undefined) displayselect = true;
+    if(displayselect == undefined) displayselect = true;
 
-		tableid = "#" + tableid;
+    tableid = "#" + tableid;
 
-                jQuery(tableid).show();
+    var $table = jQuery(tableid);
+    var $parentdiv = $table.parent();
 
-		jQuery(tableid).parent().css("width", tablewidth + 'px');
+    $table.show();
+    $parentdiv.css("width", tablewidth + 'px');
 
-		// Add divs to td for overflow: hidden
-		jQuery(tableid).find("td").each(function() {
-			var curhtml = jQuery(this).html();
-			jQuery(this).html('<div style="height: '+cellheight+'px; overflow: hidden;">' + curhtml + '</div>');
-		});
+    // Add divs to td for overflow: hidden
+    $table.find("td").each(function() {
+            var curhtml = jQuery(this).html();
+            jQuery(this).html('<div style="height: '+cellheight+'px; overflow: hidden;">' + curhtml + '</div>');
+    });
 
-		// Add extra tr for inputfilters
-		var trCode = '<tr class="filterrow">';
-                var addedinputfilters = false;
-		jQuery(tableid).find("th").each(function(index) {
-			if(!jQuery(this).hasClass("no-filter")) {
-				var id = "filterbox" + counter;
-                                trCode += '<td><input type="text" name="filter" id="'+id+'" /></td>';
-				id = "#" + id;
-				filters.push({
-					filterContainer: id, filterColumns: [counter]
-				});
-                                addedinputfilters = true;
-			} else {
-				trCode += '<td>&nbsp;</td>';
-			}
-			counter++;
-		});
-		trCode = trCode + '</th>';
-		if(addedinputfilters) jQuery(tableid).find("thead").append(trCode);
+    // Add extra tr for inputfilters
+    var trCode = '<tr class="filterrow">';
+    var addedinputfilters = false;
+    $table.find("th").each(function(index) {
+            if(!jQuery(this).hasClass("no-filter")) {
+                    var id = "filterbox" + counter;
+                    var value = "";
+                    if(hasCookie && cookieoptions.filtering) {
+                        jQuery.each(cookieoptions.filtering, function(index, val) {
+                            if(val.col == id) value = val.val;
+                        });
+                    }
+                    trCode += '<td><input class="tablefilterbox" value="'+value+'" type="text" name="filter" id="'+id+'" /></td>';
+                    id = "#" + id;
+                    filters.push({
+                            filterContainer: id, filterColumns: [counter]
+                    });
+                    addedinputfilters = true;
+            } else {
+                    trCode += '<td>&nbsp;</td>';
+            }
+            counter++;
+    });
+    trCode = trCode + '</th>';
+    if(addedinputfilters) {
+        $table.find("thead").append(trCode);
+    }
 
-		// add pager controls
-		jQuery(tableid).parent().after(createPagercontrols(displayselect));
+    // make rows clickable & compute height of first 10 rows
+    counter = 0;
+    var height = $table.find("thead").outerHeight() + 4;
+    $table.find("tbody > tr").each(function() {
+        if(counter < 10) height += jQuery(this).outerHeight() + 2;
+        jQuery(this).click(function() {
+            var link = jQuery(this).find("input[name=link]").val();
+            if(link != undefined && link != '') window.location.href=link;
+        });
+        counter++;
+    });
 
-		// init tablesorter
-		jQuery(tableid).tablesorter({
-			widthFixed: true,
-			widgets: ['zebra'],
-			textExtraction: function(node) {
-				return node.childNodes[0].innerHTML;
-			}
-		});
+    $parentdiv.css("height", height + 'px');
 
-                // make rows clickable / selectable
-                var counter = 1;
-                var childnr = 0;
-		jQuery(tableid).find("tbody > tr").each(function(){
-			if(jQuery(this).find("input[name=selected]").val() == "selected") {
-				childnr = counter;
-                                jQuery(this).addClass("selectedtr");
-				jQuery(tableid).parent().parent().scrollTop((jQuery(this).position().top - jQuery(this).parent().position().top)-1);
-			}
-			jQuery(this).click(function() {
-				var link = jQuery(this).find("input[name=link]").val();
-				if(link != undefined && link != '') window.location.href=link;
-			});
-                        counter++;
-		});
+    var $overlay = jQuery('<div id="tableoverlay"></div>').css({
+        "position": "absolute",
+        "background-color": "#ffffff",
+        "width": tablewidth + 'px',
+        "height": (height + 30) + 'px'
+    });
+    if(ieVersion <= 7 && ieVersion != -1) $overlay.css("height", (height + 60) + "px");
+    var $insideoverlay = jQuery('<div>Bezig met laden van tabel<br /><img src="'+imageurl+'loading.gif" /></div>').css({
+        "position": "absolute",
+        "text-align": "center",
+        "top": "50%",
+        "left": "50%",
+        "margin-left": "-110px",
+        "margin-top": "-15px"
+    });
+    $overlay.append($insideoverlay);
+    $table.before($overlay);
 
-                // compute selected page (10 = standaard number of rows on a page), pages start at 0
-                var selectedpage = Math.ceil(childnr / 10) - 1;
-                if(selectedpage == -1) selectedpage = 0;
+    // add pager controls
+    $parentdiv.after(createPagercontrols(displayselect));
 
-                // init pager
-		jQuery(tableid).tablesorterPager({container: jQuery("#pager"), positionFixed: false, page: selectedpage});
+    jQuery(".refreshtable").click(function() {
+        resetFilters(tableid);
+    })
 
-		// init filter
-		jQuery(tableid).tablesorterFilter(filters);
+    // init tablesorter
+    $table.tablesorter({
+            widthFixed: true,
+            widgets: ['zebra'],
+            textExtraction: function(node) {
+                    return node.childNodes[0].innerHTML;
+            }
+    });
 
-                jQuery(tableid).parent().css("height", jQuery(tableid).height());
+    $table.bind("sortEnd",function() {
+        storeCookie(tableid);
+    });
+    if(addedinputfilters) {
+        $table.find(".tablefilterbox").keyup(function() {
+            storeCookie(tableid);
+        });
+    }
 
-                // set input widths
-                jQuery(tableid).find(".filterrow td").each(function(index) {
-                    var inputwidth = jQuery(this).width() - 8;
-                    jQuery(this).find("input").css("width", inputwidth + 'px');
-		});
+    // init filter
+    $table.tablesorterFilter(filters);
+    $table.find(".tablefilterbox").trigger("keyup");
+    if(hasCookie && cookieoptions.sorting) $table.trigger("sorton",[[cookieoptions.sorting]]);
 
+    counter = 1;
+    var childnr = 0;
+    $table.find("tbody > tr").each(function(){
+        if(jQuery(this).find("input[name=selected]").val() == "selected") {
+            childnr = counter;
+            jQuery(this).addClass("selectedtr");
+        }
+        counter++;
+    });
+
+    // compute selected page (10 = standaard number of rows on a page), pages start at 0
+    var selectedpage = Math.ceil(childnr / 10) - 1;
+    if(selectedpage == -1) selectedpage = 0;
+
+    // init pager
+    $table.tablesorterPager({container: jQuery("#pager"), positionFixed: false, page: selectedpage});
+
+    // set input widths
+    $table.find(".filterrow td").each(function(index) {
+        var inputwidth = jQuery(this).width() - 8;
+        jQuery(this).find("input").css("width", inputwidth + 'px');
+    });
+
+    setTimeout(function() { jQuery("#tableoverlay").remove(); }, 1000);
+}
+
+function resetFilters(tableid) {
+    var $table = jQuery(tableid);
+    $table.trigger("sorton",[[]]);
+    $table.find(".tablefilterbox").attr("value", "");
+    $table.find(".tablefilterbox").trigger("keyup");
+    jQuery(".first").trigger("click");
+    deleteCookie();
+}
+
+function deleteCookie() {
+    jQuery.cookie('sortfiltercookie', null);
+}
+
+var pagepath = location.pathname.replace("-", "");
+function storeCookie(tableid) {
+    // cookievalue sort-filter
+    // example: pagename-page:sort:colid:up/down-filtering:colname*value**colname*value**colname*value
+    var counter = 0;
+    var sorttext = "";
+    jQuery(tableid + " thead tr:first").find("th").each(function() {
+        if(sorttext == "") {
+            if(jQuery(this).hasClass("headerSortDown")) {
+                sorttext += counter + ":0";
+            }
+            if(jQuery(this).hasClass("headerSortUp")) {
+                sorttext += counter + ":1";
+            }
+        }
+        counter++;
+    });
+
+    var filtertext = "";
+    jQuery(tableid + " thead").find(".tablefilterbox").each(function() {
+        if(jQuery(this).val() != '') {
+            if(filtertext != "") filtertext += "**";
+            var val = jQuery(this).val().replace("**", "####");
+            val = val.replace("*", "##");
+            filtertext += jQuery(this).attr("id") + "*" + val;
+        }
+    });
+
+    var cookietext = "pagename:" + pagepath;
+    if(sorttext != "") {
+        if(cookietext != "") cookietext += "-";
+        cookietext += "sort:" + sorttext;
+    }
+    if(filtertext != "") {
+        if(cookietext != "") cookietext += "-";
+        cookietext +=  "filtering:" + filtertext;
+    }
+    jQuery.cookie('sortfiltercookie', cookietext);
+}
+
+var returnmap = {};
+var cookietekstgelezen = "";
+function readCookie() {
+    // cookievalue sort-filter
+    // example: pagename:page-colname:up/down-colname*value**colname*value**colname*value
+
+    var sfcookie = jQuery.cookie('sortfiltercookie');
+    cookietekstgelezen = sfcookie;
+    if(sfcookie == null) return sfcookie;
+
+    var cookiearray = sfcookie.split("-");
+
+    var sortarray = null;
+    var filterarray = null;
+    var returnnull = false;
+    jQuery.each(cookiearray, function(index, value) {
+        var splitarray = value.split(":");
+        if(splitarray[0] == "pagename" && splitarray[1] != pagepath) returnnull = true;
+        if(splitarray[0] == "sort") sortarray = splitarray;
+        if(splitarray[0] == "filtering") filterarray = splitarray[1].split("**");
+    });
+
+    if(returnnull) {
+        deleteCookie();
+        return null;
+    }
+    if(sortarray != null) returnmap["sorting"] = [parseInt(sortarray[1]),parseInt(sortarray[2])];
+    if(filterarray != null) {
+        returnmap["filtering"] = [];
+        jQuery.each(filterarray, function (index, value){
+            var colarray = value.split("*");
+            var val = colarray[1].replace("####", "**");
+            val = val.replace("##", "*");
+            returnmap["filtering"].push({col:colarray[0], val:val});
+        });
+    }
+
+    return returnmap;
 }
 
 function createPagercontrols(displayselect) {
-	var controls = '<div id="pager" class="pager" style="padding-top: 3px;">' +
-		'<form>' +
-			'<img src="/gisviewerConfig/images/icons/first.png" class="first"/> ' +
-			'<img src="/gisviewerConfig/images/icons/prev.png" class="prev"/> ' +
-			'<input type="text" class="pagedisplay"/> ' +
-			'<img src="/gisviewerConfig/images/icons/next.png" class="next"/> ' +
-			'<img src="/gisviewerConfig/images/icons/last.png" class="last"/> ';
-                    if(displayselect) {
-                        controls += '<select class="pagesize">' +
-				'<option selected="selected" value="10">10</option>' +
-				'<option value="20">20</option>' +
-				'<option value="30">30</option>' +
-				'<option  value="40">40</option>' +
-			'</select>';
-                    } else {
-                        controls += '<input type="hidden" class="pagesize" value="10" />';
-                    }
-		'</form>' +
-	'</div>';
+    var controls = '<div id="pager" class="pager" style="padding-top: 3px;">' +
+            '<form>' +
+                    '<img src="'+imageurl+'first.png" class="first"/> ' +
+                    '<img src="'+imageurl+'prev.png" class="prev"/> ' +
+                    '<input type="text" class="pagedisplay"/> ' +
+                    '<img src="'+imageurl+'next.png" class="next"/> ' +
+                    '<img src="'+imageurl+'last.png" class="last"/> ' +
+                    '<img src="'+imageurl+'refresh.png" class="refreshtable"/> ';
+                if(displayselect) {
+                    controls += '<select class="pagesize">' +
+                            '<option selected="selected" value="10">10</option>' +
+                            '<option value="20">20</option>' +
+                            '<option value="30">30</option>' +
+                            '<option  value="40">40</option>' +
+                    '</select>';
+                } else {
+                    controls += '<input type="hidden" class="pagesize" value="10" />';
+                }
+            '</form>' +
+    '</div>';
     return controls;
 }
