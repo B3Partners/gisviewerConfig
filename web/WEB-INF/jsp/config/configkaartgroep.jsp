@@ -15,6 +15,10 @@
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
 
+<div id="treedivContainer">
+    <div id="treediv"></div>
+</div>
+    
 <html:form action="/configKaartGroep" focus="${focus}">
     <div style="display: none;">
         <html:hidden property="action"/>
@@ -22,7 +26,7 @@
         <html:hidden property="clusterID"/>
     </div>
 
-    <div id="content_style" style="float: left; clear: left;">
+    <div id="content_style" style="float: left; width: 400px;">
         <div class="berichtenbalk" style="margin-top: 5px;">
             <tiles:insert definition="actionMessages"/>
         </div>
@@ -50,7 +54,7 @@
                         <fmt:message key="configcluster.naam"/>:
                     </td>
                     <td colspan="3">
-                        <html:text property="naam" size="140"/>
+                        <html:text property="naam" size="60"/>
                     </td>
                 </tr>
                 <tr>
@@ -63,7 +67,7 @@
                         </div>
                     </td>
                     <td colspan="3">
-                        <html:text property="metadatalink"  size="140"/>
+                        <html:text property="metadatalink"  size="60"/>
                     </td>
                 </tr>
                 <tr>
@@ -90,7 +94,7 @@
 
                     </td>
                     <td colspan="3">
-                        <html:text property="omschrijving"  size="140"/>
+                        <html:text property="omschrijving"  size="60"/>
                     </td>
                 </tr>
                 <tr>
@@ -264,7 +268,7 @@
     var themaTree = catchEmpty(${tree});
 
     treeview_create({
-        "id": "layermaindiv",
+        "id": "treediv",
         "root": themaTree,
         "rootChildrenAsRoots": true,
         "itemLabelCreatorFunction": createLeaf,

@@ -718,3 +718,15 @@ table.tablesorter thead tr .headerSortDown {
     margin-left: 10px;
     font-size: 1.3em;
 }
+
+#treedivContainer {
+    float: left;
+    width: 250px;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.clusterEditLink, a, a:visited {
+    font-size: 1.1em;
+    color: #197FCE;
+}

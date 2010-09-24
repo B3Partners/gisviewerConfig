@@ -22,17 +22,19 @@
     </c:if>
     <html:link page="/configThema.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.thema"/></html:link>
 
+    <%--
     <c:set var="stijlklasse" value="menulink" />
     <c:if test="${requestJSP eq 'configCluster.do'}">
         <c:set var="stijlklasse" value="activemenulink" />
     </c:if>
     <html:link page="/configCluster.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.cluster"/></html:link>
+    --%>
 
     <c:set var="stijlklasse" value="menulink" />
     <c:if test="${requestJSP eq 'configKaartGroep.do'}">
         <c:set var="stijlklasse" value="activemenulink" />
     </c:if>
-    <html:link page="/configKaartGroep.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.cluster"/> (new)</html:link>
+    <html:link page="/configKaartGroep.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.cluster"/></html:link>
 
     <c:set var="stijlklasse" value="menulink" />
     <c:if test="${requestJSP eq 'configZoekConfiguratie.do'}">
