@@ -158,6 +158,12 @@
     types[index].forResultaat=false;
     types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
 
+    index++;
+    types[index]=new Object();
+    types[index].option={"6" : "Gelijk aan"};
+    types[index].forResultaat=false;
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+
     index++
     types[index]=new Object();
     types[index].option={"100" : "Binnen een straal van geometry"};
