@@ -66,6 +66,20 @@
                 <td><fmt:message key="configzoekconfiguratieveld.inputsize"/></td>
                 <td><html:text property="inputsize"></html:text></td>
             </tr>
+            <tr>
+                <td>Inputlijst</td>
+                <td><html:select property="inputzoekconfiguratie">
+                        <html:option value="">
+                            Geen
+                        </html:option>
+                        <c:forEach var="z" items="${inputZoekConfigList}">
+                            <html:option value="${z.id}">
+                                <c:out value="${z.naam}"/>
+                            </html:option>
+                        </c:forEach>
+                    </html:select>
+                </td>
+            </tr>
             </c:if>
 
             <tr>
