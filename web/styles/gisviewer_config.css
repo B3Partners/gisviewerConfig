@@ -216,14 +216,17 @@
 }
 
 #dialogPopUp{
+    width: 300px;
+    height: 250px;
     display: none;
     overflow: auto;
+    position: absolute;
 }
 
 /*Dialog popup iframe voor wizard*/
 #dialogPopUp iframe{
-    width: 95%;
-    height: 95%;
+    width: 280px;
+    height: 230px;
     border: 0px none;
 }
 

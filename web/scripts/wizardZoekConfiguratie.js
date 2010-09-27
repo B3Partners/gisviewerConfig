@@ -67,28 +67,36 @@ function openResultaatAttribuutForm(id){
 function openAttribuutForm(id,paramName){
     var url=attribuutFormUrl+"?"+paramName+"="+id;
     document.getElementById("iframeZoekConfiguratieVeld").src=url;
-    openAsDialog("dialogPopUp")
+    
+    var dialogdiv = $j("#dialogPopUp");
+    openAsDialog(dialogdiv);
+
+    dialogdiv.dialog("option", "height", 270);
+    dialogdiv.dialog("option", "title", "");
 }
 /**
  *Open een nieuw attribuut in het form
  */
 function addAttribuut(zoekConfigid,paramName){
     var url=attribuutFormUrl+"?attribuutType="+paramName+"&zoekConfiguratieId="+zoekConfigid;
-    document.getElementById("iframeZoekConfiguratieVeld").src=url;
-    openAsDialog("dialogPopUp")
+
+    var dialogdiv = $j("#dialogPopUp");
+    $j("#iframeZoekConfiguratieVeld").attr("src", url);
+    openAsDialog(dialogdiv);
+    
+    dialogdiv.dialog("option", "height", 270);
+    dialogdiv.dialog("option", "title", "Nieuw " + paramName + "veld");
 }
-function openAsDialog(divid){
-    $j("#" + divid).dialog({
-        height: 200,
+
+function openAsDialog(dialogdiv){
+    dialogdiv.dialog({
+        height: 270,
         width: 350,
         resizable: false,
         draggable: true,
-        modal: true,
-        show: 'slide',
-        hide: 'slide'
+        modal: true
     });
-    $j("#" + divid).dialog('open');
-    $j("#" + divid).dialog('enable');
+    dialogdiv.dialog('open');
 }
 
 /*Return naar het begin van de wizard/lijst*/
