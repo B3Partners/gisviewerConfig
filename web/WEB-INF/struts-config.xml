@@ -110,6 +110,8 @@
             <form-property name="type" type="java.lang.String"/>
             <form-property name="volgorde" type="java.lang.String"/>
             <form-property name="attribuutnaam" type="java.lang.String"/>
+            <form-property name="inputtype" type="java.lang.String"/>
+            <form-property name="inputsize" type="java.lang.String"/>
         </form-bean>
         <form-bean name="wizardZoekConfiguratieForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>

@@ -49,7 +49,25 @@
                 </td>
                 <td><html:text property="volgorde"></html:text>
                 </td>
-            </tr>            
+            </tr>
+
+            <!-- Attributen alleen bij een zoekveld -->
+            <c:if test="${attribuutType == 'zoek'}">
+            <tr>
+                <td><fmt:message key="configzoekconfiguratieveld.inputtype"/></td>
+                <td>
+                    <html:select styleId="type" property="inputtype">
+                        <html:option value="1">Dropdown</html:option>
+                        <html:option value="2">Tekst</html:option>
+                    </html:select>
+                </td>
+            </tr>
+            <tr>
+                <td><fmt:message key="configzoekconfiguratieveld.inputsize"/></td>
+                <td><html:text property="inputsize"></html:text></td>
+            </tr>
+            </c:if>
+
             <tr>
                 <td></td>
                 <td><html:submit property="save"><fmt:message key="button.save"/></html:submit></td>
