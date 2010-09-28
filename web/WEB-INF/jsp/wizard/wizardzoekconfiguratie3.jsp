@@ -45,7 +45,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         </p>
         <table>
             <tr>
-                <td><fmt:message key="configzoekconfiguratieveld.naam"/>:</td>
+                <td><fmt:message key="configzoekconfiguratie.naam"/>:</td>
                 <td><input type="text" name="naam" value="${naam}"/></td>
             </tr>
             <tr>
@@ -66,6 +66,19 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                     </select>
                 </td>
 
+            </tr>
+            <tr>
+                <td>
+                    <c:choose>
+                        <c:when test="${not empty usecaching}">
+                            <input type="checkbox" name="usecaching" checked="checked"/>
+                        </c:when>
+                        <c:otherwise>
+                            <input type="checkbox" name="usecaching"/>
+                        </c:otherwise>
+                    </c:choose>
+                </td>
+                <td><fmt:message key="configzoekconfiguratie.usecaching"/></td>
             </tr>
         </table>
     </div>

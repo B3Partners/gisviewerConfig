@@ -81,11 +81,11 @@
                 </td>
             </tr>
         </table>
-        <c:if test="${not empty parentResultaatVelden}">
+        <c:if test="${not empty parentZoekVelden}">
             <div class="tipsContainer">
-                <fmt:message key="wizardzoekconfiguratie.parentresultaatvelden"/>
+                <fmt:message key="wizardzoekconfiguratie.parentzoekvelden"/>
                 <ul>
-                    <c:forEach items="${parentResultaatVelden}" var="r">
+                    <c:forEach items="${parentZoekVelden}" var="r">
                         <c:set value="Tekst of nummer" var="type"/>
                         <c:if test="${r.type == 3}">
                             <c:set var="type" value="Geometry"/>
