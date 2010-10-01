@@ -67,11 +67,11 @@
 <c:if test="${pageContext.request.remoteUser != null}">
     <div class="uitloggen">
         <p><tiles:insert name="loginblock"/></p>
-        <p><html:link page="/index.do?resetCache=t&cachelifecycle=0">Rechten opnieuw ophalen (config)</html:link></p>
+        <p><html:link page="/index.do?resetCache=t&cachelifecycle=0">Rechten opnieuw ophalen (configuratie)</html:link></p>
 
         <c:set var="requestURI" value="${fn:split(requestScope['javax.servlet.forward.request_uri'], '/')}" />
-        <p><a href="${absoluteURIPrefix}/gisviewer/resetCache.do">Rechten opnieuw ophalen (viewer)</a></p>
+        <p><a href="${absoluteURIPrefix}/gisviewer/resetCache.do?cachelifecycle=0">Rechten opnieuw ophalen (gisviewer)</a></p>
+        <p><a href="${absoluteURIPrefix}/gisviewer/resetCache.do?flushresultlistcache=true">Cache legen opzoeklijsten (gisviewer)</a></p>
     </div>
 </c:if>
-
 
