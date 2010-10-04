@@ -1484,7 +1484,7 @@ function tablepager(tableid, tablewidth, cellheight, displayselect) {
     }
 }
 
-var imageurl = "/gisviewerConfig/images/icons/";
+var imageurl = "/gisviewerconfig/images/icons/";
 function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
 
     var filters = [];

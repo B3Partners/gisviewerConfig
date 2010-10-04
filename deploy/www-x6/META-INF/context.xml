@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/gisviewerConfig">
+<Context path="/gisviewerconfig">
   <Resource auth="Container" name="jdbc/gisviewer" type="javax.sql.DataSource"/>
     	<ResourceParams name="jdbc/gisviewer">
     	<parameter>

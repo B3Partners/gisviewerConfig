@@ -60,7 +60,7 @@ checkLocation = function() {
 checkLocationPopup = function() {
    if(!usePopup) {
         if (top.location == self.location) {
-            top.location = '/gisviewerConfig/index.do';
+            top.location = '/gisviewerconfig/index.do';
         }
     }
 }

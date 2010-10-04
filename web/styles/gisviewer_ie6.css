@@ -29,17 +29,17 @@ a.menulink, a.menulink:visited, a.menulink:active, a.activemenulink, a.activemen
 
 /* IE 6 ondersteund geen PNG */
 #panelControls .left_closed, #panelControls .right_open {
-    background-image: url(/gisviewerConfig/images/icons/panel_leftright.gif);
+    background-image: url(/gisviewerconfig/images/icons/panel_leftright.gif);
 }
 
 #panelControls .right_closed, #panelControls .left_open {
-    background-image: url(/gisviewerConfig/images/icons/panel_leftright.gif);
+    background-image: url(/gisviewerconfig/images/icons/panel_leftright.gif);
 }
 
 #panelControls .bottom_closed {
-    background-image: url(/gisviewerConfig/images/icons/panel_updown.gif);
+    background-image: url(/gisviewerconfig/images/icons/panel_updown.gif);
 }
 
 #panelControls .bottom_open {
-    background-image: url(/gisviewerConfig/images/icons/panel_updown.gif);
+    background-image: url(/gisviewerconfig/images/icons/panel_updown.gif);
 }
