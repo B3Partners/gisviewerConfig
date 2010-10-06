@@ -109,6 +109,17 @@
             <td><html:checkbox property="cfg_multipleActiveThemas"/></td>
         </tr>
 
+        <tr>
+            <td>
+                <fmt:message key="cfg_seperateIntoBackgroundAndNormalLayers.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_seperateIntoBackgroundAndNormalLayers');">(?)</a>
+                <div id="help_cfg_seperateIntoBackgroundAndNormalLayers" style="display: none;" title="<fmt:message key="cfg_seperateIntoBackgroundAndNormalLayers.label"/>">
+                    <p><fmt:message key="cfg_seperateIntoBackgroundAndNormalLayers.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:checkbox property="cfg_seperateIntoBackgroundAndNormalLayers"/></td>
+        </tr>
+
         </table>
         </div>
         </fieldset>
