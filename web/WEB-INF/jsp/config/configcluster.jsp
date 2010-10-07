@@ -49,7 +49,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             <table id="clustertable" class="tablesorter">
                 <thead>
                     <tr>
-                        <th style="width: 10%;" class="sorttype-int">Volgorde</th>
+                        <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
                         <th style="width: 40%;"><fmt:message key="configcluster.naam"/></th>
                         <th style="width: 40%;"><fmt:message key="configcluster.ouder"/></th>
                     </tr>

@@ -50,7 +50,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 <thead>
                     <tr>
                         <th style="width: 10%;">Status</th>
-                        <th style="width: 10%;" class="sorttype-int">Volgorde</th>
+                        <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
                         <th style="width: 30%;"><fmt:message key="configconnectie.naam"/></th>
                         <th style="width: 50%;"><fmt:message key="configconnectie.url"/></th>
                     </tr>

@@ -61,10 +61,10 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             <table id="themalisttable" class="tablesorter">
                 <thead>
                     <tr>
-                        <th style="width: 10%;" class="sorttype-int">Volgorde</th>
+                        <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
                         <th style="width: 30%;">Naam</th>
                         <th style="width: 20%;"><fmt:message key="configthema.cluster"/></th>
-                        <!-- <th style="width: 10%;" class="sorttype-int">Code</th> -->
+                        <!-- <th style="width: 10%;" class="{sorter:'digit'}">Code</th> -->
                         <th style="width: 15%;">Gegevenstabel</th>
                         <th style="width: 15%;">Geometrietabel</th>
                         <th style="width: 10%;">Data</th>
