@@ -180,37 +180,35 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         </div>
 
         <div class="knoppenbalk">
-            <c:choose>
-                <c:when test="${save || delete}">
-                    <div class="knoppen">
-                        <html:submit property="confirm" accesskey="o" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
-                            <fmt:message key="button.ok"/>
-                        </html:submit>
-                    </div>
-                    <div class="knoppen">
-                        <html:cancel accesskey="c" styleClass="knop" onclick="bCancel=true" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
-                            <fmt:message key="button.cancel"/>
-                        </html:cancel>
-                    </div>
-                </c:when>
-                <c:otherwise>
-                    <div class="knoppen">
-                        <html:submit property="create" accesskey="n" styleClass="knop" onclick="bCancel=true" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
-                            <fmt:message key="button.new"/>
-                        </html:submit>
-                    </div>
-                    <div class="knoppen">
-                        <html:submit property="delete" accesskey="d" styleClass="knop" onclick="bCancel=true; return confirm('Weet u zeker dat u deze thema data wilt verwijderen?');" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
-                            <fmt:message key="button.remove"/>
-                        </html:submit>
-                    </div>
-                    <div class="knoppen">
-                        <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u deze thema data wilt opslaan?');">
-                            <fmt:message key="button.save"/>
-                        </html:submit>
-                    </div>
-                </c:otherwise>
-            </c:choose>
+            <!-- Indien nieuw item maken dan alleen Opslaan en Annuleren knoppen tonen -->
+            <c:if test="${empty form.map.themaDataID}">
+                <div class="knoppen">
+                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u dit veld wilt opslaan?');">
+                        <fmt:message key="button.save"/>
+                    </html:submit>
+                </div>
+                <div class="knoppen">
+                    <input type="button" onclick="window.location='<html:rewrite page='/configThemaData.do' />'" value="<fmt:message key='button.cancel'/>" />
+                </div>
+            </c:if>
+            <!-- Indien item aan het bewerken dan Nieuw, Wissen en Opslaan knoppen tonen -->
+            <c:if test="${!empty form.map.themaDataID}">
+                <div class="knoppen">
+                    <html:submit property="create" accesskey="n" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
+                        <fmt:message key="button.new"/>
+                    </html:submit>
+                </div>
+                <div class="knoppen">
+                    <html:submit property="delete" accesskey="d" styleClass="knop" onclick="return confirm('Weet u zeker dat u dit veld wilt verwijderen?');" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
+                        <fmt:message key="button.remove"/>
+                    </html:submit>
+                </div>
+                <div class="knoppen">
+                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u dit veld wilt opslaan?');">
+                        <fmt:message key="button.save"/>
+                    </html:submit>
+                </div>
+            </c:if>
         </div>
         
     </div> 
