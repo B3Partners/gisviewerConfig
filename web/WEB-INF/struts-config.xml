@@ -233,7 +233,7 @@
             <forward name="step3" path="wizardzoekconfiguratie3"/>
             <forward name="step4" path="wizardzoekconfiguratie4"/>
             <forward name="wizardDone" path="/configZoekConfiguratie.do"/>
-            <forward name="wizardCreateBron" path="/configConnectie.do"/>
+            <forward name="wizardCreateBron" path="/configConnectie.do?create=t"/>
         </action>
         <action path="/configKeeper" type="nl.b3p.gis.viewer.ConfigKeeperAction" name="configKeeperForm" scope="request" validate="false">
             <forward name="success" path="configKeeper"/>
