@@ -108,16 +108,22 @@
             </td>
             <td><html:checkbox property="cfg_multipleActiveThemas"/></td>
         </tr>
-
         <tr>
             <td>
-                <fmt:message key="cfg_seperateIntoBackgroundAndNormalLayers.label"/>
-                <a href="#" onclick="return showHelpDialog('help_cfg_seperateIntoBackgroundAndNormalLayers');">(?)</a>
-                <div id="help_cfg_seperateIntoBackgroundAndNormalLayers" style="display: none;" title="<fmt:message key="cfg_seperateIntoBackgroundAndNormalLayers.label"/>">
-                    <p><fmt:message key="cfg_seperateIntoBackgroundAndNormalLayers.uitleg"/></p>
+                <fmt:message key="cfg_layerGrouping.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_layerGrouping');">(?)</a>
+                <div id="help_cfg_layerGrouping" style="display: none;" title="<fmt:message key="cfg_layerGrouping.label"/>">
+                    <p><fmt:message key="cfg_layerGrouping.uitleg"/></p>
                 </div>
             </td>
-            <td><html:checkbox property="cfg_seperateIntoBackgroundAndNormalLayers"/></td>
+            <td>
+                <html:select property="cfg_layerGrouping">
+                    <html:option value="lg_forebackground"><fmt:message key="cfg_layerGrouping.forebackground"/></html:option>
+                    <html:option value="lg_layer"><fmt:message key="cfg_layerGrouping.layer"/></html:option>
+                    <html:option value="lg_cluster"><fmt:message key="cfg_layerGrouping.cluster"/></html:option>
+                    <html:option value="lg_all"><fmt:message key="cfg_layerGrouping.all"/></html:option>
+                </html:select>
+            </td>
         </tr>
 
         </table>

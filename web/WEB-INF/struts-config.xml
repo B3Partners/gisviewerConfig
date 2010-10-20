@@ -153,8 +153,8 @@
             <form-property name="cfg_showBufferTool" type="java.lang.Boolean"/>
             <form-property name="cfg_showSelectBulkTool" type="java.lang.Boolean"/>
             <form-property name="cfg_showNeedleTool" type="java.lang.Boolean"/>
-            <!-- geplitst laden voor en achtergrondlagen -->
-            <form-property name="cfg_seperateIntoBackgroundAndNormalLayers" type="java.lang.Boolean"/>
+            <!-- vorm laden van kaarten -->
+            <form-property name="cfg_layerGrouping" type="java.lang.String"/>
         </form-bean>
         <form-bean name="configRolPrioForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
