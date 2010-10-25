@@ -40,7 +40,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         <p>
             <fmt:message key="wizardzoekconfiguratie.vraag.featuretype"/>
         </p>
-        <fmt:message key="configzoekconfiguratie.featuretype"/> <select name="featureType">
+        <select name="featureType">
         <c:forEach items="${featureTypes}" var="f">
             <option value="${f}">${f}</option>
         </c:forEach>

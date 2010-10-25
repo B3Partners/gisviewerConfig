@@ -49,7 +49,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 <td><input type="text" name="naam" value="${naam}"/></td>
             </tr>
             <tr>
-                <td><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></td>
+                <td><fmt:message key="configzoekconfiguratie.vervolgzoeker"/></td>
                 <td>
                     <select name="parentZoekConfiguratie">
                         <option value="">Geen</option>
@@ -59,7 +59,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                                     <option value="${z.id}" selected="true"><c:out value="${z}"/></option>
                                 </c:when>
                                 <c:otherwise>
-                                    <option value="${z.id}"><c:out value="${z}"/></option>
+                                    <option value="${z.id}"><c:out value="${z.naam}"/></option>
                                 </c:otherwise>
                             </c:choose>
                         </c:forEach>
@@ -67,7 +67,13 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                 </td>
 
             </tr>
+        </table>
+
+        <p><fmt:message key="configzoekconfiguratie.usecaching.uitleg"/></p>
+
+        <table>
             <tr>
+                <td><fmt:message key="configzoekconfiguratie.usecaching"/></td>
                 <td>
                     <c:choose>
                         <c:when test="${not empty usecaching}">
@@ -77,8 +83,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             <input type="checkbox" name="usecaching"/>
                         </c:otherwise>
                     </c:choose>
-                </td>
-                <td><fmt:message key="configzoekconfiguratie.usecaching"/></td>
+                </td>               
             </tr>
         </table>
     </div>
