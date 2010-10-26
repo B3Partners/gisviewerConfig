@@ -33,7 +33,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <c:set var="focus" value="naam"/>
 
 <div class="infobalk">
-    <div class="infobalk_description">CONNECTIE CONFIG</div>
+    <div class="infobalk_description">BRON CONFIGURATIE</div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
 

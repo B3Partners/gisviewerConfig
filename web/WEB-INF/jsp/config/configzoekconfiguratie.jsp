@@ -34,7 +34,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <c:set var="form" value="${zoekConfiguratieForm}"/>
 
 <div class="infobalk">
-    <div class="infobalk_description">ZOEKCONFIGURATIE</div>
+    <div class="infobalk_description">ZOEKINGANG CONFIGURATIE</div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>    
 <c:if test="${!empty zoekConfiguraties}">

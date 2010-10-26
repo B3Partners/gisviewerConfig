@@ -31,42 +31,44 @@
         <put name="menu" value="/WEB-INF/jsp/commons/configmenu.jsp"/>
     </definition>
     <definition name="configthema" extends="config">
-        <put name="title" value="Configureer thema's" type="string"/>
+        <put name="title" value="Kaartlaag configuratie" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configthema.jsp"/>
     </definition>
     <definition name="configcluster" extends="config">
-        <put name="title" value="Configureer clusters" type="string"/>
+        <put name="title" value="Kaartgroep configuratie" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configcluster.jsp"/>
     </definition>
     <definition name="configthemadata" extends="config">
-        <put name="title" value="Configureer themadata" type="string"/>
+        <put name="title" value="Objectdata configuratie" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configthemadata.jsp"/>
     </definition>
     <definition name="configconnectie" extends="config">
-        <put name="title" value="Configureer connecties" type="string"/>
+        <put name="title" value="Bron configuratie" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configconnecties.jsp"/>
     </definition>
     <definition name="configzoekconfiguratie" extends="config">
-        <put name="title" value="Configureer de zoeker(s)" type="string"/>
+        <put name="title" value="Zoekingang configuratie" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configzoekconfiguratie.jsp"/>
     </definition>
     <definition name="configkaartgroep" extends="config">
-        <put name="title" value="Configureer kaartgroepen" type="string"/>
+        <put name="title" value="Kaartgroep configuratie" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configkaartgroep.jsp"/>
     </definition>
     
     <definition name="wizardzoekconfiguratie" extends="config">
-        <put name="title" value="Wizard Zoek Configuratie" type="string"/>
+        <put name="title" value="Wizard zoekingang - Stap 1: Selecteer bron" type="string"/>
         <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie.jsp"/>
     </definition>
     <definition name="wizardzoekconfiguratie2" extends="wizardzoekconfiguratie">
+        <put name="title" value="Wizard zoekingang - Stap 2: Selecteer tabel/feature" type="string"/>
         <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie2.jsp"/>
     </definition>
     <definition name="wizardzoekconfiguratie3" extends="wizardzoekconfiguratie">
+        <put name="title" value="Wizard zoekingang - Stap 3: Naam" type="string"/>
         <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie3.jsp"/>
     </definition>
     <definition name="wizardzoekconfiguratie4" extends="wizardzoekconfiguratie">
-        <put name="title" value="Configureer de velden" type="string"/>
+        <put name="title" value="Wizard zoekingang - Stap 4: Zoek- en resultaatvelden" type="string"/>
         <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie4.jsp"/>
     </definition>
 
