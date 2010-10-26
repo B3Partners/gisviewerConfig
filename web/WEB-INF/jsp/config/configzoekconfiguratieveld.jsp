@@ -67,7 +67,7 @@
                 <td><html:text property="inputsize"></html:text></td>
             </tr>
             <tr>
-                <td>Inputlijst</td>
+                <td>Opzoeklijst</td>
                 <td><html:select property="inputzoekconfiguratie">
                         <html:option value="">
                             Geen
