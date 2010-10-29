@@ -252,6 +252,16 @@
         </tr>
         <tr>
             <td>
+                <fmt:message key="cfg_showRedliningTools.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_showRedliningTools');">(?)</a>
+                <div id="help_cfg_showRedliningTools" style="display: none;" title="<fmt:message key="cfg_showRedliningTools.label"/>">
+                    <p><fmt:message key="cfg_showRedliningTools.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:checkbox property="cfg_showRedliningTools"/></td>
+        </tr>
+        <tr>
+            <td>
                 <fmt:message key="cfg_showBufferTool.label"/>
                 <a href="#" onclick="return showHelpDialog('help_cfg_showBufferTool');">(?)</a>
                 <div id="help_cfg_showBufferTool" style="display: none;" title="<fmt:message key="cfg_showBufferTool.label"/>">
