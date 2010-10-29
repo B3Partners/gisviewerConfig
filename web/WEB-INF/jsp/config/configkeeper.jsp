@@ -139,43 +139,6 @@
         <table>
         <tr>
             <td>
-                <fmt:message key="cfg_objectInfo.label"/>
-                <a href="#" onclick="return showHelpDialog('help_cfg_objectInfo');">(?)</a>
-                <div id="help_cfg_objectInfo" style="display: none;" title="<fmt:message key="cfg_objectInfo.label"/>">
-                    <p><fmt:message key="cfg_objectInfo.uitleg"/></p>
-                </div>
-            </td>
-            <td>
-                <html:select property="cfg_objectInfo">
-                    <html:option value="geen"><fmt:message key="cfg_objectInfo.geen"/></html:option>
-                    <html:option value="paneel"><fmt:message key="cfg_objectInfo.paneel"/></html:option>
-                    <html:option value="popup"><fmt:message key="cfg_objectInfo.popup"/></html:option>
-                </html:select>
-            </td>
-        </tr>
-        
-        <tr>
-            <td>
-                <fmt:message key="cfg_tolerance.label"/>
-                <a href="#" onclick="return showHelpDialog('help_cfg_tolerance');">(?)</a>
-                <div id="help_cfg_tolerance" style="display: none;" title="<fmt:message key="cfg_tolerance.label"/>">
-                    <p><fmt:message key="cfg_tolerance.uitleg"/></p>
-                </div>
-            </td>
-            <td><html:text property="cfg_tolerance" size="5"/></td>
-        </tr>
-        <tr>
-            <td>
-                <fmt:message key="cfg_autoRedirect.label"/>
-                <a href="#" onclick="return showHelpDialog('help_cfg_autoRedirect');">(?)</a>
-                <div id="help_cfg_autoRedirect" style="display: none;" title="<fmt:message key="cfg_autoRedirect.label"/>">
-                    <p><fmt:message key="cfg_autoRedirect.uitleg"/></p>
-                </div>
-            </td>
-            <td><html:text property="cfg_autoRedirect" size="5"/></td>
-        </tr>
-        <tr>
-            <td>
                 <fmt:message key="cfg_layoutAdminData.label"/>
                 <a href="#" onclick="return showHelpDialog('help_cfg_layoutAdminData');">(?)</a>
                 <div id="help_cfg_layoutAdminData" style="display: none;" title="<fmt:message key="cfg_layoutAdminData.label"/>">
@@ -192,13 +155,100 @@
         </tr>
         <tr>
             <td>
-                <fmt:message key="cfg_showRedliningTools.label"/>
-                <a href="#" onclick="return showHelpDialog('help_cfg_showRedliningTools');">(?)</a>
-                <div id="help_cfg_showRedliningTools" style="display: none;" title="<fmt:message key="cfg_showRedliningTools.label"/>">
-                    <p><fmt:message key="cfg_showRedliningTools.uitleg"/></p>
+                <fmt:message key="cfg_defaultdataframehoogte.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_defaultdataframehoogte');">(?)</a>
+                <div id="help_cfg_defaultdataframehoogte" style="display: none;" title="<fmt:message key="cfg_defaultdataframehoogte.label"/>">
+                    <p><fmt:message key="cfg_defaultdataframehoogte.uitleg"/></p>
                 </div>
             </td>
-            <td><html:checkbox property="cfg_showRedliningTools"/></td>
+            <td><html:text property="cfg_defaultdataframehoogte" size="5"/></td>
+        </tr>
+        <tr>
+            <td>
+                <fmt:message key="cfg_popupWidth.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_popupWidth');">(?)</a>
+                <div id="help_cfg_popupWidth" style="display: none;" title="<fmt:message key="cfg_popupWidth.label"/>">
+                    <p><fmt:message key="cfg_popupWidth.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:text property="cfg_popupWidth" size="5"/></td>
+        </tr>
+        <tr>
+            <td>
+                <fmt:message key="cfg_popupHeight.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_popupHeight');">(?)</a>
+                <div id="help_cfg_popupHeight" style="display: none;" title="<fmt:message key="cfg_popupHeight.label"/>">
+                    <p><fmt:message key="cfg_popupHeight.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:text property="cfg_popupHeight" size="5"/></td>
+        </tr>       
+        <tr>
+            <td>
+                <fmt:message key="cfg_popupLeft.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_popupLeft');">(?)</a>
+                <div id="help_cfg_popupLeft" style="display: none;" title="<fmt:message key="cfg_popupLeft.label"/>">
+                    <p><fmt:message key="cfg_popupLeft.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:text property="cfg_popupLeft" size="5"/></td>
+        </tr>    
+        <tr>
+            <td>
+                <fmt:message key="cfg_popupTop.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_popupTop');">(?)</a>
+                <div id="help_cfg_popupTop" style="display: none;" title="<fmt:message key="cfg_popupTop.label"/>">
+                    <p><fmt:message key="cfg_popupTop.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:text property="cfg_popupTop" size="5"/></td>
+        </tr>
+        </table>
+        </div>
+        </fieldset>
+    </div>
+
+    <div class="fieldset_block">
+        <fieldset class="fieldset1">
+        <legend class="fieldLegend">Tools</legend>
+
+        <div class="content_body">
+        <table>
+        <tr>
+            <td>
+                <fmt:message key="cfg_objectInfo.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_objectInfo');">(?)</a>
+                <div id="help_cfg_objectInfo" style="display: none;" title="<fmt:message key="cfg_objectInfo.label"/>">
+                    <p><fmt:message key="cfg_objectInfo.uitleg"/></p>
+                </div>
+            </td>
+            <td>
+                <html:select property="cfg_objectInfo">
+                    <html:option value="geen"><fmt:message key="cfg_objectInfo.geen"/></html:option>
+                    <html:option value="paneel"><fmt:message key="cfg_objectInfo.paneel"/></html:option>
+                    <html:option value="popup"><fmt:message key="cfg_objectInfo.popup"/></html:option>
+                </html:select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <fmt:message key="cfg_autoRedirect.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_autoRedirect');">(?)</a>
+                <div id="help_cfg_autoRedirect" style="display: none;" title="<fmt:message key="cfg_autoRedirect.label"/>">
+                    <p><fmt:message key="cfg_autoRedirect.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:text property="cfg_autoRedirect" size="5"/></td>
+        </tr>
+        <tr>
+            <td>
+                <fmt:message key="cfg_tolerance.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_tolerance');">(?)</a>
+                <div id="help_cfg_tolerance" style="display: none;" title="<fmt:message key="cfg_tolerance.label"/>">
+                    <p><fmt:message key="cfg_tolerance.uitleg"/></p>
+                </div>
+            </td>
+            <td><html:text property="cfg_tolerance" size="5"/></td>
         </tr>
         <tr>
             <td>
@@ -230,14 +280,13 @@
             </td>
             <td><html:checkbox property="cfg_showNeedleTool"/></td>
         </tr>
-
         </table>
         </div>
         </fieldset>
     </div>
 
-    <div class="fieldset_block_small">
-        <fieldset class="fieldset_small">
+    <div class="fieldset_block">
+        <fieldset class="fieldset1">
         <legend class="fieldLegend">Tabbladen</legend>
 
         <div class="content_body">

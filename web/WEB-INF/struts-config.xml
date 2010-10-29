@@ -140,21 +140,22 @@
             <form-property name="cfg_tab3" type="java.lang.String"/>
             <form-property name="cfg_tab4" type="java.lang.String"/>
             <form-property name="cfg_tab5" type="java.lang.String"/>
-            <!-- 4 zoekingangen keuze voor zoekerIds -->
             <form-property name="cfg_zoekenid1" type="java.lang.String"/>
             <form-property name="cfg_zoekenid2" type="java.lang.String"/>
             <form-property name="cfg_zoekenid3" type="java.lang.String"/>
-            <form-property name="cfg_zoekenid4" type="java.lang.String"/>
-            <!-- 2 zoekingangen keuze voor planselectieIds -->
+            <form-property name="cfg_zoekenid4" type="java.lang.String"/>        
             <form-property name="cfg_planselectieid1" type="java.lang.String"/>
-            <form-property name="cfg_planselectieid2" type="java.lang.String"/>
-            <!-- Viewer tools aan/uit -->
+            <form-property name="cfg_planselectieid2" type="java.lang.String"/>       
             <form-property name="cfg_showRedliningTools" type="java.lang.Boolean"/>
             <form-property name="cfg_showBufferTool" type="java.lang.Boolean"/>
             <form-property name="cfg_showSelectBulkTool" type="java.lang.Boolean"/>
-            <form-property name="cfg_showNeedleTool" type="java.lang.Boolean"/>
-            <!-- vorm laden van kaarten -->
+            <form-property name="cfg_showNeedleTool" type="java.lang.Boolean"/>      
             <form-property name="cfg_layerGrouping" type="java.lang.String"/>
+            <form-property name="cfg_popupWidth" type="java.lang.String"/>
+            <form-property name="cfg_popupHeight" type="java.lang.String"/>
+            <form-property name="cfg_popupLeft" type="java.lang.String"/>
+            <form-property name="cfg_popupTop" type="java.lang.String"/>
+            <form-property name="cfg_defaultdataframehoogte" type="java.lang.String"/>
         </form-bean>
         <form-bean name="configRolPrioForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
