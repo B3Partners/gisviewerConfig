@@ -717,3 +717,8 @@ table.tablesorter thead tr .headerSortDown {
     font-size: 1.1em;
     color: #197FCE;
 }
+
+.gbEditLink, a, a:visited {
+    font-size: 1.2em;
+    color: #197FCE;
+}

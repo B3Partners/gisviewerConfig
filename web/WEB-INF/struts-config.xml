@@ -179,7 +179,19 @@
             <form-property name="callable" type="java.lang.Boolean"/>
             <form-property name="default_visible" type="java.lang.Boolean"/>
         </form-bean>
-
+        <form-bean name="gegevensbronForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="gegevensbronID" type="java.lang.String"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="bron" type="java.lang.String"/>
+            <form-property name="admin_tabel" type="java.lang.String"/>
+            <form-property name="admin_pk" type="java.lang.String"/>
+            <form-property name="parentID" type="java.lang.String"/>
+            <form-property name="admin_fk" type="java.lang.String"/>
+            <form-property name="admin_query" type="java.lang.String"/>
+            <form-property name="admin_tabel_opmerkingen" type="java.lang.String"/>
+        </form-bean>
     </form-beans>
     <global-exceptions>
     </global-exceptions>
@@ -248,6 +260,11 @@
             <forward name="success" path="configkaartgroep"/>
             <forward name="failure" path="configkaartgroep"/>
         </action>
+        <action path="/configGegevensbron" type="nl.b3p.gis.viewer.ConfigGegevensbronAction" name="gegevensbronForm" scope="request" validate="false">
+            <forward name="success" path="configgegevensbron"/>
+            <forward name="failure" path="configgegevensbron"/>
+        </action>
+
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

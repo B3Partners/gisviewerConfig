@@ -53,6 +53,10 @@
     width: 500px;
 }
 
+.configBronSelect {
+    width: 200px;
+}
+
 .knoppen {
     float: left;
 }

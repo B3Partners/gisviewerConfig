@@ -31,6 +31,12 @@
     --%>
 
     <c:set var="stijlklasse" value="menulink" />
+    <c:if test="${requestJSP eq 'configGegevensbron.do'}">
+        <c:set var="stijlklasse" value="activemenulink" />
+    </c:if>
+    <html:link page="/configGegevensbron.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.gegevensbron"/></html:link>
+
+    <c:set var="stijlklasse" value="menulink" />
     <c:if test="${requestJSP eq 'configKaartGroep.do'}">
         <c:set var="stijlklasse" value="activemenulink" />
     </c:if>
