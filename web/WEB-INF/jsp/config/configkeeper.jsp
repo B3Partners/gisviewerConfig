@@ -378,6 +378,8 @@
             <div id="configkeeper_tab_header_container">
                 <div class="configkeeper_tab_header" id="tab-zoeken-header">Zoeken</div>
                 <div class="configkeeper_tab_header" id="tab-planselectie-header">Planselectie</div>
+                <div class="configkeeper_tab_header" id="tab-vergunning-header">Vergunning</div>
+                <div class="configkeeper_tab_header" id="tab-voorziening-header">Voorziening</div>
             </div>
 
             <div class="maintable">
@@ -462,6 +464,132 @@
                         </td>
                     </tr>
                     </table>
+                </div>
+
+                <div class="configkeeper_tab" id="tab-vergunning-content">
+                    hallo
+                </div>
+
+                <div class="configkeeper_tab" id="tab-voorziening-content">
+                    <table border="0" cellspacing="10">
+                        <tr>
+                            <td valign="top">
+                                <table cellpadding="2" cellspacing="2" border="0">
+                                <tr>
+                                    <td><fmt:message key="cfg_voorzieningid1.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_voorzieningid1">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><fmt:message key="cfg_voorzieningid2.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_voorzieningid2">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><fmt:message key="cfg_voorzieningid3.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_voorzieningid3">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><fmt:message key="cfg_voorzieningstraal.label"/></td>
+                                    <td><html:text property="cfg_voorzieningstraal"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><fmt:message key="cfg_straal.label"/></td>
+                                </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table cellpadding="2" cellspacing="2" border="0">
+                                <tr>
+                                    <td><fmt:message key="cfg_voorzieningtype1.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_voorzieningtype1">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><fmt:message key="cfg_voorzieningtype2.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_voorzieningtype2">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><fmt:message key="cfg_voorzieningtype3.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_voorzieningtype3">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td><fmt:message key="cfg_voorzieningtype4.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_voorzieningtype4">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><fmt:message key="cfg_voorzieningtype5.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_voorzieningtype5">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><fmt:message key="cfg_voorzieningtype6.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_voorzieningtype6">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    
                 </div>
 
             </div> <!-- einde main table -->

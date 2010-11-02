@@ -143,13 +143,25 @@
             <form-property name="cfg_zoekenid1" type="java.lang.String"/>
             <form-property name="cfg_zoekenid2" type="java.lang.String"/>
             <form-property name="cfg_zoekenid3" type="java.lang.String"/>
-            <form-property name="cfg_zoekenid4" type="java.lang.String"/>        
+            <form-property name="cfg_zoekenid4" type="java.lang.String"/>
             <form-property name="cfg_planselectieid1" type="java.lang.String"/>
-            <form-property name="cfg_planselectieid2" type="java.lang.String"/>       
+            <form-property name="cfg_planselectieid2" type="java.lang.String"/>
+            <!--  zoekingangen keuze voor voorziening Zoeker -->
+            <form-property name="cfg_voorzieningid1" type="java.lang.String"/>
+            <form-property name="cfg_voorzieningid2" type="java.lang.String"/>
+            <form-property name="cfg_voorzieningid3" type="java.lang.String"/>
+            <form-property name="cfg_voorzieningtype1" type="java.lang.String"/>
+            <form-property name="cfg_voorzieningtype2" type="java.lang.String"/>
+            <form-property name="cfg_voorzieningtype3" type="java.lang.String"/>
+            <form-property name="cfg_voorzieningtype4" type="java.lang.String"/>
+            <form-property name="cfg_voorzieningtype5" type="java.lang.String"/>
+            <form-property name="cfg_voorzieningtype6" type="java.lang.String"/>
+            <form-property name="cfg_voorzieningstraal" type="java.lang.String"/>
+            <!-- Viewer tools aan/uit -->
             <form-property name="cfg_showRedliningTools" type="java.lang.Boolean"/>
             <form-property name="cfg_showBufferTool" type="java.lang.Boolean"/>
             <form-property name="cfg_showSelectBulkTool" type="java.lang.Boolean"/>
-            <form-property name="cfg_showNeedleTool" type="java.lang.Boolean"/>      
+            <form-property name="cfg_showNeedleTool" type="java.lang.Boolean"/>
             <form-property name="cfg_layerGrouping" type="java.lang.String"/>
             <form-property name="cfg_popupWidth" type="java.lang.String"/>
             <form-property name="cfg_popupHeight" type="java.lang.String"/>
