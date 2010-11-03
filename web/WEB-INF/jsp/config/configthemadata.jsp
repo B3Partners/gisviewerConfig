@@ -47,10 +47,10 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         <table>
             <tr>
                 <td style="color: #196299;">
-                    <fmt:message key="thema.naam"/>
+                    Gegevensbron
                 </td>
                 <td colspan="3">
-                    <html:select property="themaID">
+                    <html:select property="gegevensbronID">
                         <c:forEach var="cuItem" items="${listThemas}">
                             <html:option value="${cuItem.id}">
                                 <c:out value="${cuItem.naam}"/>

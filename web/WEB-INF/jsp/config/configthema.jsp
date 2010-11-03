@@ -50,9 +50,6 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         <html:hidden property="wms_layers"/>
         <html:hidden property="wms_legendlayer"/>
         <html:hidden property="wms_querylayers"/>
-        <html:hidden property="admin_pk_complex"/>
-        <html:hidden property="spatial_pk_complex"/>
-        <html:hidden property="admin_spatial_ref"/>
         <input type="hidden" name="refreshLists">
     </div>
 
@@ -64,9 +61,6 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
                         <th style="width: 30%;">Naam</th>
                         <th style="width: 20%;"><fmt:message key="configthema.cluster"/></th>
-                        <!-- <th style="width: 10%;" class="{sorter:'digit'}">Code</th> -->
-                        <th style="width: 15%;">Gegevenstabel</th>
-                        <th style="width: 15%;">Geometrietabel</th>
                         <th style="width: 10%;">Data</th>
                     </tr>
                 </thead>
@@ -82,26 +76,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             <!-- <td><c:out value="${ci.code}"/>&nbsp;</td> -->
 
                             <c:set var="accolade" value="}"/>
-                            <td>
-                                <c:choose>
-                                    <c:when test="${fn:contains(ci.admin_tabel, accolade)}">
-                                        <c:out value='${fn:substringAfter(ci.admin_tabel, accolade)}'/>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <c:out value='${ci.admin_tabel}'/>
-                                    </c:otherwise>
-                                </c:choose>
-                                &nbsp;</td>
-                            <td>
-                                <c:choose>
-                                    <c:when test="${fn:contains(ci.spatial_tabel, accolade)}">
-                                        <c:out value='${fn:substringAfter(ci.spatial_tabel, accolade)}'/>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <c:out value='${ci.spatial_tabel}'/>
-                                    </c:otherwise>
-                                </c:choose>
-                                &nbsp;</td>
+                            
                             <td>
                                 <c:if test="${ci.code!='3'}">
                                     &nbsp;<html:link page="/configThemaData.do?edit=submit&themaID=${ci.id}">TD</html:link>&nbsp;
@@ -210,129 +185,20 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 
             <div class="config_tab" id="tab-gegevensbron-content">
                 <table cellpadding="2" cellspacing="2" border="0">
+
                     <tr>
                         <td>
-                            <fmt:message key="configthema.connectie"/> <a href="#" onclick="return showHelpDialog('help_configthemaconnectie');">(?)</a><div id="help_configthemaconnectie" style="display: none;" title="<fmt:message key="configthema.connectie"/>"><p><fmt:message key="configthema.connectie.uitleg"/></p></div>
+                            <fmt:message key="configthema_gegevensbron.label"/> <a href="#" onclick="return showHelpDialog('help_configthema_gegevensbron');">(?)</a><div id="help_configthema_gegevensbron" style="display: none;" title="<fmt:message key="configthema_gegevensbron.label"/>"><p><fmt:message key="configthema_gegevensbron.uitleg"/></p></div>
                         </td>
                         <td colspan="3">
-                            <html:select property="connectie" onchange="refreshFeatureList(this);" styleId='connectie_select' styleClass="configSelect">
-                                <html:option value="-1">Geen bron</html:option>
-                                <html:option value="0">Kaartenbalie Wfs</html:option>
-                                <c:forEach var="cuItem" items="${listConnecties}">
+                            <html:select property="gegevensbron" styleClass="configSelect">
+                                <html:option value="-1">Geen gegevensbron</html:option>
+                                <c:forEach var="cuItem" items="${listBronnen}">
                                     <html:option value="${cuItem.id}">
                                         <c:out value="${cuItem.naam}"/>
                                     </html:option>
                                 </c:forEach>
-                            </html:select>&nbsp;
-                        </td>
-                    </tr>
-                    <c:set var="connectieType" value="wfs"/>
-                    <c:if test="${form.map.connectie!=null}">
-                        <c:forEach var="i" items="${listConnecties}">
-                            <c:if test="${i.id==form.map.connectie && i.type=='jdbc'}">
-                                <c:set var="connectieType" value="jdbc"/>
-                            </c:if>
-                        </c:forEach>
-                    </c:if>
-                    <tr>
-                        <td colspan="4">&nbsp;</td>
-                    </tr>
-                    
-                    <tr>
-                        <td><fmt:message key="configthema.${connectieType}.admintabel"/> <a href="#" onclick="return showHelpDialog('help_configthema${connectieType}admintabel');">(?)</a><div id="help_configthema${connectieType}admintabel" style="display: none;" title="<fmt:message key="configthema.${connectieType}.admintabel"/>"><fmt:message key="configthema.${connectieType}.admintabel.uitleg"/></div></td>
-                        <td colspan="3">
-                            <html:select property="admin_tabel" onchange="refreshAdminAttributeList(this);" styleId="admin_tabel_select" styleClass="configSelect">
-                                <html:option value=""/>
-                                <c:forEach var="cuItem" items="${listTables}">
-                                    <html:option value="${cuItem[0]}">${cuItem[1]}</html:option>
-                                </c:forEach>
-                            </html:select>&nbsp;
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><fmt:message key="configthema.${connectieType}.adminpk"/> <a href="#" onclick="return showHelpDialog('help_configthema${connectieType}adminpk');">(?)</a><div id="help_configthema${connectieType}adminpk" style="display: none;" title="<fmt:message key="configthema.${connectieType}.adminpk"/>"><fmt:message key="configthema.${connectieType}.adminpk.uitleg"/></div></td>
-                        <td colspan="3">
-                            <html:select property="admin_pk" styleId="admin_pk_select" styleClass="configSelect">
-                                <html:option value=""/>
-                                <c:choose>
-                                    <c:when test="${fn:length(listAdminTableColumns)>1}">
-                                        <c:forEach var="cuItem" items="${listAdminTableColumns}">
-                                            <html:option value="${cuItem[0]}">${cuItem[1]}</html:option>
-                                        </c:forEach>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <html:option value="Kies eerst tabel of feature..." />
-                                    </c:otherwise>
-                                </c:choose>
-                            </html:select>&nbsp;
-                        </td>
-                    </tr>
-                    <tr><td><span id="adminqueryrow"><fmt:message key="configthema.${connectieType}.adminquery"/> <a href="#" onclick="return showHelpDialog('help_configthema${connectieType}adminquery');">(?)</a></span><div id="help_configthema${connectieType}adminquery" style="display: none;" title="<fmt:message key="configthema.${connectieType}.adminquery"/>"><fmt:message key="configthema.${connectieType}.adminquery.uitleg"/></div></td><td colspan="3"><html:text property="admin_query" size="140" styleId="admin_query_text"/></td></tr>
-                    <tr>
-                        <td><fmt:message key="configthema.${connectieType}.admintabelopmerkingen"/> <a href="#" onclick="return showHelpDialog('help_configthema${connectieType}admintabelopmerkingen');">(?)</a><div id="help_configthema${connectieType}admintabelopmerkingen" style="display: none;" title="<fmt:message key="configthema.${connectieType}.admintabelopmerkingen"/>"><fmt:message key="configthema.${connectieType}.admintabelopmerkingen.uitleg"/></div></td><td colspan="3"><html:text property="admin_tabel_opmerkingen" size="140"/></td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="config_tab" id="tab-geavanceerd-content">
-                <table cellpadding="2" cellspacing="2" border="0">
-                    <tr><td><fmt:message key="configthema.${connectieType}.spatialtabelopmerkingen"/> <a href="#" onclick="return showHelpDialog('help_configthema${connectieType}spatialtabelopmerkingen');">(?)</a><div id="help_configthema${connectieType}spatialtabelopmerkingen" style="display: none;" title="<fmt:message key="configthema.${connectieType}.spatialtabelopmerkingen"/>"><fmt:message key="configthema.${connectieType}.spatialtabelopmerkingen.uitleg"/></div></td><td colspan="3"><html:text property="spatial_tabel_opmerkingen" size="140"/></td></tr>
-                    <tr>
-                        <td><fmt:message key="configthema.${connectieType}.spatialtabel"/> <a href="#" onclick="return showHelpDialog('help_configthema${connectieType}spatialtabel');">(?)</a><div id="help_configthema${connectieType}spatialtabel" style="display: none;" title="<fmt:message key="configthema.${connectieType}.spatialtabel"/>"><fmt:message key="configthema.${connectieType}.spatialtabel.uitleg"/></div></td>
-                        <td colspan="3">
-                            <html:select property="spatial_tabel" onchange="refreshSpatialAttributeList(this);" styleId="spatial_tabel_select" styleClass="configSelect">
-                                <html:option value=""/>
-                                <c:forEach var="cuItem" items="${listTables}">
-                                    <html:option value="${cuItem[0]}">${cuItem[1]}</html:option>
-                                </c:forEach>
-                            </html:select>&nbsp;
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><fmt:message key="configthema.${connectieType}.spatialpk"/> <a href="#" onclick="return showHelpDialog('help_configthema${connectieType}spatialpk');">(?)</a><div id="help_configthema${connectieType}spatialpk" style="display: none;" title="<fmt:message key="configthema.${connectieType}.spatialpk"/>"><fmt:message key="configthema.${connectieType}.spatialpk.uitleg"/></div></td>
-                        <td colspan="3">
-                            <html:select property="spatial_pk" styleId="spatial_pk_select" styleClass="configSelect">
-                                <html:option value=""/>
-                                <c:choose>
-                                    <c:when test="${fn:length(listSpatialTableColumns)>1}">
-                                        <c:forEach var="cuItem" items="${listSpatialTableColumns}">
-                                            <html:option value="${cuItem[0]}">${cuItem[1]}</html:option>
-                                        </c:forEach>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <html:option value="Kies eerst een spatialtabel"/>
-                                    </c:otherwise>
-                                </c:choose>
-                            </html:select>&nbsp;
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><fmt:message key="configthema.${connectieType}.spatialadminref"/> <a href="#" onclick="return showHelpDialog('help_configthema${connectieType}spatialadminref');">(?)</a><div id="help_configthema${connectieType}spatialadminref" style="display: none;" title="<fmt:message key="configthema.${connectieType}.spatialadminref"/>"><fmt:message key="configthema.${connectieType}.spatialadminref.uitleg"/></div></td>
-                        <td colspan="3">
-                            <html:select property="spatial_admin_ref" styleId="spatial_adminref_select" styleClass="configSelect">
-                                <html:option value=""/>
-                                <c:choose>
-                                    <c:when test="${fn:length(listSpatialTableColumns)>1}">
-                                        <c:forEach var="cuItem" items="${listSpatialTableColumns}">
-                                            <html:option value="${cuItem[0]}">${cuItem[1]}</html:option>
-                                        </c:forEach>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <html:option value="Kies eerst een spatialtabel"/>
-                                    </c:otherwise>
-                                </c:choose>
-                            </html:select>&nbsp;
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><fmt:message key="configthema.viewgeomtype"/> <a href="#" onclick="return showHelpDialog('help_configthemaviewgeomtype');">(?)</a><div id="help_configthemaviewgeomtype" style="display: none;" title="<fmt:message key="configthema.viewgeomtype"/>"><p><fmt:message key="configthema.viewgeomtype.uitleg"/></p></div></td>
-                        <td colspan="3">
-                            <html:select property="view_geomtype" styleClass="configSelect">
-                                <html:option value=""/>
-                                <c:forEach var="cuItem" items="${listValidGeoms}">
-                                    <html:option value="${cuItem}"/>
-                                </c:forEach>
-                            </html:select>&nbsp;
+                            </html:select>
                         </td>
                     </tr>
                 </table>

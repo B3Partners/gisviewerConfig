@@ -13,6 +13,8 @@ function createLeaf(container, item) {
     container.appendChild(createFolderIcon());
     container.appendChild(document.createTextNode(' '));
     container.appendChild(createEditLink(item));
+    container.appendChild(document.createTextNode(' '));
+    container.appendChild(createLinkToObjectData(item));
 
     return false;
 }
@@ -37,6 +39,16 @@ function createFolderIcon() {
     folderIcon.className = 'folderIcon';
 
     return folderIcon;
+}
+
+function createLinkToObjectData(item){
+    var lnk = document.createElement('a');
+
+    lnk.innerHTML = '<img src="images/treeview/icon_info.png" border="0" alt="Objectdata bewerken" title="Objectdata bewerken" />';
+    lnk.className='tdEditLink';
+    lnk.href = 'configThemaData.do?gegevensbronID='+item.id;
+
+    return lnk;
 }
 
 function refreshFeatureList(element){

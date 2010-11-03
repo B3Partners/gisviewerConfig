@@ -13,23 +13,11 @@
             <form-property name="themaCode" type="java.lang.String"/>
             <form-property name="naam" type="java.lang.String"/>
             <form-property name="metadatalink" type="java.lang.String"/>
-            <form-property name="connectie" type="java.lang.String"/>
             <form-property name="belangnr" type="java.lang.String"/>
             <form-property name="clusterID" type="java.lang.String"/>
             <form-property name="opmerkingen" type="java.lang.String"/>
             <form-property name="analyse_thema" type="java.lang.Boolean"/>
             <form-property name="locatie_thema" type="java.lang.Boolean"/>
-            <form-property name="admin_tabel_opmerkingen" type="java.lang.String"/>
-            <form-property name="admin_tabel" type="java.lang.String"/>
-            <form-property name="admin_pk" type="java.lang.String"/>
-            <form-property name="admin_pk_complex" type="java.lang.Boolean"/>
-            <form-property name="admin_spatial_ref" type="java.lang.String"/>
-            <form-property name="admin_query" type="java.lang.String"/>
-            <form-property name="spatial_tabel_opmerkingen" type="java.lang.String"/>
-            <form-property name="spatial_tabel" type="java.lang.String"/>
-            <form-property name="spatial_pk" type="java.lang.String"/>
-            <form-property name="spatial_pk_complex" type="java.lang.Boolean"/>
-            <form-property name="spatial_admin_ref" type="java.lang.String"/>
             <form-property name="wms_url" type="java.lang.String"/>
             <form-property name="wms_layers" type="java.lang.String"/>
             <form-property name="wms_layers_real" type="java.lang.String"/>
@@ -45,6 +33,7 @@
             <form-property name="sldattribuut" type="java.lang.String"/>
             <form-property name="uitgebreid" type="java.lang.Boolean"/>
             <form-property name="layoutadmindata" type="java.lang.String"/>
+            <form-property name="gegevensbron" type="java.lang.String"/>
         </form-bean>
         <form-bean name="clusterForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
@@ -80,7 +69,6 @@
             <form-property name="label" type="java.lang.String"/>
             <form-property name="eenheid" type="java.lang.String"/>
             <form-property name="omschrijving" type="java.lang.String"/>
-            <form-property name="themaID" type="java.lang.String"/>
             <form-property name="uitgebreid" type="java.lang.Boolean"/>
             <form-property name="basisregel" type="java.lang.Boolean"/>
             <form-property name="voorbeelden" type="java.lang.String"/>
@@ -90,6 +78,7 @@
             <form-property name="commando" type="java.lang.String"/>
             <form-property name="kolomnaam" type="java.lang.String"/>
             <form-property name="dataorder" type="java.lang.String"/>
+            <form-property name="gegevensbronID" type="java.lang.String"/>
         </form-bean>
         <form-bean name="zoekConfiguratieForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
