@@ -84,6 +84,10 @@ function handleAdminAttributeList(list){
     dwr.util.removeAllOptions('admin_pk_select');
     dwr.util.addOptions("admin_pk_select",[""]);
     dwr.util.addOptions("admin_pk_select",list,"0","1");
+
+    dwr.util.removeAllOptions('admin_fk_select');
+    dwr.util.addOptions("admin_fk_select",[""]);
+    dwr.util.addOptions("admin_fk_select",list,"0","1");
 }
 
 function refreshTheLists(){
