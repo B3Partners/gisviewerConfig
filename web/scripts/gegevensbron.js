@@ -64,21 +64,14 @@ function refreshFeatureList(element){
 
 function handleFeatureList(list){
     dwr.util.removeAllOptions('admin_tabel_select');
-    dwr.util.removeAllOptions('spatial_tabel_select');
     dwr.util.removeAllOptions('admin_pk_select');
-    dwr.util.removeAllOptions('spatial_pk_select');
-    dwr.util.removeAllOptions('spatial_adminref_select');
+    
     dwr.util.addOptions("admin_tabel_select",[""]);
-    dwr.util.addOptions("spatial_tabel_select",[""]);
     dwr.util.addOptions("admin_tabel_select",list,"0","1");
-    dwr.util.addOptions("spatial_tabel_select",list,"0","1");
 
     var data = [ { value:"", label:"Kies eerst tabel of feature...." } ];
-    var data2 = [ { value:"", label:"Kies eerst spatialtabel...." } ];
     
     dwr.util.addOptions("admin_pk_select", data, "value", "label");
-    dwr.util.addOptions("spatial_pk_select", data2, "value", "label");
-    dwr.util.addOptions("spatial_adminref_select", data2, "value", "label");
 }
 
 function refreshAdminAttributeList(element){

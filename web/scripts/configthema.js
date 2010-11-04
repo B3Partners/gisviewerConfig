@@ -19,20 +19,14 @@ function refreshFeatureList(element){
 function handleFeatureList(list){
     showHideJDBC();
     dwr.util.removeAllOptions('admin_tabel_select');
-    dwr.util.removeAllOptions('spatial_tabel_select');
     dwr.util.removeAllOptions('admin_pk_select');
-    dwr.util.removeAllOptions('spatial_pk_select');
-    dwr.util.removeAllOptions('spatial_adminref_select');
+
     dwr.util.addOptions("admin_tabel_select",[""]);
-    dwr.util.addOptions("spatial_tabel_select",[""]);
     dwr.util.addOptions("admin_tabel_select",list,"0","1");
-    dwr.util.addOptions("spatial_tabel_select",list,"0","1");
 
     var data = [ { value:"", label:"Kies eerst tabel of feature...." } ];
-    var data2 = [ { value:"", label:"Kies eerst spatialtabel...." } ];
+    
     dwr.util.addOptions("admin_pk_select", data, "value", "label");
-    dwr.util.addOptions("spatial_pk_select", data2, "value", "label");
-    dwr.util.addOptions("spatial_adminref_select", data2, "value", "label");
 }
 function showHideJDBC() {
     //Er voor zorgen dat het tabblad geavanceerd wordt gehide
@@ -61,14 +55,6 @@ function handleAdminAttributeList(list){
 function refreshSpatialAttributeList(element){
     var connid=document.getElementById('connectie_select').value;
     JConfigListsUtil.getPossibleAttributesById(connid,element.value,handleSpatialAttributeList);
-}
-function handleSpatialAttributeList(list){
-    dwr.util.removeAllOptions('spatial_pk_select');
-    dwr.util.addOptions('spatial_pk_select',[""]);
-    dwr.util.addOptions('spatial_pk_select',list,"0","1");
-    dwr.util.removeAllOptions('spatial_adminref_select');
-    dwr.util.addOptions('spatial_adminref_select',[""]);
-    dwr.util.addOptions('spatial_adminref_select',list,"0","1");
 }
 function refreshTheLists(){
     document.forms[0].refreshLists.value="do";
