@@ -191,7 +191,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             <fmt:message key="configthema_gegevensbron.label"/> <a href="#" onclick="return showHelpDialog('help_configthema_gegevensbron');">(?)</a><div id="help_configthema_gegevensbron" style="display: none;" title="<fmt:message key="configthema_gegevensbron.label"/>"><p><fmt:message key="configthema_gegevensbron.uitleg"/></p></div>
                         </td>
                         <td colspan="3">
-                            <html:select property="gegevensbron" styleClass="configSelect">
+                            <html:select property="gegevensbron" styleClass="configBronSelect">
                                 <html:option value="-1">Geen gegevensbron</html:option>
                                 <c:forEach var="cuItem" items="${listBronnen}">
                                     <html:option value="${cuItem.id}">
@@ -275,40 +275,6 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 
                     <tr><td colspan="4">&nbsp;</td></tr>
                     <tr class="optionalConfigItems"><td><fmt:message key="configthema.updatefreqindagen"/> <a href="#" onclick="return showHelpDialog('help_configthemaupdatefreqindagen');">(?)</a><div id="help_configthemaupdatefreqindagen" style="display: none;" title="<fmt:message key="configthema.updatefreqindagen"/>"><p><fmt:message key="configthema.updatefreqindagen.uitleg"/></p></div></td><td colspan="3"><html:text property="update_frequentie_in_dagen" size="140"/></td></tr>
-
-                    <%-- <tr>
-                    <td><fmt:message key="configthema.themadata"/>(Verwijderen van Themadata objecten kan alleen via het scherm 'Themadata')</td>
-                    <td>
-
-                        <c:forEach var="cuItem" items="${listAdminTableColumns}">
-                            <c:set var="tdExists" value="false"/>
-                            <c:forEach var="tdItem" items="${form.map.themadataobjecten}">
-                                <c:if test="${cuItem == tdItem}">
-                                    <c:set var="tdExists" value="true"/>
-                                </c:if>
-                            </c:forEach>
-                            <c:choose>
-                                <c:when test="${tdExists}">
-                                    <html:multibox property="themadataobjecten" value="${cuItem}"/><c:out  value="${cuItem}"/><br/>
-                                </c:when>
-                                <c:otherwise>
-                                    <html:multibox property="themadataobjecten"  value="${cuItem}"/><c:out  value="${cuItem}"/><br/>
-                                </c:otherwise>
-                            </c:choose>
-                        </c:forEach>
-                    </td>
-                </tr>--%>
-                <%--
-            <tr><td>analyse_thema</td><td colspan="3"><html:checkbox property="analyse_thema"/></td></tr>
-            <tr><td>admin_spatial_ref</td><td colspan="3"><html:text property="admin_spatial_ref" size="140"/></td></tr>
-            <tr><td>admin_pk_complex</td><td colspan="3"><html:checkbox property="admin_pk_complex"/></td></tr>
-            <tr><td>spatial_pk_complex</td><td colspan="3"><html:checkbox property="spatial_pk_complex"/></td></tr>
-            <tr><td>wms_url</td><td colspan="3"><html:text property="wms_url" size="140"/></td></tr>
-            <tr><td>wms_layers</td><td colspan="3"><html:text property="wms_layers" size="140"/></td></tr>
-            <tr><td>wms_legendlayer</td><td colspan="3"><html:text property="wms_legendlayer" size="140"/></td></tr>
-            <tr><td>wms_querylayers</td><td colspan="3"><html:text property="wms_querylayers" size="140"/></td></tr>
-                    --%>
-                    
                 </table>
             </div>
         </div>
