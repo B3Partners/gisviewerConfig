@@ -467,7 +467,80 @@
                 </div>
 
                 <div class="configkeeper_tab" id="tab-vergunning-content">
-                    hallo
+                    <table border="0" cellspacing="10">
+                        <tr>
+                            <td valign="top">
+                                <table cellpadding="2" cellspacing="2" border="0">
+                                <tr>
+                                    <td><fmt:message key="cfg_vergunningid1.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_vergunningid1">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><fmt:message key="cfg_vergunningid2.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_vergunningid2">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><fmt:message key="cfg_vergunningid3.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_vergunningid3">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><fmt:message key="cfg_vergunningstraal.label"/></td>
+                                    <td><html:text property="cfg_vergunningstraal"/></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><fmt:message key="cfg_straal.label"/></td>
+                                </tr>
+                                </table>
+                            </td>
+                            <td valign="top">
+                                <table cellpadding="2" cellspacing="2" border="0">
+                                <tr>
+                                    <td><fmt:message key="cfg_vergunningtype1.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_vergunningtype1">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><fmt:message key="cfg_vergunningtype2.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_vergunningtype2">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
 
                 <div class="configkeeper_tab" id="tab-voorziening-content">
