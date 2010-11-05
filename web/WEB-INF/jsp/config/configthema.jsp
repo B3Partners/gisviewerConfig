@@ -61,7 +61,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
                         <th style="width: 30%;">Naam</th>
                         <th style="width: 20%;"><fmt:message key="configthema.cluster"/></th>
-                        <th style="width: 10%;">Data</th>
+                        <th style="width: 10%;">Objectdata</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -73,13 +73,12 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             <td><c:out value="${ci.belangnr}"/>&nbsp;<input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                             <td><c:out value="${ci.naam}"/>&nbsp;</td>
                             <td><c:out value="${ci.cluster.naam}"/></td>
-                            <!-- <td><c:out value="${ci.code}"/>&nbsp;</td> -->
-
+                            
                             <c:set var="accolade" value="}"/>
                             
-                            <td>
-                                <c:if test="${ci.code!='3'}">
-                                    &nbsp;<html:link page="/configThemaData.do?edit=submit&themaID=${ci.id}">TD</html:link>&nbsp;
+                            <td>                                                            
+                                <c:if test="${!empty ci.gegevensbron}">
+                                    &nbsp;<html:link page="/configThemaData.do?gegevensbronID=${ci.gegevensbron.id}">Bewerken</html:link>&nbsp;
                                 </c:if>
                             </td>
                         </tr>
