@@ -537,6 +537,17 @@
                                         </html:select>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td><fmt:message key="cfg_vergunningtype3.label"/></td>
+                                    <td>
+                                        <html:select property="cfg_vergunningtype3">
+                                            <html:option value="leeg">-Kies een zoekingang-</html:option>
+                                            <c:forEach items="${zoekConfigs}" var="item">
+                                                <html:option value="${item.id}">${item.naam}</html:option>
+                                            </c:forEach>
+                                        </html:select>
+                                    </td>
+                                </tr>
                                 </table>
                             </td>
                         </tr>

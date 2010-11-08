@@ -152,6 +152,7 @@
             <form-property name="cfg_vergunningid3" type="java.lang.String"/>
             <form-property name="cfg_vergunningtype1" type="java.lang.String"/>
             <form-property name="cfg_vergunningtype2" type="java.lang.String"/>
+            <form-property name="cfg_vergunningtype3" type="java.lang.String"/>
             <form-property name="cfg_vergunningstraal" type="java.lang.String"/>
             <!-- Viewer tools aan/uit -->
             <form-property name="cfg_showRedliningTools" type="java.lang.Boolean"/>
