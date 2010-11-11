@@ -200,6 +200,7 @@
 <script type="text/javascript" src="<html:rewrite page="/scripts/simple_treeview.js"/>"></script>
 
 <script type="text/javascript">
+    refreshFeatureList(document.getElementById("connectie_select"));
     function catchEmpty(defval){
         return defval
     }
