@@ -32,6 +32,8 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 
 <c:set var="focus" value="label"/>
 
+<script type="text/javascript" src='scripts/jquery.b3p.checkbox1.0.js'></script>
+
 <div class="infobalk">
     <div class="infobalk_description"><fmt:message key="configadmindata.infobalk"/></div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
@@ -78,7 +80,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
                             <th style="width: 35%;"><fmt:message key="configthemadata.label"/></th>
                             <th style="width: 35%;"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></th>
-                            <th style="width: 10%;"><fmt:message key="configthemadata.basisregel"/></th>
+                            <th style="width: 10%;" class="{sorter: false}"><fmt:message key="configthemadata.basisregel"/></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -113,6 +115,8 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                                     &nbsp;</td>
                                 <td>
                                     <c:if test="${ci.basisregel}">Ja</c:if>
+                                    
+                                    <html:multibox property="basisregels" value="${ci.id}"/>
                                 </td>
                             </tr>
                         </c:forEach>
@@ -215,10 +219,12 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 </html:form>
 <iframe src="BLOCKED SCRIPT'&lt;html&gt;&lt;/html&gt;';" id="iframeBehindHelp" scrolling="no" frameborder="0" style="position:absolute; width:1px; height:0px; top:0px; left:0px; border:none; display:none; z-index:100"></iframe>
 <script type="text/javascript">
+    //$j(':checkbox').check();
+    
     tablepager(
         'themadatatable',
         '900',
-        '14',
+        '16',
         false // display numberOfPages dropdown
     );
 </script>
