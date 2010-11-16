@@ -504,15 +504,26 @@
                                         </html:select>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td><fmt:message key="cfg_vergunningstraal.label"/></td>
-                                    <td><html:text property="cfg_vergunningstraal"/></td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><fmt:message key="cfg_straal.label"/></td>
-                                </tr>
                                 </table>
                             </td>
+                            <td valign="top">
+                                <table>
+                                    <tr>
+                                        <td><fmt:message key="cfg_vergunningstraal.label"/></td>
+                                        <td><html:text property="cfg_vergunningstraal"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><fmt:message key="cfg_straal.label"/></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><fmt:message key="cfg_zoekveld.label"/></td>
+                            <td><fmt:message key="cfg_zoekterm.label"/></td>
+                        </tr>
+                        <tr>
                             <td valign="top">
                                 <table cellpadding="2" cellspacing="2" border="0">
                                 <tr>
@@ -546,6 +557,44 @@
                                                 <html:option value="${item.id}">${item.naam}</html:option>
                                             </c:forEach>
                                         </html:select>
+                                    </td>
+                                </tr>
+                                </table>
+                            </td>
+                            <td valign="top">
+                                <table cellpadding="2" cellspacing="2" border="0">
+                                <tr>
+                                    <td>
+                                        <html:text property="cfg_vergunningveld1"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <html:text property="cfg_vergunningveld2"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <html:text property="cfg_vergunningveld3"/>
+                                    </td>
+                                </tr>
+                                </table>
+                            </td>
+                            <td valign="top">
+                                <table cellpadding="2" cellspacing="2" border="0">
+                                <tr>
+                                    <td>
+                                        <html:text property="cfg_vergunningterm1"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <html:text property="cfg_vergunningterm2"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <html:text property="cfg_vergunningterm3"/>
                                     </td>
                                 </tr>
                                 </table>
