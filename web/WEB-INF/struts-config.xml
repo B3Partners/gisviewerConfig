@@ -151,17 +151,10 @@
             <form-property name="cfg_vergunningid1" type="java.lang.String"/>
             <form-property name="cfg_vergunningid2" type="java.lang.String"/>
             <form-property name="cfg_vergunningid3" type="java.lang.String"/>
-            <form-property name="cfg_vergunningtype1" type="java.lang.String"/>
-            <form-property name="cfg_vergunningtype2" type="java.lang.String"/>
-            <form-property name="cfg_vergunningtype3" type="java.lang.String"/>
+            <form-property name="cfg_vergunningid4" type="java.lang.String"/>
+            <form-property name="cfg_vergunningid5" type="java.lang.String"/>
+            <form-property name="cfg_vergunningid6" type="java.lang.String"/>
             <form-property name="cfg_vergunningstraal" type="java.lang.String"/>
-            <form-property name="cfg_vergunningveld1" type="java.lang.String"/>
-            <form-property name="cfg_vergunningveld2" type="java.lang.String"/>
-            <form-property name="cfg_vergunningveld3" type="java.lang.String"/>
-            <form-property name="cfg_vergunningterm1" type="java.lang.String"/>
-            <form-property name="cfg_vergunningterm2" type="java.lang.String"/>
-            <form-property name="cfg_vergunningterm3" type="java.lang.String"/>
-
             <form-property name="cfg_meldingwelkomtekst" type="java.lang.String"/>
             <form-property name="cfg_meldingprefix" type="java.lang.String"/>
             <form-property name="cfg_meldingtype" type="java.lang.String"/>
