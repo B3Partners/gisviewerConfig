@@ -162,6 +162,20 @@
             <form-property name="cfg_vergunningterm2" type="java.lang.String"/>
             <form-property name="cfg_vergunningterm3" type="java.lang.String"/>
 
+            <form-property name="cfg_meldingwelkomtekst" type="java.lang.String"/>
+            <form-property name="cfg_meldingprefix" type="java.lang.String"/>
+            <form-property name="cfg_meldingtype" type="java.lang.String"/>
+            <form-property name="cfg_meldingstatus" type="java.lang.String"/>
+            <form-property name="cfg_meldingemailmelder" type="java.lang.Boolean"/>
+            <form-property name="cfg_meldinglayoutemailmelder" type="java.lang.String"/>
+            <form-property name="cfg_meldingnaam" type="java.lang.String"/>
+            <form-property name="cfg_meldingemail" type="java.lang.String"/>
+            <form-property name="cfg_meldingemailbehandelaar" type="java.lang.Boolean"/>
+            <form-property name="cfg_meldinglayoutemailbehandelaar" type="java.lang.String"/>
+            <form-property name="cfg_meldinggegevensbron" type="java.lang.String"/>
+            <form-property name="cfg_meldingobjectsoort" type="java.lang.String"/>
+            <form-property name="cfg_meldingtekentoolicoon" type="java.lang.String"/>
+
             <!-- Viewer tools aan/uit -->
             <form-property name="cfg_showRedliningTools" type="java.lang.Boolean"/>
             <form-property name="cfg_showBufferTool" type="java.lang.Boolean"/>

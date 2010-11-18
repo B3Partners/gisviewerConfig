@@ -380,6 +380,7 @@
                 <div class="configkeeper_tab_header" id="tab-planselectie-header">Planselectie</div>
                 <div class="configkeeper_tab_header" id="tab-vergunning-header">Vergunning</div>
                 <div class="configkeeper_tab_header" id="tab-voorziening-header">Voorziening</div>
+                <div class="configkeeper_tab_header" id="tab-melding-header">Melding</div>
             </div>
 
             <div class="maintable">
@@ -470,7 +471,7 @@
                     <table border="0" cellspacing="10">
                         <tr>
                             <td valign="top">
-                                <table cellpadding="2" cellspacing="2" border="0">
+                                <table cellpadding="2" cellspacing="2" border="0" style="width: 220px;">
                                 <tr>
                                     <td><fmt:message key="cfg_vergunningid1.label"/></td>
                                     <td>
@@ -723,6 +724,80 @@
                         </tr>
                     </table>
                     
+                </div>
+
+                <div class="configkeeper_tab" id="tab-melding-content">
+                    <table border="0" cellspacing="10">
+                        <tr>
+                            <td valign="top">
+                                <table cellpadding="2" cellspacing="2" border="0">
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldingwelkomtekst.label"/></td>
+                                        <td><html:text property="cfg_meldingwelkomtekst"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldingprefix.label"/></td>
+                                        <td><html:text property="cfg_meldingprefix"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldingtype.label"/></td>
+                                        <td><html:text property="cfg_meldingtype"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldingstatus.label"/></td>
+                                        <td><html:text property="cfg_meldingstatus"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldingemailmelder.label"/></td>
+                                        <td><html:checkbox property="cfg_meldingemailmelder"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldinglayoutemailmelder.label"/></td>
+                                        <td><html:text property="cfg_meldinglayoutemailmelder"/></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td valign="top">
+                                <table cellpadding="2" cellspacing="2" border="0">
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldingnaam.label"/></td>
+                                        <td><html:text property="cfg_meldingnaam"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldingemail.label"/></td>
+                                        <td><html:text property="cfg_meldingemail"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldingemailbehandelaar.label"/></td>
+                                        <td><html:checkbox property="cfg_meldingemailbehandelaar"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldinglayoutemailbehandelaar.label"/></td>
+                                        <td><html:text property="cfg_meldinglayoutemailbehandelaar"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldinggegevensbron.label"/></td>
+                                        <td>
+                                            <html:select property="cfg_meldinggegevensbron">
+                                                <html:option value="leeg">-Kies een gegevensbron-</html:option>
+                                                <c:forEach items="${meldingGegevensbronnen}" var="item">
+                                                    <html:option value="${item.id}">${item.naam}</html:option>
+                                                </c:forEach>
+                                            </html:select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldingobjectsoort.label"/></td>
+                                        <td><html:text property="cfg_meldingobjectsoort"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldingtekentoolicoon.label"/></td>
+                                        <td><html:text property="cfg_meldingtekentoolicoon"/></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
 
             </div> <!-- einde main table -->
