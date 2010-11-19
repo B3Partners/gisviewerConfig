@@ -730,7 +730,7 @@
                                         <td><fmt:message key="cfg_meldinggegevensbron.label"/></td>
                                         <td>
                                             <html:select property="cfg_meldinggegevensbron">
-                                                <html:option value="leeg">-Kies een gegevensbron-</html:option>
+                                                <html:option value="0">-Kies een gegevensbron-</html:option>
                                                 <c:forEach items="${meldingGegevensbronnen}" var="item">
                                                     <html:option value="${item.id}">${item.naam}</html:option>
                                                 </c:forEach>
