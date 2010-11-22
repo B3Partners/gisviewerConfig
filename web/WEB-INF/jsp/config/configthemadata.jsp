@@ -116,7 +116,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                                 <td>
                                     <c:if test="${ci.basisregel}">Ja</c:if>
                                     
-                                    <html:multibox property="basisregels" value="${ci.id}"/>
+                                    <!-- <html:multibox property="basisregels" value="${ci.id}"/> -->
                                 </td>
                             </tr>
                         </c:forEach>
