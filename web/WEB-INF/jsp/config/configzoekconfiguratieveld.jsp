@@ -160,6 +160,18 @@
 
     index++;
     types[index]=new Object();
+    types[index].option={"40" : "Kleiner dan datum"};
+    types[index].forResultaat=false;
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+
+    index++;
+    types[index]=new Object();
+    types[index].option={"50" : "Groter dan datum"};
+    types[index].forResultaat=false;
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+
+    index++;
+    types[index]=new Object();
     types[index].option={"6" : "Gelijk aan"};
     types[index].forResultaat=false;
     types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
