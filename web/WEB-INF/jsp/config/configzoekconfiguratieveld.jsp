@@ -166,7 +166,8 @@
 
     index++
     types[index]=new Object();
-    types[index].option={"100" : "Binnen een straal van geometry"};
+    types[index].option={"100" : "Straal"};
+    types[index].forZoek=true;
     types[index].forResultaat=false; 
     types[index].allowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
 
