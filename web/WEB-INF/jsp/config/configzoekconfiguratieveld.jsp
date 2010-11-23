@@ -181,7 +181,7 @@
     types[index].option={"100" : "Straal"};
     types[index].forZoek=true;
     types[index].forResultaat=false; 
-    types[index].allowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
 
     var previousValueSet="";
     /*Wordt aangeroepen als het attribuut veld wordt gewijzigd.*/
