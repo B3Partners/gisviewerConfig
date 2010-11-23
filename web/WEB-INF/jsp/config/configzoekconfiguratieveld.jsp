@@ -116,14 +116,21 @@
     var types = new Array();
     var index=0;
     types[index]=new Object();
-    types[index].option={"2" : "Toon"};
+    types[index].option={"-1" : "Alleen tonen"};
+    types[index].forZoek=true;
+    types[index].forResultaat=true;
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+
+    index++;
+    types[index]=new Object();
+    types[index].option={"2" : "Tonen en doorgeven"};
     types[index].forZoek=false;
     types[index].forResultaat=true;
     types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
 
     index++;
     types[index]=new Object();
-    types[index].option={"0":"Geen"};//new Option("Geen","0");//
+    types[index].option={"0":"Alleen doorgeven"};//new Option("Geen","0");//
     types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
     types[index].forZoek=false;
     types[index].forResultaat=true;
