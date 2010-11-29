@@ -175,6 +175,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                                 <html:option value="admindata1"><fmt:message key="cfg_layoutAdminData.1"/></html:option>
                                 <html:option value="admindata2"><fmt:message key="cfg_layoutAdminData.2"/></html:option>
                                 <html:option value="admindata3"><fmt:message key="cfg_layoutAdminData.3"/></html:option>
+                                <html:option value="multi_admindata"><fmt:message key="cfg_layoutAdminData.multi"/></html:option>
                             </html:select>
                         </td>
                     </tr>
