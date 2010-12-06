@@ -127,6 +127,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                                     <c:forEach var="z" items="${zoekVelden}">
                                         <tr title="Wijzig: <c:out value='${z}'/>">
                                             <td class="zoekConfiguratieAttribuutNaam" onclick="openZoekAttribuutForm(${z.id})">
+                                                
                                                 <c:out value="${z.attribuutnaam}"/>
                                             </td>
                                             <td>

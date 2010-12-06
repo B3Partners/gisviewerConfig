@@ -45,7 +45,16 @@
                             <c:forEach var="z" items="${zoekVelden}">
                                 <tr title="Wijzig: <c:out value='${z}'/>">
                                     <td class="zoekConfiguratieAttribuutNaam" onclick="openZoekAttribuutForm(${z.id})">
-                                        <c:out value="${z.attribuutnaam}"/>
+                                        <c:set var="label" value="${z.label}"/>
+                                        <c:set var="attrNaam" value="${z.attribuutnaam}"/>
+
+                                        <c:if test="${!empty label}">
+                                            <c:out value="${label}"/>
+                                        </c:if>
+
+                                        <c:if test="${empty label}">
+                                            <c:out value="${attrNaam}"/>
+                                        </c:if>
                                     </td>
                                     <td>
                                         <div style="cursor: pointer;" title="Delete: <c:out value='${z}'/>" onclick="removeZoekAttribuut(${z.id})">delete</div>
@@ -60,7 +69,16 @@
                             <c:forEach var="r" items="${resultaatVelden}">
                                 <tr title="Wijzig: <c:out value='${r}'/>">
                                     <td class="zoekConfiguratieAttribuutNaam" onclick="openResultaatAttribuutForm(${r.id})">
-                                        <c:out value="${r.attribuutnaam}"/>
+                                        <c:set var="label" value="${r.label}"/>
+                                        <c:set var="attrNaam" value="${r.attribuutnaam}"/>
+
+                                        <c:if test="${!empty label}">
+                                            <c:out value="${label}"/>
+                                        </c:if>
+
+                                        <c:if test="${empty label}">
+                                            <c:out value="${attrNaam}"/>
+                                        </c:if>
                                     </td>
                                     <td>
                                         <div style="cursor: pointer;" title="Delete: <c:out value='${r}'/>" onclick="removeResultaatAttribuut(${r.id})">delete</div>

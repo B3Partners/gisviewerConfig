@@ -22,6 +22,7 @@
                 <td><fmt:message key="configzoekconfiguratieveld.attribuutnaam"/>
                 </td>
                 <td><html:select styleId="attribuutNaam" property="attribuutnaam" onchange="attribuutChanged(this)">
+                        <html:option value="DUMMY">-Dummy veld-</html:option>
                         <c:forEach items="${attribuutNamen}" var="a">
                             <html:option value="${a[0]}"><c:out value="${a[0]}"/></html:option>
                         </c:forEach>
@@ -102,43 +103,58 @@
         bindings["${a[0]}"]="${a[1]}";
     </c:forEach>
 
+    /* DUMMY Binding zodat types die niet geen attribuutveld nodig hebben
+     * kunnen worden gebruikt. Bijvoorbeeld straal en XY coord */
+    bindings["DUMMY"]='DUMMY';
+
     var zoekConfiguratieAttribuutType="${attribuutType}";
     
-/*Lijst met mogelijke types.
- *types[index].option = de optie die wordt toegevoegd aan de select box;
- *types[index].forZoek= bij undefined en true wordt deze getoond voor een zoekAttribuut
- *types[index].forResultaat= bij undefined en true wordt deze getoond voor een zoekResultaat
- *types[index].allowedBindings= een commaseperated list met class namen die betrekking hebben op dit type
- *     als undefined is dan wordt er niet op toegestaan gecontroleerd.
- *types[index]disallowedBindings=De bindings die niet zijn toegestaan in combinatie met dit type.
- *      als undefined is dan wordt er niet op niet toegestaan gecontroleerd.
- **/
+/*
+ * Lijst met mogelijke types.
+ *
+ * types[index].option = de optie die wordt toegevoegd aan de select box;
+ * types[index].forZoek = bij undefined en true wordt deze getoond voor een zoekAttribuut;
+ * types[index].forResultaat = bij undefined en true wordt deze getoond voor een zoekResultaat;
+ * types[index].allowedBindings = een commaseperated list met class namen die betrekking hebben op dit type
+ * als undefined is dan wordt er niet op toegestaan gecontroleerd;
+ *
+ * types[index]disallowedBindings = De bindings die niet zijn toegestaan in combinatie met dit type.
+ * als undefined is dan wordt er niet op niet toegestaan gecontroleerd;
+ *
+ * Als je wilt dat het nieuwe type niet mag voorkomen als je de gebruiker een dummyveld kiest
+ * moet je DUMMY in de disallowedBindings erbij zetten.
+ *
+ * Als je wilt dat het nieuwe type wel mag voorkomen als je de gebruiker een dummyveld kiest
+ * moet je deze disallowedBindings erbij zetten:
+ * types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,String";
+*/
+
     var types = new Array();
     var index=0;
     types[index]=new Object();
     types[index].option={"-1" : "Alleen tonen"};
     types[index].forZoek=true;
     types[index].forResultaat=true;
-    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
 
     index++;
     types[index]=new Object();
     types[index].option={"2" : "Tonen en doorgeven"};
     types[index].forZoek=false;
     types[index].forResultaat=true;
-    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
 
     index++;
     types[index]=new Object();
     types[index].option={"0":"Alleen doorgeven"};//new Option("Geen","0");//
-    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
     types[index].forZoek=false;
     types[index].forResultaat=true;
 
     index++;
     types[index]=new Object();
     types[index].option={"0":"Lijkt op"};//new Option("Geen","0");//
-    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
     types[index].forResultaat=false;
 
     index++;
@@ -146,49 +162,62 @@
     types[index].option={"1" : "Id"};
     types[index].forZoek=false;
     types[index].forResultaat=true;
+    types[index].disallowedBindings="DUMMY";
     
     index++;
     types[index]=new Object();
     types[index].option={"3" : "Geometry"};
     types[index].forResultaat=true;
     types[index].allowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+    types[index].disallowedBindings="DUMMY";
     
     index++;
     types[index]=new Object();
     types[index].option={"4" : "Kleiner dan"};
     types[index].forResultaat=false;
-    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
 
     index++;
     types[index]=new Object();
     types[index].option={"5" : "Groter dan"};
     types[index].forResultaat=false;
-    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
 
     index++;
     types[index]=new Object();
     types[index].option={"40" : "Kleiner dan datum"};
     types[index].forResultaat=false;
-    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
 
     index++;
     types[index]=new Object();
     types[index].option={"50" : "Groter dan datum"};
     types[index].forResultaat=false;
-    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
 
     index++;
     types[index]=new Object();
     types[index].option={"6" : "Gelijk aan"};
     types[index].forResultaat=false;
-    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
 
+    /* Straal heeft geen attribuutveld nodig. */
     index++
     types[index]=new Object();
     types[index].option={"100" : "Straal"};
     types[index].forZoek=true;
     types[index].forResultaat=false; 
-    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
+    types[index].allowBindings="DUMMY";
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,String";
+
+    /* XY coord heeft geen attribuutveld nodig. */
+    index++
+    types[index]=new Object();
+    types[index].option={"80" : "XY coord"};
+    types[index].forZoek=true;
+    types[index].forResultaat=false;
+    types[index].allowBindings="DUMMY";
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,String";
 
     var previousValueSet="";
     /*Wordt aangeroepen als het attribuut veld wordt gewijzigd.*/
