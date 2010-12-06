@@ -215,6 +215,7 @@
             <form-property name="admin_fk" type="java.lang.String"/>
             <form-property name="admin_query" type="java.lang.String"/>
             <form-property name="admin_tabel_opmerkingen" type="java.lang.String"/>
+            <form-property name="volgordenr" type="java.lang.String"/>
         </form-bean>
     </form-beans>
     <global-exceptions>

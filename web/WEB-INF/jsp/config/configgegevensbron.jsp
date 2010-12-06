@@ -151,6 +151,15 @@
                         <html:text property="admin_query" size="80" styleId="admin_query_text"/>
                     </td>
                 </tr>
+
+                <tr>
+                    <td>
+                        <fmt:message key="configgb_volgordenr.label"/> <a href="#" onclick="return showHelpDialog('help_configgb_volgordenr');">(?)</a><div id="help_configgb_volgordenr" style="display: none;" title="<fmt:message key="configgb_volgordenr.label"/>"><p><fmt:message key="configgb_volgordenr.uitleg"/></p></div>
+                    </td>
+                    <td colspan="3">
+                        <html:text property="volgordenr" size="10"/>
+                    </td>
+                </tr>
                 
                 <tr>
                     <td><fmt:message key="configgb_opmerking.label"/> <a href="#" onclick="return showHelpDialog('help_configgb_opmerking');">(?)</a><div id="help_configgb_opmerking" style="display: none;" title="<fmt:message key="configgb_opmerking.label"/>"><fmt:message key="configgb_opmerking.uitleg"/></div></td><td colspan="3"><html:text property="admin_tabel_opmerkingen" size="80"/></td>
