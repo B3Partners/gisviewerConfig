@@ -80,7 +80,8 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
                             <th style="width: 35%;"><fmt:message key="configthemadata.label"/></th>
                             <th style="width: 35%;"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></th>
-                            <th style="width: 10%;" class="{sorter: false}"><fmt:message key="configthemadata.basisregel"/></th>
+                            <!-- class="{sorter: false}" -->
+                            <th style="width: 10%;"><fmt:message key="configthemadata.basisregel"/></th>
                         </tr>
                     </thead>
                     <tbody>
