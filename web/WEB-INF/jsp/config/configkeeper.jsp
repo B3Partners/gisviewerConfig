@@ -19,6 +19,9 @@
     <html:hidden property="alt_action" />
     <html:hidden property="rolnaam" />
 
+    <html:hidden property="cfg_multipleActiveThemas" />
+    <html:hidden property="cfg_autoRedirect" />
+
     <div class="fieldset_block">
         <fieldset class="fieldset1">
         <legend class="fieldLegend">Kaartlagen</legend>
@@ -97,19 +100,6 @@
             </td>
             <td><html:text property="cfg_maxResults" size="5"/></td>
         </tr>
-
-        <%--
-        <tr>
-            <td>
-                <fmt:message key="cfg_multipleActiveThemas.label"/>
-                <a href="#" onclick="return showHelpDialog('help_cfg_multipleActiveThemas');">(?)</a>
-                <div id="help_cfg_multipleActiveThemas" style="display: none;" title="<fmt:message key="cfg_multipleActiveThemas.label"/>">
-                    <p><fmt:message key="cfg_multipleActiveThemas.uitleg"/></p>
-                </div>
-            </td>
-            <td><html:checkbox property="cfg_multipleActiveThemas"/></td>
-        </tr>
-        --%>
 
         <tr>
             <td>
@@ -268,19 +258,6 @@
                 </html:select>
             </td>
         </tr>
-
-        <%--
-        <tr>
-            <td>
-                <fmt:message key="cfg_autoRedirect.label"/>
-                <a href="#" onclick="return showHelpDialog('help_cfg_autoRedirect');">(?)</a>
-                <div id="help_cfg_autoRedirect" style="display: none;" title="<fmt:message key="cfg_autoRedirect.label"/>">
-                    <p><fmt:message key="cfg_autoRedirect.uitleg"/></p>
-                </div>
-            </td>
-            <td><html:text property="cfg_autoRedirect" size="5"/></td>
-        </tr>
-        --%>
 
         <tr>
             <td>
