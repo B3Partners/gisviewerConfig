@@ -98,6 +98,7 @@
             <td><html:text property="cfg_maxResults" size="5"/></td>
         </tr>
 
+        <%--
         <tr>
             <td>
                 <fmt:message key="cfg_multipleActiveThemas.label"/>
@@ -108,6 +109,8 @@
             </td>
             <td><html:checkbox property="cfg_multipleActiveThemas"/></td>
         </tr>
+        --%>
+
         <tr>
             <td>
                 <fmt:message key="cfg_layerGrouping.label"/>
@@ -137,7 +140,41 @@
         
         <div class="content_body">
         <table>
-        <tr>
+            <tr>
+            <td>
+                <fmt:message key="cfg_viewerType.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_viewerType');">(?)</a>
+                <div id="help_cfg_viewerType" style="display: none;" title="<fmt:message key="cfg_viewerType.label"/>">
+                    <p><fmt:message key="cfg_viewerType.uitleg"/></p>
+                </div>
+            </td>
+
+            <td>
+                <html:select property="cfg_viewerType">
+                    <html:option value="flamingo"><fmt:message key="cfg_viewerType.1"/></html:option>
+                    <html:option value="openlayers"><fmt:message key="cfg_viewerType.2"/></html:option>
+                </html:select>
+            </td>
+            </tr>
+
+            <tr>
+            <td>
+                <fmt:message key="cfg_viewerTemplate.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_viewerTemplate');">(?)</a>
+                <div id="help_cfg_viewerTemplate" style="display: none;" title="<fmt:message key="cfg_viewerTemplate.label"/>">
+                    <p><fmt:message key="cfg_viewerTemplate.uitleg"/></p>
+                </div>
+            </td>
+
+            <td>
+                <html:select property="cfg_viewerTemplate">
+                    <html:option value="standalone"><fmt:message key="cfg_viewerTemplate.1"/></html:option>
+                    <html:option value="embedded"><fmt:message key="cfg_viewerTemplate.2"/></html:option>
+                </html:select>
+            </td>
+            </tr>
+            
+            <tr>
             <td>
                 <fmt:message key="cfg_layoutAdminData.label"/>
                 <a href="#" onclick="return showHelpDialog('help_cfg_layoutAdminData');">(?)</a>
@@ -224,13 +261,15 @@
                 </div>
             </td>
             <td>
-                <html:select property="cfg_objectInfo">
+                <html:select property="cfg_objectInfoType">
                     <html:option value="geen"><fmt:message key="cfg_objectInfo.geen"/></html:option>
                     <html:option value="paneel"><fmt:message key="cfg_objectInfo.paneel"/></html:option>
                     <html:option value="popup"><fmt:message key="cfg_objectInfo.popup"/></html:option>
                 </html:select>
             </td>
         </tr>
+
+        <%--
         <tr>
             <td>
                 <fmt:message key="cfg_autoRedirect.label"/>
@@ -241,6 +280,8 @@
             </td>
             <td><html:text property="cfg_autoRedirect" size="5"/></td>
         </tr>
+        --%>
+
         <tr>
             <td>
                 <fmt:message key="cfg_tolerance.label"/>

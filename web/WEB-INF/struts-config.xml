@@ -112,7 +112,7 @@
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
             <form-property name="cfg_useCookies" type="java.lang.Boolean"/>
-            <form-property name="cfg_objectInfo" type="java.lang.String"/>
+            <form-property name="cfg_objectInfoType" type="java.lang.String"/>
             <form-property name="cfg_autoRedirect" type="java.lang.Integer"/>
             <form-property name="cfg_tolerance" type="java.lang.Integer"/>
             <form-property name="cfg_refreshDelay" type="java.lang.Integer"/>
@@ -180,6 +180,10 @@
             <form-property name="cfg_popupLeft" type="java.lang.String"/>
             <form-property name="cfg_popupTop" type="java.lang.String"/>
             <form-property name="cfg_defaultdataframehoogte" type="java.lang.String"/>
+
+            <!-- Viewer type en viewer template -->
+            <form-property name="cfg_viewerType" type="java.lang.String"/>
+            <form-property name="cfg_viewerTemplate" type="java.lang.String"/>
         </form-bean>
         <form-bean name="configRolPrioForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
