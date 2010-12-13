@@ -787,5 +787,9 @@
             <html:submit property="save" accesskey="s" styleClass="knop" onclick="return confirm('Weet u zeker dat u dit wilt opslaan?');">
                 Opslaan
             </html:submit>
+            &nbsp;
+            <html:submit property="resetRolInstellingen" styleClass="knop" accesskey="r" onclick="return confirm('Weet u zeker dat u de rolinstellingen wilt herstellen naar de standaard waarden?');">
+                Herstel naar standaard rolinstellingen
+            </html:submit>
         </div>
 </html:form>
