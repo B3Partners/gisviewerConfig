@@ -400,6 +400,7 @@
                 <div class="configkeeper_tab_header" id="tab-vergunning-header">Vergunning</div>
                 <div class="configkeeper_tab_header" id="tab-voorziening-header">Voorziening</div>
                 <div class="configkeeper_tab_header" id="tab-melding-header">Melding</div>
+                <div class="configkeeper_tab_header" id="tab-redlining-header">Redlining</div>
             </div>
 
             <div class="maintable">
@@ -763,6 +764,28 @@
                                     <tr>
                                         <td><fmt:message key="cfg_meldingtekentoolicoon.label"/></td>
                                         <td><html:text property="cfg_meldingtekentoolicoon"/></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="configkeeper_tab" id="tab-redlining-content">
+                    <table border="0" cellspacing="10">
+                        <tr>
+                            <td valign="top">
+                                <table cellpadding="2" cellspacing="2" border="0">
+                                    <tr>
+                                        <td><fmt:message key="cfg_meldinggegevensbron.label"/></td>
+                                        <td>
+                                            <html:select property="cfg_redlininggegevensbron">
+                                                <html:option value="0">-Kies een gegevensbron-</html:option>
+                                                <c:forEach items="${meldingGegevensbronnen}" var="item">
+                                                    <html:option value="${item.id}">${item.naam}</html:option>
+                                                </c:forEach>
+                                            </html:select>
+                                        </td>
                                     </tr>
                                 </table>
                             </td>

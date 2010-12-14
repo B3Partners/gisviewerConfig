@@ -169,6 +169,9 @@
             <form-property name="cfg_meldingobjectsoort" type="java.lang.String"/>
             <form-property name="cfg_meldingtekentoolicoon" type="java.lang.String"/>
 
+            <!-- Redlining config items -->
+            <form-property name="cfg_redlininggegevensbron" type="java.lang.Integer"/>
+
             <!-- Viewer tools aan/uit -->
             <form-property name="cfg_showRedliningTools" type="java.lang.Boolean"/>
             <form-property name="cfg_showBufferTool" type="java.lang.Boolean"/>
