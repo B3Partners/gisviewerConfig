@@ -210,3 +210,6 @@ html, body {
     padding-right: 20px;
     float: left;
 }
+#treediv{
+    overflow: auto;
+}
