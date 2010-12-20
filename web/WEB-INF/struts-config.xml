@@ -224,6 +224,17 @@
             <form-property name="admin_tabel_opmerkingen" type="java.lang.String"/>
             <form-property name="volgordenr" type="java.lang.String"/>
         </form-bean>
+        <form-bean name="cmsForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="tekstBlokID" type="java.lang.Integer"/>
+            <form-property name="titel" type="java.lang.String"/>
+            <form-property name="tekst" type="java.lang.String"/>
+            <form-property name="url" type="java.lang.String"/>
+            <form-property name="toonUrl" type="java.lang.Boolean"/>
+            <form-property name="pagina" type="java.lang.String"/>
+            <form-property name="volgordeNr" type="java.lang.Integer"/>
+        </form-bean>
     </form-beans>
     <global-exceptions>
     </global-exceptions>
@@ -296,7 +307,10 @@
             <forward name="success" path="configgegevensbron"/>
             <forward name="failure" path="configgegevensbron"/>
         </action>
-
+        <action path="/configCMS" type="nl.b3p.gis.viewer.ConfigCMSAction" name="cmsForm" scope="request" validate="false">
+            <forward name="success" path="configcms"/>
+            <forward name="failure" path="configcms"/>
+        </action>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

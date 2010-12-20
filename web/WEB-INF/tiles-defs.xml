@@ -58,6 +58,10 @@
         <put name="title" value="Gegevensbron configuratie" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configgegevensbron.jsp"/>
     </definition>
+    <definition name="configcms" extends="config">
+        <put name="title" value="CMS configuratie" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/config/configcms.jsp"/>
+    </definition>
     
     <definition name="wizardzoekconfiguratie" extends="config">
         <put name="title" value="Wizard zoekingang - Stap 1: Selecteer bron" type="string"/>

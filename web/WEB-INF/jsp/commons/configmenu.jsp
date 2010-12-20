@@ -8,6 +8,12 @@
     <c:if test="${requestJSP eq 'configConnectie.do'}">
         <c:set var="stijlklasse" value="activemenulink" />
     </c:if>
+    <html:link page="/configCMS.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.cms"/></html:link>
+
+    <c:set var="stijlklasse" value="menulink" />
+    <c:if test="${requestJSP eq 'configConnectie.do'}">
+        <c:set var="stijlklasse" value="activemenulink" />
+    </c:if>
     <html:link page="/configConnectie.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.connectie"/></html:link>
 
     <c:set var="stijlklasse" value="menulink" />
