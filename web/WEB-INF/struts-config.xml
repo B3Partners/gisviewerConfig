@@ -244,18 +244,21 @@
     </global-forwards>
     
     <action-mappings>
-        <action path="/index" type="nl.b3p.gis.viewer.services.IndexAction">
+        <action path="/index" type="nl.b3p.gis.viewer.services.IndexConfigAction">
             <forward name="success" path="home"/>
             <forward name="failure" path="messages"/>
             <forward name="login" path="login"/>
             <forward name="loginError" path="login"/>
             <forward name="logout" path="/index.do" redirect="true"/>
+            <forward name="help" path="help"/>
         </action>
+
         <action path="/login" forward="/index.do?login=t"/>
         <action path="/loginError" forward="/index.do?loginError=t"/>
         <action path="/logout" forward="/index.do?logout=t"/>
         <action path="/resetCache" forward="/index.do?resetCache=t"/>
         <action path="/home" forward="home"/>
+        <action path="/help" forward="/index.do?help=t"/>
         
         <action path="/beheer" forward="/configRolPrio.do"/>
         <action path="/configThema" type="nl.b3p.gis.viewer.ConfigThemaAction" name="themaForm" scope="request" validate="false">

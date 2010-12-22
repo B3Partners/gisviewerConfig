@@ -5,7 +5,13 @@
     <c:set var="requestJSP" value="${requestURI[fn:length(requestURI) - 1]}" />
 
     <c:set var="stijlklasse" value="menulink" />
-    <c:if test="${requestJSP eq 'configConnectie.do'}">
+    <c:if test="${requestJSP eq 'help.do'}">
+        <c:set var="stijlklasse" value="activemenulink" />
+    </c:if>
+    <html:link target="_blank" page="/help.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.help"/></html:link>
+
+    <c:set var="stijlklasse" value="menulink" />
+    <c:if test="${requestJSP eq 'configCMS.do'}">
         <c:set var="stijlklasse" value="activemenulink" />
     </c:if>
     <html:link page="/configCMS.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.cms"/></html:link>

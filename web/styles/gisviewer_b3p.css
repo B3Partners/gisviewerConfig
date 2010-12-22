@@ -532,6 +532,7 @@ table.tablesorter thead tr .headerSortDown {
     padding-bottom: 2px;
     color: #1962A0;
     font-weight: bold;
+    min-height: 180px;
 }
 
 .content_body {

@@ -25,7 +25,10 @@
         <put name="title" value="Home" type="string"/>
         <put name="content" value="/WEB-INF/jsp/algemeen/home.jsp"/>
     </definition>
-     
+    <definition name="help" extends="algemeen">
+        <put name="title" value="Help" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/algemeen/help.jsp"/>
+    </definition>
     <!-- config -->   
     <definition name="config" extends="templateConfig">
         <put name="menu" value="/WEB-INF/jsp/commons/configmenu.jsp"/>

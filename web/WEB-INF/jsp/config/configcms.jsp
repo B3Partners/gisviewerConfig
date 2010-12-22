@@ -69,7 +69,6 @@
        </div>
 
         <div class="maintable" style="margin-top: 5px;">
-            <h2>Tekstblok</h2>
             
             <table cellpadding="2" cellspacing="2" border="0">
                 <tr>

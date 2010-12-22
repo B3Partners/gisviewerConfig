@@ -8,6 +8,9 @@
 <tiles:insert definition="actionMessages"/>
 
 <div class="content_body">
+
+<div class="content_title">Inloggen</div>
+
 <form id="loginForm" action="j_security_check" method="POST">
 <table>
     <tr>
