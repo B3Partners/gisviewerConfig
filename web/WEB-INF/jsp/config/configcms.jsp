@@ -1,6 +1,8 @@
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
 <%@ page isELIgnored="false"%>
 
+<script type="text/javascript" src="<html:rewrite page="/scripts/ckeditor/ckeditor.js"/>"></script>
+
 <c:set var="form" value="${cmsForm}"/>
 <c:set var="action" value="${form.map.action}"/>
 <c:set var="mainid" value="${form.map.tekstBlokID}"/>
@@ -67,6 +69,8 @@
        </div>
 
         <div class="maintable" style="margin-top: 5px;">
+            <h2>Tekstblok</h2>
+            
             <table cellpadding="2" cellspacing="2" border="0">
                 <tr>
                     <td>Titel</td>
@@ -77,7 +81,7 @@
                 <tr>
                     <td>Tekst</td>
                     <td colspan="3">
-                        <html:textarea property="tekst" rows="8" cols="100"/>
+                        <html:textarea styleClass="ckeditor" property="tekst" rows="8" cols="100"/>
                     </td>
                 </tr>
                 <tr>
