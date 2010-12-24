@@ -209,6 +209,7 @@
             <form-property name="extra_level" type="java.lang.Boolean"/>
             <form-property name="callable" type="java.lang.Boolean"/>
             <form-property name="default_visible" type="java.lang.Boolean"/>
+            <form-property name="exclusive_childs" type="java.lang.Boolean"/>
         </form-bean>
         <form-bean name="gegevensbronForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>

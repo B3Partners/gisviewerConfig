@@ -184,6 +184,19 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <html:checkbox property="exclusive_childs"/>
+                    </td>
+                    <td colspan="3">
+                        <fmt:message key="configcluster.exclusive_childs"/>
+
+                        <a href="#" onclick="return showHelpDialog('help_cluster_exclusive_childs');">(?)</a>
+                        <div id="help_cluster_exclusive_childs" style="display: none;" title="<fmt:message key="configcluster.exclusive_childs"/>">
+                            <p><fmt:message key="configcluster.exclusive_childs.uitleg"/></p>
+                        </div>
+                    </td>
+                </tr>
               <tr>
                     <td>
                         <fmt:message key="configcluster.oudercluster"/>:
