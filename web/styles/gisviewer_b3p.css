@@ -728,3 +728,46 @@ table.tablesorter thead tr .headerSortDown {
 .tdEditLink {
     padding-left: 2px;
 }
+
+/* <Twitter plugin styling> */
+.configprio_left {
+    float: left;
+    width: 400px;
+}
+
+.configprio_right {
+    float: left;
+    width: 450px;
+    margin-left: 25px;
+    height: 450px;
+    overflow: auto;
+}
+
+.tweet .tweet_list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tweet .tweet_list .tweet_avatar img {
+    float: left;
+    vertical-align: top;
+}
+
+.tweet .tweet_list .tweet_time, .tweet .tweet_list .tweet_text {
+    float: left;
+    display: block;
+    margin-bottom: 3px;
+    margin-left: 5px;
+    width: 365px;
+}
+
+.tweet .tweet_list li {
+    margin-bottom: 1em;
+    float: left;
+    clear: both;
+    background-color: #FFF0C5;
+    width: 420px;
+    padding: 5px;
+}
+/* </Twitter plugin styling> */
