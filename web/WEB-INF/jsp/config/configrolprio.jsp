@@ -68,7 +68,7 @@
     <script type="text/javascript" src="<html:rewrite page='/scripts/jquery.mousewheel.min.js' module=''/>"></script>
     <script type="text/javascript">
          var showtweets = true; // Laat de twitterfeed zien
-         var showticker = true; // Laat de twitterfeed automatisch langsscrollen
+         var showticker = false; // Laat de twitterfeed automatisch langsscrollen
          var showtimes = true; // Laat de tijden zien, wanneer het bericht geplaatst is
          
          if(showtweets) {
@@ -78,7 +78,7 @@
                      count: 10,
                      loading_text: "Bezig met laden van nieuwsberichten",
                      username: [],
-                     query: "#twitter",
+                     query: "#B3pGisSuite",
                      seconds_text: " seconden geleden",
                      minute_text: "een minuut geleden",
                      minutes_text: " minuten geleden",
