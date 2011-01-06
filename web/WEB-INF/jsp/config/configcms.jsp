@@ -102,6 +102,7 @@
                             <html:option value="gisviewer_home">Gisviewer home</html:option>
                             <html:option value="gisviewer_help">Gisviewer help</html:option>
                             <html:option value="gisviewer_login">Gisviewer login</html:option>
+                            <html:option value="gisviewer_tab">Gisviewer tabblad</html:option>
                             <html:option value="config_home">Gisviewerconfig home</html:option>
                             <html:option value="config_help">Gisviewerconfig help</html:option>
                         </html:select>
