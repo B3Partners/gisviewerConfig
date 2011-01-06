@@ -91,10 +91,14 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                             <c:url var="link" value="/configThemaData.do?edit=submit&themaDataID=${ci.id}"/>
                             <tr>
                                 <td>
-                                    <c:set var="bracketKolom" value="[${ci.kolomnaam}]"/>
+                                    <c:set var="bracketKolomNaam" value="[${ci.id}:KOLOMNAAM]"/>
+                                    <c:set var="bracketCommando" value="[${ci.id}:COMMANDO]"/>
                                     <c:choose>
-                                        <c:when test="${fn:contains(listUglyThemaData, bracketKolom)}">
-                                            <span style="color: red"><fmt:message key="configthemadata.${connectieType}.fout"/></span>
+                                        <c:when test="${fn:contains(listUglyThemaData, bracketKolomNaam)}">
+                                            <span style="color: red"><fmt:message key="configthemadata.${connectieType}.kolomnaamfout"/></span>
+                                        </c:when>
+                                        <c:when test="${fn:contains(listUglyThemaData, bracketCommando)}">
+                                            <span style="color: red"><fmt:message key="configthemadata.commandofout"/></span>
                                         </c:when>
                                         <c:otherwise>
                                             <span style="color: green">GOED</span>
