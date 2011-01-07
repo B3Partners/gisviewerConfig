@@ -76,17 +76,17 @@
                  $j(".tweet").tweet({
                      avatar_size: "48px",
                      count: 10,
-                     loading_text: "Bezig met laden van nieuwsberichten",
+                     loading_text: "Bezig met laden van nieuwsberichten ...",
                      username: [],
                      query: "#B3pGisSuite",
                      seconds_text: " seconden geleden",
-                     minute_text: "een minuut geleden",
+                     minute_text: " een minuut geleden",
                      minutes_text: " minuten geleden",
-                     hour_text: "een uur geleden",
+                     hour_text: " een uur geleden",
                      hours_text: " uren geleden",
-                     day_text: "een dag geleden",
+                     day_text: " een dag geleden",
                      days_text: " dagen geleden",
-                     about_text: "ongeveer "
+                     about_text: " ongeveer "
                  }).bind("empty", function() {
                      $j(".tweet").html("<p>Geen nieuwsberichten gevonden</p>")
                  }).bind("full", function() {
@@ -100,8 +100,8 @@
                          $j(".tweet").jCarouselLite({
                             vertical: true,
                             visible: 5,
-                            auto:4000,
-                            speed:1000,
+                            auto: 4000,
+                            speed: 1000,
                             mouseWheel: true
                         });
                         $j(".configprio_right").css("overflow", "hidden");
