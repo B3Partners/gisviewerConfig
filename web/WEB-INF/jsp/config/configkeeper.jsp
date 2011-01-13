@@ -119,6 +119,22 @@
             </td>
         </tr>
 
+        <tr>
+            <td>
+                <fmt:message key="cfg_treeOrder.label"/>
+                <a href="#" onclick="return showHelpDialog('help_cfg_treeOrder');">(?)</a>
+                <div id="help_cfg_treeOrder" style="display: none;" title="<fmt:message key="cfg_treeOrder.label"/>">
+                    <p><fmt:message key="cfg_treeOrder.uitleg"/></p>
+                </div>
+            </td>
+            <td>
+                <html:select property="cfg_treeOrder">
+                    <html:option value="volgorde"><fmt:message key="cfg_treeOrder.volgorde"/></html:option>
+                    <html:option value="alphabet"><fmt:message key="cfg_treeOrder.alphabet"/></html:option>
+                </html:select>
+            </td>
+        </tr>
+
         </table>
         </div>
         </fieldset>
