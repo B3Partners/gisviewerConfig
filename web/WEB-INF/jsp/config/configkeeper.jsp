@@ -775,7 +775,7 @@
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="cfg_meldingobjectsoort.label"/></td>
-                                        <td><html:text property="cfg_meldingobjectsoort"/></td>
+                                        <td><html:text property="cfg_meldingobjectsoort" value="Point"/></td>
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="cfg_meldingtekentoolicoon.label"/></td>

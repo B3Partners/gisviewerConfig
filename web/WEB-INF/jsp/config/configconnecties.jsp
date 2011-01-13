@@ -23,9 +23,9 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
 <%@ page isELIgnored="false"%>
 
-<c:set var="form" value="${connectiesForm}"/>
+<c:set var="form" value="${connectieForm}"/>
 <c:set var="action" value="${form.map.action}"/>
-<c:set var="mainid" value="${form.map.id}"/>
+<c:set var="mainid" value="${form.map.bronId}"/>
 
 <c:set var="save" value="${action == 'save'}"/>
 <c:set var="delete" value="${action == 'delete'}"/>
@@ -42,7 +42,8 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     <div style="display: none;">
         <html:hidden property="action"/>
         <html:hidden property="alt_action"/>
-        <html:hidden property="id"/>
+        <html:hidden property="bronId"/>
+        <input type="hidden" name="refreshLists">
     </div>
     <c:if test="${!empty allConnecties}">
         <div class="tablesortercontainer">
@@ -138,37 +139,36 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         </div>
         
         <div class="knoppenbalk">
-            <c:choose>
-                <c:when test="${save || delete}">
-                    <div class="knoppen">
-                        <html:submit property="confirm" accesskey="o" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
-                            <fmt:message key="button.ok"/>
-                        </html:submit>
-                    </div>
-                    <div class="knoppen">
-                        <html:cancel accesskey="c" styleClass="knop" onclick="bCancel=true" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
-                            <fmt:message key="button.cancel"/>
-                        </html:cancel>
-                    </div>
-                </c:when>
-                <c:otherwise>
-                    <div class="knoppen">
-                        <html:submit property="create" accesskey="n" styleClass="knop" onclick="bCancel=true" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
-                            <fmt:message key="button.new"/>
-                        </html:submit>
-                    </div> 
-                    <div class="knoppen">
-                        <html:submit property="delete" accesskey="d" styleClass="knop" onclick="bCancel=true; return confirm('Weet u zeker dat u deze connectie wilt verwijderen?');" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
-                            <fmt:message key="button.remove"/>
-                        </html:submit>
-                    </div> 
-                    <div class="knoppen">
-                        <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u deze connectie wilt opslaan?');">
-                            <fmt:message key="button.save"/>
-                        </html:submit>
-                    </div>
-                </c:otherwise>
-            </c:choose>
+            <!-- Bij nieuw alleen opslaan en annuleren tonen -->
+            <c:if test="${empty form.map.bronId}">
+                <div class="knoppen">
+                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u deze bron wilt opslaan?');">
+                        <fmt:message key="button.save"/>
+                    </html:submit>
+                </div>
+                <div class="knoppen">
+                    <input type="button" onclick="window.location='<html:rewrite page='/configConnectie.do' />'" value="<fmt:message key='button.cancel'/>" />
+                </div>
+            </c:if>
+
+            <!-- Bij bewerken nieuw, wissen en opslaan tonen -->
+            <c:if test="${!empty form.map.bronId}">
+                <div class="knoppen">
+                    <html:submit property="create" accesskey="n" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
+                        <fmt:message key="button.new"/>
+                    </html:submit>
+                </div>
+                <div class="knoppen">
+                    <html:submit property="delete" accesskey="d" styleClass="knop" onclick="return confirm('Weet u zeker dat u deze bron wilt verwijderen?');" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
+                        <fmt:message key="button.remove"/>
+                    </html:submit>
+                </div>
+                <div class="knoppen">
+                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u deze bron wilt opslaan?');">
+                        <fmt:message key="button.save"/>
+                    </html:submit>
+                </div>
+            </c:if>
         </div> 
     </div>
 </html:form>

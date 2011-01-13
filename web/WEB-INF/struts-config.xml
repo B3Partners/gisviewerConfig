@@ -55,7 +55,7 @@
         <form-bean name="connectieForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
-            <form-property name="id" type="java.lang.String"/>
+            <form-property name="bronId" type="java.lang.String"/>
             <form-property name="naam" type="java.lang.String"/>
             <form-property name="url" type="java.lang.String"/>
             <form-property name="gebruikersnaam" type="java.lang.String"/>

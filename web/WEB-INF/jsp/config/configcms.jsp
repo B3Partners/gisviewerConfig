@@ -23,6 +23,7 @@
         <html:hidden property="action"/>
         <html:hidden property="alt_action"/>
         <html:hidden property="tekstBlokID"/>
+        <input type="hidden" name="refreshLists">
     </div>
     <c:if test="${!empty tekstBlokken}">
         <div class="tablesortercontainer">
@@ -118,37 +119,36 @@
         </div>
 
         <div class="knoppenbalk">
-            <c:choose>
-                <c:when test="${save || delete}">
-                    <div class="knoppen">
-                        <html:submit property="confirm" accesskey="o" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
-                            <fmt:message key="button.ok"/>
-                        </html:submit>
-                    </div>
-                    <div class="knoppen">
-                        <html:cancel accesskey="c" styleClass="knop" onclick="bCancel=true" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
-                            <fmt:message key="button.cancel"/>
-                        </html:cancel>
-                    </div>
-                </c:when>
-                <c:otherwise>
-                    <div class="knoppen">
-                        <html:submit property="create" accesskey="n" styleClass="knop" onclick="bCancel=true" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
-                            <fmt:message key="button.new"/>
-                        </html:submit>
-                    </div>
-                    <div class="knoppen">
-                        <html:submit property="delete" accesskey="d" styleClass="knop" onclick="bCancel=true; return confirm('Weet u zeker dat u dit tekstblok wilt verwijderen?');" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
-                            <fmt:message key="button.remove"/>
-                        </html:submit>
-                    </div>
-                    <div class="knoppen">
-                        <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u dit tekstblok wilt opslaan?');">
-                            <fmt:message key="button.save"/>
-                        </html:submit>
-                    </div>
-                </c:otherwise>
-            </c:choose>
+            <!-- Bij nieuw alleen opslaan en annuleren tonen -->
+            <c:if test="${empty form.map.tekstBlokID}">
+                <div class="knoppen">
+                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u dit tekstblok wilt opslaan?');">
+                        <fmt:message key="button.save"/>
+                    </html:submit>
+                </div>
+                <div class="knoppen">
+                    <input type="button" onclick="window.location='<html:rewrite page='/configCMS.do' />'" value="<fmt:message key='button.cancel'/>" />
+                </div>
+            </c:if>
+
+            <!-- Bij bewerken nieuw, wissen en opslaan tonen -->
+            <c:if test="${!empty form.map.tekstBlokID}">
+                <div class="knoppen">
+                    <html:submit property="create" accesskey="n" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
+                        <fmt:message key="button.new"/>
+                    </html:submit>
+                </div>
+                <div class="knoppen">
+                    <html:submit property="delete" accesskey="d" styleClass="knop" onclick="return confirm('Weet u zeker dat u dit tekstblok wilt verwijderen?');" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
+                        <fmt:message key="button.remove"/>
+                    </html:submit>
+                </div>
+                <div class="knoppen">
+                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u dit tekstblok wilt opslaan?');">
+                        <fmt:message key="button.save"/>
+                    </html:submit>
+                </div>
+            </c:if>
         </div>
     </div>
 </html:form>
