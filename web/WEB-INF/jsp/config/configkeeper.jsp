@@ -344,6 +344,13 @@
 
         <html:checkbox property="cfg_useMouseOverTabs"/>
         <br/>
+        
+        <fmt:message key="cfg_tabWidth.label"/>
+        <a href="#" onclick="return showHelpDialog('help_cfg_tabWidth');">(?)</a>
+        <div id="help_cfg_tabWidth" style="display: none;" title="<fmt:message key="cfg_tabWidth.label"/>">
+            <p><fmt:message key="cfg_tabWidth.uitleg"/></p>
+        </div>
+        <html:text property="cfg_tabWidth" size="5"/>
 
         <p><fmt:message key="config.tabbladen.label"/></p>
 

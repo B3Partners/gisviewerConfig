@@ -189,6 +189,7 @@
             <form-property name="cfg_viewerTemplate" type="java.lang.String"/>
 
             <form-property name="cfg_treeOrder" type="java.lang.String"/>
+            <form-property name="cfg_tabWidth" type="java.lang.Integer"/>
         </form-bean>
         <form-bean name="configRolPrioForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
