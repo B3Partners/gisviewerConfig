@@ -57,21 +57,6 @@
 </c:if>
 
 <c:if test="${pageContext.request.remoteUser != null}">
-    <div class="content_block">
-        <div class="content_title">Rechten</div>
-
-        <div class="inleiding_body">
-            <p>
-                <p><html:link page="/index.do?resetCache=t&cachelifecycle=0">Rechten opnieuw ophalen (configuratie)</html:link></p>
-
-                <c:set var="requestURI" value="${fn:split(requestScope['javax.servlet.forward.request_uri'], '/')}" />
-                <p><a href="${absoluteURIPrefix}/gisviewer/resetCache.do?cachelifecycle=0">Rechten opnieuw ophalen (gisviewer)</a></p>
-                <p><a href="${absoluteURIPrefix}/gisviewer/resetCache.do?flushresultlistcache=true">Cache legen opzoeklijsten (gisviewer)</a></p>
-            <p/>
-
-        </div>
-    </div>
-
     <div class="uitloggen">
         <hr>
         <p><tiles:insert name="loginblock"/></p>
