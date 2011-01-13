@@ -8,16 +8,12 @@ ieFixes = function() {
 attachOnload(ieFixes);
 
 fixMenu = function() {
-    var topmenu = document.getElementById('topmenu');
-    var menuitems = topmenu.getElementsByTagName('a');
-    var totalmenuwidth = 0;
-    var x = 0;
-    for(x in menuitems) {
-        if(menuitems[x].className == 'activemenulink' || menuitems[x].className == 'menulink') {
-            totalmenuwidth += menuitems[x].offsetWidth;
-        }
-    }
-    topmenu.style.width = (totalmenuwidth + 5) + 'px';
+    var totalwidth = 0;
+    var $topmenu = $j("#topmenu");
+    $topmenu.find(".menulink, .activemenulink").each(function() {
+        totalwidth += $j(this).outerWidth();
+    });
+    $topmenu.width(totalwidth);
 }
 
 fixAbsolutePositions = function() {

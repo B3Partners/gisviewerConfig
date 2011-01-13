@@ -1,5 +1,9 @@
-a.menulink, a.menulink:visited, a.menulink:active, a.activemenulink, a.activemenulink:visited, a.activemenulink:active {
-    height: 27px;
+.sf-menu li li a {
+    color: #A0D9FF;
+    font-size: 1em;
+}
+.sf-menu li {
+    width: 1px;
 }
 
 #content {

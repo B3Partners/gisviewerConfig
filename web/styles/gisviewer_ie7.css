@@ -1,5 +1,11 @@
 #topmenu {
-    width: 350px;
+    width: 800px;
+    position: relative;
+    z-index: 10000;
+}
+
+#header {
+    z-index: 51;
 }
 
 #content {
@@ -12,11 +18,16 @@
     width: 955px;
 	top: 0px;
 	bottom: 0px;
+        z-index: 50;
 }
 
 #tab_container .tabvak_with_iframe {
     top: 0px;
     height: 100%;
+}
+
+td h2 {
+    font-size: 16px;
 }
 
 #tab_container .tabvak_with_iframe iframe {

@@ -39,6 +39,19 @@ a.activemenulink, a.activemenulink:visited, a.activemenulink:active {
     color: #144264;
 }
 
+.sf-menu li li {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    background-color: #183C56;
+    border-top: 1px solid #A0D9FF;
+}
+
+#header #topmenu .sf-menu li li a {
+    color: #A0D9FF;
+    font-size: 1em;
+}
+
 #content_normal {
     background-color: White;
     background-image: url(/gisviewerconfig/images/maindiv_bg.gif);
