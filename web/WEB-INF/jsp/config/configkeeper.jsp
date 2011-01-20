@@ -271,6 +271,7 @@
                     <html:option value="geen"><fmt:message key="cfg_objectInfo.geen"/></html:option>
                     <html:option value="paneel"><fmt:message key="cfg_objectInfo.paneel"/></html:option>
                     <html:option value="popup"><fmt:message key="cfg_objectInfo.popup"/></html:option>
+                    <html:option value="balloon"><fmt:message key="cfg_objectInfo.balloon"/></html:option>
                 </html:select>
             </td>
         </tr>
