@@ -193,6 +193,7 @@
                     <html:option value="admindata1"><fmt:message key="cfg_layoutAdminData.1"/></html:option>
                     <html:option value="admindata2"><fmt:message key="cfg_layoutAdminData.2"/></html:option>
                     <html:option value="admindata3"><fmt:message key="cfg_layoutAdminData.3"/></html:option>
+                    <html:option value="all_vertical"><fmt:message key="cfg_layoutAdminData.all_vertical"/></html:option>
                     <html:option value="multi_admindata"><fmt:message key="cfg_layoutAdminData.multi"/></html:option>
                 </html:select>
             </td>
