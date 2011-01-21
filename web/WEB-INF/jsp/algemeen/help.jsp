@@ -45,7 +45,7 @@
                 <table>
                     <tr>
                         <td><img style="border: 0;" src="images/pdf.png" border="0" alt="PDF icon" title="PDF icon"></td>
-                        <td><a href="http://source.b3partners.nl/docs/Concept_beheerderhandleiding_GIS_Suite_30.pdf" target="_blank">Bekijk de B3P GIS Suite beheerhandleiding</a></td>
+                        <td><a href="http://source.b3partners.nl/docs/Beheerhandleiding_GIS_Suite_30.pdf" target="_blank">Bekijk de Beheerhandleiding voor GIS Suite 3.0</a></td>
                     </tr>
                 </table>
                 
