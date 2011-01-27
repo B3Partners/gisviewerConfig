@@ -176,7 +176,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     var globalrows;
     tablepager(
         'connectietable',
-        '900',
+        '930',
         '14',
         false // display numberOfPages dropdown
     );

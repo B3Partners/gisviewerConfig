@@ -156,7 +156,7 @@
     var globalrows;
     tablepager(
         'connectietable',
-        '900',
+        '930',
         '14',
         false // display numberOfPages dropdown
     );

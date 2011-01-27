@@ -1,6 +1,6 @@
 /* tables */
 div.tablesortercontainer {
-     margin-left: 5px;
+     margin-left: 10px;
      height: 325px;
 }
 
@@ -64,6 +64,6 @@ table.tablesorter thead .filterrow td {
 }
 
 #pager {
-    margin-left: 5px;
+    margin-left: 10px;
     margin-bottom: 10px;
 }

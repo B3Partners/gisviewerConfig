@@ -228,7 +228,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     
     tablepager(
         'themadatatable',
-        '900',
+        '930',
         '16',
         false // display numberOfPages dropdown
     );

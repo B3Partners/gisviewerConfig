@@ -6,7 +6,7 @@ body {
 }
 
 #header {
-	background-image: url(/gisviewerconfig/images/bovenbalk.gif);
+    background-image: url(/gisviewerconfig/images/bovenbalk.gif);
     background-repeat: repeat-x;
 }
 
@@ -52,10 +52,15 @@ a.activemenulink, a.activemenulink:visited, a.activemenulink:active {
     font-size: 1em;
 }
 
-#content_normal {
-    background-color: White;
+#wrapper {
     background-image: url(/gisviewerconfig/images/maindiv_bg.gif);
+    background-position: center center;
     background-repeat: repeat-y;
+    color: White;
+}
+
+#content {
+    background-color: White;
 }
 
 #content_viewer {
@@ -99,6 +104,7 @@ a.activemenulink, a.activemenulink:visited, a.activemenulink:active {
 .footer_tekst {
     color: #7891A5;
     font-size: 11px;
+    margin-top: 18px;
 }
 
 /* Common styles */

@@ -55,7 +55,6 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         <![endif]-->
         <!--[if lte IE 7]>
             <link href="styles/gisviewer_ie7.css" rel="stylesheet" type="text/css" />
-            <script type="text/javascript" src="<html:rewrite page='/scripts/cssfixes_ie.js' module=''/>"></script>
         <![endif]-->
         <script type="text/javascript">
             attachOnload(checkLocation);
@@ -63,10 +62,12 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 
     </head>
     <body class="configbody">
-        <div id="header"><div id="header_content"><tiles:insert attribute="menu" /></div></div>
-        <div id="content_normal">
-            <div id="content">
-                <tiles:insert attribute="content" />
+        <div id="wrapper">
+            <div id="header"><div id="header_content"><tiles:insert attribute="menu" /></div></div>
+            <div id="content_normal">
+                <div id="content">
+                    <tiles:insert attribute="content" />
+                </div>
             </div>
         </div>
         <div id="footer"><div id="footer_content">

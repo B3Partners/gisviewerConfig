@@ -26,12 +26,12 @@
         <html:hidden property="clusterID"/>
     </div>
 
-    <div id="content_style" style="float: left; width: 400px;">
-        <div class="berichtenbalk" style="margin-top: 5px;">
+    <div id="content_style" style="float: left; width: 670px;">
+        <div class="berichtenbalk" style="width: 670px; margin-top: 5px;">
             <tiles:insert definition="actionMessages"/>
         </div>
 
-        <div class="maintable" style="margin-top: 5px;">
+        <div style="clear: both; width: 670px; margin-top: 5px;">
             <table cellpadding="2" cellspacing="2" border="0">
 
                 <c:if test="${!empty form.map.clusterID}">
@@ -222,7 +222,7 @@
             </table>
         </div>
 
-        <div class="knoppenbalk">
+        <div class="knoppenbalk" style="width: 670px;">
             <!-- Indien nieuw item maken dan alleen Opslaan en Annuleren knoppen tonen -->
             <c:if test="${empty form.map.clusterID}">
                 <div class="knoppen">

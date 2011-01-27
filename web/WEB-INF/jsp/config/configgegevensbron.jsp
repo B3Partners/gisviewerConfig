@@ -26,12 +26,12 @@
         <html:hidden property="gegevensbronID"/>
     </div>
 
-    <div id="content_style" style="float: left; width: 400px;">
-        <div class="berichtenbalk" style="margin-top: 5px;">
+    <div id="content_style" style="float: left; width: 670px;">
+        <div class="berichtenbalk" style="margin-top: 5px; width: 670px;">
             <tiles:insert definition="actionMessages"/>
         </div>
 
-        <div class="maintable" style="margin-top: 5px;">
+        <div class="maintable" style="margin-top: 5px; width: 670px;">
             <table cellpadding="2" cellspacing="2" border="0">
 
                 <tr>
@@ -48,7 +48,7 @@
                         <fmt:message key="configgb_bron.label"/> <a href="#" onclick="return showHelpDialog('help_configgb_bron');">(?)</a><div id="help_configgb_bron" style="display: none;" title="<fmt:message key="configgb_bron.label"/>"><p><fmt:message key="configgb_bron.uitleg"/></p></div>
                     </td>
                     <td colspan="3">
-                        <html:select property="bron" onchange="refreshFeatureList(this);" styleId='connectie_select' styleClass="configBronSelect">
+                        <html:select property="bron" onchange="refreshFeatureList(this);" styleId='connectie_select' styleClass="configGegevensbronSelect">
                             <html:option value="0">Kaartenbalie Wfs</html:option>
                             <c:forEach var="cuItem" items="${listBronnen}">
                                 <html:option value="${cuItem.id}">
@@ -71,7 +71,7 @@
                 <tr>
                     <td><fmt:message key="configgb_${connectieType}_admintabel.label"/> <a href="#" onclick="return showHelpDialog('help_configgb_${connectieType}_admintabel');">(?)</a><div id="help_configgb_${connectieType}_admintabel" style="display: none;" title="<fmt:message key="configgb_${connectieType}_admintabel.label"/>"><fmt:message key="configgb_${connectieType}_admintabel.uitleg"/></div></td>
                     <td colspan="3">
-                        <html:select property="admin_tabel" onchange="refreshAdminAttributeList(this);" styleId="admin_tabel_select" styleClass="configBronSelect">
+                        <html:select property="admin_tabel" onchange="refreshAdminAttributeList(this);" styleId="admin_tabel_select" styleClass="configGegevensbronSelect">
                             <html:option value=""/>
                             <c:forEach var="cuItem" items="${listTables}">
                                 <html:option value="${cuItem[0]}">${cuItem[1]}</html:option>
@@ -82,7 +82,7 @@
                 <tr>
                     <td><fmt:message key="configgb_${connectieType}_adminpk.label"/> <a href="#" onclick="return showHelpDialog('help_configgb_${connectieType}_adminpk');">(?)</a><div id="help_configgb_${connectieType}_adminpk" style="display: none;" title="<fmt:message key="configgb_${connectieType}_adminpk.label"/>"><fmt:message key="configgb_${connectieType}_adminpk.uitleg"/></div></td>
                     <td colspan="3">
-                        <html:select property="admin_pk" styleId="admin_pk_select" styleClass="configBronSelect">
+                        <html:select property="admin_pk" styleId="admin_pk_select" styleClass="configGegevensbronSelect">
                             <html:option value=""/>
                             <c:choose>
                                 <c:when test="${fn:length(listAdminTableColumns)>1}">
@@ -107,7 +107,7 @@
                         </div>
                     </td>
                     <td colspan="3">
-                        <html:select property="parentID" styleClass="configBronSelect">
+                        <html:select property="parentID" styleClass="configGegevensbronSelect">
                             <html:option value=""/>
                             <c:forEach var="cuItem" items="${alleGegevensbronnen}">
                                 <c:if test="${mainid != cuItem.id}">
@@ -123,7 +123,7 @@
                 <tr>
                     <td><fmt:message key="configgb_${connectieType}_adminfk.label"/> <a href="#" onclick="return showHelpDialog('help_configgb_${connectieType}_adminfk');">(?)</a><div id="help_configgb_${connectieType}_adminfk" style="display: none;" title="<fmt:message key="configgb_${connectieType}_adminfk.label"/>"><fmt:message key="configgb_${connectieType}_adminfk.uitleg"/></div></td>
                     <td colspan="3">
-                        <html:select property="admin_fk" styleId="admin_fk_select" styleClass="configBronSelect">
+                        <html:select property="admin_fk" styleId="admin_fk_select" styleClass="configGegevensbronSelect">
                             <html:option value=""/>
                             <c:choose>
                                 <c:when test="${fn:length(listAdminTableColumns)>1}">
@@ -167,7 +167,7 @@
             </table>
         </div>
 
-        <div class="knoppenbalk">
+        <div class="knoppenbalk" style="width: 670px;">
             <!-- Indien nieuw item maken dan alleen Opslaan en Annuleren knoppen tonen -->
             <c:if test="${empty form.map.gegevensbronID}">
                 <div class="knoppen">
