@@ -200,6 +200,7 @@
         </div>
 
     </div>
+    <div style="clear: left;"></div>
 </html:form>
 
 <script type="text/javascript" src='dwr/engine.js'></script>
