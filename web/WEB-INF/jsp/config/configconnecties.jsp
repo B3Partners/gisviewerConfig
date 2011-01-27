@@ -60,7 +60,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                     <c:forEach var="ci" varStatus="status" items="${allConnecties}">
                         <c:set var="id_selected" value="" />
                         <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
-                        <c:url var="link" value="/configConnectie.do?edit=submit&id=${ci.id}"/>
+                        <c:url var="link" value="/configConnectie.do?edit=submit&bronId=${ci.id}"/>
                         <tr>
                             <td>
                                 <c:set var="testId" value="${ci.id}"/>
