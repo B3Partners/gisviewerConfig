@@ -9,6 +9,20 @@
     </global>
 
     <formset>
+        <form name="themaForm">
+            <field
+                property="naam"
+                depends="required">
+                <arg key="configthema.naam"/>
+            </field>
+        </form>
+        <form name="kaartgroepForm">
+            <field
+                property="naam"
+                depends="required">
+                <arg key="configcluster.naam"/>
+            </field>
+        </form>
         <form name="connectieForm">
             <field
                 property="url"
