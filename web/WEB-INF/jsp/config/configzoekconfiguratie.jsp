@@ -36,7 +36,8 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <div class="infobalk">
     <div class="infobalk_description">ZOEKINGANG CONFIGURATIE</div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
-</div>    
+</div>
+    
 <c:if test="${!empty zoekConfiguraties}">
     <div class="tablesortercontainer">
         <table id="zoekconfiguratieTable" class="tablesorter">
@@ -66,6 +67,10 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
         </table>
     </div>
 </c:if>
+
+<div class="berichtenbalk" style="margin-top: 5px;">
+    <tiles:insert definition="actionMessages"/>
+</div>
 
 <div id="content_style" style="float: left; clear: left;">
     <input type="button" onclick="window.location='<html:rewrite page='/wizardZoekConfiguratie.do'/>'" value="<fmt:message key='button.new'/>"/>
