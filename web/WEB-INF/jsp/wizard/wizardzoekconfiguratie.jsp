@@ -22,6 +22,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 --%>
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
 <%@ page isELIgnored="false"%>
+
 <div class="infobalk">
     <div class="infobalk_description"><fmt:message key="wizardzoekconfiguratie.step1"/></div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
@@ -43,6 +44,6 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
     
     <div class="wizardButtonBar">
         <html:submit property="step1"><fmt:message key='button.next'/></html:submit>
-        <input type="button" onclick="window.location='<html:rewrite page='/configZoekConfiguratie.do'/>'" value="<fmt:message key='button.cancel'/>"></input>
+        <input type="button" onclick="window.location='<html:rewrite page='/configZoekConfiguratie.do'/>'" value="<fmt:message key='button.cancel'/>" />
     </div>
 </html:form>
