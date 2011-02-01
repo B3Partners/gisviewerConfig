@@ -64,6 +64,15 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <th style="width: 10%;">Objectdata</th>
                     </tr>
                 </thead>
+                <!-- Speed up table render in IE7 ? -->
+                <tfoot>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tfoot>
                 <tbody>
                     <c:forEach var="ci" varStatus="status" items="${allThemas}">
                         <c:url var="link" value="/configThema.do?edit=submit&themaID=${ci.id}" />
