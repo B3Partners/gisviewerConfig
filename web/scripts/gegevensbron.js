@@ -13,8 +13,8 @@ function createLeaf(container, item) {
     container.appendChild(createFolderIcon());
     container.appendChild(document.createTextNode(' '));
     container.appendChild(createEditLink(item));
-    container.appendChild(document.createTextNode(' '));
-    container.appendChild(createLinkToObjectData(item));
+    //container.appendChild(document.createTextNode(' '));
+    //container.appendChild(createLinkToObjectData(item));
 
     return false;
 }

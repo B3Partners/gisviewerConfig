@@ -25,7 +25,6 @@
             <ul>
                 <li><html:link page="/configThema.do" module=""><fmt:message key="commons.configmenu.thema"/></html:link></li>
                 <li><html:link page="/configKaartGroep.do" module=""><fmt:message key="commons.configmenu.cluster"/></html:link></li>
-                <li><html:link page="/configThemaData.do" module=""><fmt:message key="commons.configmenu.themadata"/></html:link></li>
             </ul>
         </li>
 
@@ -34,10 +33,11 @@
             <c:set var="stijlklasse" value="activemenulink" />
         </c:if>
         <li>
-            <a href="#" class="${stijlklasse}">Bronnen</a>
+            <a href="#" class="${stijlklasse}">Data</a>
             <ul>
                 <li><html:link page="/configConnectie.do" module=""><fmt:message key="commons.configmenu.connectie"/></html:link></li>
                 <li><html:link page="/configGegevensbron.do" module=""><fmt:message key="commons.configmenu.gegevensbron"/></html:link></li>
+                <li><html:link page="/configThemaData.do" module=""><fmt:message key="commons.configmenu.themadata"/></html:link></li>
             </ul>
         </li>
 

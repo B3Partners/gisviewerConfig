@@ -32,8 +32,9 @@
         </div>
 
         <div class="maintable" style="margin-top: 5px; width: 670px;">
+            <h2>Gegevensbron</h2><br/>
+            
             <table cellpadding="2" cellspacing="2" border="0">
-
                 <tr>
                     <td>
                         <fmt:message key="configgb_naam.label"/> <a href="#" onclick="return showHelpDialog('help_configgb_naam');">(?)</a><div id="help_configgb_naam" style="display: none;" title="<fmt:message key="configgb_naam.label"/>"><p><fmt:message key="configgb_naam.uitleg"/></p></div>
@@ -163,9 +164,15 @@
                 
                 <tr>
                     <td><fmt:message key="configgb_opmerking.label"/> <a href="#" onclick="return showHelpDialog('help_configgb_opmerking');">(?)</a><div id="help_configgb_opmerking" style="display: none;" title="<fmt:message key="configgb_opmerking.label"/>"><fmt:message key="configgb_opmerking.uitleg"/></div></td><td colspan="3"><html:text property="admin_tabel_opmerkingen" size="80"/></td>
-                </tr>
+                </tr>                
             </table>
         </div>
+
+        <c:if test="${!empty mainid}">
+            <p style="margin-left: 5px; padding: 6px; background-color: #EEEEEE; width: 140px;">
+                <a href="configThemaData.do?gegevensbronID=${mainid}">Objectdata bewerken</a>
+            </p>
+        </c:if>
 
         <div class="knoppenbalk" style="width: 670px;">
             <!-- Indien nieuw item maken dan alleen Opslaan en Annuleren knoppen tonen -->

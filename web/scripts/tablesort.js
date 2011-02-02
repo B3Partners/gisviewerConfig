@@ -1758,3 +1758,9 @@ function createPagercontrols(displayselect) {
     '</div>';
     return controls;
 }
+
+var myCellParser = function(node)
+{
+    // extract data from markup and return it
+    return node.childNodes[0].childNodes[0].innerHTML;
+}

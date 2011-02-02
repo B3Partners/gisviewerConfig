@@ -64,15 +64,6 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                         <th style="width: 10%;">Objectdata</th>
                     </tr>
                 </thead>
-                <!-- Speed up table render in IE7 ? -->
-                <tfoot>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                </tfoot>
                 <tbody>
                     <c:forEach var="ci" varStatus="status" items="${allThemas}">
                         <c:url var="link" value="/configThema.do?edit=submit&themaID=${ci.id}" />
@@ -337,6 +328,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 <script type="text/javascript">
     tablepager(
         'themalisttable',
+        //'textExtraction: myCellParser',
         '930', // table width in pixels
         '14', // cell height
         false // display numberOfPages dropdown
