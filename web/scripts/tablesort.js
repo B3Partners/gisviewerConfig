@@ -1516,10 +1516,11 @@ function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
             var curhtml = jQuery(this).html();
             jQuery(this).html('<div style="height: '+cellheight+'px; overflow: hidden;">' + curhtml + '</div>');
     });
+    
+    var addedinputfilters = false;
 
     // Add extra tr for inputfilters
     var trCode = '<tr class="filterrow">';
-    var addedinputfilters = false;
     $table.find("th").each(function(index) {
             if(!jQuery(this).hasClass("no-filter")) {
                     var id = "filterbox" + counter;
