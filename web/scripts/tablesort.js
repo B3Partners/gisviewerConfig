@@ -1517,17 +1517,22 @@ function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
             jQuery(this).html('<div style="height: '+cellheight+'px; overflow: hidden;">' + curhtml + '</div>');
     });
     
-    var addedinputfilters = false;
-
     // Add extra tr for inputfilters
     var trCode = '<tr class="filterrow">';
+    var filtertrigger = "";
+    var addedinputfilters = false;
     $table.find("th").each(function(index) {
             if(!jQuery(this).hasClass("no-filter")) {
                     var id = "filterbox" + counter;
                     var value = "";
                     if(hasCookie && cookieoptions.filtering) {
                         jQuery.each(cookieoptions.filtering, function(index, val) {
-                            if(val.col == id) value = val.val;
+                            if(val.col == id)
+                            {
+                                value = val.val;
+                                if(filtertrigger != "") filtertrigger += ",";
+                                filtertrigger += "#"+id;
+                            }
                         });
                     }
                     trCode += '<td><input class="tablefilterbox" value="'+value+'" type="text" name="filter" id="'+id+'" /></td>';
@@ -1555,11 +1560,14 @@ function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
             var link = jQuery(this).find("input[name=link]").val();
             if(link != undefined && link != '') window.location.href=link;
         });
+        if(jQuery(this).find("input[name=selected]").val() == "selected") {
+            jQuery(this).addClass("selectedtr");
+        }
         counter++;
     });
 
     $parentdiv.css("height", height + 'px');
-
+    
     var $overlay = jQuery('<div id="tableoverlay"></div>').css({
         "position": "absolute",
         "background-color": "#ffffff",
@@ -1579,7 +1587,7 @@ function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
     $table.before($overlay);
 
     // add pager controls
-    $parentdiv.after(createPagercontrols(displayselect));
+    $parentdiv.after(createPagercontrols(displayselect));  
 
     jQuery(".refreshtable").click(function() {
         resetFilters(tableid);
@@ -1605,14 +1613,8 @@ function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
 
     // init filter
     $table.tablesorterFilter(filters);
-    $table.find(".tablefilterbox").trigger("keyup");
+    if(filtertrigger != "") jQuery(filtertrigger).trigger("keyup");
     if(hasCookie && cookieoptions.sorting) $table.trigger("sorton",[[cookieoptions.sorting]]);
-
-    $table.find("tbody > tr").each(function(){
-        if(jQuery(this).find("input[name=selected]").val() == "selected") {
-            jQuery(this).addClass("selectedtr");
-        }
-    });
 
     // init pager
     $table.tablesorterPager({container: jQuery("#pager"), positionFixed: false, page: 0});
@@ -1758,10 +1760,4 @@ function createPagercontrols(displayselect) {
             '</form>' +
     '</div>';
     return controls;
-}
-
-var myCellParser = function(node)
-{
-    // extract data from markup and return it
-    return node.childNodes[0].childNodes[0].innerHTML;
 }
