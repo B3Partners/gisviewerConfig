@@ -219,6 +219,15 @@
     types[index].allowBindings="DUMMY";
     types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,String";
 
+    /* Schaalveld. */
+    index++
+    types[index]=new Object();
+    types[index].option={"90" : "Schaal"};
+    types[index].forZoek=true;
+    types[index].forResultaat=false;
+    types[index].allowBindings="DUMMY";
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,String";
+
     var previousValueSet="";
     /*Wordt aangeroepen als het attribuut veld wordt gewijzigd.*/
     function attribuutChanged(element){
