@@ -177,6 +177,7 @@
             <form-property name="cfg_showBufferTool" type="java.lang.Boolean"/>
             <form-property name="cfg_showSelectBulkTool" type="java.lang.Boolean"/>
             <form-property name="cfg_showNeedleTool" type="java.lang.Boolean"/>
+            <form-property name="cfg_showPrintTool" type="java.lang.Boolean"/>
             <form-property name="cfg_layerGrouping" type="java.lang.String"/>
             <form-property name="cfg_popupWidth" type="java.lang.String"/>
             <form-property name="cfg_popupHeight" type="java.lang.String"/>
