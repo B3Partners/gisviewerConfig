@@ -73,31 +73,56 @@
             
             <table cellpadding="2" cellspacing="2" border="0">
                 <tr>
-                    <td>Titel</td>
+                    <td>
+                        <fmt:message key="configcmstitel.label"/> <a href="#" onclick="return showHelpDialog('help_configcmstitel');">(?)</a>
+                        <div id="help_configcmstitel" style="display: none;" title="<fmt:message key="configcmstitel.label"/>">
+                            <p><fmt:message key="configcmstitel.uitleg"/></p>
+                        </div>           
+                    </td>
                     <td colspan="3">
                         <html:text property="titel" size="40"/>
                     </td>
                 </tr>
                 <tr>
-                    <td>Tekst</td>
+                    <td>
+                        <fmt:message key="configcmstekst.label"/> <a href="#" onclick="return showHelpDialog('help_configcmstekst');">(?)</a>
+                        <div id="help_configcmstekst" style="display: none;" title="<fmt:message key="configcmstekst.label"/>">
+                            <p><fmt:message key="configcmstekst.uitleg"/></p>
+                        </div>
+                    </td>
                     <td colspan="3">
                         <html:textarea styleClass="ckeditor" property="tekst" rows="8" cols="100"/>
                     </td>
                 </tr>
                 <tr>
-                    <td>Url</td>
+                    <td>
+                        <fmt:message key="configcmsurl.label"/> <a href="#" onclick="return showHelpDialog('help_configcmsurl');">(?)</a>
+                        <div id="help_configcmsurl" style="display: none;" title="<fmt:message key="configcmsurl.label"/>">
+                            <p><fmt:message key="configcmsurl.uitleg"/></p>
+                        </div>
+                    </td>
                     <td colspan="3">
                         <html:text property="url" size="40"/>
                     </td>
                 </tr>
                 <tr>
-                    <td>Toon url</td>
+                    <td>
+                        <fmt:message key="configcmsurlinhoud.label"/> <a href="#" onclick="return showHelpDialog('help_configcmsurlinhoud');">(?)</a>
+                        <div id="help_configcmsurlinhoud" style="display: none;" title="<fmt:message key="configcmsurlinhoud.label"/>">
+                            <p><fmt:message key="configcmsurlinhoud.uitleg"/></p>
+                        </div>
+                    </td>
                     <td colspan="3">
                         <html:checkbox property="toonUrl" />
                     </td>
                 </tr>
                 <tr>
-                    <td>Pagina</td>
+                    <td>
+                        <fmt:message key="configcmspagina.label"/> <a href="#" onclick="return showHelpDialog('help_configcmspagina');">(?)</a>
+                        <div id="help_configcmspagina" style="display: none;" title="<fmt:message key="configcmspagina.label"/>">
+                            <p><fmt:message key="configcmspagina.uitleg"/></p>
+                        </div>
+                    </td>
                     <td colspan="3">
                         <html:select property="pagina">
                             <html:option value="gisviewer_home">Gisviewer home</html:option>
@@ -110,7 +135,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Volgorde</td>
+                    <td>
+                        <fmt:message key="configcmsvolgorde.label"/> <a href="#" onclick="return showHelpDialog('help_configcmsvolgorde');">(?)</a>
+                        <div id="help_configcmsvolgorde" style="display: none;" title="<fmt:message key="configcmsvolgorde.label"/>">
+                            <p><fmt:message key="configcmsvolgorde.uitleg"/></p>
+                        </div>
+                    </td>
                     <td colspan="3">
                         <html:text property="volgordeNr" size="10"/>
                     </td>
