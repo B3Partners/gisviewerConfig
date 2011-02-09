@@ -79,7 +79,7 @@
             <form-property name="kolomnaam" type="java.lang.String"/>
             <form-property name="dataorder" type="java.lang.String"/>
             <form-property name="gegevensbronID" type="java.lang.String"/>
-            <form-property name="basisregels" type="java.lang.String[]"/>
+            <form-property name="basisregels" type="java.lang.Integer[]"/>
         </form-bean>
         <form-bean name="zoekConfiguratieForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>

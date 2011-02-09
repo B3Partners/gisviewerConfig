@@ -66,6 +66,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                     <%--<c:if test="${!save && !delete}">
                         <a href="#" class="datalink" onclick="javascript: document.getElementById('createAllThemaData').value='doe';submit()">Maak ontbrekende Themadata objecten voor thema</a>
                     </c:if>--%>
+                    <html:submit property="updateBasisregels" styleClass="knop"><fmt:message key="configthemadata.updatebasisregels.button"/></html:submit>
                 </td>
             </tr>
         </table>
@@ -119,9 +120,7 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
                                     </c:choose>
                                     &nbsp;</td>
                                 <td>
-                                    <c:if test="${ci.basisregel}">Ja</c:if>
-                                    
-                                    <!-- <html:multibox property="basisregels" value="${ci.id}"/> -->
+                                    <html:multibox property="basisregels" value="${ci.id}"/>
                                 </td>
                             </tr>
                         </c:forEach>
