@@ -60,3 +60,26 @@ function refreshTheLists(){
     document.forms[0].refreshLists.value="do";
     document.forms[0].submit();
 }
+
+$j(document).ready(function(){
+    //Alleen automatisch vullen als ook het layerObject bestaat.
+    if(layersObject){        
+        $j('select[name="wms_layers_real"]').change(function (){
+            var layerObject=layersObject[$j('select[name="wms_layers_real"]').val()];
+            if (layerObject){
+                if (layerObject.legend &&                    
+                    $j('select[name="wms_legendlayer_real"]').val()==""){
+                    $j('select[name="wms_legendlayer_real"]').val(layerObject.name);
+                }
+                if (layerObject.title &&
+                    $j('input[name="naam"]').val()==""){
+                    $j('input[name="naam"]').val(layerObject.title);
+                }
+                if (layerObject.metadata &&
+                    $j('input[name="metadatalink"]').val()==""){
+                    $j('input[name="metadatalink"]').val(layerObject.metadata);
+                }
+            }
+        });
+    }
+});

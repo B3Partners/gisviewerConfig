@@ -326,6 +326,26 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
 </html:form>
 
 <script type="text/javascript">
+    //create layerobjects for autofill
+    var layersObject = new Object();
+    <c:if test="${not empty listLayers}">
+        <c:forEach var="cuItem" items="${listLayers}">
+            var layerObject=new Object();
+            layerObject.name="${cuItem.name}";
+            layerObject.title="${cuItem.title}";
+            layerObject.metadata="${cuItem.metadata}";
+            layersObject["${cuItem.name}"]=layerObject;
+        </c:forEach>
+    </c:if>
+    //check if the object has a legend
+    <c:if test="${not empty listLegendLayers}">
+        <c:forEach var="cuItem" items="${listLegendLayers}">
+            if (layersObject["${cuItem.name}"]){
+                layersObject["${cuItem.name}"].legend=true;
+            }
+        </c:forEach>
+    </c:if>
+
     tablepager(
         'themalisttable',
         //'textExtraction: myCellParser',
