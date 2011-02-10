@@ -17,7 +17,6 @@
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
 
-<html:javascript formName="connectieForm" staticJavascript="false"/>
 <html:form action="/configCMS" onsubmit="return validateCMSForm(this)" focus="${focus}">
     <div style="display: none;">
         <html:hidden property="action"/>

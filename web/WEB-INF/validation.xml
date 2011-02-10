@@ -42,5 +42,12 @@
                 <arg key="configzoekconfiguratieveld.attribuutnaam"/>
             </field>
         </form>
+        <form name="cmsForm">
+            <field
+                property="titel"
+                depends="required">
+                <arg key="configcmstitel.label"/>
+            </field>
+        </form>
     </formset>
 </form-validation>
