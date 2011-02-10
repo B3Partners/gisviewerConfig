@@ -209,9 +209,11 @@
     /*height: 400px;*/
     overflow: auto;
     clear: left;
+    margin-left: 10px;
 }
 .wizardButtonBar{
     margin-top: 10px;
+    margin-left: 10px;
 }
 
 #dialogPopUp{

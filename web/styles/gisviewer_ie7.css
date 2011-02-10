@@ -5,3 +5,7 @@ td h2 {
 .configbody table.tablesorter {
     width: 920px;
 }
+
+.configbody table.tablesorter td input {
+    margin-top: -2px;
+}

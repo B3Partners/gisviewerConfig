@@ -9,6 +9,10 @@ body {
     text-align: center;
 }
 
+div, span, a, td, th {
+    text-align: left;
+}
+
 #wrapper {
     height: auto;
     min-height: 100%;
@@ -79,7 +83,7 @@ body {
     padding: 12px;
     padding-left: 30px;
     margin: 10px;
-    margin-left: 0px;
+    margin-left: 5px;
     background-color: #E0E1FF;
     background-image: url(/gisviewerconfig/images/icons/information.png);
     background-repeat: no-repeat;

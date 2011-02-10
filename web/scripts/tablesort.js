@@ -958,9 +958,13 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
         var allRows = table.config.cache.row;
         var resultRows = [];
 
-        var allRowsCount = allRows.length;
-        for (var i=0; i < allRowsCount; i++) {
-          allRows[i].each ( search_text );
+        if(filterCount == 0) {
+            resultRows = allRows;
+        } else {
+            var allRowsCount = allRows.length;
+            for (var i=0; i < allRowsCount; i++) {
+              allRows[i].each ( search_text );
+            }
         }
 
         // Clear the table
@@ -1556,9 +1560,11 @@ function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
     var height = $table.find("thead").outerHeight() + 4;
     $table.find("tbody > tr").each(function() {
         if(counter < 10) height += jQuery(this).outerHeight() + 2;
-        jQuery(this).click(function() {
-            var link = jQuery(this).find("input[name=link]").val();
-            if(link != undefined && link != '') window.location.href=link;
+        jQuery(this).find("td").click(function() {
+            if(jQuery(this).find("a, input").length == 0) {
+                var link = jQuery(this).parent().find("input[name=link]").val();
+                if(link != undefined && link != '') window.location.href=link;
+            }
         });
         if(jQuery(this).find("input[name=selected]").val() == "selected") {
             jQuery(this).addClass("selectedtr");
@@ -1613,7 +1619,7 @@ function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
 
     // init filter
     $table.tablesorterFilter(filters);
-    if(filtertrigger != "") jQuery(filtertrigger).trigger("keyup");
+    if(filtertrigger != "") $table.trigger("doFilter");
     if(hasCookie && cookieoptions.sorting) $table.trigger("sorton",[[cookieoptions.sorting]]);
 
     // init pager
