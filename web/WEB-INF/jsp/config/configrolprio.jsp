@@ -66,11 +66,11 @@
     <div id="rechten_block">
         <div class="content_title">Rechten</div>
         <p>
-            <p><html:link page="/index.do?resetCache=t&cachelifecycle=0">Rechten opnieuw ophalen (configuratie)</html:link></p>
+            <p><html:link page="/index.do?resetCache=t&cachelifecycle=0">Rechten opnieuw ophalen voor configuratie</html:link></p>
 
             <c:set var="requestURI" value="${fn:split(requestScope['javax.servlet.forward.request_uri'], '/')}" />
-            <p><a href="${absoluteURIPrefix}/gisviewer/resetCache.do?cachelifecycle=0">Rechten opnieuw ophalen (gisviewer)</a></p>
-            <p><a href="${absoluteURIPrefix}/gisviewer/resetCache.do?flushresultlistcache=true">Cache legen opzoeklijsten (gisviewer)</a></p>
+            <p><a href="${absoluteURIPrefix}/gisviewer/reset.do?cache=t&amp;cachelifecycle=0">Reset cache gisviewer</a></p>
+            <p><a href="${absoluteURIPrefix}/gisviewer/reset.do?opzoeklijst=t">Reset opzoeklijsten gisviewer</a></p>
         <p/>
     </div>
 
