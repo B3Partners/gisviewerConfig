@@ -66,12 +66,29 @@
     <div id="rechten_block">
         <div class="content_title">Rechten</div>
         <p>
-            <p><html:link page="/index.do?resetCache=t&cachelifecycle=0">Rechten opnieuw ophalen voor configuratie</html:link></p>
-
+            <p>
+                <html:link page="/index.do?resetCache=t&cachelifecycle=0">Rechten opnieuw ophalen voor configuratie</html:link>
+                <a href="#" onclick="return showHelpDialog('help_rechtenconfig');">(?)</a>
+                <div id="help_rechtenconfig" style="display: none;" title="<fmt:message key="rechtenconfig.label"/>">
+                    <p><fmt:message key="rechtenconfig.uitleg"/></p>
+                </div>
+            </p>
             <c:set var="requestURI" value="${fn:split(requestScope['javax.servlet.forward.request_uri'], '/')}" />
-            <p><a href="${absoluteURIPrefix}/gisviewer/reset.do?cache=t&amp;cachelifecycle=0">Reset cache gisviewer</a></p>
-            <p><a href="${absoluteURIPrefix}/gisviewer/reset.do?opzoeklijst=t">Reset opzoeklijsten gisviewer</a></p>
-        <p/>
+            <p>
+                <a href="${absoluteURIPrefix}/gisviewer/reset.do?cache=t&amp;cachelifecycle=0">Reset cache voor de gisviewer</a>
+                <a href="#" onclick="return showHelpDialog('help_rechtenviewer');">(?)</a>
+                <div id="help_rechtenviewer" style="display: none;" title="<fmt:message key="rechtenviewer.label"/>">
+                    <p><fmt:message key="rechtenviewer.uitleg"/></p>
+                </div>
+            </p>          
+            <p>
+                <a href="${absoluteURIPrefix}/gisviewer/reset.do?opzoeklijst=t">Reset opzoeklijsten voor de gisviewer</a>
+                <a href="#" onclick="return showHelpDialog('help_rechtenopzoeklijst');">(?)</a>
+                <div id="help_rechtenopzoeklijst" style="display: none;" title="<fmt:message key="rechtenopzoeklijst.label"/>">
+                    <p><fmt:message key="rechtenopzoeklijst.uitleg"/></p>
+                </div>
+            </p>
+       <p/>
     </div>
 
     <!-- Live Tweets -->
