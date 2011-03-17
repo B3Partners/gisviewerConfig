@@ -81,7 +81,8 @@ function showHelpDialog(divid) {
         resizable: true,
         draggable: true,
         show: 'slide',
-        hide: 'slide'
+        hide: 'slide',
+        autoOpen: false
     });
     $j("#" + divid).dialog('open');
     return false;

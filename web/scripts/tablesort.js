@@ -9,19 +9,6 @@
  */
 eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('r.5=w(k,d,a){4(m d!=\'H\'){a=a||{};4(d===p){d=\'\';a.3=-1}2 g=\'\';4(a.3&&(m a.3==\'n\'||a.3.u)){2 f;4(m a.3==\'n\'){f=G E();f.C(f.B()+(a.3*z*s*s*v))}o{f=a.3}g=\'; 3=\'+f.u()}2 b=a.7?\'; 7=\'+(a.7):\'\';2 e=a.9?\'; 9=\'+(a.9):\'\';2 l=a.t?\'; t\':\'\';6.5=[k,\'=\',K(d),g,b,e,l].I(\'\')}o{2 h=p;4(6.5&&6.5!=\'\'){2 c=6.5.F(\';\');D(2 i=0;i<c.8;i++){2 j=r.A(c[i]);4(j.q(0,k.8+1)==(k+\'=\')){h=y(j.q(k.8+1));x}}}J h}};',47,47,'||var|expires|if|cookie|document|path|length|domain|||||||||||||typeof|number|else|null|substring|jQuery|60|secure|toUTCString|1000|function|break|decodeURIComponent|24|trim|getTime|setTime|for|Date|split|new|undefined|join|return|encodeURIComponent'.split('|'),0,{}));
 
-/* Copyright (c) 2007 Paul Bakaus (paul.bakaus@googlemail.com) and Brandon Aaron (brandon.aaron@gmail.com || http://brandonaaron.net)
- * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
- * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
- *
- * $LastChangedDate: 2007-12-20 08:43:48 -0600 (Thu, 20 Dec 2007) $
- * $Rev: 4257 $
- *
- * Version: 1.2
- *
- * Requires: jQuery 1.2+
- */
-(function($){$.dimensions={version:'1.2'};$.each(['Height','Width'],function(i,name){$.fn['inner'+name]=function(){if(!this[0])return;var torl=name=='Height'?'Top':'Left',borr=name=='Height'?'Bottom':'Right';return this.is(':visible')?this[0]['client'+name]:num(this,name.toLowerCase())+num(this,'padding'+torl)+num(this,'padding'+borr);};$.fn['outer'+name]=function(options){if(!this[0])return;var torl=name=='Height'?'Top':'Left',borr=name=='Height'?'Bottom':'Right';options=$.extend({margin:false},options||{});var val=this.is(':visible')?this[0]['offset'+name]:num(this,name.toLowerCase())+num(this,'border'+torl+'Width')+num(this,'border'+borr+'Width')+num(this,'padding'+torl)+num(this,'padding'+borr);return val+(options.margin?(num(this,'margin'+torl)+num(this,'margin'+borr)):0);};});$.each(['Left','Top'],function(i,name){$.fn['scroll'+name]=function(val){if(!this[0])return;return val!=undefined?this.each(function(){this==window||this==document?window.scrollTo(name=='Left'?val:$(window)['scrollLeft'](),name=='Top'?val:$(window)['scrollTop']()):this['scroll'+name]=val;}):this[0]==window||this[0]==document?self[(name=='Left'?'pageXOffset':'pageYOffset')]||$.boxModel&&document.documentElement['scroll'+name]||document.body['scroll'+name]:this[0]['scroll'+name];};});$.fn.extend({position:function(){var left=0,top=0,elem=this[0],offset,parentOffset,offsetParent,results;if(elem){offsetParent=this.offsetParent();offset=this.offset();parentOffset=offsetParent.offset();offset.top-=num(elem,'marginTop');offset.left-=num(elem,'marginLeft');parentOffset.top+=num(offsetParent,'borderTopWidth');parentOffset.left+=num(offsetParent,'borderLeftWidth');results={top:offset.top-parentOffset.top,left:offset.left-parentOffset.left};}return results;},offsetParent:function(){var offsetParent=this[0].offsetParent;while(offsetParent&&(!/^body|html$/i.test(offsetParent.tagName)&&$.css(offsetParent,'position')=='static'))offsetParent=offsetParent.offsetParent;return $(offsetParent);}});function num(el,prop){return parseInt($.curCSS(el.jquery?el[0]:el,prop,true))||0;};})(jQuery);
-
 /*
  *
  * TableSorter 2.0 - Client-side table sorting with ease!
