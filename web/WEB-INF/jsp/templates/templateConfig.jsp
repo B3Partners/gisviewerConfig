@@ -1,24 +1,20 @@
 <%--
-B3P Gisviewer is an extension to Flamingo MapComponents making
-it a complete webbased GIS viewer and configuration tool that
-works in cooperation with B3P Kaartenbalie.
+Copyright 2007-2011 B3Partners BV.
 
-Copyright 2006, 2007, 2008 B3Partners BV
+This program is distributed under the terms
+of the GNU General Public License.
 
-This file is part of B3P Gisviewer.
+You should have received a copy of the GNU General Public License
+along with this software. If not, see http://www.gnu.org/licenses/gpl.html
 
-B3P Gisviewer is free software: you can redistribute it and/or modify
+This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-B3P Gisviewer is distributed in the hope that it will be useful,
+This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 --%>
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
@@ -71,8 +67,8 @@ along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
             </div>
         </div>
         <div id="footer"><div id="footer_content">
-                <div id="footer_tekst_links" class="footer_tekst">&copy; 2007-2009 B3Partners</div>
-                <div id="footer_tekst_rechts" class="footer_tekst">KaartenBalie.nl is een initiatief van</div>
+                <div id="footer_tekst_links" class="footer_tekst">This program is distributed under the terms of the <a class="gpl_link" href="http://www.gnu.org/licenses/gpl.html">GNU General Public License</a></div>
+                <div id="footer_tekst_rechts" class="footer_tekst">GIS Suite versie 3.0</div>
         </div></div>
     </body>
 </html:html>

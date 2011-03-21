@@ -107,6 +107,13 @@ a.activemenulink, a.activemenulink:visited, a.activemenulink:active {
     margin-top: 18px;
 }
 
+.footer_tekst a.gpl_link{
+    color: #7891A5;
+    font-size: 11px;
+    margin-top: 18px;
+    text-decoration: underline;
+}
+
 /* Common styles */
 th {
     font-size: 8pt;
