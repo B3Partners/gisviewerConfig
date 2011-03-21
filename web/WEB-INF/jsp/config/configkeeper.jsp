@@ -833,6 +833,18 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <td valign="top">
                                 <table cellpadding="2" cellspacing="2" border="0">
                                     <tr>
+                                        <td><fmt:message key="cfg_redliningkaartlaagid.label"/></td>
+                                        <td>
+                                            <html:select property="cfg_redliningkaartlaagid">
+                                                <html:option value="0">-Kies een kaartlaag-</html:option>
+                                                <c:forEach items="${redliningKaartlagen}" var="item">
+                                                    <html:option value="${item.id}">${item.naam}</html:option>
+                                                </c:forEach>
+                                            </html:select>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
                                         <td><fmt:message key="cfg_meldinggegevensbron.label"/></td>
                                         <td>
                                             <html:select property="cfg_redlininggegevensbron">
