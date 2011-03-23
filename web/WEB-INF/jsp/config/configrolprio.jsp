@@ -80,7 +80,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             <div class="content_title">Rechten</div>
             <p>
                 <p>
-                    <html:link page="/index.do?resetCache=t&cachelifecycle=0">Rechten opnieuw ophalen voor configuratie</html:link>
+                    <html:link page="/reset.do?configCache=t&amp;cachelifecycle=0">Rechten opnieuw ophalen voor configuratie</html:link>
                     <a href="#" onclick="return showHelpDialog('help_rechtenconfig');">(?)</a>
                     <div id="help_rechtenconfig" style="display: none;" title="<fmt:message key="rechtenconfig.label"/>">
                         <p><fmt:message key="rechtenconfig.uitleg"/></p>

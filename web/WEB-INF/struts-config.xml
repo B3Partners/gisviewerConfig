@@ -259,6 +259,11 @@
             <forward name="help" path="help"/>
         </action>
 
+        <action path="/reset" type="nl.b3p.gis.viewer.services.ResetAction">
+            <forward name="success" path="reset"/>
+            <forward name="login" path="login"/>
+        </action>
+
         <action path="/login" forward="/index.do?login=t"/>
         <action path="/loginError" forward="/index.do?loginError=t"/>
         <action path="/logout" forward="/index.do?logout=t"/>
