@@ -39,6 +39,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <script type="text/javascript" src="<html:rewrite page='/scripts/validation.jsp' module=''/>"></script>
         <script type="text/javascript" src="scripts/jquery-1.5.1.min.js"></script>
         <script type="text/javascript" src="scripts/jquery-ui-1.8.10.custom.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.qtip-1.0.0-rc3.min.js"></script>
         <script type="text/javascript" src="<html:rewrite page='/scripts/hoverIntent.js' module=''/>"></script>
         <script type="text/javascript" src="<html:rewrite page='/scripts/jquery.bgiframe.min.js' module=''/>"></script>
         <script type="text/javascript" src="<html:rewrite page='/scripts/superfish.js' module=''/>"></script>
