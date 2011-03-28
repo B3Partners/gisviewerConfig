@@ -67,9 +67,12 @@ function openAttribuutForm(id,paramName){
     
     var dialogdiv = $j("#dialogPopUp");
     openAsDialog(dialogdiv);
-
+    //dialogdiv.dialog('open');
+    
     dialogdiv.dialog("option", "height", 270);
     dialogdiv.dialog("option", "title", "");
+
+    $j(".ui-dialog").css("height", "270px");
 }
 /**
  *Open een nieuw attribuut in het form
@@ -80,19 +83,24 @@ function addAttribuut(zoekConfigid,paramName){
     var dialogdiv = $j("#dialogPopUp");
     $j("#iframeZoekConfiguratieVeld").attr("src", url);
     openAsDialog(dialogdiv);
-    
+    //dialogdiv.dialog('open');
+
     dialogdiv.dialog("option", "height", 270);
     dialogdiv.dialog("option", "title", "Nieuw " + paramName + "veld");
+
+    $j(".ui-dialog").css("height", "270px");
 }
 
 function openAsDialog(dialogdiv){
     dialogdiv.dialog({
+        autoOpen: false,
         height: 270,
         width: 350,
         resizable: false,
         draggable: true,
         modal: true
     });
+
     dialogdiv.dialog('open');
 }
 
@@ -110,3 +118,9 @@ function deleteZoekConfiguratie(id){
         }
     }
 }
+
+/*
+$j(document).ready(function() {
+    openAsDialog($j("#dialogPopUp"));
+});
+*/
