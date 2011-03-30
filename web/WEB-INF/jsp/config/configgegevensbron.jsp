@@ -51,6 +51,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
         <div class="maintable" style="margin-top: 5px; width: 670px;">
             <h2>Gegevensbron</h2><br/>
+
+            <div id="textBox"></div>
             
             <table cellpadding="2" cellspacing="2" border="0">
                 <tr>

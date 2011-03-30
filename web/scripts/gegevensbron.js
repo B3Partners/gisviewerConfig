@@ -70,7 +70,7 @@ function createLinkToObjectData(item){
     return lnk;
 }
 
-function refreshFeatureList(element){
+function refreshFeatureList(element){    
     if (connectionTypes){
         if (connectionTypes[element.value]){
             currentConnectionType=connectionTypes[element.value];
@@ -82,15 +82,26 @@ function refreshFeatureList(element){
 }
 
 function handleFeatureList(list){
+    if (list != null && list[0] === "SERVICE_ERROR") {
+        var append = "request=GetCapabilities&service=WFS&version=1.0.0";
+        var serviceUrl = "<a href='" + list[1] + append + "'>Bekijk het verzoek</a>";
+
+        $j("#textBox").html("<p class='textBox'>Fout tijdens ophalen features. " + serviceUrl + "</p>");
+    } else {
+        $j("#textBox").html("");
+    }
+    
     dwr.util.removeAllOptions('admin_tabel_select');
     dwr.util.removeAllOptions('admin_pk_select');
     
     dwr.util.addOptions("admin_tabel_select",[""]);
     dwr.util.addOptions("admin_tabel_select",list,"0","1");
 
-    var data = [ { value:"", label:"Kies eerst tabel of feature...." } ];
+    var data = [ {value:"",label:"Kies eerst tabel of feature...."} ];
     
     dwr.util.addOptions("admin_pk_select", data, "value", "label");
+
+    return true;
 }
 
 function refreshAdminAttributeList(element){
