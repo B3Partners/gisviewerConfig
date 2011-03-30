@@ -40,9 +40,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             <thead>
                 <tr>
                     <th style="width: 5%;" class="{sorter:'digit'}">ID</th>
-                    <th style="width: 25%;"><fmt:message key="configzoekconfiguratie.naam"/></th>
-                    <th style="width: 25%;"><fmt:message key="configzoekconfiguratie.featuretype"/></th>
-                    <th style="width: 25%;"><fmt:message key="configzoekconfiguratie.parentbron"/></th>
+                    <th style="width: 20%;"><fmt:message key="configzoekconfiguratie.naam"/></th>
+                    <th style="width: 20%;"><fmt:message key="configzoekconfiguratie.featuretype"/></th>
+                    <th style="width: 35%;"><fmt:message key="configzoekconfiguratie.parentbron"/></th>
                     <th style="width: 20%;"><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></th>
                 </tr>
             </thead>
