@@ -62,33 +62,35 @@ function openResultaatAttribuutForm(id){
  * Open attribuut met id
  */
 function openAttribuutForm(id,paramName){
-    var url=attribuutFormUrl+"?"+paramName+"="+id;
-    document.getElementById("iframeZoekConfiguratieVeld").src=url;
-    
     var dialogdiv = $j("#dialogPopUp");
-    openAsDialog(dialogdiv);
-    //dialogdiv.dialog('open');
+    var dialogiframe = $j("#iframeZoekConfiguratieVeld");
+    var url=attribuutFormUrl+"?"+paramName+"="+id;
     
-    dialogdiv.dialog("option", "height", 270);
+    dialogiframe.hide();
     dialogdiv.dialog("option", "title", "");
-
-    $j(".ui-dialog").css("height", "270px");
+    dialogdiv.dialog("open");
+    
+    dialogiframe.attr("src", url);
+    dialogiframe.load(function () {
+        $j("#iframeZoekConfiguratieVeld").show();
+    });
 }
 /**
  *Open een nieuw attribuut in het form
  */
 function addAttribuut(zoekConfigid,paramName){
+    var dialogdiv = $j("#dialogPopUp");
+    var dialogiframe = $j("#iframeZoekConfiguratieVeld");
     var url=attribuutFormUrl+"?attribuutType="+paramName+"&zoekConfiguratieId="+zoekConfigid;
 
-    var dialogdiv = $j("#dialogPopUp");
-    $j("#iframeZoekConfiguratieVeld").attr("src", url);
-    openAsDialog(dialogdiv);
-    //dialogdiv.dialog('open');
-
-    dialogdiv.dialog("option", "height", 270);
+    dialogiframe.hide();
     dialogdiv.dialog("option", "title", "Nieuw " + paramName + "veld");
-
-    $j(".ui-dialog").css("height", "270px");
+    dialogdiv.dialog("open");
+    
+    dialogiframe.attr("src", url);
+    dialogiframe.load(function () {
+        $j("#iframeZoekConfiguratieVeld").show();
+    });
 }
 
 function openAsDialog(dialogdiv){
@@ -100,9 +102,12 @@ function openAsDialog(dialogdiv){
         draggable: true,
         modal: true
     });
-
-    dialogdiv.dialog('open');
+    // dialogdiv.dialog('open');
 }
+
+$j(document).ready(function() {
+    openAsDialog($j("#dialogPopUp"));
+})
 
 /*Return naar het begin van de wizard/lijst*/
 function openStartPage(){
