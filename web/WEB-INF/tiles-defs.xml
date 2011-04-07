@@ -68,6 +68,7 @@
     <definition name="configcms" extends="config">
         <put name="title" value="CMS configuratie" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configcms.jsp"/>
+        <put name="menu" value="/WEB-INF/jsp/commons/viewermenu.jsp"/>
     </definition>
     
     <definition name="wizardzoekconfiguratie" extends="config">
@@ -93,11 +94,13 @@
     <definition name="configKeeper" extends="config">
         <put name="title" value="Viewer instellingen" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configkeeper.jsp"/>
+        <put name="menu" value="/WEB-INF/jsp/commons/viewermenu.jsp"/>
     </definition>
 
     <definition name="configRolPrio" extends="config">
         <put name="title" value="Rol prioriteit instellingen" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configrolprio.jsp"/>
+        <put name="menu" value="/WEB-INF/jsp/commons/viewermenu.jsp"/>
     </definition>
 
     <!-- pop up-->

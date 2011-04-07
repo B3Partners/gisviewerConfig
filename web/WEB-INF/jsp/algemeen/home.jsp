@@ -74,6 +74,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
 </c:if>
 
+<div class="content_block">
+    <div class="content_title">Laatste nieuwsberichten</div>
+    <div class="content_body" style="min-height: 180px;">
+        <div class="tweet"></div>
+    </div>
+    <!-- Live Tweets -->
+    <%@include file="/WEB-INF/jsp/tweets.jsp" %>
+</div>
+
 <c:if test="${pageContext.request.remoteUser != null}">
     <div class="uitloggen">
         <hr>
@@ -118,4 +127,3 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
 </div>
 </c:if>
-

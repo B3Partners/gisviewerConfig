@@ -29,41 +29,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <li><html:link page="/index.do" module="" styleClass="${stijlklasse}"><fmt:message key="commons.configmenu.home"/></html:link></li>
 
         <c:set var="stijlklasse" value="menulink" />
-        <c:if test="${requestJSP eq 'configThema.do' || requestJSP eq 'configKaartGroep.do' || requestJSP eq 'configThemaData.do'}">
+        <c:if test="${requestJSP eq 'configRolPrio.do'}">
             <c:set var="stijlklasse" value="activemenulink" />
         </c:if>
-        <li>
-            <a href="#" class="${stijlklasse}">Kaarten</a>
-            <ul>
-                <li><html:link page="/configThema.do" module=""><fmt:message key="commons.configmenu.thema"/></html:link></li>
-                <li><html:link page="/configKaartGroep.do" module=""><fmt:message key="commons.configmenu.cluster"/></html:link></li>
-            </ul>
-        </li>
+        <li><html:link page="/configRolPrio.do" module="" styleClass="${stijlklasse}"><fmt:message key="commons.configmenu.instellingen"/></html:link></li>
 
         <c:set var="stijlklasse" value="menulink" />
-        <c:if test="${requestJSP eq 'configConnectie.do' || requestJSP eq 'configGegevensbron.do'}">
+        <c:if test="${requestJSP eq 'configCMS.do'}">
             <c:set var="stijlklasse" value="activemenulink" />
         </c:if>
-        <li>
-            <a href="#" class="${stijlklasse}">Data</a>
-            <ul>
-                <li><html:link page="/configConnectie.do" module=""><fmt:message key="commons.configmenu.connectie"/></html:link></li>
-                <li><html:link page="/configGegevensbron.do" module=""><fmt:message key="commons.configmenu.gegevensbron"/></html:link></li>
-                <li><html:link page="/configThemaData.do" module=""><fmt:message key="commons.configmenu.themadata"/></html:link></li>
-            </ul>
-        </li>
+        <li><html:link page="/configCMS.do" module="" styleClass="${stijlklasse}"><fmt:message key="commons.configmenu.cms"/></html:link></li>
 
-        <c:set var="stijlklasse" value="menulink" />
-        <c:if test="${requestJSP eq 'configZoekConfiguratie.do'}">
-            <c:set var="stijlklasse" value="activemenulink" />
-        </c:if>
-        <li>
-            <a href="#" class="${stijlklasse}">Zoeken</a>
-            <ul>
-                <li><html:link page="/configZoekConfiguratie.do" module=""><fmt:message key="commons.configmenu.zoeker"/></html:link></li>
-            </ul>
-        </li>
-        
         <c:set var="stijlklasse" value="menulink" />
         <c:if test="${requestJSP eq 'help.do'}">
             <c:set var="stijlklasse" value="activemenulink" />
