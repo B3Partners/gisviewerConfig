@@ -30,7 +30,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <tiles:insert definition="actionMessages"/>
 </div>
 
-<span class="rolnaamHeader">Rolinstellingen voor ${header_Rolnaam}</span>
+<span class="rolnaamHeader">Rolinstellingen voor</span><br />
+<strong style="font-size: 1.4em;">${header_Rolnaam}</strong>
 
 <html:form action="/configKeeper">
     <html:hidden property="action" />
