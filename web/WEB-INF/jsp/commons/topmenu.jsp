@@ -31,7 +31,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <html:link page="/configRolPrio.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.configuratie"/></html:link>
         
         <c:set var="stijlklasse" value="menulink" />
-        <html:link page="/index.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.reset"/></html:link>
+        <html:link page="/reset.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.reset"/></html:link>
     </c:if>
 
     <c:set var="stijlklasse" value="menulink" />

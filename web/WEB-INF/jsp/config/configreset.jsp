@@ -17,16 +17,11 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 --%>
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
-<%@ page isELIgnored="false"%>
 
-<div class="infobalk">
-    <div class="infobalk_description">INSTELLINGEN</div>
-    <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
-</div>
+<div class="content_block">
+    <div class="content_title">Reset</div>
 
-<div class="berichtenbalk" style="margin-top: 5px;">
     <tiles:insert definition="actionMessages"/>
-</div>
 
 <div class="content_body">
 
@@ -56,6 +51,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </div>
             </p>
        <p/>
+        </div>
     </div>
-    
 </div>

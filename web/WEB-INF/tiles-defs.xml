@@ -13,14 +13,15 @@
     <definition name="algemeen" extends="template">
         <put name="menu" value="/WEB-INF/jsp/commons/topmenu.jsp"/>
     </definition>
+    <definition name="reset" extends="algemeen">
+        <put name="title" value="Reset" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/config/configreset.jsp"/>
+        <put name="menu" value="/WEB-INF/jsp/commons/topmenu.jsp"/>
+    </definition>
     <definition name="login" extends="algemeen">
         <put name="title" value="Inlogscherm" type="string"/>
         <put name="content" value="/WEB-INF/jsp/algemeen/login.jsp"/>
-    </definition>
-    <definition name="reset" extends="algemeen">
-        <put name="title" value="Reset" type="string"/>
-        <put name="content" value="/WEB-INF/jsp/algemeen/reset.jsp"/>
-    </definition>
+    </definition>    
     <definition name="loginError" extends="algemeen">
         <put name="title" value="Fout bij inloggen" type="string"/>
         <put name="content" value="/WEB-INF/jsp/algemeen/loginError.jsp"/>
@@ -33,7 +34,7 @@
         <put name="title" value="Help" type="string"/>
         <put name="content" value="/WEB-INF/jsp/algemeen/help.jsp"/>
     </definition>
-    <!-- config -->   
+    <!-- config -->    
     <definition name="config" extends="templateConfig">
         <put name="menu" value="/WEB-INF/jsp/commons/configmenu.jsp"/>
     </definition>
