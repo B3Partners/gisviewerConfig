@@ -95,39 +95,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <div class="tabcontents">
         <div class="tabcontent content_selecteerkaartlagen">
             <div class="configbasic">
-                <div class="configrow configrowfull">
-                    <div class="kaartlaag_select"><input type="checkbox" name="field1" value="1" /> <label>Dummy laag 1</label></div>
-                    <div class="kaartlaag_select"><input type="checkbox" name="field2" value="2" /> <label>Dummy laag 2</label></div>
-                </div>
-                <div class="configrow configrowfull">
-                    <div class="kaartlaag_select"><input type="checkbox" name="field3" value="3" /> <label>Dummy laag 3</label></div>
-                    <div class="kaartlaag_select"><input type="checkbox" name="field4" value="4" /> <label>Dummy laag 4</label></div>
-                </div>
-                <div class="configrow configrowfull">
-                    <div class="kaartlaag_select"><input type="checkbox" name="field5" value="5" /> <label>Dummy laag 5</label></div>
-                    <div class="kaartlaag_select"><input type="checkbox" name="field6" value="6" /> <label>Dummy laag 6</label></div>
-                </div>
-                <div class="configrow configrowfull">
-                    <div class="kaartlaag_select"><input type="checkbox" name="field7" value="7" /> <label>Dummy laag 7</label></div>
-                    <div class="kaartlaag_select"><input type="checkbox" name="field8" value="8" /> <label>Dummy laag 8</label></div>
-                </div>
-                <div class="configrow configrowfull">
-                    <div class="kaartlaag_select"><input type="checkbox" name="field9" value="9" /> <label>Dummy laag 9</label></div>
-                    <div class="kaartlaag_select"><input type="checkbox" name="field10" value="10" /> <label>Dummy laag 10</label></div>
-                </div>
-                <div class="configrow configrowfull">
-                    <div class="kaartlaag_select"><input type="checkbox" name="field11" value="11" /> <label>Dummy laag 11</label></div>
-                    <div class="kaartlaag_select"><input type="checkbox" name="field12" value="12" /> <label>Dummy laag 12</label></div>
-                </div>
-                <div class="configrow configrowfull">
-                    <div class="kaartlaag_select"><input type="checkbox" name="field13" value="13" /> <label>Dummy laag 13</label></div>
-                    <div class="kaartlaag_select"><input type="checkbox" name="field14" value="14" /> <label>Dummy laag 14</label></div>
-                </div>
-                <div class="configrow configrowfull">
-                    <div class="kaartlaag_select"><input type="checkbox" name="field15" value="15" /> <label>Dummy laag 15</label></div>
-                    <div class="kaartlaag_select"><input type="checkbox" name="field16" value="16" /> <label>Dummy laag 16</label></div>
-                </div>
+                <c:forEach var="cuItem" items="${listLayers}">
+                    <c:if test="${!empty cuItem.name}">
+                        <div class="kaartlaag_select"><html:multibox property="cfg_opstartkaarten" value="${cuItem.name}" /><label>${cuItem.name}</label></div>
+                    </c:if>
+                </c:forEach>
             </div>
+
             <div class="configadvanced"></div>
         </div>
         <div class="tabcontent content_kaartlagen">
