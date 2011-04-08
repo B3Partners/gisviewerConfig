@@ -62,7 +62,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             Opstart kaarten
         </div>
         <div class="tablabel" id="label_kaartlagen">
-            Kaartboom
+            Algemeen
         </div>
         <div class="tablabel" id="label_layout">
             Layout
@@ -177,6 +177,23 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <a class="helpLink" href="#" id="helpLink_help_cfg_treeOrder">(?)</a>
                     <div id="help_cfg_treeOrder" style="display: none;" title="<fmt:message key="cfg_treeOrder.label"/>">
                         <fmt:message key="cfg_treeOrder.uitleg"/>
+                    </div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_minBboxZoeken.label"/></label>
+                    <html:text property="cfg_minBboxZoeken" size="10"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_minBboxZoeken">(?)</a>
+                    <div id="help_cfg_minBboxZoeken" style="display: none;" title="<fmt:message key="cfg_minBboxZoeken.label"/>">
+                        <fmt:message key="cfg_minBboxZoeken.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_maxResults.label"/></label>
+                    <html:text property="cfg_maxResults" size="5"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_maxResults">(?)</a>
+                    <div id="help_cfg_maxResults" style="display: none;" title="<fmt:message key="cfg_maxResults.label"/>">
+                        <fmt:message key="cfg_maxResults.uitleg"/>
                     </div>
                 </div>
             </div>
@@ -357,7 +374,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 U kunt hier tot maximaal vijf modules selecteren die worden
                 getoond in de viewer. Deze worden getoond in de volgorde
                 van 1 tot en met 5. Extra module instellingen zijn beschikbaar
-                in de kleinere blauw gekleurde tabs.
+                in de kleinere tabs.
             </p>
 
             <div class="configbasic">
@@ -479,24 +496,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
             </div>
 
-            <div class="configadvanced">
-                <div class="configrow">
-                    <label><fmt:message key="cfg_minBboxZoeken.label"/></label>
-                    <html:text property="cfg_minBboxZoeken" size="10"/>
-                    <a class="helpLink" href="#" id="helpLink_help_cfg_minBboxZoeken">(?)</a>
-                    <div id="help_cfg_minBboxZoeken" style="display: none;" title="<fmt:message key="cfg_minBboxZoeken.label"/>">
-                        <fmt:message key="cfg_minBboxZoeken.uitleg"/>
-                    </div>
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_maxResults.label"/></label>
-                    <html:text property="cfg_maxResults" size="5"/>
-                    <a class="helpLink" href="#" id="helpLink_help_cfg_maxResults">(?)</a>
-                    <div id="help_cfg_maxResults" style="display: none;" title="<fmt:message key="cfg_maxResults.label"/>">
-                        <fmt:message key="cfg_maxResults.uitleg"/>
-                    </div>
-                </div>
-            </div>
+            <div class="configadvanced"></div>
         </div> <!-- Einde zoeken tabje -->
 
         <div class="tabcontent content_planselectie">
