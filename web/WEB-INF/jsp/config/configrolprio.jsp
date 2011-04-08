@@ -20,19 +20,16 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <%@ page isELIgnored="false"%>
 
 <div class="infobalk">
-    <div class="infobalk_description">INSTELLINGEN</div>
+    <div class="infobalk_description">SELECTEER ROL</div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
 
 
-<div style="margin-left: 5px;">
-    <h1>Viewer Ontwerp</h1>
-    <span class="rolprio_intro">
-        Klik op het configuratie icoon naast het ontwerp om de instellingen voor een ontwerp aan te passen.
-        <!--of gebruik de pijltjes om de prioriteit van een rol te veranderen.<br/>
-        Indien een gebruiker meerdere rollen  heeft wordt de configuratie van de<br/>
-        bovenste rol geladen. -->
-    </span>
+<div style="margin-left: 10px; font-size: 1.2em;">
+    <p>
+        Klik op een bestaande rol om hiervan de instellingen voor zijn viewer
+        ontwerp aan te passen.
+    </p>
 </div>
 
 

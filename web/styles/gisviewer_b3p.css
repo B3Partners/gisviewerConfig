@@ -507,8 +507,10 @@ table.tablesorter thead tr .headerSortDown {
 }
 
 .rolnaamHeader {
-    margin-left: 10px;
+    margin-left: 15px;
     font-size: 1.3em;
+    display: block;
+    clear: both;
 }
 
 #treedivContainer {

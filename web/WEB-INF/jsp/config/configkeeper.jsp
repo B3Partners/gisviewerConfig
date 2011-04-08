@@ -30,8 +30,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <tiles:insert definition="actionMessages"/>
 </div>
 
-<span class="rolnaamHeader">Rolinstellingen voor</span><br />
-<strong style="font-size: 1.4em;">${header_Rolnaam}</strong>
+<span class="rolnaamHeader">
+    Viewer instellingen voor  <b>${header_Rolnaam}</b>
+</span>
 
 <html:form action="/configKeeper">
     <html:hidden property="action" />
@@ -58,10 +59,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
     <div class="tablabels">
         <div class="tablabel" id="label_selecteerkaartlagen">
-            Kaartlagen
+            Opstart kaarten
         </div>
         <div class="tablabel" id="label_kaartlagen">
-            Iets anders
+            Kaartboom
         </div>
         <div class="tablabel" id="label_layout">
             Layout
@@ -70,7 +71,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             Tools
         </div>
         <div class="tablabel" id="label_tabbladen">
-            Tabbladen
+            Modules
         </div>
         <div class="tablabel sublabel" id="label_zoeken">
             Zoeken
@@ -180,24 +181,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </div>
 
                 <div class="configrow">
-                    <label><fmt:message key="cfg_minBboxZoeken.label"/></label>
-                    <html:text property="cfg_minBboxZoeken" size="10"/>
-                    <a class="helpLink" href="#" id="helpLink_help_cfg_minBboxZoeken">(?)</a>
-                    <div id="help_cfg_minBboxZoeken" style="display: none;" title="<fmt:message key="cfg_minBboxZoeken.label"/>">
-                        <fmt:message key="cfg_minBboxZoeken.uitleg"/>
-                    </div>
-                </div>
-
-                <div class="configrow">
-                    <label><fmt:message key="cfg_maxResults.label"/></label>
-                    <html:text property="cfg_maxResults" size="5"/>
-                    <a class="helpLink" href="#" id="helpLink_help_cfg_maxResults">(?)</a>
-                    <div id="help_cfg_maxResults" style="display: none;" title="<fmt:message key="cfg_maxResults.label"/>">
-                        <fmt:message key="cfg_maxResults.uitleg"/>
-                    </div>
-                </div>
-
-                <div class="configrow">
                     <label><fmt:message key="cfg_layerGrouping.label"/></label>
                     <html:select property="cfg_layerGrouping">
                         <html:option value="lg_forebackground"><fmt:message key="cfg_layerGrouping.forebackground"/></html:option>
@@ -254,6 +237,22 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </div>
 
                 <div class="configrow">
+                    <label><fmt:message key="cfg_objectInfo.label"/></label>
+                    <html:select property="cfg_objectInfoType">
+                        <html:option value="geen"><fmt:message key="cfg_objectInfo.geen"/></html:option>
+                        <html:option value="paneel"><fmt:message key="cfg_objectInfo.paneel"/></html:option>
+                        <html:option value="popup"><fmt:message key="cfg_objectInfo.popup"/></html:option>
+                        <html:option value="balloon"><fmt:message key="cfg_objectInfo.balloon"/></html:option>
+                    </html:select>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_objectInfo">(?)</a>
+                    <div id="help_cfg_objectInfo" style="display: none;" title="<fmt:message key="cfg_objectInfo.label"/>">
+                        <fmt:message key="cfg_objectInfo.uitleg"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="configadvanced">
+                <div class="configrow">
                     <label><fmt:message key="cfg_layoutAdminData.label"/></label>
                     <html:select property="cfg_layoutAdminData">
                         <html:option value="admindata1"><fmt:message key="cfg_layoutAdminData.1"/></html:option>
@@ -263,16 +262,14 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <html:option value="all_vertical_tab2"><fmt:message key="cfg_layoutAdminData.all_vertical_tab2"/></html:option>
                         <html:option value="all_vertical_tab3"><fmt:message key="cfg_layoutAdminData.all_vertical_tab3"/></html:option>
                         <html:option value="all_vertical_tab4"><fmt:message key="cfg_layoutAdminData.all_vertical_tab4"/></html:option>
-                        <html:option value="all_vertical_tab5"><fmt:message key="cfg_layoutAdminData.all_vertical_tab5"/></html:option>                   
+                        <html:option value="all_vertical_tab5"><fmt:message key="cfg_layoutAdminData.all_vertical_tab5"/></html:option>
                     </html:select>
                     <a class="helpLink" href="#" id="helpLink_help_cfg_layoutAdminData">(?)</a>
                     <div id="help_cfg_layoutAdminData" style="display: none;" title="<fmt:message key="cfg_layoutAdminData.label"/>">
                         <fmt:message key="cfg_layoutAdminData.uitleg"/>
                     </div>
                 </div>
-            </div>
-
-            <div class="configadvanced">
+                    
                 <div class="configrow">
                     <label><fmt:message key="cfg_defaultdataframehoogte.label"/></label>
                     <html:text property="cfg_defaultdataframehoogte" size="5"/>
@@ -281,8 +278,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_defaultdataframehoogte.uitleg"/>
                     </div>
                 </div>
-
-
 
                 <div class="configrow">
                     <label><fmt:message key="cfg_popupWidth.label"/></label>
@@ -329,19 +324,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         </div>
         <div class="tabcontent content_tools">
             <div class="configbasic">
-                <div class="configrow">
-                    <label><fmt:message key="cfg_objectInfo.label"/></label>
-                    <html:select property="cfg_objectInfoType">
-                        <html:option value="geen"><fmt:message key="cfg_objectInfo.geen"/></html:option>
-                        <html:option value="paneel"><fmt:message key="cfg_objectInfo.paneel"/></html:option>
-                        <html:option value="popup"><fmt:message key="cfg_objectInfo.popup"/></html:option>
-                        <html:option value="balloon"><fmt:message key="cfg_objectInfo.balloon"/></html:option>
-                    </html:select>
-                    <a class="helpLink" href="#" id="helpLink_help_cfg_objectInfo">(?)</a>
-                    <div id="help_cfg_objectInfo" style="display: none;" title="<fmt:message key="cfg_objectInfo.label"/>">
-                        <fmt:message key="cfg_objectInfo.uitleg"/>
-                    </div>
-                </div>
 
                 <div class="configrow">
                     <label><fmt:message key="cfg_showRedliningTools.label"/></label>
@@ -397,15 +379,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
         </div>
         <div class="tabcontent content_tabbladen">
+            <p>
+                U kunt hier tot maximaal vijf modules selecteren die worden
+                getoond in de viewer. Deze worden getoond in de volgorde
+                van 1 tot en met 5. Extra module instellingen zijn beschikbaar
+                in de kleinere blauw gekleurde tabs.
+            </p>
 
             <div class="configbasic">
 
-                <div class="configrow" style="margin-bottom: 5px;">
-                    <fmt:message key="config.tabbladen.label"/>
-                </div>
-
                 <div class="configrow">
-                    <label>Tab 1</label>
+                    <label>Module 1</label>
                     <html:select property="cfg_tab1" styleClass="tabblad_select">
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
@@ -414,7 +398,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                 </div>
                 <div class="configrow">
-                    <label>Tab 2</label>
+                    <label>Module 2</label>
                     <html:select property="cfg_tab2" styleClass="tabblad_select">
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
@@ -423,7 +407,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                 </div>
                 <div class="configrow">
-                    <label>Tab 3</label>
+                    <label>Module 3</label>
                     <html:select property="cfg_tab3" styleClass="tabblad_select">
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
@@ -432,7 +416,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                 </div>
                 <div class="configrow">
-                    <label>Tab 4</label>
+                    <label>Module 4</label>
                     <html:select property="cfg_tab4" styleClass="tabblad_select">
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
@@ -441,7 +425,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                 </div>
                 <div class="configrow">
-                    <label>Tab 5</label>
+                    <label>Module 5</label>
                     <html:select property="cfg_tab5" styleClass="tabblad_select">
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
@@ -477,7 +461,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <div class="configrow" style="margin-bottom: 15px;">
                     <fmt:message key="tab-zoeken-content.header"/>
                 </div>
-
                 <div class="configrow">
                     <label><fmt:message key="cfg_zoekenid1.label"/></label>
 
@@ -487,7 +470,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <html:option value="${item.id}">${item.naam}</html:option>
                         </c:forEach>
                     </html:select>
-
                 </div>
                 <div class="configrow">
                     <label><fmt:message key="cfg_zoekenid2.label"/></label>
@@ -509,7 +491,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <html:option value="${item.id}">${item.naam}</html:option>
                         </c:forEach>
                     </html:select>
-
                 </div>
                 <div class="configrow">
                     <label><fmt:message key="cfg_zoekenid4.label"/></label>
@@ -520,7 +501,26 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <html:option value="${item.id}">${item.naam}</html:option>
                         </c:forEach>
                     </html:select>
+                </div>
 
+            </div>
+
+            <div class="configadvanced">
+                <div class="configrow">
+                    <label><fmt:message key="cfg_minBboxZoeken.label"/></label>
+                    <html:text property="cfg_minBboxZoeken" size="10"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_minBboxZoeken">(?)</a>
+                    <div id="help_cfg_minBboxZoeken" style="display: none;" title="<fmt:message key="cfg_minBboxZoeken.label"/>">
+                        <fmt:message key="cfg_minBboxZoeken.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_maxResults.label"/></label>
+                    <html:text property="cfg_maxResults" size="5"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_maxResults">(?)</a>
+                    <div id="help_cfg_maxResults" style="display: none;" title="<fmt:message key="cfg_maxResults.label"/>">
+                        <fmt:message key="cfg_maxResults.uitleg"/>
+                    </div>
                 </div>
             </div>
         </div> <!-- Einde zoeken tabje -->
@@ -747,13 +747,27 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <html:text property="cfg_meldingwelkomtekst"/></label>
                 </div>
                 <div class="configrow">
-                    <label><fmt:message key="cfg_meldingprefix.label"/></label>
-                    <html:text property="cfg_meldingprefix"/></label>
-                </div>
-                <div class="configrow">
                     <label><fmt:message key="cfg_meldingtype.label"/></label>
                     <html:text property="cfg_meldingtype"/></label>
                 </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_meldinggegevensbron.label"/></label>
+
+                    <html:select property="cfg_meldinggegevensbron">
+                        <html:option value="0">-Kies een gegevensbron-</html:option>
+                        <c:forEach items="${meldingGegevensbronnen}" var="item">
+                            <html:option value="${item.id}">${item.naam}</html:option>
+                        </c:forEach>
+                    </html:select>
+                </div>
+                
+            </div>
+
+            <div class="configadvanced">
+                <div class="configrow">
+                    <label><fmt:message key="cfg_meldingprefix.label"/></label>
+                    <html:text property="cfg_meldingprefix"/></label>
+                </div>           
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldingstatus.label"/></label>
                     <html:text property="cfg_meldingstatus"/></label>
@@ -782,18 +796,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldinglayoutemailbehandelaar.label"/></label>
                     <html:text property="cfg_meldinglayoutemailbehandelaar"/></label>
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_meldinggegevensbron.label"/></label>
-
-                    <html:select property="cfg_meldinggegevensbron">
-                        <html:option value="0">-Kies een gegevensbron-</html:option>
-                        <c:forEach items="${meldingGegevensbronnen}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
+                </div>                
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldingobjectsoort.label"/></label>
                     <html:text property="cfg_meldingobjectsoort" value="Point"/></label>
@@ -802,8 +805,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <label><fmt:message key="cfg_meldingtekentoolicoon.label"/></label>
                     <html:text property="cfg_meldingtekentoolicoon"/></label>
                 </div>
+
             </div>
-            <div class="configadvanced"></div>
 
         </div>
 
