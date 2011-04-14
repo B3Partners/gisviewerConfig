@@ -94,12 +94,19 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
     <div class="tabcontents">
         <div class="tabcontent content_selecteerkaartlagen">
+            <div class="tabfilterrow">
+                <div class="tabfilterrowleft">
+                    Filter &nbsp;&nbsp;<input type="text" id="inputfilter" size="35" />
+                </div>
+                <div class="tabfilterrowright"><a href="#" id="showAllLayers">Toon alle lagen</a></div>
+                <div style="clear: both;"></div>
+            </div>
             <div class="configbasic">
-                <div class="configrow configrowfull">
+                <div id="kaartlagenmessage">
+                    Voer het filterveld in om lagen te zoeken of klik op "Toon alle lagen" om alle lagen te tonen
+                </div>
+                <div id="kaartlagenlist" style="display: none;">
                     <c:forEach var="cuItem" items="${listLayers}" varStatus="counter">
-                        <c:if test="${counter.count % 2 == 1 && counter.count != 1}">
-                            </div><div class="configrow configrowfull">
-                        </c:if>
                         <c:if test="${!empty cuItem.name}">
                             <div class="kaartlaag_select"><html:multibox property="cfg_opstartkaarten" value="${cuItem.name}" /><label>${cuItem.name}</label></div>
                         </c:if>
@@ -264,7 +271,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_layoutAdminData.uitleg"/>
                     </div>
                 </div>
-                    
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_defaultdataframehoogte.label"/></label>
                     <html:text property="cfg_defaultdataframehoogte" size="5"/>
@@ -738,7 +745,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         </c:forEach>
                     </html:select>
                 </div>
-                
+
             </div>
 
             <div class="configadvanced">
@@ -823,6 +830,47 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <script type="text/javascript">
     var showAdvancedOptions = false;
     var contentMinHeight = $j(".tablabels").outerHeight(true)+20;
+
+    var $origList = $j("#kaartlagenlist").clone();
+    var filtered = false;
+    function itemFilter($input, listselector, itemselector) {
+        var searchTimeout;
+        $input.keyup( function () {
+            var filter = $j(this).val();
+            window.clearTimeout(searchTimeout);
+            searchTimeout = window.setTimeout(function() {
+                if(filter) {
+                    filterList($origList, listselector, itemselector, filter);
+                    $j("#kaartlagenmessage").hide();
+                    filtered = true;
+                } else {
+                    $j(listselector).replaceWith($origList);
+                    $j(listselector).hide();
+                    $j("#kaartlagenmessage").show();
+                    filtered = false;
+                }
+            }, 500);
+            return false;
+        });
+    }
+    
+    function filterList($origList, listselector, itemselector, query) {
+        var regex = new RegExp(query, "i"), temp = $origList.clone(), hide = [];
+        $j(itemselector, temp).each(function() {
+            if(!regex.test($j(this).text())) $j(this).remove();
+        });
+        $j(listselector).replaceWith(temp.show());
+    }
+    itemFilter($j("#inputfilter"), "#kaartlagenlist", "div");
+    $j("#showAllLayers").click(function() {
+        if(filtered) {
+            $j("#inputfilter").val('');
+            $j("#kaartlagenlist").replaceWith($origList);
+        }
+        $j("#kaartlagenlist").show();
+        $j("#kaartlagenmessage").hide();
+        return false;
+    });
     
     $j(".tabcontent").each(function (){
         var counter = 0;

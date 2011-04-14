@@ -353,4 +353,35 @@
 .kaartlaag_select label {
     margin-left: 3px;
     margin-top: 2px;
+    overflow: hidden;
+    width: 320px;
+}
+
+.tabfilterrow {
+    background-color: #D3D3D3;
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-top: -3px;
+}
+
+.tabfilterrowleft {
+    float: left;
+    text-align: left;
+    width: 40%;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+a#showAllLayers {
+    color: Black;
+    font-size: 8pt;
+    text-decoration: underline;
+}
+
+.tabfilterrowright {
+    float: right;
+    text-align: right;
+    width: 40%;
+    margin-right: 5px;
+    margin-top: 3px;
 }
