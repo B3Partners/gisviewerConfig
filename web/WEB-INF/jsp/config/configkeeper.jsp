@@ -95,13 +95,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <div class="tabcontents">
         <div class="tabcontent content_selecteerkaartlagen">
             <div class="configbasic">
-                <c:forEach var="cuItem" items="${listLayers}">
-                    <c:if test="${!empty cuItem.name}">
-                        <div class="kaartlaag_select"><html:multibox property="cfg_opstartkaarten" value="${cuItem.name}" /><label>${cuItem.name}</label></div>
-                    </c:if>
-                </c:forEach>
+                <div class="configrow configrowfull">
+                    <c:forEach var="cuItem" items="${listLayers}" varStatus="counter">
+                        <c:if test="${counter.count % 2 == 1 && counter.count != 1}">
+                            </div><div class="configrow configrowfull">
+                        </c:if>
+                        <c:if test="${!empty cuItem.name}">
+                            <div class="kaartlaag_select"><html:multibox property="cfg_opstartkaarten" value="${cuItem.name}" /><label>${cuItem.name}</label></div>
+                        </c:if>
+                    </c:forEach>
+                </div>
             </div>
-
             <div class="configadvanced"></div>
         </div>
         <div class="tabcontent content_kaartlagen">

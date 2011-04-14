@@ -247,7 +247,7 @@
 
 .tablabels .tablabel {
     float: right;
-    clear: left;
+    clear: both;
     border: 1px solid #166299;
     border-right: 0px none;
     width: 140px;
