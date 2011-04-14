@@ -127,3 +127,5 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
 </div>
 </c:if>
+
+<div style="clear: both; padding-bottom: 25px;"></div>
