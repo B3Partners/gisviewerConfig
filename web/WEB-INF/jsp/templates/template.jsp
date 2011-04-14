@@ -45,6 +45,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <!--[if lte IE 7]>
             <link href="styles/gisviewer_ie7.css" rel="stylesheet" type="text/css" />
         <![endif]-->
+        <!--[if lte IE 8]>
+            <link href="styles/gisviewer_ie8.css" rel="stylesheet" type="text/css" />
+        <![endif]-->
+        <!--[if IE 9]>
+            <style type="text/css"> .inleiding_body { background-image: url(images/homeblocksbg.gif); background-position: bottom; } </style>
+        <![endif]-->
         <script type="text/javascript">
             attachOnload(checkLocation);
         </script>

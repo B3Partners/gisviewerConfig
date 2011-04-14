@@ -56,6 +56,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         </div>
         </c:if>
     </div>
+    <c:if test="${status.count % 2 == 0}">
+        <div style="clear: both;"></div>
+    </c:if>
 </c:forEach>
 
 <!-- Gewone help pagina tonen als er geen tekstblokken zijn -->
@@ -76,13 +79,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 <div class="content_block">
     <div class="content_title">Laatste nieuwsberichten</div>
-    <div class="content_body" style="min-height: 180px;">
+    <div class="content_body">
         <div class="tweet"></div>
     </div>
     <!-- Live Tweets -->
     <%@include file="/WEB-INF/jsp/tweets.jsp" %>
 </div>
 
+<div style="clear: both;"></div>
+    
 <c:if test="${pageContext.request.remoteUser != null}">
     <div class="uitloggen">
         <hr>

@@ -1,0 +1,5 @@
+.inleiding_body, .tweet_list li {
+    position: relative;
+    -pie-background: linear-gradient(#FFF0C5, #FFE1A3);
+    behavior: url(/gisviewerconfig/PIE.htc);
+}

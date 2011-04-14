@@ -336,6 +336,18 @@ table.tablesorter thead tr .headerSortDown {
     color: #1962A0;
     font-weight: bold;
     min-height: 180px;
+    
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px 8px 8px 8px;
+    -webkit-box-shadow: #666 0px 2px 3px;
+    -moz-box-shadow: #666 0px 2px 3px;
+    box-shadow: #666 0px 2px 3px;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFF0C5), to(#FFE1A3));
+    background: -moz-linear-gradient(#FFF0C5, #FFE1A3);
+    background: -ms-linear-gradient(top, #FFF0C5, #FFE1A3);
+    background: -o-linear-gradient(top, #FFF0C5, #FFE1A3);
+    background: linear-gradient(#FFF0C5, #FFE1A3);
 }
 
 .content_body {
@@ -574,6 +586,20 @@ table.tablesorter thead tr .headerSortDown {
     background-color: #FFF0C5;
     width: 420px;
     padding: 5px;
+}
+
+.tweet_list li {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px 8px 8px 8px;
+    -webkit-box-shadow: #666 0px 2px 3px;
+    -moz-box-shadow: #666 0px 2px 3px;
+    box-shadow: #666 0px 2px 3px;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFF0C5), to(#FFE1A3));
+    background: -moz-linear-gradient(#FFF0C5, #FFE1A3);
+    background: -ms-linear-gradient(top, #FFF0C5, #FFE1A3);
+    background: -o-linear-gradient(top, #FFF0C5, #FFE1A3);
+    background: linear-gradient(#FFF0C5, #FFE1A3);
 }
 /* </Twitter plugin styling> */
 
