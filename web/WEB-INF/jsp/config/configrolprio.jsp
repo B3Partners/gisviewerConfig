@@ -20,15 +20,14 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <%@ page isELIgnored="false"%>
 
 <div class="infobalk">
-    <div class="infobalk_description">SELECTEER ROL</div>
+    <div class="infobalk_description">SELECTEER VIEW</div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
 
 
 <div style="margin-left: 10px; font-size: 1.2em;">
     <p>
-        Klik op een bestaande rol om hiervan de instellingen voor zijn viewer
-        ontwerp aan te passen.
+        Selecteer een view uit de tabel om hiervoor de  instellingen aan te passen.
     </p>
 </div>
 
