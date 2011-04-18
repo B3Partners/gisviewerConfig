@@ -108,7 +108,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <div id="kaartlagenlist" style="display: none;">
                     <c:forEach var="cuItem" items="${listLayers}" varStatus="counter">
                         <c:if test="${!empty cuItem.name}">
-                            <div class="kaartlaag_select"><html:multibox property="cfg_opstartkaarten" value="${cuItem.name}" /><label>${cuItem.name}</label></div>
+                            <div class="kaartlaag_select"><html:multibox property="cfg_opstartkaarten" value="${cuItem.name}" onclick="layerClick(this)" styleId="layercheckbox${counter.count}" /><label>${cuItem.name}</label></div>
                         </c:if>
                     </c:forEach>
                 </div>
@@ -830,7 +830,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <script type="text/javascript">
     var showAdvancedOptions = false;
     var contentMinHeight = $j(".tablabels").outerHeight(true)+20;
-
+	
     var $origList = $j("#kaartlagenlist").clone();
     var filtered = false;
     function itemFilter($input, listselector, itemselector) {
@@ -844,10 +844,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     $j("#kaartlagenmessage").hide();
                     filtered = true;
                 } else {
-                    $j(listselector).replaceWith($origList);
+                    if(filtered) {
+						$j(listselector).replaceWith($origList);
+						filtered = false;
+					}
                     $j(listselector).hide();
                     $j("#kaartlagenmessage").show();
-                    filtered = false;
+                    
                 }
             }, 500);
             return false;
@@ -857,20 +860,39 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     function filterList($origList, listselector, itemselector, query) {
         var regex = new RegExp(query, "i"), temp = $origList.clone(), hide = [];
         $j(itemselector, temp).each(function() {
-            if(!regex.test($j(this).text())) $j(this).remove();
+            if(!regex.test($j(this).text())) $j(this).hide();
         });
         $j(listselector).replaceWith(temp.show());
     }
     itemFilter($j("#inputfilter"), "#kaartlagenlist", "div");
-    $j("#showAllLayers").click(function() {
-        if(filtered) {
-            $j("#inputfilter").val('');
-            $j("#kaartlagenlist").replaceWith($origList);
-        }
-        $j("#kaartlagenlist").show();
-        $j("#kaartlagenmessage").hide();
-        return false;
-    });
+    
+	function layerClick(obj) {
+    	var itemselector = '#' + $j(obj).attr("id");
+    	if(obj.checked) $j(itemselector, $origList).attr('checked', 'checked');
+    	else $j(itemselector, $origList).removeAttr('checked');
+    	return true;
+    };
+	
+	var showedAll = false;
+	$j("#showAllLayers").click(function() {
+		if(!showedAll) {
+			if(filtered) {
+				$j("#inputfilter").val('');
+				$j("#kaartlagenlist").replaceWith($origList);
+				filtered = false;
+			}
+			$j("#kaartlagenlist").show();
+			$j("#kaartlagenmessage").hide();
+			$j(this).html('Verberg alle lagen');
+			showedAll = true;
+		} else {
+			$j("#kaartlagenlist").hide();
+			$j("#kaartlagenmessage").show();
+			$j(this).html('Toon alle lagen');
+			showedAll = false;
+		}
+		return false;
+	});
     
     $j(".tabcontent").each(function (){
         var counter = 0;
