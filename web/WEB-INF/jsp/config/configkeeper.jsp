@@ -112,6 +112,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         </c:if>
                     </c:forEach>
                 </div>
+				<div id="selectedkaartlagenlist" style="float: left; width: 745px; clear: left; margin-top: 10px; padding-top: 10px; border-top: 1px solid Black;">
+					<div style="float: left; clear: both; width: 100%; margin-bottom: 5px;">Geselecteerde lagen:</div>
+				</div>
             </div>
             <div class="configadvanced"></div>
         </div>
@@ -831,6 +834,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     var showAdvancedOptions = false;
     var contentMinHeight = $j(".tablabels").outerHeight(true)+20;
 	
+	$j("#kaartlagenlist").find("input:checked").each(function() {
+		$j(this).parent().detach().appendTo("#selectedkaartlagenlist");
+	});
     var $origList = $j("#kaartlagenlist").clone();
     var filtered = false;
     function itemFilter($input, listselector, itemselector) {
@@ -868,10 +874,18 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     
 	function layerClick(obj) {
     	var itemselector = '#' + $j(obj).attr("id");
-    	if(obj.checked) $j(itemselector, $origList).attr('checked', 'checked');
-    	else $j(itemselector, $origList).removeAttr('checked');
+		var $itemParent = $j(itemselector).parent();
+    	if(obj.checked) {
+			$itemParent.detach().appendTo("#selectedkaartlagenlist");
+			$j(itemselector, $origList).parent().remove();
+		}
+    	else {
+			$itemParent.detach().appendTo("#kaartlagenlist");
+			$origList.append($itemParent);
+			if(filtered) $j("#inputfilter").keyup();
+		}
     	return true;
-    };
+    }
 	
 	var showedAll = false;
 	$j("#showAllLayers").click(function() {
