@@ -20,7 +20,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 function hoverRow(obj) {
     obj.className += ' regel_over';
 }
-
 var pattern = new RegExp("\\bregel_over\\b");
 function hoverRowOut(obj) {
     obj.className = obj.className.replace(pattern, '');
@@ -45,15 +44,6 @@ function handleFeatureList(list){
     var data = [ { value:"", label:"Kies eerst tabel of feature...." } ];
     
     dwr.util.addOptions("admin_pk_select", data, "value", "label");
-}
-function showHideJDBC() {
-    //Er voor zorgen dat het tabblad geavanceerd wordt gehide
-    //als thema wfs is (!="jdbc" )
-    if (currentConnectionType=="jdbc"){
-        document.getElementById('tab-geavanceerd-header').style.display = "block";
-    } else {
-        document.getElementById('tab-geavanceerd-header').style.display = "none";
-    }
 }
 function refreshAdminAttributeList(element){
     var connid=document.getElementById('connectie_select').value;

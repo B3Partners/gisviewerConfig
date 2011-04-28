@@ -69,9 +69,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <td><c:out value="${ci.belangnr}"/>&nbsp;<input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                             <td><c:out value="${ci.naam}"/>&nbsp;</td>
                             <td><c:out value="${ci.cluster.naam}"/></td>
-                            
+
                             <c:set var="accolade" value="}"/>
-                            
+
                             <td>                                                            
                                 <c:if test="${!empty ci.gegevensbron}">
                                     &nbsp;<html:link page="/configThemaData.do?gegevensbronID=${ci.gegevensbron.id}">Bewerken</html:link>&nbsp;
@@ -83,206 +83,16 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             </table>
         </div>
     </c:if>
-    <div id="content_style">
-        <div class="berichtenbalk">
-            <tiles:insert definition="actionMessages"/>
+
+    <div class="berichtenbalk">
+        <tiles:insert definition="actionMessages"/>
+    </div>
+
+    <div style="float: left; clear: both; width: 920px; margin-left: 15px; margin-bottom: 5px; margin-top: 25px;">
+        <div style="float: left; margin-left: 155px;">
+            <input type="checkbox" id="advancedToggle" /> Toon geavanceerde opties
         </div>
-
-        <div id="config_tab_header_container">
-            <div class="config_tab_header" id="tab-algemeen-header">Algemeen</div>
-            <div class="config_tab_header" id="tab-gegevensbron-header">Gegevensbron</div>
-            <div class="config_tab_header" id="tab-kaart-header">Kaart</div>         
-            <div class="config_tab_header" id="tab-themaopties-header">Opties</div>
-            <div class="config_tab_header" id="tab-geavanceerd-header">Geavanceerd</div>
-        </div>
-
-        <div class="maintable">
-
-            <div class="config_tab" id="tab-algemeen-content">
-                <table cellpadding="2" cellspacing="2" border="0">
-
-                    <c:if test="${!empty form.map.themaID}">
-                    <tr>
-                        <td>
-                        <fmt:message key="config.label.copypastelink"/>
-                        <a href="#" onclick="return showHelpDialog('help_copypastelink');">(?)</a>
-                        <div id="help_copypastelink" style="display: none;" title="<fmt:message key="config.label.copypastelink"/>">
-                            <p><fmt:message key="config.copypastelink.uitleg"/></p>
-                        </div>
-                        </td>
-                        <td>
-                            <a href="${absoluteURIPrefix}/gisviewer/viewer.do?id=${form.map.themaID}" target="_new"><fmt:message key="config.linknaam.copypastelink"/></a>
-                        </td>
-                    </tr>
-                    </c:if>
-
-                    <tr><td>
-                            <fmt:message key="configthema.naam"/> <a href="#" onclick="return showHelpDialog('help_configthemanaam');">(?)</a><div id="help_configthemanaam" style="display: none;" title="<fmt:message key="configthema.naam"/>"><p><fmt:message key="configthema.naam.uitleg"/></p></div>
-                    </td><td colspan="3"><html:text property="naam" size="140"/></td></tr>
-                    <tr><td><fmt:message key="configthema.metadatalink"/> <a href="#" onclick="return showHelpDialog('help_configthemametadatalink');">(?)</a><div id="help_configthemametadatalink" style="display: none;" title="<fmt:message key="configthema.metadatalink"/>"><p><fmt:message key="configthema.metadatalink.uitleg"/></p></div></td><td colspan="3"><html:text property="metadatalink" size="140"/></td></tr>
-                    <tr class="optionalConfigItems">
-                        <td>
-                            <fmt:message key="configthema.code"/> <a href="#" onclick="return showHelpDialog('help_configthemacode');">(?)</a><div id="help_configthemacode" style="display: none;" title="<fmt:message key="configthema.code"/>"><p><fmt:message key="configthema.code.uitleg"/></p></div>
-                        </td>
-                        <td colspan="3">
-                            <html:select property="themaCode" styleClass="configSelect">
-                                <html:option value="1">Oorspronkelijk Thema (1)</html:option>
-                                <html:option value="2">Nieuw Thema (2)</html:option>
-                                <html:option value="3">Thema niet meer in gebruik (3)</html:option>
-                            </html:select>&nbsp;
-                        </td>
-                    </tr>
-                    <tr><td><fmt:message key="configthema.belangnr"/> <a href="#" onclick="return showHelpDialog('help_configthemabelangnr');">(?)</a><div id="help_configthemabelangnr" style="display: none;" title="<fmt:message key="configthema.belangnr"/>"><p><fmt:message key="configthema.belangnr.uitleg"/></p></div></td><td colspan="3"><html:text property="belangnr" size="140"/></td></tr>
-                    <tr>
-                        <td>
-                            <fmt:message key="configthema.cluster"/> <a href="#" onclick="return showHelpDialog('help_configthemacluser');">(?)</a><div id="help_configthemacluser" style="display: none;" title="<fmt:message key="configthema.cluster"/>"><p><fmt:message key="configthema.cluster.uitleg"/></p></div>
-                        </td>
-                        <td colspan="3">
-                            <html:select property="clusterID" styleClass="configSelect">
-                                <c:forEach var="cuItem" items="${allClusters}">
-                                    <html:option value="${cuItem.id}">
-                                        <c:out value="${cuItem.naam}"/>
-                                    </html:option>
-                                </c:forEach>
-                            </html:select>&nbsp;
-                        </td>
-                    </tr>
-                    <tr><td><fmt:message key="configthema.opmerkingen"/> <a href="#" onclick="return showHelpDialog('help_configthemaopmerkingen');">(?)</a><div id="help_configthemaopmerkingen" style="display: none;" title="<fmt:message key="configthema.opmerkingen"/>"><p><fmt:message key="configthema.opmerkingen.uitleg"/></p></div></td><td colspan="3"><html:text property="opmerkingen" size="140"/></td></tr>
-                </table>
-            </div>
-
-            <div class="config_tab" id="tab-themaopties-content">
-                <table cellpadding="2" cellspacing="2" border="0">
-                    <tr><td><fmt:message key="configthema.locatiethema"/> <a href="#" onclick="return showHelpDialog('help_configthemalocatiethema');">(?)</a><div id="help_configthemalocatiethema" style="display: none;" title="<fmt:message key="configthema.locatiethema"/>"><p><fmt:message key="configthema.locatiethema.uitleg"/></p></div></td><td colspan="3"><html:checkbox property="locatie_thema"/></td></tr>
-                    <tr><td><fmt:message key="configthema.analysethema"/> <a href="#" onclick="return showHelpDialog('help_configthemaanalysethema');">(?)</a><div id="help_configthemaanalysethema" style="display: none;" title="<fmt:message key="configthema.analysethema"/>"><p><fmt:message key="configthema.analysethema.uitleg"/></p></div></td><td colspan="3"><html:checkbox property="analyse_thema"/></td></tr>
-                    <tr><td><fmt:message key="configthema.defaultvisible"/> <a href="#" onclick="return showHelpDialog('help_configthemadefaultvisible');">(?)</a><div id="help_configthemadefaultvisible" style="display: none;" title="<fmt:message key="configthema.defaultvisible"/>"><p><fmt:message key="configthema.defaultvisible.uitleg"/></p></div></td><td colspan="3"><html:checkbox property="visible"/></td></tr>
-                
-                    <tr>
-                        <td>
-                            <fmt:message key="cfg_layoutAdminData.label"/>
-                            <a href="#" onclick="return showHelpDialog('help_cfg_layoutAdminData');">(?)</a>
-                            <div id="help_cfg_layoutAdminData" style="display: none;" title="<fmt:message key="cfg_layoutAdminData.label"/>">
-                                <p><fmt:message key="cfg_layoutAdminData.uitleg"/></p>
-                            </div>
-                        </td>
-                        <td>
-                            <html:select property="layoutadmindata">
-                                <html:option value=""><fmt:message key="cfg_layoutAdminData.0"/></html:option>
-                                <html:option value="admindata1"><fmt:message key="cfg_layoutAdminData.1"/></html:option>
-                                <html:option value="admindata2"><fmt:message key="cfg_layoutAdminData.2"/></html:option>
-                                <html:option value="admindata3"><fmt:message key="cfg_layoutAdminData.3"/></html:option>
-                                <html:option value="all_vertical"><fmt:message key="cfg_layoutAdminData.all_vertical"/></html:option>
-                                <html:option value="all_vertical_tab1"><fmt:message key="cfg_layoutAdminData.all_vertical_tab1"/></html:option>
-                                <html:option value="all_vertical_tab2"><fmt:message key="cfg_layoutAdminData.all_vertical_tab2"/></html:option>
-                                <html:option value="all_vertical_tab3"><fmt:message key="cfg_layoutAdminData.all_vertical_tab3"/></html:option>
-                                <html:option value="all_vertical_tab4"><fmt:message key="cfg_layoutAdminData.all_vertical_tab4"/></html:option>
-                                <html:option value="all_vertical_tab5"><fmt:message key="cfg_layoutAdminData.all_vertical_tab5"/></html:option>
-                                <html:option value="multi_admindata"><fmt:message key="cfg_layoutAdminData.multi"/></html:option>
-                            </html:select>
-                        </td>
-                    </tr>
-
-                </table>
-            </div>
-
-            <div class="config_tab" id="tab-gegevensbron-content">
-                <table cellpadding="2" cellspacing="2" border="0">
-
-                    <tr>
-                        <td>
-                            <fmt:message key="configthema_gegevensbron.label"/> <a href="#" onclick="return showHelpDialog('help_configthema_gegevensbron');">(?)</a><div id="help_configthema_gegevensbron" style="display: none;" title="<fmt:message key="configthema_gegevensbron.label"/>"><p><fmt:message key="configthema_gegevensbron.uitleg"/></p></div>
-                        </td>
-                        <td colspan="3">
-                            <html:select property="gegevensbron" styleClass="configBronSelect">
-                                <html:option value="-1">Geen gegevensbron</html:option>
-                                <c:forEach var="cuItem" items="${listBronnen}">
-                                    <html:option value="${cuItem.id}">
-                                        <c:out value="${cuItem.naam}"/>
-                                    </html:option>
-                                </c:forEach>
-                            </html:select>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="config_tab" id="tab-kaart-content">
-                <table cellpadding="2" cellspacing="2" border="0">
-                    <c:choose>
-                        <c:when test="${fn:length(listLayers)>1}">
-                            <tr>
-                                <td><fmt:message key="configthema.wmslayers"/> <a href="#" onclick="return showHelpDialog('help_configthemawmslayers');">(?)</a><div id="help_configthemawmslayers" style="display: none;" title="<fmt:message key="configthema.wmslayers"/>"><p><fmt:message key="configthema.wmslayers.uitleg"/></p></div></td>
-                                <td colspan="3">
-                                    <html:select property="wms_layers_real" styleClass="configSelect">
-                                        <html:option value=""/>
-                                        <c:forEach var="cuItem" items="${listLayers}">
-                                            <html:option value="${cuItem.name}">${cuItem}</html:option>
-                                        </c:forEach>
-                                    </html:select>&nbsp;
-                                </td>
-                            </tr>
-                        </c:when>
-                        <c:otherwise>
-                            <tr><td><fmt:message key="configthema.wmslayers"/> <a href="#" onclick="return showHelpDialog('help_configthemawmslayers');">(?)</a><div id="help_configthemawmslayers" style="display: none;" title="<fmt:message key="configthema.wmslayers"/>"><p><fmt:message key="configthema.wmslayers.uitleg"/></p></div></td><td colspan="3"><html:text property="wms_layers_real" size="140"/></td></tr>
-                        </c:otherwise>
-                    </c:choose>
-                    <tr><td><fmt:message key="configthema.sldattribuut"/> <a href="#" onclick="return showHelpDialog('help_configthemasldattribuut');">(?)</a><div id="help_configthemasldattribuut" style="display: none;" title="<fmt:message key="configthema.sldattribuut"/>"><p><fmt:message key="configthema.sldattribuut.uitleg"/></p></div></td><td colspan="3"><html:text property="sldattribuut" size="50"/></td></tr>
-                    <c:choose>
-                        <c:when test="${fn:length(listLayers)>1}">
-                            <tr>
-                                <td><fmt:message key="configthema.wmsquerylayers"/> <a href="#" onclick="return showHelpDialog('help_configthemawmsquerylayers');">(?)</a><div id="help_configthemawmsquerylayers" style="display: none;" title="<fmt:message key="configthema.wmsquerylayers"/>"><p><fmt:message key="configthema.wmsquerylayers.uitleg"/></p></div></td>
-                                <td colspan="3">
-                                    <c:set var="queryDisabled" value="true"/>
-                                    <c:if test="${fn:length(form.map.admin_tabel) <= 0}">
-                                        <c:set var="queryDisabled" value="false"/>
-                                    </c:if>
-                                    <html:select property="wms_querylayers_real" styleId="wms_querylayers_real" disabled="${queryDisabled}" styleClass="configSelect">
-                                        <html:option value=""/>
-                                        <c:forEach var="cuItem" items="${listLayers}">
-                                            <html:option value="${cuItem.name}">${cuItem}</html:option>
-                                        </c:forEach>
-                                    </html:select>&nbsp;
-                                </td>
-                            </tr>
-                        </c:when>
-                        <c:otherwise>
-                            <tr><td><fmt:message key="configthema.wmsquerylayers"/> <a href="#" onclick="return showHelpDialog('help_configthemawmsquerylayers');">(?)</a><div id="help_configthemawmsquerylayers" style="display: none;" title="<fmt:message key="configthema.wmsquerylayers"/>"><p><fmt:message key="configthema.wmsquerylayers.uitleg"/></p></div></td><td colspan="3"><html:text property="wms_querylayers_real" size="140"/></td></tr>
-                        </c:otherwise>
-                    </c:choose>
-                    <c:choose>
-                        <c:when test="${fn:length(listLegendLayers)>1}">
-                            <tr>
-                                <td><fmt:message key="configthema.wmslegendlayers"/> <a href="#" onclick="return showHelpDialog('help_configthemawmslegendlayers');">(?)</a><div id="help_configthemawmslegendlayers" style="display: none;" title="<fmt:message key="configthema.wmslegendlayers"/>"><p><fmt:message key="configthema.wmslegendlayers.uitleg"/></p></div></td>
-                                <td colspan="3">
-                                    <html:select property="wms_legendlayer_real" styleClass="configSelect">
-                                        <html:option value=""/>
-                                        <c:forEach var="cuItem" items="${listLegendLayers}">
-                                            <html:option value="${cuItem.name}">${cuItem}</html:option>
-                                        </c:forEach>
-                                    </html:select>&nbsp;
-                                </td>
-                            </tr>
-                        </c:when>
-                        <c:otherwise>
-                            <tr><td><fmt:message key="configthema.wmslegendlayers"/> <a href="#" onclick="return showHelpDialog('help_configthemawmslegendlayers');">(?)</a><div id="help_configthemawmslegendlayers" style="display: none;" title="<fmt:message key="configthema.wmslegendlayers"/>"><p><fmt:message key="configthema.wmslegendlayers.uitleg"/></p></div></td><td colspan="3"><html:text property="wms_legendlayer_real" size="140"/></td></tr>
-                        </c:otherwise>
-                    </c:choose>
-					
-					<tr>
-                        <td><fmt:message key="configthema.maptip"/> <a href="#" onclick="return showHelpDialog('help_configthemamaptip');">(?)</a><div id="help_configthemamaptip" style="display: none;" title="<fmt:message key="configthema.maptip"/>"><p><fmt:message key="configthema.maptip.uitleg"/></p></div></td>
-                        <td colspan="3">
-                            <html:text property="thema_maptip" size="140"/>
-                        </td>
-                    </tr
-
-                    <tr><td colspan="4">&nbsp;</td></tr>
-                    <tr class="optionalConfigItems"><td><fmt:message key="configthema.updatefreqindagen"/> <a href="#" onclick="return showHelpDialog('help_configthemaupdatefreqindagen');">(?)</a><div id="help_configthemaupdatefreqindagen" style="display: none;" title="<fmt:message key="configthema.updatefreqindagen"/>"><p><fmt:message key="configthema.updatefreqindagen.uitleg"/></p></div></td><td colspan="3"><html:text property="update_frequentie_in_dagen" size="140"/></td></tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="knoppenbalk">
-            <!-- Indien nieuw item maken dan alleen Opslaan en Annuleren knoppen tonen -->
+        <div style="float: right;">
             <c:if test="${empty form.map.themaID}">
                 <div class="knoppen">
                     <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u deze kaartlaag wilt opslaan?');">
@@ -312,13 +122,233 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </div>                            
             </c:if>
         </div>
-
-        <script type="text/javascript">
-            // Tabs
-            createTabs('config_tab_header_container');
-            firstTab('tab-algemeen-header');
-        </script>
     </div>
+
+    <div class="tablabels">
+        <div class="tablabel" id="label_algemeen">
+            Algemeen
+        </div>
+        <div class="tablabel" id="label_gegevensbron">
+            Gegevensbron
+        </div>
+        <div class="tablabel" id="label_kaart">
+            Kaart
+        </div>
+        <div class="tablabel" id="label_opties">
+            Opties
+        </div>
+    </div>
+
+    <div class="tabcontents">
+        <div class="tabcontent content_algemeen">
+            <div class="configbasic">
+                <c:if test="${!empty form.map.themaID}">
+                    <div class="configrow configrowfull">
+                        <label><fmt:message key="config.label.copypastelink"/></label>
+                        <div style="float: left;"><a href="${absoluteURIPrefix}/gisviewer/viewer.do?id=${form.map.themaID}" target="_new"><fmt:message key="config.linknaam.copypastelink"/></a></div>
+                        <a class="helpLink" href="#" id="helpLink_help_copypastelink">(?)</a>
+                        <div id="help_copypastelink" style="display: none;" title="<fmt:message key="config.label.copypastelink"/>">
+                            <p><fmt:message key="config.copypastelink.uitleg"/></p>
+                        </div>
+                    </div>
+                </c:if>
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.naam"/></label>
+                    <html:text property="naam" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemanaam">(?)</a>
+                    <div id="help_configthemanaam" style="display: none;" title="<fmt:message key="configthema.naam"/>"><p><fmt:message key="configthema.naam.uitleg"/></p></div>
+                </div>
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.metadatalink"/></label>
+                    <html:text property="metadatalink" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemametadatalink">(?)</a><div id="help_configthemametadatalink" style="display: none;" title="<fmt:message key="configthema.metadatalink"/>"><p><fmt:message key="configthema.metadatalink.uitleg"/></p></div>
+                </div>
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.code"/></label>
+                    <html:select property="themaCode" styleClass="configSelect">
+                        <html:option value="1">Oorspronkelijk Thema (1)</html:option>
+                        <html:option value="2">Nieuw Thema (2)</html:option>
+                        <html:option value="3">Thema niet meer in gebruik (3)</html:option>
+                    </html:select>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemacode">(?)</a><div id="help_configthemacode" style="display: none;" title="<fmt:message key="configthema.code"/>"><p><fmt:message key="configthema.code.uitleg"/></p></div>
+                </div>
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.belangnr"/></label>
+                    <html:text property="belangnr" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemabelangnr">(?)</a><div id="help_configthemabelangnr" style="display: none;" title="<fmt:message key="configthema.belangnr"/>"><p><fmt:message key="configthema.belangnr.uitleg"/></p></div>
+                </div>
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.cluster"/></label>
+                    <html:select property="clusterID" styleClass="configSelect">
+                        <c:forEach var="cuItem" items="${allClusters}">
+                            <html:option value="${cuItem.id}">
+                                <c:out value="${cuItem.naam}"/>
+                            </html:option>
+                        </c:forEach>
+                    </html:select>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemacluser">(?)</a><div id="help_configthemacluser" style="display: none;" title="<fmt:message key="configthema.cluster"/>"><p><fmt:message key="configthema.cluster.uitleg"/></p></div>
+                </div>
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.opmerkingen"/></label>
+                    <html:text property="opmerkingen" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemaopmerkingen">(?)</a><div id="help_configthemaopmerkingen" style="display: none;" title="<fmt:message key="configthema.opmerkingen"/>"><p><fmt:message key="configthema.opmerkingen.uitleg"/></p></div>
+                </div>
+            </div>
+            <div class="configadvanced">
+            </div>
+        </div>
+
+        <div class="tabcontent content_gegevensbron">
+            <div class="configbasic">
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema_gegevensbron.label"/></label>
+                    <html:select property="gegevensbron">
+                        <html:option value="-1">Geen gegevensbron</html:option>
+                        <c:forEach var="cuItem" items="${listBronnen}">
+                            <html:option value="${cuItem.id}">
+                                <c:out value="${cuItem.naam}"/>
+                            </html:option>
+                        </c:forEach>
+                    </html:select>
+                    <a class="helpLink" href="#" id="helpLink_help_configthema_gegevensbron">(?)</a><div id="help_configthema_gegevensbron" style="display: none;" title="<fmt:message key="configthema_gegevensbron.label"/>"><p><fmt:message key="configthema_gegevensbron.uitleg"/></p></div>
+                </div>
+                <div class="configadvanced"></div>
+            </div>
+        </div>
+
+        <div class="tabcontent content_kaart">
+            <div class="configbasic">
+                <c:choose>
+                    <c:when test="${fn:length(listLayers)>1}">
+                        <div class="configrow configrowfull">
+                            <label><fmt:message key="configthema.wmslayers"/></label>
+                            <html:select property="wms_layers_real" styleClass="configSelect">
+                                <html:option value=""/>
+                                <c:forEach var="cuItem" items="${listLayers}">
+                                    <html:option value="${cuItem.name}">${cuItem}</html:option>
+                                </c:forEach>
+                            </html:select>
+                            <a class="helpLink" href="#" id="helpLink_help_configthemawmslayers">(?)</a><div id="help_configthemawmslayers" style="display: none;" title="<fmt:message key="configthema.wmslayers"/>"><p><fmt:message key="configthema.wmslayers.uitleg"/></p></div>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="configrow configrowfull">
+                            <label><fmt:message key="configthema.wmslayers"/></label>
+                            <html:text property="wms_layers_real" size="140"/>
+                            <a class="helpLink" href="#" id="helpLink_help_configthemawmslayers">(?)</a><div id="help_configthemawmslayers" style="display: none;" title="<fmt:message key="configthema.wmslayers"/>"><p><fmt:message key="configthema.wmslayers.uitleg"/></p></div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.sldattribuut"/></label>
+                    <html:text property="sldattribuut" size="50"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemasldattribuut">(?)</a><div id="help_configthemasldattribuut" style="display: none;" title="<fmt:message key="configthema.sldattribuut"/>"><p><fmt:message key="configthema.sldattribuut.uitleg"/></p></div>
+                </div>
+                <c:choose>
+                    <c:when test="${fn:length(listLayers)>1}">
+                        <div class="configrow configrowfull">
+                            <label><fmt:message key="configthema.wmsquerylayers"/></label>
+                            <c:set var="queryDisabled" value="true"/>
+                            <c:if test="${fn:length(form.map.admin_tabel) <= 0}">
+                                <c:set var="queryDisabled" value="false"/>
+                            </c:if>
+                            <html:select property="wms_querylayers_real" styleId="wms_querylayers_real" disabled="${queryDisabled}" styleClass="configSelect">
+                                <html:option value=""/>
+                                <c:forEach var="cuItem" items="${listLayers}">
+                                    <html:option value="${cuItem.name}">${cuItem}</html:option>
+                                </c:forEach>
+                            </html:select>
+                            <a class="helpLink" href="#" id="helpLink_help_configthemawmsquerylayers">(?)</a><div id="help_configthemawmsquerylayers" style="display: none;" title="<fmt:message key="configthema.wmsquerylayers"/>"><p><fmt:message key="configthema.wmsquerylayers.uitleg"/></p></div>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="configrow configrowfull">
+                            <label><fmt:message key="configthema.wmsquerylayers"/></label>
+                            <html:text property="wms_querylayers_real" size="140"/>
+                            <a class="helpLink" href="#" id="helpLink_help_configthemawmsquerylayers">(?)</a><div id="help_configthemawmsquerylayers" style="display: none;" title="<fmt:message key="configthema.wmsquerylayers"/>"><p><fmt:message key="configthema.wmsquerylayers.uitleg"/></p></div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${fn:length(listLegendLayers)>1}">
+                        <div class="configrow configrowfull">
+                            <label><fmt:message key="configthema.wmslegendlayers"/></label>
+                            <html:select property="wms_legendlayer_real" styleClass="configSelect">
+                                <html:option value=""/>
+                                <c:forEach var="cuItem" items="${listLegendLayers}">
+                                    <html:option value="${cuItem.name}">${cuItem}</html:option>
+                                </c:forEach>
+                            </html:select>
+                            <a class="helpLink" href="#" id="helpLink_help_configthemawmslegendlayers">(?)</a><div id="help_configthemawmslegendlayers" style="display: none;" title="<fmt:message key="configthema.wmslegendlayers"/>"><p><fmt:message key="configthema.wmslegendlayers.uitleg"/></p></div>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="configrow configrowfull">
+                            <label><fmt:message key="configthema.wmslegendlayers"/></label>
+                            <html:text property="wms_legendlayer_real" size="140"/>
+                            <a class="helpLink" href="#" id="helpLink_help_configthemawmslegendlayers">(?)</a><div id="help_configthemawmslegendlayers" style="display: none;" title="<fmt:message key="configthema.wmslegendlayers"/>"><p><fmt:message key="configthema.wmslegendlayers.uitleg"/></p></div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.maptip"/></label>
+                    <html:text property="thema_maptip" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemamaptip">(?)</a><div id="help_configthemamaptip" style="display: none;" title="<fmt:message key="configthema.maptip"/>"><p><fmt:message key="configthema.maptip.uitleg"/></p></div>
+                </div>
+
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.updatefreqindagen"/></label>
+                    <html:text property="update_frequentie_in_dagen" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemaupdatefreqindagen">(?)</a><div id="help_configthemaupdatefreqindagen" style="display: none;" title="<fmt:message key="configthema.updatefreqindagen"/>"><p><fmt:message key="configthema.updatefreqindagen.uitleg"/></p></div>
+                </div>
+            </div>
+            <div class="configadvanced"></div>
+        </div>
+
+        <div class="tabcontent content_opties">
+            <div class="configbasic">
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.locatiethema"/></label>
+                    <html:checkbox property="locatie_thema"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemalocatiethema">(?)</a><div id="help_configthemalocatiethema" style="display: none;" title="<fmt:message key="configthema.locatiethema"/>"><p><fmt:message key="configthema.locatiethema.uitleg"/></p></div>
+                </div>
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.analysethema"/></label>
+                    <html:checkbox property="analyse_thema"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemaanalysethema">(?)</a><div id="help_configthemaanalysethema" style="display: none;" title="<fmt:message key="configthema.analysethema"/>"><p><fmt:message key="configthema.analysethema.uitleg"/></p></div>
+                </div>
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.defaultvisible"/></label>
+                    <html:checkbox property="visible"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadefaultvisible">(?)</a><div id="help_configthemadefaultvisible" style="display: none;" title="<fmt:message key="configthema.defaultvisible"/>"><p><fmt:message key="configthema.defaultvisible.uitleg"/></p></div>
+                </div>
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="cfg_layoutAdminData.label"/></label>
+                    <html:select property="layoutadmindata">
+                        <html:option value=""><fmt:message key="cfg_layoutAdminData.0"/></html:option>
+                        <html:option value="admindata1"><fmt:message key="cfg_layoutAdminData.1"/></html:option>
+                        <html:option value="admindata2"><fmt:message key="cfg_layoutAdminData.2"/></html:option>
+                        <html:option value="admindata3"><fmt:message key="cfg_layoutAdminData.3"/></html:option>
+                        <html:option value="all_vertical"><fmt:message key="cfg_layoutAdminData.all_vertical"/></html:option>
+                        <html:option value="all_vertical_tab1"><fmt:message key="cfg_layoutAdminData.all_vertical_tab1"/></html:option>
+                        <html:option value="all_vertical_tab2"><fmt:message key="cfg_layoutAdminData.all_vertical_tab2"/></html:option>
+                        <html:option value="all_vertical_tab3"><fmt:message key="cfg_layoutAdminData.all_vertical_tab3"/></html:option>
+                        <html:option value="all_vertical_tab4"><fmt:message key="cfg_layoutAdminData.all_vertical_tab4"/></html:option>
+                        <html:option value="all_vertical_tab5"><fmt:message key="cfg_layoutAdminData.all_vertical_tab5"/></html:option>
+                        <html:option value="multi_admindata"><fmt:message key="cfg_layoutAdminData.multi"/></html:option>
+                    </html:select>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_layoutAdminData">(?)</a>
+                    <div id="help_cfg_layoutAdminData" style="display: none;" title="<fmt:message key="cfg_layoutAdminData.label"/>">
+                        <p><fmt:message key="cfg_layoutAdminData.uitleg"/></p>
+                    </div>
+                </div>
+            </div>
+            <div class="configadvanced"></div>
+        </div>
+    </div>
+    <div class="clearBoth"></div>
+
 </html:form>
 
 <script type="text/javascript">
@@ -333,7 +363,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             layersObject["${cuItem.name}"]=layerObject;
         </c:forEach>
     </c:if>
-    //check if the object has a legend
+        //check if the object has a legend
     <c:if test="${not empty listLegendLayers}">
         <c:forEach var="cuItem" items="${listLegendLayers}">
             if (layersObject["${cuItem.name}"]){
@@ -342,7 +372,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         </c:forEach>
     </c:if>
 
-    tablepager(
+        tablepager(
         'themalisttable',
         //'textExtraction: myCellParser',
         '930', // table width in pixels
@@ -350,13 +380,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         false // display numberOfPages dropdown
     );
 
-    var pageConnectionType="${connectieType}";
-    var currentConnectionType="${connectieType}";
-    var connectionTypes=new Array();
-    connectionTypes["-1"]="";
-    connectionTypes["0"]="wfs";
+        var pageConnectionType="${connectieType}";
+        var currentConnectionType="${connectieType}";
+        var connectionTypes=new Array();
+        connectionTypes["-1"]="";
+        connectionTypes["0"]="wfs";
     <c:forEach var="cuItem" items="${listConnecties}">
         connectionTypes["${cuItem.id}"]="${cuItem.type}";
     </c:forEach>
-    showHideJDBC();
 </script>

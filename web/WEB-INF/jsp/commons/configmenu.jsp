@@ -29,7 +29,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <li><html:link page="/index.do" module="" styleClass="${stijlklasse}"><fmt:message key="commons.configmenu.home"/></html:link></li>
 
         <c:set var="stijlklasse" value="menulink" />
-        <c:if test="${requestJSP eq 'configThema.do' || requestJSP eq 'configKaartGroep.do' || requestJSP eq 'configThemaData.do'}">
+        <c:if test="${requestJSP eq 'configThema.do' || requestJSP eq 'configKaartGroep.do'}">
             <c:set var="stijlklasse" value="activemenulink" />
         </c:if>
         <li>
@@ -41,7 +41,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         </li>
 
         <c:set var="stijlklasse" value="menulink" />
-        <c:if test="${requestJSP eq 'configConnectie.do' || requestJSP eq 'configGegevensbron.do'}">
+        <c:if test="${requestJSP eq 'configConnectie.do' || requestJSP eq 'configGegevensbron.do' || requestJSP eq 'configThemaData.do'}">
             <c:set var="stijlklasse" value="activemenulink" />
         </c:if>
         <li>

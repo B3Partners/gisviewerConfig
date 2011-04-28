@@ -45,7 +45,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <script type="text/javascript" src="<html:rewrite page='/scripts/superfish.js' module=''/>"></script>
         <script type="text/javascript" src="<html:rewrite page='/scripts/commonfunctions.js' module=''/>"></script>
         <script type="text/javascript" src="<html:rewrite page='/scripts/tablesort.js' module=''/>"></script>
-        <script type="text/javascript" src="scripts/config-tab.js"></script>
 
         <!--[if lte IE 6]>
             <link href="styles/gisviewer_ie6.css" rel="stylesheet" type="text/css" />

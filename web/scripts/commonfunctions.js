@@ -65,7 +65,7 @@ checkLocation = function() {
 }
 
 checkLocationPopup = function() {
-   if(!usePopup) {
+    if(!usePopup) {
         if (top.location == self.location) {
             top.location = '/gisviewerconfig/index.do';
         }
@@ -105,3 +105,115 @@ function showHelpDialog(divid) {
     $j("#" + divid).dialog('open');
     return false;
 }
+
+function showHideAdvanced() {
+    if(!showAdvancedOptions)
+    {
+        $j(".configadvanced").hide();
+    }
+    else
+    {
+        $j(".configadvanced").show();
+    }
+}
+
+var prevTab = null;
+var fbLbl;
+function labelClick($lbl) {
+    if(prevTab != null) prevTab.hide();
+    prevTab = $j(".content_"+$lbl.attr("id").replace("label_", ""));
+    prevTab.show();
+    $j(".tablabel").removeClass("active");
+    $lbl.addClass("active");
+}
+
+var showAdvancedOptions = false;
+var contentMinHeight = 300;
+$j(document).ready(function() {
+    contentMinHeight = $j(".tablabels").outerHeight(true)+20;
+    $j(".tabcontent").each(function (){
+        var counter = 0;
+        $j(this).find(".configrow").each(function() {
+            var $this = $j(this);
+            if(counter%2==1) $this.addClass("odd");
+            counter++;
+
+            $this.find(".helpLink").each(function (){
+                if($j(this).attr("id") && $j(this).attr("id") != 'undefined')
+                {
+                    var $helpContentDiv = $j("#" + $j(this).attr("id").replace("helpLink_", ""));
+                    var helpContent = $helpContentDiv.html();
+                    var helpTitle = $helpContentDiv.attr("title");
+                    var tipPos = 'leftTop';
+                    var tipTarget = 'rightMiddle'
+                    if($this.hasClass("configrowfull")) {
+                        tipPos = 'rightTop';
+                        tipTarget = 'leftMiddle';
+                    }
+                    $j(this).qtip({
+                        content: {
+                            text: helpContent,
+                            title: {
+                                text: helpTitle
+                            }
+                        },
+                        show: 'mouseover',
+                        hide: 'mouseout',
+                        position: {
+                            corner: {
+                                target: tipTarget,
+                                tooltip: tipPos
+                            }
+                        },
+                        style: {
+                            name: 'cream',
+                            tip: tipPos,
+                            color: 'black',
+                            title: {
+                                border: '0px none',
+                                color: 'black'
+                            },
+                            width: {
+                                max: 225 
+                            }
+                        },
+                        show: {
+                            delay: 25
+                        }
+                    });
+                }
+            });
+        });
+        $j(this).hide();
+    });
+
+    $j(".showAdvanced").click(function() {
+        if(showAdvancedOptions)
+        {
+            showAdvancedOptions = false;
+            $j(this).html("[+] geavanceerde opties");
+        }
+        else
+        {
+            showAdvancedOptions = true;
+            $j(this).html("[-] geavanceerde opties");
+        }
+        showHideAdvanced();
+        return false;
+    });
+    
+    $j(".tablabel").each(function() {
+        $j(this).click(function() {
+            labelClick($j(this));
+        });
+    });
+
+    $j("#advancedToggle").click(function(){
+        showAdvancedOptions = $j(this).is(':checked');
+        showHideAdvanced();
+    });
+    
+    $j(".tabcontent").css("min-height", contentMinHeight);
+    if($j(".tablabel").length != 0) labelClick($j(".tablabel").first());
+    showHideAdvanced();
+});
