@@ -1548,8 +1548,8 @@ function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
     $table.find("tbody > tr").each(function() {
         if(counter < 10) height += jQuery(this).outerHeight() + 2;
         jQuery(this).find("td").click(function() {
-            if(jQuery(this).find("a, input").length == 0) {
-                var link = jQuery(this).parent().find("input[name=link]").val();
+            if(jQuery(this).find('a, input[type!="hidden"]').length == 0) {
+                var link = jQuery(this).parent().find("input[name=link]").val();    
                 if(link != undefined && link != '') window.location.href=link;
             }
         });
