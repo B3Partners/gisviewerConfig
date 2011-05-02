@@ -142,41 +142,14 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <div class="tabcontents">
         <div class="tabcontent content_algemeen">
             <div class="configbasic">
-                <c:if test="${!empty form.map.themaID}">
-                    <div class="configrow configrowfull">
-                        <label><fmt:message key="config.label.copypastelink"/></label>
-                        <div style="float: left;"><a href="${absoluteURIPrefix}/gisviewer/viewer.do?id=${form.map.themaID}" target="_new"><fmt:message key="config.linknaam.copypastelink"/></a></div>
-                        <a class="helpLink" href="#" id="helpLink_help_copypastelink">(?)</a>
-                        <div id="help_copypastelink" style="display: none;" title="<fmt:message key="config.label.copypastelink"/>">
-                            <p><fmt:message key="config.copypastelink.uitleg"/></p>
-                        </div>
-                    </div>
-                </c:if>
+                
                 <div class="configrow configrowfull">
                     <label><fmt:message key="configthema.naam"/></label>
                     <html:text property="naam" size="140"/>
                     <a class="helpLink" href="#" id="helpLink_help_configthemanaam">(?)</a>
                     <div id="help_configthemanaam" style="display: none;" title="<fmt:message key="configthema.naam"/>"><p><fmt:message key="configthema.naam.uitleg"/></p></div>
                 </div>
-                <div class="configrow configrowfull">
-                    <label><fmt:message key="configthema.metadatalink"/></label>
-                    <html:text property="metadatalink" size="140"/>
-                    <a class="helpLink" href="#" id="helpLink_help_configthemametadatalink">(?)</a><div id="help_configthemametadatalink" style="display: none;" title="<fmt:message key="configthema.metadatalink"/>"><p><fmt:message key="configthema.metadatalink.uitleg"/></p></div>
-                </div>
-                <div class="configrow configrowfull">
-                    <label><fmt:message key="configthema.code"/></label>
-                    <html:select property="themaCode" styleClass="configSelect">
-                        <html:option value="1">Oorspronkelijk Thema (1)</html:option>
-                        <html:option value="2">Nieuw Thema (2)</html:option>
-                        <html:option value="3">Thema niet meer in gebruik (3)</html:option>
-                    </html:select>
-                    <a class="helpLink" href="#" id="helpLink_help_configthemacode">(?)</a><div id="help_configthemacode" style="display: none;" title="<fmt:message key="configthema.code"/>"><p><fmt:message key="configthema.code.uitleg"/></p></div>
-                </div>
-                <div class="configrow configrowfull">
-                    <label><fmt:message key="configthema.belangnr"/></label>
-                    <html:text property="belangnr" size="140"/>
-                    <a class="helpLink" href="#" id="helpLink_help_configthemabelangnr">(?)</a><div id="help_configthemabelangnr" style="display: none;" title="<fmt:message key="configthema.belangnr"/>"><p><fmt:message key="configthema.belangnr.uitleg"/></p></div>
-                </div>
+
                 <div class="configrow configrowfull">
                     <label><fmt:message key="configthema.cluster"/></label>
                     <html:select property="clusterID" styleClass="configSelect">
@@ -188,14 +161,39 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </html:select>
                     <a class="helpLink" href="#" id="helpLink_help_configthemacluser">(?)</a><div id="help_configthemacluser" style="display: none;" title="<fmt:message key="configthema.cluster"/>"><p><fmt:message key="configthema.cluster.uitleg"/></p></div>
                 </div>
+                
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.belangnr"/></label>
+                    <html:text property="belangnr" size="5"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemabelangnr">(?)</a><div id="help_configthemabelangnr" style="display: none;" title="<fmt:message key="configthema.belangnr"/>"><p><fmt:message key="configthema.belangnr.uitleg"/></p></div>
+                </div>
+            </div>
+
+            <div class="configadvanced">
+                <c:if test="${!empty form.map.themaID}">
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="config.label.copypastelink"/></label>
+                    <div style="float: left;"><a href="${absoluteURIPrefix}/gisviewer/viewer.do?id=${form.map.themaID}" target="_new"><fmt:message key="config.linknaam.copypastelink"/></a></div>
+                    <a class="helpLink" href="#" id="helpLink_help_copypastelink">(?)</a>
+                    <div id="help_copypastelink" style="display: none;" title="<fmt:message key="config.label.copypastelink"/>">
+                        <p><fmt:message key="config.copypastelink.uitleg"/></p>
+                    </div>
+                </div>
+                </c:if>
+
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.metadatalink"/></label>
+                    <html:text property="metadatalink" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemametadatalink">(?)</a><div id="help_configthemametadatalink" style="display: none;" title="<fmt:message key="configthema.metadatalink"/>"><p><fmt:message key="configthema.metadatalink.uitleg"/></p></div>
+                </div>
+
                 <div class="configrow configrowfull">
                     <label><fmt:message key="configthema.opmerkingen"/></label>
                     <html:text property="opmerkingen" size="140"/>
                     <a class="helpLink" href="#" id="helpLink_help_configthemaopmerkingen">(?)</a><div id="help_configthemaopmerkingen" style="display: none;" title="<fmt:message key="configthema.opmerkingen"/>"><p><fmt:message key="configthema.opmerkingen.uitleg"/></p></div>
                 </div>
             </div>
-            <div class="configadvanced">
-            </div>
+
         </div>
 
         <div class="tabcontent content_gegevensbron">
@@ -218,6 +216,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
         <div class="tabcontent content_kaart">
             <div class="configbasic">
+
                 <c:choose>
                     <c:when test="${fn:length(listLayers)>1}">
                         <div class="configrow configrowfull">
@@ -239,11 +238,31 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         </div>
                     </c:otherwise>
                 </c:choose>
-                <div class="configrow configrowfull">
-                    <label><fmt:message key="configthema.sldattribuut"/></label>
-                    <html:text property="sldattribuut" size="50"/>
-                    <a class="helpLink" href="#" id="helpLink_help_configthemasldattribuut">(?)</a><div id="help_configthemasldattribuut" style="display: none;" title="<fmt:message key="configthema.sldattribuut"/>"><p><fmt:message key="configthema.sldattribuut.uitleg"/></p></div>
-                </div>
+                
+                <c:choose>
+                    <c:when test="${fn:length(listLegendLayers)>1}">
+                        <div class="configrow configrowfull">
+                            <label><fmt:message key="configthema.wmslegendlayers"/></label>
+                            <html:select property="wms_legendlayer_real" styleClass="configSelect">
+                                <html:option value=""/>
+                                <c:forEach var="cuItem" items="${listLegendLayers}">
+                                    <html:option value="${cuItem.name}">${cuItem}</html:option>
+                                </c:forEach>
+                            </html:select>
+                            <a class="helpLink" href="#" id="helpLink_help_configthemawmslegendlayers">(?)</a><div id="help_configthemawmslegendlayers" style="display: none;" title="<fmt:message key="configthema.wmslegendlayers"/>"><p><fmt:message key="configthema.wmslegendlayers.uitleg"/></p></div>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="configrow configrowfull">
+                            <label><fmt:message key="configthema.wmslegendlayers"/></label>
+                            <html:text property="wms_legendlayer_real" size="140"/>
+                            <a class="helpLink" href="#" id="helpLink_help_configthemawmslegendlayers">(?)</a><div id="help_configthemawmslegendlayers" style="display: none;" title="<fmt:message key="configthema.wmslegendlayers"/>"><p><fmt:message key="configthema.wmslegendlayers.uitleg"/></p></div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+                
+            </div>
+            <div class="configadvanced">
                 <c:choose>
                     <c:when test="${fn:length(listLayers)>1}">
                         <div class="configrow configrowfull">
@@ -269,27 +288,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         </div>
                     </c:otherwise>
                 </c:choose>
-                <c:choose>
-                    <c:when test="${fn:length(listLegendLayers)>1}">
-                        <div class="configrow configrowfull">
-                            <label><fmt:message key="configthema.wmslegendlayers"/></label>
-                            <html:select property="wms_legendlayer_real" styleClass="configSelect">
-                                <html:option value=""/>
-                                <c:forEach var="cuItem" items="${listLegendLayers}">
-                                    <html:option value="${cuItem.name}">${cuItem}</html:option>
-                                </c:forEach>
-                            </html:select>
-                            <a class="helpLink" href="#" id="helpLink_help_configthemawmslegendlayers">(?)</a><div id="help_configthemawmslegendlayers" style="display: none;" title="<fmt:message key="configthema.wmslegendlayers"/>"><p><fmt:message key="configthema.wmslegendlayers.uitleg"/></p></div>
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="configrow configrowfull">
-                            <label><fmt:message key="configthema.wmslegendlayers"/></label>
-                            <html:text property="wms_legendlayer_real" size="140"/>
-                            <a class="helpLink" href="#" id="helpLink_help_configthemawmslegendlayers">(?)</a><div id="help_configthemawmslegendlayers" style="display: none;" title="<fmt:message key="configthema.wmslegendlayers"/>"><p><fmt:message key="configthema.wmslegendlayers.uitleg"/></p></div>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
 
                 <div class="configrow configrowfull">
                     <label><fmt:message key="configthema.maptip"/></label>
@@ -298,26 +296,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </div>
 
                 <div class="configrow configrowfull">
-                    <label><fmt:message key="configthema.updatefreqindagen"/></label>
-                    <html:text property="update_frequentie_in_dagen" size="140"/>
-                    <a class="helpLink" href="#" id="helpLink_help_configthemaupdatefreqindagen">(?)</a><div id="help_configthemaupdatefreqindagen" style="display: none;" title="<fmt:message key="configthema.updatefreqindagen"/>"><p><fmt:message key="configthema.updatefreqindagen.uitleg"/></p></div>
+                    <label><fmt:message key="configthema.sldattribuut"/></label>
+                    <html:text property="sldattribuut" size="50"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemasldattribuut">(?)</a><div id="help_configthemasldattribuut" style="display: none;" title="<fmt:message key="configthema.sldattribuut"/>"><p><fmt:message key="configthema.sldattribuut.uitleg"/></p></div>
                 </div>
+
             </div>
-            <div class="configadvanced"></div>
         </div>
 
         <div class="tabcontent content_opties">
             <div class="configbasic">
-                <div class="configrow configrowfull">
-                    <label><fmt:message key="configthema.locatiethema"/></label>
-                    <html:checkbox property="locatie_thema"/>
-                    <a class="helpLink" href="#" id="helpLink_help_configthemalocatiethema">(?)</a><div id="help_configthemalocatiethema" style="display: none;" title="<fmt:message key="configthema.locatiethema"/>"><p><fmt:message key="configthema.locatiethema.uitleg"/></p></div>
-                </div>
-                <div class="configrow configrowfull">
-                    <label><fmt:message key="configthema.analysethema"/></label>
-                    <html:checkbox property="analyse_thema"/>
-                    <a class="helpLink" href="#" id="helpLink_help_configthemaanalysethema">(?)</a><div id="help_configthemaanalysethema" style="display: none;" title="<fmt:message key="configthema.analysethema"/>"><p><fmt:message key="configthema.analysethema.uitleg"/></p></div>
-                </div>
+                
                 <div class="configrow configrowfull">
                     <label><fmt:message key="configthema.defaultvisible"/></label>
                     <html:checkbox property="visible"/>
@@ -344,7 +333,20 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </div>
                 </div>
             </div>
-            <div class="configadvanced"></div>
+            <div class="configadvanced">
+                
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.locatiethema"/></label>
+                    <html:checkbox property="locatie_thema"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemalocatiethema">(?)</a><div id="help_configthemalocatiethema" style="display: none;" title="<fmt:message key="configthema.locatiethema"/>"><p><fmt:message key="configthema.locatiethema.uitleg"/></p></div>
+                </div>
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.analysethema"/></label>
+                    <html:checkbox property="analyse_thema"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemaanalysethema">(?)</a><div id="help_configthemaanalysethema" style="display: none;" title="<fmt:message key="configthema.analysethema"/>"><p><fmt:message key="configthema.analysethema.uitleg"/></p></div>
+                </div>
+                
+            </div>
         </div>
     </div>
     <div class="clearBoth"></div>
