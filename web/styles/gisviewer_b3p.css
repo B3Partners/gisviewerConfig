@@ -133,8 +133,8 @@ h1{
     color: #196299;
 }
 
-a, a:visited, a:active {
-    color: #FFF0C4;
+a {
+    color: #196299;
     font-weight: bold;
     text-decoration: none;
 }
@@ -525,23 +525,6 @@ table.tablesorter thead tr .headerSortDown {
     clear: both;
 }
 
-#treedivContainer {
-    float: left;
-    width: 250px;
-    padding-top: 20px;
-    padding-left: 10px;
-}
-
-.clusterEditLink, a, a:visited {
-    font-size: 1.1em;
-    color: #197FCE;
-}
-
-.gbEditLink, a, a:visited {
-    font-size: 1.2em;
-    color: #197FCE;
-}
-
 .tdEditLink {
     padding-left: 2px;
 }
@@ -607,11 +590,13 @@ table.tablesorter thead tr .headerSortDown {
     margin-top: 50px;
 }
 
-.textBox {
+#textBox {
     color: #000;
-    font-size: 1.2em;
     border: 1px #D30E00 solid;
-    width: 350px;
     padding: 10px;
     background-color: #FFB69B;
+    margin-bottom: 10px;
+    float: left;
+    width: 630px;
+    display: none;
 }

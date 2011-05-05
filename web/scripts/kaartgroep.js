@@ -38,22 +38,19 @@ function createLeaf(container, item) {
 
 function createEditLink(item){
     var lnk = document.createElement('a');
-
     lnk.innerHTML = item.title ? item.title : item.id;
     lnk.className='clusterEditLink';
+    if(pageClusterId != '' && item.id == pageClusterId) lnk.className='clusterEditLinkActive';
     lnk.href = 'configKaartGroep.do?edit=submit&clusterID='+item.id;
-    
     return lnk;
 }
 
 function createFolderIcon() {
     var folderIcon = document.createElement("img");
-
-    folderIcon.src = "images/treeview/folder.png";
+    folderIcon.src = "images/icons/kaartgroep.png";
     folderIcon.style.border = '0px none White';
     folderIcon.alt = "edit";
     folderIcon.title = "edit";
     folderIcon.className = 'folderIcon';
-    
     return folderIcon;
 }

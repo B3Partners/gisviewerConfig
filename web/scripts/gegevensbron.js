@@ -43,6 +43,7 @@ function createEditLink(item){
 
     lnk.innerHTML = item.title ? item.title : item.id;
     lnk.className='gbEditLink';
+    if(pageGegevensbronId != '' && item.id == pageGegevensbronId) lnk.className='gbEditLinkActive';
     lnk.href = 'configGegevensbron.do?edit=submit&gegevensbronID='+item.id;
 
     return lnk;
@@ -51,7 +52,7 @@ function createEditLink(item){
 function createFolderIcon() {
     var folderIcon = document.createElement("img");
 
-    folderIcon.src = "images/treeview/folder.png";
+    folderIcon.src = "images/icons/gegevensbron.png";
     folderIcon.style.border = '0px none White';
     folderIcon.alt = "edit";
     folderIcon.title = "edit";
@@ -62,11 +63,9 @@ function createFolderIcon() {
 
 function createLinkToObjectData(item){
     var lnk = document.createElement('a');
-
     lnk.innerHTML = '<img src="images/treeview/icon_info.png" border="0" alt="Objectdata bewerken" title="Objectdata bewerken" />';
     lnk.className='tdEditLink';
     lnk.href = 'configThemaData.do?gegevensbronID='+item.id;
-
     return lnk;
 }
 

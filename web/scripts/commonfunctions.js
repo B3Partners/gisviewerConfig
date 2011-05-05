@@ -131,6 +131,7 @@ var showAdvancedOptions = false;
 var contentMinHeight = 300;
 $j(document).ready(function() {
     contentMinHeight = $j(".tablabels").outerHeight(true)+20;
+    if($j("#treedivContainer").length > 0) contentMinHeight = $j("#treedivContainer").outerHeight(true)+20;
     $j(".tabcontent").each(function (){
         var counter = 0;
         $j(this).find(".configrow").each(function() {
@@ -144,12 +145,8 @@ $j(document).ready(function() {
                     var $helpContentDiv = $j("#" + $j(this).attr("id").replace("helpLink_", ""));
                     var helpContent = $helpContentDiv.html();
                     var helpTitle = $helpContentDiv.attr("title");
-                    var tipPos = 'leftTop';
-                    var tipTarget = 'rightMiddle'
-                    if($this.hasClass("configrowfull")) {
-                        tipPos = 'rightTop';
-                        tipTarget = 'leftMiddle';
-                    }
+                    var tipPos = 'rightTop';
+                    var tipTarget = 'leftMiddle'
                     $j(this).qtip({
                         content: {
                             text: helpContent,
@@ -184,22 +181,7 @@ $j(document).ready(function() {
                 }
             });
         });
-        $j(this).hide();
-    });
-
-    $j(".showAdvanced").click(function() {
-        if(showAdvancedOptions)
-        {
-            showAdvancedOptions = false;
-            $j(this).html("[+] geavanceerde opties");
-        }
-        else
-        {
-            showAdvancedOptions = true;
-            $j(this).html("[-] geavanceerde opties");
-        }
-        showHideAdvanced();
-        return false;
+        if(!$j(this).hasClass("defaulttab")) $j(this).hide();
     });
     
     $j(".tablabel").each(function() {

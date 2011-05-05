@@ -238,6 +238,29 @@
     font-size: 1.2em;
 }
 
+#treedivContainer {
+    float: left;
+    width: 240px;
+    border: 1px solid #166299;
+    border-right: 0px none;
+    padding: 10px;
+    padding-right: 0px;
+    margin-left: 20px;
+    max-height: 400px;
+    overflow: auto;
+    background-color: #F0F0F6;
+}
+
+
+.folderIcon {
+    vertical-align: bottom;
+    margin-top: 3px;
+}
+
+a.clusterEditLinkActive, a.gbEditLinkActive {
+    text-decoration: underline;
+}
+
 /* Configkeeper styles */
 .tablabels {
     float: left;
@@ -269,17 +292,23 @@
     width: 145px;
     background-color: White;
     color: #6B90A8;
+    background-color: #F0F0F6;
 }
 
 .tablabels .tablabel.sublabel.active {
     width: 125px;
     background-color: White;
     color: #6B90A8;
+    background-color: #F0F0F6;
 }
 
 .tabcontents {
     float: left;
     width: 765px;
+}
+
+.tabcontents.treetabcontents {
+    width: 670px;
 }
 
 .tabcontents .tabcontent {
@@ -288,6 +317,10 @@
     padding-top: 15px;
     float: left;
     width: 745px;
+}
+
+.tabcontents.treetabcontents .tabcontent {
+    width: 650px;
 }
 
 .configbasic, .configadvanced {
@@ -300,23 +333,14 @@
     border-top: 1px dashed #166299;
 }
 
-.showAdvanced {
-    float: right;
-    clear: left;
-}
-
 .configrow {
-    width: 500px;
+    width: 725px;
     float: left;
     clear: left;
     margin-bottom: 5px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 3px;
-}
-
-.configrow.configrowfull {
-    width: 725px;
 }
 
 .configrow.configrowfull label {
@@ -343,6 +367,18 @@
 
 .configrow .helpLink {
     float: right;
+}
+
+.configrow.configrowtree {
+    width: 630px;
+}
+
+#gegevensbron .configrow.configrowtree label {
+    width: 140px;
+}
+
+.configrow.configrowtree input, .configrow.configrowtree select {
+    max-width: 450px;
 }
 
 .kaartlaag_select {
