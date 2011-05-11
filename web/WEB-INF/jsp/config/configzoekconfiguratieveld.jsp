@@ -78,6 +78,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <html:select styleId="type" property="inputtype">
                         <html:option value="1">Dropdown</html:option>
                         <html:option value="2">Tekst</html:option>
+                        <html:option value="3">Autosuggest</html:option>
                     </html:select>
                 </td>
             </tr>
