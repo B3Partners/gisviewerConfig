@@ -40,20 +40,22 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <html:hidden property="cfg_multipleActiveThemas" />
     <html:hidden property="cfg_autoRedirect" />
 
+    <div class="ie7clear"></div>
     <div style="float: left; clear: both; width: 920px; margin-left: 15px; margin-bottom: 5px; margin-top: 25px;">
         <div style="float: left; margin-left: 155px;">
             <input type="checkbox" id="advancedToggle" /> Toon geavanceerde opties
         </div>
         <div style="float: right;">
-            <html:submit property="save" accesskey="s" styleClass="knop" onclick="return confirm('Weet u zeker dat u dit wilt opslaan?');">
+            <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u dit wilt opslaan?');">
                 Opslaan
             </html:submit>
             &nbsp;
-            <html:submit property="resetRolInstellingen" styleClass="knop" accesskey="r" onclick="return confirm('Weet u zeker dat u de rolinstellingen wilt herstellen naar de standaard waarden?');">
+            <html:submit property="resetRolInstellingen" styleClass="knop refreshButton" accesskey="r" onclick="return confirm('Weet u zeker dat u de rolinstellingen wilt herstellen naar de standaard waarden?');">
                 Herstel naar standaard rolinstellingen
             </html:submit>
         </div>
     </div>
+    <div class="ie7clear"></div>
 
     <div class="tablabels">
         <div class="tablabel" id="label_selecteerkaartlagen">

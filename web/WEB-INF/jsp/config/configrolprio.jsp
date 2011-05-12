@@ -75,7 +75,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <td>Nieuwe rol: </td>
                 <td><html:text property="nieuwe_rol" size="20"/></td>
                 <td>
-                    <html:submit property="save" accesskey="s" styleClass="knop" onclick="return confirm('Weet u zeker dat u de rol wilt opslaan?');">
+                    <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u de rol wilt opslaan?');">
                         Opslaan
                     </html:submit>
                 </td>

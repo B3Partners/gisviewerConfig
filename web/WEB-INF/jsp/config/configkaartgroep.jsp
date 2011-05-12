@@ -42,6 +42,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <html:hidden property="alt_action"/>
     <html:hidden property="clusterID"/>
 
+    <div class="ie7clear"></div>
     <div style="float: right; clear: both; width: 940px; margin-right: 20px; margin-bottom: 5px;">
         <div style="float: left; margin-left: 270px;">
             <input type="checkbox" id="advancedToggle" /> Toon geavanceerde opties
@@ -50,35 +51,35 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             <!-- Indien nieuw item maken dan alleen Opslaan en Annuleren knoppen tonen -->
             <c:if test="${empty form.map.clusterID}">
                 <div class="knoppen">
-                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u deze kaartgroep wilt opslaan?');">
+                    <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u deze kaartgroep wilt opslaan?');">
                         <fmt:message key="button.save"/>
                     </html:submit>
                 </div>
                 <div class="knoppen">
-                    <input type="button" onclick="window.location='<html:rewrite page='/configKaartGroep.do' />'" value="<fmt:message key='button.cancel'/>" />
+                    <input type="button" class="knop" onclick="window.location='<html:rewrite page='/configKaartGroep.do' />'" value="<fmt:message key='button.cancel'/>" />
                 </div>
             </c:if>
             <!-- Indien item aan het bewerken dan Nieuw, Wissen en Opslaan knoppen tonen -->
             <c:if test="${!empty form.map.clusterID}">
                 <div class="knoppen">
-                    <html:submit property="create" accesskey="n" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
+                    <html:submit property="create" accesskey="n" styleClass="knop newButton">
                         <fmt:message key="button.new"/>
                     </html:submit>
                 </div>
                 <div class="knoppen">
-                    <html:submit property="delete" accesskey="d" styleClass="knop" onclick="return confirm('Weet u zeker dat u deze kaartgroep wilt verwijderen?');" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
+                    <html:submit property="delete" accesskey="d" styleClass="knop removeButton" onclick="return confirm('Weet u zeker dat u deze kaartgroep wilt verwijderen?');">
                         <fmt:message key="button.remove"/>
                     </html:submit>
                 </div>
                 <div class="knoppen">
-                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u deze kaartgroep wilt opslaan?');">
+                    <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u deze kaartgroep wilt opslaan?');">
                         <fmt:message key="button.save"/>
                     </html:submit>
                 </div>
             </c:if>
         </div>
     </div>
-
+    <div class="ie7clear"></div>
     <div id="treedivContainer">
         <div id="treediv"></div>
     </div>
@@ -92,7 +93,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <a href="${absoluteURIPrefix}/gisviewer/viewer.do?clusterId=${form.map.clusterID}" target="_new"><fmt:message key="config.linknaam.copypastelink"/></a>
                         <a href="#" class="helpLink" id="helpLink_help_copypastelink">(?)</a>
                         <div id="help_copypastelink" style="display: none;" title="<fmt:message key="config.label.copypastelink"/>">
-                            <p><fmt:message key="config.copypastelink.uitleg"/></p>
+                            <fmt:message key="config.copypastelink.uitleg"/>
                         </div>
                     </div>
                 </c:if>
@@ -106,7 +107,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <html:text property="metadatalink"  size="60"/>
                     <a href="#" class="helpLink" id="helpLink_help_cluster_meta">(?)</a>
                     <div id="help_cluster_meta" style="display: none;" title="<fmt:message key="configcluster.metadatalink"/>">
-                        <p><fmt:message key="configcluster.metadatalink.uitleg"/></p>
+                        <fmt:message key="configcluster.metadatalink.uitleg"/>
                     </div>
                 </div>
                 <div class="configrow configrowtree">
@@ -114,7 +115,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <html:text property="belangnr" size="10"/>
                     <a href="#" class="helpLink" id="helpLink_help_cluster_volgorde">(?)</a>
                     <div id="help_cluster_volgorde" style="display: none;" title="<fmt:message key="configcluster.volgorde"/>">
-                        <p><fmt:message key="configcluster.volgorde.uitleg"/></p>
+                        <fmt:message key="configcluster.volgorde.uitleg"/>
                     </div>
                 </div>
                 <div class="configrow configrowtree">
@@ -122,7 +123,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <html:text property="omschrijving"  size="60"/>
                     <a href="#" class="helpLink" id="helpLink_help_cluster_omschr">(?)</a>
                     <div id="help_cluster_omschr" style="display: none;" title="<fmt:message key="configcluster.omschrijving"/>">
-                        <p><fmt:message key="configcluster.omschrijving.uitleg"/></p>
+                        <fmt:message key="configcluster.omschrijving.uitleg"/>
                     </div>
                 </div>
                 <div class="configrow configrowtree">
@@ -130,7 +131,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <html:checkbox property="default_cluster"/>
                     <a href="#" class="helpLink" id="helpLink_help_cluster_noconfig">(?)</a>
                     <div id="help_cluster_noconfig" style="display: none;" title="<fmt:message key="configcluster.geenconfiglagen"/>">
-                        <p><fmt:message key="configcluster.geenconfiglagen.uitleg"/></p>
+                        <fmt:message key="configcluster.geenconfiglagen.uitleg"/>
                     </div>
                 </div>
                 <div class="configrow configrowtree">
@@ -138,7 +139,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <html:checkbox property="hide_legend"/>
                     <a href="#" class="helpLink" id="helpLink_help_cluster_onzichtbaar">(?)</a>
                     <div id="help_cluster_onzichtbaar" style="display: none;" title="<fmt:message key="configcluster.onzichtbaarinlegenda"/>">
-                        <p><fmt:message key="configcluster.onzichtbaarinlegenda.uitleg"/></p>
+                        <fmt:message key="configcluster.onzichtbaarinlegenda.uitleg"/>
                     </div>
                 </div>
                 <div class="configrow configrowtree">
@@ -146,8 +147,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <html:checkbox property="hide_tree"/>
                     <a href="#" class="helpLink" id="helpLink_help_cluster_onzichtbaarinboom">(?)</a>
                     <div id="help_cluster_onzichtbaarinboom" style="display: none;" title="<fmt:message key="configcluster.onzichtbaarinboom"/>">
-                        <p><fmt:message key="configcluster.onzichtbaarinboom.uitleg"/></p>
-                        <p><fmt:message key="configcluster.onzichtbaar.combinatie.uitleg"/></p>
+                        <fmt:message key="configcluster.onzichtbaarinboom.uitleg"/>
+                        <fmt:message key="configcluster.onzichtbaar.combinatie.uitleg"/>
                     </div>
                 </div>
                 <div class="configrow configrowtree">
@@ -155,7 +156,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <html:checkbox property="background_cluster"/>
                     <a href="#" class="helpLink" id="helpLink_help_cluster_achtergrond">(?)</a>
                     <div id="help_cluster_achtergrond" style="display: none;" title="<fmt:message key="configcluster.achtergrondlagen"/>">
-                        <p><fmt:message key="configcluster.achtergrondlagen.uitleg"/></p>
+                        <fmt:message key="configcluster.achtergrondlagen.uitleg"/>
                     </div>
                 </div>
 
@@ -164,7 +165,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <html:checkbox property="callable"/>
                     <a href="#" class="helpLink" id="helpLink_help_cluster_aanuitvink">(?)</a>
                     <div id="help_cluster_aanuitvink" style="display: none;" title="<fmt:message key="configcluster.aanuitvink"/>">
-                        <p><fmt:message key="configcluster.aanuitvink.uitleg"/></p>
+                        <fmt:message key="configcluster.aanuitvink.uitleg"/>
                     </div>
                 </div>
                 <div class="configrow configrowtree">
@@ -172,7 +173,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <html:checkbox property="default_visible"/>
                     <a href="#" class="helpLink" id="helpLink_help_cluster_defaultaan">(?)</a>
                     <div id="help_cluster_defaultaan" style="display: none;" title="<fmt:message key="configcluster.defaultaangevinkt"/>">
-                        <p><fmt:message key="configcluster.defaultaangevinkt.uitleg"/></p>
+                        <fmt:message key="configcluster.defaultaangevinkt.uitleg"/>
                     </div>
                 </div>
                 <div class="configrow configrowtree">
@@ -180,7 +181,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <html:checkbox property="exclusive_childs"/>
                     <a href="#" class="helpLink" id="helpLink_help_cluster_exclusive_childs">(?)</a>
                     <div id="help_cluster_exclusive_childs" style="display: none;" title="<fmt:message key="configcluster.exclusive_childs"/>">
-                        <p><fmt:message key="configcluster.exclusive_childs.uitleg"/></p>
+                        <fmt:message key="configcluster.exclusive_childs.uitleg"/>
                     </div>
                 </div>
                 <div class="configrow configrowtree">
@@ -198,7 +199,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </html:select>
                     <a href="#" class="helpLink" id="helpLink_help_cluster_parent">(?)</a>
                     <div id="help_cluster_parent" style="display: none;" title="<fmt:message key="configcluster.oudercluster"/>">
-                        <p><fmt:message key="configcluster.oudercluster.uitleg"/></p>
+                        <fmt:message key="configcluster.oudercluster.uitleg"/>
                     </div>
                 </div>
             </div>

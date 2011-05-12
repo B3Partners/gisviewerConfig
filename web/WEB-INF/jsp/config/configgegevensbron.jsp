@@ -43,7 +43,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <html:hidden property="alt_action"/>
         <html:hidden property="gegevensbronID"/>
     </div>
-
+    <div class="ie7clear"></div>
     <div style="float: right; clear: both; width: 940px; margin-right: 20px; margin-bottom: 5px;">
         <div style="float: left; margin-left: 270px;">
             <input type="checkbox" id="advancedToggle" /> Toon geavanceerde opties
@@ -52,35 +52,35 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             <!-- Indien nieuw item maken dan alleen Opslaan en Annuleren knoppen tonen -->
             <c:if test="${empty form.map.gegevensbronID}">
                 <div class="knoppen">
-                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u de gegevensbron wilt opslaan?');">
+                    <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u de gegevensbron wilt opslaan?');">
                         <fmt:message key="button.save"/>
                     </html:submit>
                 </div>
                 <div class="knoppen">
-                    <input type="button" onclick="window.location='<html:rewrite page='/configGegevensbron.do' />'" value="<fmt:message key='button.cancel'/>" />
+                    <input type="button" class="knop" onclick="window.location='<html:rewrite page='/configGegevensbron.do' />'" value="<fmt:message key='button.cancel'/>" />
                 </div>
             </c:if>
             <!-- Indien item aan het bewerken dan Nieuw, Wissen en Opslaan knoppen tonen -->
             <c:if test="${!empty form.map.gegevensbronID}">
                 <div class="knoppen">
-                    <html:submit property="create" accesskey="n" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
+                    <html:submit property="create" accesskey="n" styleClass="knop newButton">
                         <fmt:message key="button.new"/>
                     </html:submit>
                 </div>
                 <div class="knoppen">
-                    <html:submit property="delete" accesskey="d" styleClass="knop" onclick="return confirm('Weet u zeker dat u de gegevensbron wilt verwijderen?');" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
+                    <html:submit property="delete" accesskey="d" styleClass="knop removeButton" onclick="return confirm('Weet u zeker dat u de gegevensbron wilt verwijderen?');">
                         <fmt:message key="button.remove"/>
                     </html:submit>
                 </div>
                 <div class="knoppen">
-                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u de gegevensbron wilt opslaan?');">
+                    <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u de gegevensbron wilt opslaan?');">
                         <fmt:message key="button.save"/>
                     </html:submit>
                 </div>
             </c:if>
         </div>
     </div>
-
+    <div class="ie7clear"></div>
     <div id="treedivContainer">
         <div id="treediv"></div>
     </div>
@@ -94,7 +94,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <div class="configrow configrowtree">
                     <label><fmt:message key="configgb_naam.label"/></label>
                     <html:text property="naam" size="80"/>
-                    <a href="#" class="helpLink" id="helpLink_help_configgb_naam">(?)</a><div id="help_configgb_naam" style="display: none;" title="<fmt:message key="configgb_naam.label"/>"><p><fmt:message key="configgb_naam.uitleg"/></p></div>
+                    <a href="#" class="helpLink" id="helpLink_help_configgb_naam">(?)</a><div id="help_configgb_naam" style="display: none;" title="<fmt:message key="configgb_naam.label"/>"><fmt:message key="configgb_naam.uitleg"/></div>
                 </div>
 
                 <div class="configrow configrowtree">
@@ -107,7 +107,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             </html:option>
                         </c:forEach>
                     </html:select>
-                    <a href="#" class="helpLink" id="helpLink_help_configgb_bron">(?)</a><div id="help_configgb_bron" style="display: none;" title="<fmt:message key="configgb_bron.label"/>"><p><fmt:message key="configgb_bron.uitleg"/></p></div>
+                    <a href="#" class="helpLink" id="helpLink_help_configgb_bron">(?)</a><div id="help_configgb_bron" style="display: none;" title="<fmt:message key="configgb_bron.label"/>"><fmt:message key="configgb_bron.uitleg"/></div>
                 </div>
 
                 <c:set var="connectieType" value="wfs"/>
@@ -161,7 +161,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </html:select>
                     <a href="#" class="helpLink" id="helpLink_help_configgb_parent">(?)</a>
                     <div id="help_configgb_parent" style="display: none;" title="<fmt:message key="configgb_parent.label"/>">
-                        <p><fmt:message key="configgb_parent.uitleg"/></p>
+                        <fmt:message key="configgb_parent.uitleg"/>
                     </div>
                 </div>
 
@@ -192,7 +192,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <div class="configrow configrowtree">
                     <label><fmt:message key="configgb_volgordenr.label"/></label>
                     <html:text property="volgordenr" size="10"/>
-                    <a href="#" class="helpLink" id="helpLink_help_configgb_volgordenr">(?)</a><div id="help_configgb_volgordenr" style="display: none;" title="<fmt:message key="configgb_volgordenr.label"/>"><p><fmt:message key="configgb_volgordenr.uitleg"/></p></div>
+                    <a href="#" class="helpLink" id="helpLink_help_configgb_volgordenr">(?)</a><div id="help_configgb_volgordenr" style="display: none;" title="<fmt:message key="configgb_volgordenr.label"/>"><fmt:message key="configgb_volgordenr.uitleg"/></div>
                 </div>
 
                 <div class="configrow configrowtree">

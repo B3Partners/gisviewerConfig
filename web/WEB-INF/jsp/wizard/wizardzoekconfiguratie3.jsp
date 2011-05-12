@@ -86,12 +86,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
     <div class="wizardButtonBar">
         <c:if test="${empty zoekConfiguratieId}">
-            <html:submit property="step1"><fmt:message key='button.previous'/></html:submit>
+            <html:submit property="step1" styleClass="knop"><fmt:message key='button.previous'/></html:submit>
         </c:if>
-        <html:submit property="step3"><fmt:message key='button.next'/></html:submit>
+        <html:submit property="step3" styleClass="knop"><fmt:message key='button.next'/></html:submit>
         <c:if test="${not empty zoekConfiguratieId}">
-            <input type="button" onclick="deleteZoekConfiguratie(${zoekConfiguratieId})" value="<fmt:message key='button.remove'/>" />
-            <input type="button" onclick="window.location='<html:rewrite page='/configZoekConfiguratie.do'/>'" value="<fmt:message key='button.cancel'/>" />
+            <input type="button" class="knop removeButton" onclick="deleteZoekConfiguratie(${zoekConfiguratieId})" value="<fmt:message key='button.remove'/>" />
+            <input type="button" class="knop" onclick="window.location='<html:rewrite page='/configZoekConfiguratie.do'/>'" value="<fmt:message key='button.cancel'/>" />
         </c:if>
     </div>
 </html:form>

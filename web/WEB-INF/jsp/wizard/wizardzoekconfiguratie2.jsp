@@ -43,7 +43,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         </select>
     </div>
     <div class="wizardButtonBar">
-        <html:submit property="unspecified"><fmt:message key='button.previous'/></html:submit>
-        <html:submit property="step2"><fmt:message key='button.next'/></html:submit>
+        <html:submit property="unspecified" styleClass="knop"><fmt:message key='button.previous'/></html:submit>
+        <html:submit property="step2" styleClass="knop"><fmt:message key='button.next'/></html:submit>
     </div>
 </html:form>

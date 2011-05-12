@@ -48,9 +48,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <tr>
                         <th style="width: 10%;">Status</th>
                         <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
-                        <th style="width: 30%;"><fmt:message key="configconnectie.naam"/></th>
-                        <th style="width: 50%;"><fmt:message key="configconnectie.url"/></th>
-                    </tr>
+                        <th style="width: 30%;"><label><fmt:message key="configconnectie.naam"/></th>
+                        <th style="width: 50%;"><label><fmt:message key="configconnectie.url"/></th>
+                        </div>
                 </thead>
                 <tbody>
                     <c:forEach var="ci" varStatus="status" items="${allConnecties}">
@@ -73,107 +73,95 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <td><c:out value="${ci.volgorde}"/></td>
                             <td><c:out value="${ci.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                             <td><c:out value="${ci.url}"/></td>
-                        </tr>
-                    </c:forEach>
+                            </div>
+                        </c:forEach>
                 </tbody>
             </table>
         </div>
     </c:if>
-    <div id="content_style" style="float: left; clear: left;">
-        <div class="berichtenbalk" style="margin-top: 5px;">
-            <tiles:insert definition="actionMessages"/>
-       </div> 
-        
-        <div class="maintable" style="margin-top: 5px;">
-            <table cellpadding="2" cellspacing="2" border="0">
-                <tr>
-                    <td>
-                        <fmt:message key="configconnectie.naam"/>:
-                    </td>
-                    <td colspan="3">
-                        <html:text property="naam" size="140"/>                   
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <fmt:message key="configconnectie.url"/>:
 
-                        <a href="#" onclick="return showHelpDialog('help_configconnectie');">(?)</a>
-                        <div id="help_configconnectie" style="display: none;" title="<fmt:message key="configconnectie.url"/>">
-                            <p><fmt:message key="configconnectie.url.uitleg"/></p>
-                        </div>
-                    </td>
-                    <td colspan="3">
-                        <html:text property="url"  size="140"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <fmt:message key="configconnectie.gebruikersnaam"/>:
-                    </td>
-                    <td colspan="3">
-                        <html:text property="gebruikersnaam"  size="140"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <fmt:message key="configconnectie.wachtwoord"/>:
-                    </td>
-                    <td colspan="3">
-                        <html:password property="wachtwoord"  size="140"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <fmt:message key="configconnectie.volgorde"/>:
-                    </td>
-                    <td colspan="3">
-                        <html:text property="volgorde"  size="140"/>
-                    </td>
-                </tr>
-            </table>
+    <div class="berichtenbalk" style="margin-top: 5px;">
+        <tiles:insert definition="actionMessages"/>
+    </div>
+    <div class="ie7clear"></div>
+    <div style="float: right; clear: both; width: 940px; margin-right: 20px; margin-bottom: 5px;">
+        <div style="float: left; margin-left: 10px;">
+            <input type="checkbox" id="advancedToggle" /> Toon geavanceerde opties
         </div>
-        
-        <div class="knoppenbalk">
+        <div style="float: right;">
             <!-- Bij nieuw alleen opslaan en annuleren tonen -->
             <c:if test="${empty form.map.bronId}">
                 <div class="knoppen">
-                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u deze bron wilt opslaan?');">
+                    <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u deze bron wilt opslaan?');">
                         <fmt:message key="button.save"/>
                     </html:submit>
                 </div>
                 <div class="knoppen">
-                    <input type="button" onclick="window.location='<html:rewrite page='/configConnectie.do' />'" value="<fmt:message key='button.cancel'/>" />
+                    <input type="button" class="knop" onclick="window.location='<html:rewrite page='/configConnectie.do' />'" value="<fmt:message key='button.cancel'/>" />
                 </div>
             </c:if>
 
             <!-- Bij bewerken nieuw, wissen en opslaan tonen -->
             <c:if test="${!empty form.map.bronId}">
                 <div class="knoppen">
-                    <html:submit property="create" accesskey="n" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
+                    <html:submit property="create" accesskey="n" styleClass="knop newButton">
                         <fmt:message key="button.new"/>
                     </html:submit>
                 </div>
                 <div class="knoppen">
-                    <html:submit property="delete" accesskey="d" styleClass="knop" onclick="return confirm('Weet u zeker dat u deze bron wilt verwijderen?');" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
+                    <html:submit property="delete" accesskey="d" styleClass="knop removeButton" onclick="return confirm('Weet u zeker dat u deze bron wilt verwijderen?');">
                         <fmt:message key="button.remove"/>
                     </html:submit>
                 </div>
                 <div class="knoppen">
-                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u deze bron wilt opslaan?');">
+                    <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u deze bron wilt opslaan?');">
                         <fmt:message key="button.save"/>
                     </html:submit>
                 </div>
             </c:if>
-        </div> 
+        </div>
     </div>
+    <div class="ie7clear"></div>
+    <div class="tabcontents fullwidthtab">
+        <div class="tabcontent defaulttab">
+            <div class="configbasic">
+                <div class="configrow">
+                    <label><fmt:message key="configconnectie.naam"/></label>
+                    <html:text property="naam" size="140"/>                   
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="configconnectie.url"/></label>
+                    <html:text property="url" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configconnectie">(?)</a>
+                    <div id="help_configconnectie" style="display: none;" title="<fmt:message key="configconnectie.url"/>">
+                        <fmt:message key="configconnectie.url.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="configconnectie.gebruikersnaam"/></label>
+                    <html:text property="gebruikersnaam" size="140"/>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="configconnectie.wachtwoord"/></label>
+                    <html:password property="wachtwoord" size="140"/>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="configconnectie.volgorde"/></label>
+                    <html:text property="volgorde" size="140"/>
+                </div>
+                </table>
+            </div>
+            <div class="configadvanced"></div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
 </html:form>
 <script type="text/javascript">
     var globalrows;
     tablepager(
-        'connectietable',
-        '930',
-        '14',
-        false // display numberOfPages dropdown
-    );
+    'connectietable',
+    '930',
+    '14',
+    false // display numberOfPages dropdown
+);
 </script>

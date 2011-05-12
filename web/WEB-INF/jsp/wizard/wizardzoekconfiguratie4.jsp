@@ -146,8 +146,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div> <!-- einde div wizardQuestionBlock -->
 
     <div class="knoppenbalk">
-        <html:submit property="step2"><fmt:message key='button.previous'/></html:submit>
-        <input type="button" onclick="openStartPage()"value="<fmt:message key='button.ok'/>"/>
+        <html:submit property="step2" styleClass="knop"><fmt:message key='button.previous'/></html:submit>
+        <input type="button" class="knop" onclick="openStartPage()"value="<fmt:message key='button.ok'/>"/>
     </div>
     
 </div> <!-- einde div content -->

@@ -9,3 +9,19 @@ td h2 {
 .configbody table.tablesorter td input {
     margin-top: -2px;
 }
+
+.configGegevensbronSelect {
+    width: auto;
+}
+
+.ie7clear {
+    clear: both;
+    height: 1px;
+}
+
+.knop {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: auto;
+    overflow: visible;
+}

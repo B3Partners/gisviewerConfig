@@ -311,6 +311,11 @@ a.clusterEditLinkActive, a.gbEditLinkActive {
     width: 670px;
 }
 
+.tabcontents.fullwidthtab {
+    width: 930px;
+    margin-left: 10px;
+}
+
 .tabcontents .tabcontent {
     border: 1px solid #166299;
     padding: 10px;
@@ -321,6 +326,10 @@ a.clusterEditLinkActive, a.gbEditLinkActive {
 
 .tabcontents.treetabcontents .tabcontent {
     width: 650px;
+}
+
+.tabcontents.fullwidthtab .tabcontent {
+    width: 910px;
 }
 
 .configbasic, .configadvanced {
@@ -349,6 +358,14 @@ a.clusterEditLinkActive, a.gbEditLinkActive {
 
 .configrow.configrowfull input, .configrow.configrowfull select {
     max-width: 550px;
+}
+
+.tabcontents.fullwidthtab .tabcontent .configrow {
+    width: 890px;
+}
+
+.tabcontents.fullwidthtab input, .tabcontents.fullwidthtab select {
+    max-width: 600px;
 }
 
 .configrow.odd {
@@ -428,4 +445,63 @@ a#showAllLayers {
     width: 40%;
     margin-right: 5px;
     margin-top: 3px;
+}
+
+.knop {
+    background-color: #f5f5f5;
+    border: 1px solid #166299;
+    border-top: 1px solid #6B8599;
+    border-left: 1px solid #6B8599;
+    margin-left: 5px;
+    padding: 5px;
+    line-height:17px;
+    cursor: pointer;
+    font-weight: bold;
+    
+    border-radius: 3px;
+    -mox-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.knop:hover {
+    border: 1px solid #38556B;
+    color: #38556B;
+}
+
+.newButton {
+    background-image: url(/gisviewerconfig/images/icons/add.png);
+    background-position: 5px 50%;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+
+.newButton:hover {
+    border:1px solid #C6D880;
+    color:#529214;
+}
+
+.removeButton {
+    background-image: url(/gisviewerconfig/images/icons/delete.png);
+    background-position: 5px 50%;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+
+.removeButton:hover {
+    border:1px solid #fbc2c4;
+    color: #d12f19;;
+}
+
+.saveButton {
+    background-image: url(/gisviewerconfig/images/icons/disk.png);
+    background-position: 5px 50%;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+
+.refreshButton {
+    background-image: url(/gisviewerconfig/images/icons/arrow_refresh.png);
+    background-position: 5px 50%;
+    background-repeat: no-repeat;
+    padding-left: 25px;
 }

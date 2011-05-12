@@ -171,7 +171,7 @@ $j(document).ready(function() {
                                 color: 'black'
                             },
                             width: {
-                                max: 225 
+                                max: 325 
                             }
                         },
                         show: {
@@ -190,12 +190,21 @@ $j(document).ready(function() {
         });
     });
 
-    $j("#advancedToggle").click(function(){
-        showAdvancedOptions = $j(this).is(':checked');
-        showHideAdvanced();
+    var hasAdvancedItems = false;
+    $j(".configadvanced").each(function() {
+        if(trim($j(this).html()) != '') hasAdvancedItems = true;
     });
+
+    if(hasAdvancedItems) {
+        $j("#advancedToggle").click(function(){
+            showAdvancedOptions = $j(this).is(':checked');
+            showHideAdvanced();
+        });
+        showHideAdvanced();
+    } else {
+        $j("#advancedToggle").parent().hide();
+    }
     
     $j(".tabcontent").css("min-height", contentMinHeight);
     if($j(".tablabel").length != 0) labelClick($j(".tablabel").first());
-    showHideAdvanced();
 });

@@ -35,13 +35,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
 
-    <html:form action="/configThemaData" focus="${focus}">
+<html:form action="/configThemaData" focus="${focus}">
     <div style="display: none;">
         <html:hidden property="action"/>
         <html:hidden property="alt_action"/>
         <html:hidden property="themaDataID"/>
     </div>
-    <div class="maintable" style="margin-bottom: 10px; margin-left: 5px;">
+    <div style="margin: 10px; padding: 5px 10px; background-color: #F0F0F6;">
         <table>
             <tr>
                 <td style="color: #196299;">
@@ -70,161 +70,219 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
     <c:if test="${!empty listThemaData}">
         <div class="tablesortercontainer">
-                <table id="themadatatable" class="tablesorter">
-                    <thead>
+            <table id="themadatatable" class="tablesorter">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">Status</th>
+                        <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
+                        <th style="width: 35%;"><fmt:message key="configthemadata.label"/></th>
+                        <th style="width: 35%;"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></th>
+                        <!-- class="{sorter: false}" -->
+                        <th style="width: 10%;"><fmt:message key="configthemadata.basisregel"/></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="ci" varStatus="status" items="${listThemaData}">
+                        <c:set var="id_selected" value='' />
+                        <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
+                        <c:url var="link" value="/configThemaData.do?edit=submit&themaDataID=${ci.id}"/>
                         <tr>
-                            <th style="width: 10%;">Status</th>
-                            <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
-                            <th style="width: 35%;"><fmt:message key="configthemadata.label"/></th>
-                            <th style="width: 35%;"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></th>
-                            <!-- class="{sorter: false}" -->
-                            <th style="width: 10%;"><fmt:message key="configthemadata.basisregel"/></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="ci" varStatus="status" items="${listThemaData}">
-                            <c:set var="id_selected" value='' />
-                            <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
-                            <c:url var="link" value="/configThemaData.do?edit=submit&themaDataID=${ci.id}"/>
-                            <tr>
-                                <td>
-                                    <c:set var="bracketKolomNaam" value="[${ci.id}:KOLOMNAAM]"/>
-                                    <c:set var="bracketCommando" value="[${ci.id}:COMMANDO]"/>
-                                    <c:choose>
-                                        <c:when test="${fn:contains(listUglyThemaData, bracketKolomNaam)}">
-                                            <span style="color: red"><fmt:message key="configthemadata.${connectieType}.kolomnaamfout"/></span>
-                                        </c:when>
-                                        <c:when test="${fn:contains(listUglyThemaData, bracketCommando)}">
-                                            <span style="color: red"><fmt:message key="configthemadata.commandofout"/></span>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <span style="color: green">GOED</span>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </td>
-                                <td><c:out value="${ci.dataorder}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                                <td><c:out value="${ci.label}"/></td>
-                                <c:set var="accolade" value="}"/>
-                                <td>
-                                    <c:choose>
-                                        <c:when test="${fn:contains(ci.kolomnaam, accolade)}">
-                                            <span title="<c:out value='${ci.kolomnaam}'/>"><c:out value='${fn:substringAfter(ci.kolomnaam, accolade)}'/></span>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <c:out value='${ci.kolomnaam}'/>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    &nbsp;</td>
-                                <td>
-                                    <html:multibox property="basisregels" value="${ci.id}"/>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-        </div>
-    </c:if>
-    <div id="content_style" style="float: left; clear: left;">
-        <div class="berichtenbalk" style="margin-top: 5px;">
-                        <tiles:insert definition="actionMessages"/>
-        </div>
-
-        <span class="rolprio_intro">
-        Is er een veld wat u niet wil tonen aan de gebruiker
-        <a href="#" onclick="return showHelpDialog('help_configthemadata_niet_tonen');">(?)</a>
-        <div id="help_configthemadata_niet_tonen" style="display: none;" title="<fmt:message key="configthemadata_niet_tonen.label"/>">
-            <p><fmt:message key="configthemadata_niet_tonen.uitleg"/></p>
-        </div></span>
-
-        <div class="maintable" style="margin-top: 5px;">
-            <table cellpadding="2" cellspacing="2" border="0">
-                <tr><td><fmt:message key="configthemadata.label"/> <a href="#" onclick="return showHelpDialog('help_configthemadatalabel');">(?)</a><div id="help_configthemadatalabel" style="display: none;" title="<fmt:message key="configthemadata.label"/>"><p><fmt:message key="configthemadata.label.uitleg"/></p></div></td><td colspan="3"><html:text property="label" size="140"/></td></tr>
-                <tr><td><fmt:message key="configthemadata.eenheid"/> <a href="#" onclick="return showHelpDialog('help_configthemadataeenheid');">(?)</a><div id="help_configthemadataeenheid" style="display: none;" title="<fmt:message key="configthemadata.eenheid"/>"><p><fmt:message key="configthemadata.eenheid.uitleg"/></p></div></td><td colspan="3"><html:text property="eenheid" size="140"/></td></tr>
-                <tr><td><fmt:message key="configthemadata.basisregel"/> <a href="#" onclick="return showHelpDialog('help_configthemadatabasisregel');">(?)</a><div id="help_configthemadatabasisregel" style="display: none;" title="<fmt:message key="configthemadata.basisregel"/>"><p><fmt:message key="configthemadata.basisregel.uitleg"/></p></div></td><td colspan="3"><html:checkbox property="basisregel"/></td></tr>
-                
-                <tr class="optionalConfigItems"><td><fmt:message key="configthemadata.voorbeelden"/> <a href="#" onclick="return showHelpDialog('help_configthemadatavoorbeelden');">(?)</a><div id="help_configthemadatavoorbeelden" style="display: none;" title="<fmt:message key="configthemadata.voorbeelden"/>"><p><fmt:message key="configthemadata.voorbeelden.uitleg"/></p></div></td><td colspan="3"><html:text property="voorbeelden" size="140"/></td></tr>
-                <tr><td><fmt:message key="configthemadata.kolombreedte"/> <a href="#" onclick="return showHelpDialog('help_configthemadatakolombreedte');">(?)</a><div id="help_configthemadatakolombreedte" style="display: none;" title="<fmt:message key="configthemadata.kolombreedte"/>"><p><fmt:message key="configthemadata.kolombreedte.uitleg"/></p></div></td><td colspan="3"><html:text property="kolombreedte" size="140"/></td></tr>
-                
-                <tr>
-                    <td>
-                        <fmt:message key="configthemadata.datatype"/> <a href="#" onclick="return showHelpDialog('help_configthemadatadatatype');">(?)</a><div id="help_configthemadatadatatype" style="display: none;" title="<fmt:message key="configthemadata.datatype"/>"><p><fmt:message key="configthemadata.datatype.uitleg"/></p></div>
-                    </td>
-                    <td colspan="3">
-                        <html:select property="dataTypeID">
-                            <c:forEach var="cuItem" items="${listDataTypen}">
-                                <html:option value="${cuItem.id}">
-                                    <c:out value="${cuItem.naam}"/>
-                                </html:option>
-                            </c:forEach>
-                        </html:select>&nbsp;
-                    </td>
-                </tr>
-                <tr><td><fmt:message key="configthemadata.commando"/> <a href="#" onclick="return showHelpDialog('help_configthemadatacommando');">(?)</a><div id="help_configthemadatacommando" style="display: none;" title="<fmt:message key="configthemadata.commando"/>"><p><fmt:message key="configthemadata.commando.uitleg"/></p></div></td><td colspan="3"><html:text property="commando" size="140"/></td></tr>
-                <c:choose>
-                    <c:when test="${fn:length(listAdminTableColumns)>1}">
-                        <tr>
-                            <td><fmt:message key="configthemadata.${connectieType}.kolomnaam"/> <a href="#" onclick="return showHelpDialog('help_configthemadata${connectieType}kolomnaam');">(?)</a><div id="help_configthemadata${connectieType}kolomnaam" style="display: none;" title="<fmt:message key="configthemadata.${connectieType}.kolomnaam"/>"><p><fmt:message key="configthemadata.${connectieType}.kolomnaam.uitleg"/></p></div></td>
-                            <td colspan="3">
-                                <html:select property="kolomnaam">
-                                    <html:option value=""/>
-                                    <c:forEach var="cuItem" items="${listAdminTableColumns}">
-                                        <html:option value="${cuItem}"/>
-                                    </c:forEach>
-                                </html:select>&nbsp;
+                            <td>
+                                <c:set var="bracketKolomNaam" value="[${ci.id}:KOLOMNAAM]"/>
+                                <c:set var="bracketCommando" value="[${ci.id}:COMMANDO]"/>
+                                <c:choose>
+                                    <c:when test="${fn:contains(listUglyThemaData, bracketKolomNaam)}">
+                                        <span style="color: red"><fmt:message key="configthemadata.${connectieType}.kolomnaamfout"/></span>
+                                    </c:when>
+                                    <c:when test="${fn:contains(listUglyThemaData, bracketCommando)}">
+                                        <span style="color: red"><fmt:message key="configthemadata.commandofout"/></span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span style="color: green">GOED</span>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                            <td><c:out value="${ci.dataorder}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
+                            <td><c:out value="${ci.label}"/></td>
+                            <c:set var="accolade" value="}"/>
+                            <td>
+                                <c:choose>
+                                    <c:when test="${fn:contains(ci.kolomnaam, accolade)}">
+                                        <span title="<c:out value='${ci.kolomnaam}'/>"><c:out value='${fn:substringAfter(ci.kolomnaam, accolade)}'/></span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:out value='${ci.kolomnaam}'/>
+                                    </c:otherwise>
+                                </c:choose>
+                                &nbsp;</td>
+                            <td>
+                                <html:multibox property="basisregels" value="${ci.id}"/>
                             </td>
                         </tr>
-                    </c:when>
-                    <c:otherwise>
-                        <tr><td><fmt:message key="configthemadata.kolomnaam"/> <a href="#" onclick="return showHelpDialog('help_configthemadatakolomnaam');">(?)</a><div id="help_configthemadatakolomnaam" style="display: none;" title="<fmt:message key="configthemadata.kolomnaam"/>"><p><fmt:message key="configthemadata.kolomnaam.uitleg"/></p></div></td><td colspan="3"><html:text property="kolomnaam" size="140"/></td></tr>
-                    </c:otherwise>
-                </c:choose>
-                <tr><td><fmt:message key="configthemadata.dataorder"/> <a href="#" onclick="return showHelpDialog('help_configthemadatadataorder');">(?)</a><div id="help_configthemadatadataorder" style="display: none;" title="<fmt:message key="configthemadata.dataorder"/>"><p><fmt:message key="configthemadata.dataorder.uitleg"/></p></div></td><td colspan="3"><html:text property="dataorder" size="140"/></td></tr>
-                <tr><td><fmt:message key="configthemadata.omschrijving"/> <a href="#" onclick="return showHelpDialog('help_configthemadataomschrijving');">(?)</a><div id="help_configthemadataomschrijving" style="display: none;" title="<fmt:message key="configthemadata.omschrijving"/>"><p><fmt:message key="configthemadata.omschrijving.uitleg"/></p></div></td><td colspan="3"><html:text property="omschrijving" size="140"/></td></tr>
+                    </c:forEach>
+                </tbody>
             </table>
         </div>
+    </c:if>
 
-        <div class="knoppenbalk">
+    <div class="berichtenbalk" style="margin-top: 5px;">
+        <tiles:insert definition="actionMessages"/>
+    </div>
+    <div class="ie7clear"></div>
+    <div style="float: right; clear: both; width: 940px; margin-right: 20px; margin-bottom: 5px;">
+        <div style="float: left; margin-left: 10px;">
+            <input type="checkbox" id="advancedToggle" /> Toon geavanceerde opties
+        </div>
+        <div style="float: right;">
             <!-- Indien nieuw item maken dan alleen Opslaan en Annuleren knoppen tonen -->
             <c:if test="${empty form.map.themaDataID}">
                 <div class="knoppen">
-                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u dit veld wilt opslaan?');">
+                    <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u dit veld wilt opslaan?');">
                         <fmt:message key="button.save"/>
                     </html:submit>
                 </div>
                 <div class="knoppen">
-                    <input type="button" onclick="window.location='<html:rewrite page='/configThemaData.do' />'" value="<fmt:message key='button.cancel'/>" />
+                    <input type="button" class="knop" onclick="window.location='<html:rewrite page='/configThemaData.do' />'" value="<fmt:message key='button.cancel'/>" />
                 </div>
             </c:if>
             <!-- Indien item aan het bewerken dan Nieuw, Wissen en Opslaan knoppen tonen -->
             <c:if test="${!empty form.map.themaDataID}">
                 <div class="knoppen">
-                    <html:submit property="create" accesskey="n" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
-                        <fmt:message key="button.new"/>
+                    <html:submit property="create" accesskey="n" styleClass="knop newButton">
+                        <fmt:message key="button.new" />
                     </html:submit>
                 </div>
                 <div class="knoppen">
-                    <html:submit property="delete" accesskey="d" styleClass="knop" onclick="return confirm('Weet u zeker dat u dit veld wilt verwijderen?');" onmouseover="this.className='knopover';" onmouseout="this.className='knop';">
+                    <html:submit property="delete" accesskey="d" styleClass="knop removeButton" onclick="return confirm('Weet u zeker dat u dit veld wilt verwijderen?');">
                         <fmt:message key="button.remove"/>
                     </html:submit>
                 </div>
                 <div class="knoppen">
-                    <html:submit property="save" accesskey="s" styleClass="knop" onmouseover="this.className='knopover';" onmouseout="this.className='knop';" onclick="return confirm('Weet u zeker dat u dit veld wilt opslaan?');">
+                    <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u dit veld wilt opslaan?');">
                         <fmt:message key="button.save"/>
                     </html:submit>
                 </div>
             </c:if>
         </div>
-        
-    </div> 
+    </div>
+    <div class="ie7clear"></div>
+    <div class="tabcontents fullwidthtab">
+        <div class="tabcontent defaulttab">
+            <div class="configbasic">
+
+                <div class="configrow">
+                    <label><fmt:message key="configthemadata.label"/></label>
+                    <html:text property="label" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadatalabel">(?)</a>
+                    <div id="help_configthemadatalabel" style="display: none;" title="<fmt:message key="configthemadata.label"/>"><fmt:message key="configthemadata.label.uitleg"/></div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="configthemadata.eenheid"/></label>
+                    <html:text property="eenheid" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadataeenheid">(?)</a>
+                    <div id="help_configthemadataeenheid" style="display: none;" title="<fmt:message key="configthemadata.eenheid"/>"><fmt:message key="configthemadata.eenheid.uitleg"/></div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="configthemadata.basisregel"/></label>
+                    <html:checkbox property="basisregel"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadatabasisregel">(?)</a>
+                    <div id="help_configthemadatabasisregel" style="display: none;" title="<fmt:message key="configthemadata.basisregel"/>"><fmt:message key="configthemadata.basisregel.uitleg"/></div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="configthemadata.voorbeelden"/></label>
+                    <html:text property="voorbeelden" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadatavoorbeelden">(?)</a>
+                    <div id="help_configthemadatavoorbeelden" style="display: none;" title="<fmt:message key="configthemadata.voorbeelden"/>"><fmt:message key="configthemadata.voorbeelden.uitleg"/></div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="configthemadata.kolombreedte"/></label>
+                    <html:text property="kolombreedte" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadatakolombreedte">(?)</a>
+                    <div id="help_configthemadatakolombreedte" style="display: none;" title="<fmt:message key="configthemadata.kolombreedte"/>"><fmt:message key="configthemadata.kolombreedte.uitleg"/></div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="configthemadata.datatype"/></label>
+                    <html:select property="dataTypeID">
+                        <c:forEach var="cuItem" items="${listDataTypen}">
+                            <html:option value="${cuItem.id}">
+                                <c:out value="${cuItem.naam}"/>
+                            </html:option>
+                        </c:forEach>
+                    </html:select>&nbsp;
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadatadatatype">(?)</a>
+                    <div id="help_configthemadatadatatype" style="display: none;" title="<fmt:message key="configthemadata.datatype"/>"><fmt:message key="configthemadata.datatype.uitleg"/></div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="configthemadata.commando"/></label>
+                    <html:text property="commando" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadatacommando">(?)</a>
+                    <div id="help_configthemadatacommando" style="display: none;" title="<fmt:message key="configthemadata.commando"/>"><fmt:message key="configthemadata.commando.uitleg"/></div>
+                </div>
+
+                <c:choose>
+                    <c:when test="${fn:length(listAdminTableColumns)>1}">
+                        <div class="configrow">
+                            <label><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></label>
+                            <html:select property="kolomnaam">
+                                <html:option value=""/>
+                                <c:forEach var="cuItem" items="${listAdminTableColumns}">
+                                    <html:option value="${cuItem}"/>
+                                </c:forEach>
+                            </html:select>&nbsp;
+                            <a class="helpLink" href="#" id="helpLink_help_configthemadata${connectieType}kolomnaam">(?)</a>
+                            <div id="help_configthemadata${connectieType}kolomnaam" style="display: none;" title="<fmt:message key="configthemadata.${connectieType}.kolomnaam"/>"><fmt:message key="configthemadata.${connectieType}.kolomnaam.uitleg"/></div>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="configrow">
+                            <label><fmt:message key="configthemadata.kolomnaam"/></label>
+                            <html:text property="kolomnaam" size="140"/>
+                            <a class="helpLink" href="#" id="helpLink_help_configthemadatakolomnaam">(?)</a>
+                            <div id="help_configthemadatakolomnaam" style="display: none;" title="<fmt:message key="configthemadata.kolomnaam"/>"><fmt:message key="configthemadata.kolomnaam.uitleg"/></div>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+
+                <div class="configrow">
+                    <label><fmt:message key="configthemadata.dataorder"/></label>
+                    <html:text property="dataorder" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadatadataorder">(?)</a>
+                    <div id="help_configthemadatadataorder" style="display: none;" title="<fmt:message key="configthemadata.dataorder"/>"><fmt:message key="configthemadata.dataorder.uitleg"/></div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="configthemadata.omschrijving"/></label>
+                    <html:text property="omschrijving" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadataomschrijving">(?)</a>
+                    <div id="help_configthemadataomschrijving" style="display: none;" title="<fmt:message key="configthemadata.omschrijving"/>"><fmt:message key="configthemadata.omschrijving.uitleg"/></div>
+                </div>
+
+                <div class="configrow" style="margin-top: 10px;">
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadata_niet_tonen">(?)</a>
+                    <div id="help_configthemadata_niet_tonen" style="display: none;" title="<fmt:message key="configthemadata_niet_tonen.label"/>">
+                        <fmt:message key="configthemadata_niet_tonen.uitleg"/>
+                    </div>
+                    <div style="float: right; margin-right: 10px;">Is er een veld wat u niet wil tonen aan de gebruiker</div>
+                </div>
+            </div>
+            <div class="configadvanced"></div>
+        </div>
+    </div>
+    <div style="clear: both;"></div> 
 </html:form>
-<iframe src="BLOCKED SCRIPT'&lt;html&gt;&lt;/html&gt;';" id="iframeBehindHelp" scrolling="no" frameborder="0" style="position:absolute; width:1px; height:0px; top:0px; left:0px; border:none; display:none; z-index:100"></iframe>
 <script type="text/javascript">
     //$j(':checkbox').check();
     
     tablepager(
-        'themadatatable',
-        '930',
-        '16',
-        false // display numberOfPages dropdown
-    );
+    'themadatatable',
+    '930',
+    '16',
+    false // display numberOfPages dropdown
+);
 </script>
