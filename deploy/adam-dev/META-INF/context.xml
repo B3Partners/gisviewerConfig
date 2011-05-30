@@ -17,7 +17,7 @@
     removeAbandonedTimeout="60"
     timeBetweenEvictionRunsMillis="60000"
     type="javax.sql.DataSource"
-    url="jdbc:postgresql://x6.b3p.nl/amsterdam_gisviewer"
+    url="jdbc:postgresql://localhost/amsterdam_gisviewer"
     validationQuery="select 1"
 /> 
 
