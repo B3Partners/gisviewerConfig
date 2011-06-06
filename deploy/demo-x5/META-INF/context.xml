@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/gisviewerconfig">
+<Context path="/gisviewer">
   <Resource
   	auth="Container"
   	driverClassName="org.postgresql.Driver"
@@ -13,7 +13,7 @@
   	removeAbandoned="true"
   	removeAbandonedTimeout="60"
   	type="javax.sql.DataSource"
-  	url="jdbc:postgresql://localhost:5432/gisviewer"
+  	url="jdbc:postgresql://localhost:5432/demo-gisviewer"
   	validationQuery="select 1"
 	minEvictableIdleTimeMillis="10000"
 	timeBetweenEvictionRunsMillis="60000"
