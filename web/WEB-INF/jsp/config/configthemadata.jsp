@@ -62,7 +62,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <%--<c:if test="${!save && !delete}">
                         <a href="#" class="datalink" onclick="javascript: document.getElementById('createAllThemaData').value='doe';submit()">Maak ontbrekende Themadata objecten voor thema</a>
                     </c:if>--%>
-                    <html:submit property="updateBasisregels" styleClass="knop"><fmt:message key="configthemadata.updatebasisregels.button"/></html:submit>
+                    <html:submit property="updateBasisregels" styleClass="knop" onclick="return postFullTableData('Bezig met batch update');"><fmt:message key="configthemadata.updatebasisregels.button"/></html:submit>
                 </td>
             </tr>
         </table>

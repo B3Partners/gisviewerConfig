@@ -1387,6 +1387,13 @@ $.fn.metadata = function( opts ){
                             if(c.page < 0) c.page = 0;
                             renderTable(table,c.rowsCopy);
                         }
+                        
+                        /* Function needed by the table posting function */
+                        this.renderFullTable = function(table) {
+                            var c = table.config;
+                            c.size = c.totalRows;
+                            renderTable(table,c.rowsCopy);
+                        }
 
 			this.defaults = {
 				size: 10,
@@ -1568,7 +1575,7 @@ function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
         "height": (height + 30) + 'px'
     });
     if(ieVersion <= 7 && ieVersion != -1) $overlay.css("height", (height + 60) + "px");
-    var $insideoverlay = jQuery('<div>Bezig met laden van tabel<br /><img src="'+imageurl+'loading.gif" /></div>').css({
+    var $insideoverlay = jQuery('<div><span>Bezig met laden van tabel</span><br /><img src="'+imageurl+'loading.gif" /></div>').css({
         "position": "absolute",
         "text-align": "center",
         "top": "50%",
@@ -1618,7 +1625,17 @@ function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
         jQuery(this).find("input").css("width", inputwidth + 'px');
     });
 
-    setTimeout(function() { moveToSelectedPage(); jQuery("#tableoverlay").remove(); }, 1000);
+    setTimeout(function() { moveToSelectedPage(); jQuery("#tableoverlay").hide(); }, 1000);
+}
+
+/* Added function to restore full table (no paging) on posting the table. Ensures that all data in the table is send to the server */
+function postFullTableData(msg) {
+    if(msg == undefined || msg == '') msg = 'Bezig met verzenden tabel data';
+    jQuery("#tableoverlay div span").text(msg);
+    jQuery("#tableoverlay").show();
+    jQuery.tablesorterPager.renderFullTable($table[0]);
+    $table.hide();
+    return true;
 }
 
 function moveToSelectedPage() {
