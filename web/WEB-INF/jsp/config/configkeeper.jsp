@@ -370,6 +370,14 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_showPrintTool.uitleg"/>
                     </div>
                 </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_showLayerSelectionTool.label"/></label>
+                    <html:checkbox property="cfg_showLayerSelectionTool"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_showLayerSelectionTool">(?)</a>
+                    <div id="help_cfg_showLayerSelectionTool" style="display: none;" title="<fmt:message key="cfg_showLayerSelectionTool.label"/>">
+                        <fmt:message key="cfg_showLayerSelectionTool.uitleg"/>
+                    </div>
+                </div>
             </div>
             <div class="configadvanced">
                 <div class="configrow">
