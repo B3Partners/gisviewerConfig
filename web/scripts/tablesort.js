@@ -1391,6 +1391,7 @@ $.fn.metadata = function( opts ){
                         /* Function needed by the table posting function */
                         this.renderFullTable = function(table) {
                             var c = table.config;
+                            c.page = 0;
                             c.size = c.totalRows;
                             renderTable(table,c.rowsCopy);
                         }
