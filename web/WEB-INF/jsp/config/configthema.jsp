@@ -233,7 +233,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <c:otherwise>
                         <div class="configrow configrowfull">
                             <label><fmt:message key="configthema.wmslayers"/></label>
-                            <html:text property="wms_layers_real" size="140"/>
+                            <html:text property="wms_layers_real" size="140" />
                             <a class="helpLink" href="#" id="helpLink_help_configthemawmslayers">(?)</a><div id="help_configthemawmslayers" style="display: none;" title="<fmt:message key="configthema.wmslayers"/>"><fmt:message key="configthema.wmslayers.uitleg"/></div>
                         </div>
                     </c:otherwise>
@@ -301,6 +301,22 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <a class="helpLink" href="#" id="helpLink_help_configthemasldattribuut">(?)</a><div id="help_configthemasldattribuut" style="display: none;" title="<fmt:message key="configthema.sldattribuut"/>"><fmt:message key="configthema.sldattribuut.uitleg"/></div>
                 </div>
 
+                <!-- style keuze -->
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.style"/></label>
+                    <html:select property="style" styleClass="configSelect" styleId="style_select">
+                        <script type="text/javascript">
+                            var selectedStyle;
+                        </script>
+                        <c:if test="${fn:length(form.map.style) > 0}">
+                            <script type="text/javascript">
+                                selectedStyle = "${form.map.style}";
+                            </script>
+                        </c:if>
+                    </html:select>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemastyle">(?)</a><div id="help_configthemastyle" style="display: none;" title="<fmt:message key="configthema.style"/>"><fmt:message key="configthema.style.uitleg"/></div>
+                </div>
+
             </div>
         </div>
 
@@ -362,6 +378,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             layerObject.name="${cuItem.name}";
             layerObject.title="${cuItem.title}";
             layerObject.metadata="${cuItem.metadata}";
+            layerObject.styles = new Array();
+            // styles vullen
+            <c:forEach var="cuStyle" items="${cuItem.styles}" varStatus="stat">
+                layerObject.styles[${stat.count}-1] = "${cuStyle.name}";
+            </c:forEach>
+
             layersObject["${cuItem.name}"]=layerObject;
         </c:forEach>
     </c:if>

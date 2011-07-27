@@ -33,6 +33,7 @@
             <form-property name="sldattribuut" type="java.lang.String"/>
             <form-property name="uitgebreid" type="java.lang.Boolean"/>
             <form-property name="layoutadmindata" type="java.lang.String"/>
+            <form-property name="style" type="java.lang.String"/>
             <form-property name="gegevensbron" type="java.lang.String"/>
         </form-bean>
         <form-bean name="clusterForm" type="org.apache.struts.validator.DynaValidatorForm">

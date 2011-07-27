@@ -69,11 +69,22 @@ function refreshTheLists(){
     document.forms[0].submit();
 }
 
+function fillWmsLayerStyles(layerStyles) {
+    dwr.util.removeAllOptions("style_select");
+    dwr.util.addOptions("style_select", ["-Kies een style-"]);
+    dwr.util.addOptions("style_select", layerStyles);
+
+    // Als een thema al een style heeft dan deze selecteren.
+    if (selectedStyle) {
+        dwr.util.setValue("style_select", selectedStyle);
+    }
+}
+
 $j(document).ready(function(){
     //Alleen automatisch vullen als ook het layerObject bestaat.
     if(layersObject){        
         $j('select[name="wms_layers_real"]').change(function (){
-            var layerObject=layersObject[$j('select[name="wms_layers_real"]').val()];
+            var layerObject = layersObject[$j('select[name="wms_layers_real"]').val()];
             if (layerObject){
                 if (layerObject.legend &&                    
                     $j('select[name="wms_legendlayer_real"]').val()==""){
@@ -87,7 +98,15 @@ $j(document).ready(function(){
                     $j('input[name="metadatalink"]').val()==""){
                     $j('input[name="metadatalink"]').val(layerObject.metadata);
                 }
+                if (layerObject.styles) {
+                    fillWmsLayerStyles(layerObject.styles);
+                }
             }
         });
+    }
+
+    if ($j('select[name="wms_layers_real"]').val() != "") {
+        var layerObject=layersObject[$j('select[name="wms_layers_real"]').val()];
+        fillWmsLayerStyles(layerObject.styles);
     }
 });
