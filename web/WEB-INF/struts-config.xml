@@ -197,6 +197,11 @@
 
             <!-- opstart kaarten -->
             <form-property name="cfg_opstartkaarten" type="java.lang.String[]"/>
+
+            <!-- email instellingen -->
+            <form-property name="cfg_smtpHost" type="java.lang.String"/>
+            <form-property name="cfg_fromMailAddress" type="java.lang.String"/>
+            <form-property name="cfg_mailSubject" type="java.lang.String"/>
         </form-bean>
         <form-bean name="configRolPrioForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>

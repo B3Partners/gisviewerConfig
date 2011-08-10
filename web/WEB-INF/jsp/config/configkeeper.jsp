@@ -738,70 +738,159 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <div class="tabcontent content_meldingen">
 
             <div class="configbasic">
+                
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldingwelkomtekst.label"/></label>
-                    <html:text property="cfg_meldingwelkomtekst"/></label>
+                    <html:textarea property="cfg_meldingwelkomtekst" cols="40" rows="5" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldingwelkomtekst">(?)</a>
+                    <div id="help_cfg_meldingwelkomtekst" style="display: none;" title="<fmt:message key="cfg_meldingwelkomtekst.label"/>">
+                        <fmt:message key="cfg_meldingwelkomtekst.uitleg"/>
+                    </div>
                 </div>
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldingtype.label"/></label>
-                    <html:text property="cfg_meldingtype"/></label>
+                    <html:text property="cfg_meldingtype" size="50" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldingtype">(?)</a>
+                    <div id="help_cfg_meldingtype" style="display: none;" title="<fmt:message key="cfg_meldingtype.label"/>">
+                        <fmt:message key="cfg_meldingtype.uitleg"/>
+                    </div>
                 </div>
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldinggegevensbron.label"/></label>
-
                     <html:select property="cfg_meldinggegevensbron">
                         <html:option value="0">-Kies een gegevensbron-</html:option>
                         <c:forEach items="${meldingGegevensbronnen}" var="item">
                             <html:option value="${item.id}">${item.naam}</html:option>
                         </c:forEach>
                     </html:select>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldinggegevensbron">(?)</a>
+                    <div id="help_cfg_meldinggegevensbron" style="display: none;" title="<fmt:message key="cfg_meldinggegevensbron.label"/>">
+                        <fmt:message key="cfg_meldinggegevensbron.uitleg"/>
+                    </div>
                 </div>
-
             </div>
 
             <div class="configadvanced">
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldingprefix.label"/></label>
-                    <html:text property="cfg_meldingprefix"/></label>
-                </div>           
+                    <html:text property="cfg_meldingprefix" size="50" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldingprefix">(?)</a>
+                    <div id="help_cfg_meldingprefix" style="display: none;" title="<fmt:message key="cfg_meldingprefix.label"/>">
+                        <fmt:message key="cfg_meldingprefix.uitleg"/>
+                    </div>
+                </div>
+
+                <!--
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldingstatus.label"/></label>
-                    <html:text property="cfg_meldingstatus"/></label>
+                    <html:text property="cfg_meldingstatus" size="50" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldingstatus">(?)</a>
+                    <div id="help_cfg_meldingstatus" style="display: none;" title="<fmt:message key="cfg_meldingstatus.label"/>">
+                        <fmt:message key="cfg_meldingstatus.uitleg"/>
+                    </div>
                 </div>
+                -->
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldingemailmelder.label"/></label>
-                    <html:checkbox property="cfg_meldingemailmelder"/></label>
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_meldinglayoutemailmelder.label"/></label>
-                    <html:text property="cfg_meldinglayoutemailmelder"/></label>
+                    <html:checkbox property="cfg_meldingemailmelder"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldingemailmelder">(?)</a>
+                    <div id="help_cfg_meldingemailmelder" style="display: none;" title="<fmt:message key="cfg_meldingemailmelder.label"/>">
+                        <fmt:message key="cfg_meldingemailmelder.uitleg"/>
+                    </div>
                 </div>
 
-                <div class="configrow">
-                    <label><fmt:message key="cfg_meldingnaam.label"/></label>
-                    <html:text property="cfg_meldingnaam"/></label>
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_meldingemail.label"/></label>
-                    <html:text property="cfg_meldingemail"/></label>
-                </div>
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldingemailbehandelaar.label"/></label>
-                    <html:checkbox property="cfg_meldingemailbehandelaar"/></label>
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_meldinglayoutemailbehandelaar.label"/></label>
-                    <html:text property="cfg_meldinglayoutemailbehandelaar"/></label>
-                </div>                
-                <div class="configrow">
-                    <label><fmt:message key="cfg_meldingobjectsoort.label"/></label>
-                    <html:text property="cfg_meldingobjectsoort" value="Point"/></label>
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_meldingtekentoolicoon.label"/></label>
-                    <html:text property="cfg_meldingtekentoolicoon"/></label>
+                    <html:checkbox property="cfg_meldingemailbehandelaar"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldingemailbehandelaar">(?)</a>
+                    <div id="help_cfg_meldingemailbehandelaar" style="display: none;" title="<fmt:message key="cfg_meldingemailbehandelaar.label"/>">
+                        <fmt:message key="cfg_meldingemailbehandelaar.uitleg"/>
+                    </div>
                 </div>
 
+                <!--
+                <div class="configrow">
+                    <label><fmt:message key="cfg_meldinglayoutemailmelder.label"/></label>
+                    <html:text property="cfg_meldinglayoutemailmelder" size="50" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldinglayoutemailmelder">(?)</a>
+                    <div id="help_cfg_meldinglayoutemailmelder" style="display: none;" title="<fmt:message key="cfg_meldinglayoutemailmelder.label"/>">
+                        <fmt:message key="cfg_meldinglayoutemailmelder.uitleg"/>
+                    </div>
+                </div>
+                -->
+                
+                <div class="configrow">
+                    <label><fmt:message key="cfg_meldingnaam.label"/></label>
+                    <html:text property="cfg_meldingnaam" size="50"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldingnaam">(?)</a>
+                    <div id="help_cfg_meldingnaam" style="display: none;" title="<fmt:message key="cfg_meldingnaam.label"/>">
+                        <fmt:message key="cfg_meldingnaam.uitleg"/>
+                    </div>
+                </div>
+                    
+                <div class="configrow">
+                    <label><fmt:message key="cfg_meldingemail.label"/></label>
+                    <html:text property="cfg_meldingemail" size="50"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldingemail">(?)</a>
+                    <div id="help_cfg_meldingemail" style="display: none;" title="<fmt:message key="cfg_meldingemail.label"/>">
+                        <fmt:message key="cfg_meldingemail.uitleg"/>
+                    </div>
+                </div>
+                
+                <!--
+                <div class="configrow">
+                    <label><fmt:message key="cfg_meldinglayoutemailbehandelaar.label"/></label>
+                    <html:text property="cfg_meldinglayoutemailbehandelaar" size="50"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldinglayoutemailbehandelaar">(?)</a>
+                    <div id="help_cfg_meldinglayoutemailbehandelaar" style="display: none;" title="<fmt:message key="cfg_meldinglayoutemailbehandelaar.label"/>">
+                        <fmt:message key="cfg_meldinglayoutemailbehandelaar.uitleg"/>
+                    </div>
+                </div>
+                -->
+                
+                <!--
+                <div class="configrow">
+                    <label><fmt:message key="cfg_meldingtekentoolicoon.label"/></label>
+                    <html:text property="cfg_meldingtekentoolicoon" size="50"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldingtekentoolicoon">(?)</a>
+                    <div id="help_cfg_meldingtekentoolicoon" style="display: none;" title="<fmt:message key="cfg_meldingtekentoolicoon.label"/>">
+                        <fmt:message key="cfg_meldingtekentoolicoon.uitleg"/>
+                    </div>
+                </div>
+                -->
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_smtpHost.label"/></label>
+                    <html:text property="cfg_smtpHost" size="50"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_smtpHost">(?)</a>
+                    <div id="help_cfg_smtpHost" style="display: none;" title="<fmt:message key="cfg_smtpHost.label"/>">
+                        <fmt:message key="cfg_smtpHost.uitleg"/>
+                    </div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_fromMailAddress.label"/></label>
+                    <html:text property="cfg_fromMailAddress" size="50"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_fromMailAddress">(?)</a>
+                    <div id="help_cfg_fromMailAddress" style="display: none;" title="<fmt:message key="cfg_fromMailAddress.label"/>">
+                        <fmt:message key="cfg_fromMailAddress.uitleg"/>
+                    </div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_mailSubject.label"/></label>
+                    <html:text property="cfg_mailSubject" size="50"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_mailSubject">(?)</a>
+                    <div id="help_cfg_mailSubject" style="display: none;" title="<fmt:message key="cfg_mailSubject.label"/>">
+                        <fmt:message key="cfg_mailSubject.uitleg"/>
+                    </div>
+                </div>
+
+                <html:hidden property="cfg_meldingobjectsoort" value="Point"/>
             </div>
 
         </div>
