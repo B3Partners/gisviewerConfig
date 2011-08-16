@@ -942,6 +942,36 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </div>
                 </div>
                 <div class="configrow">
+                    <label><fmt:message key="cfg_bagmaxbouwjaar.label"/></label>
+                    <html:text property="cfg_bagmaxbouwjaar" size="10" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_bagmaxbouwjaar">(?)</a>
+                    <div id="help_cfg_bagmaxbouwjaar" style="display: none;" title="<fmt:message key="cfg_bagmaxbouwjaar.label"/>">
+                        <fmt:message key="cfg_bagmaxbouwjaar.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_bagminbouwjaar.label"/></label>
+                    <html:text property="cfg_bagminbouwjaar" size="10" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_bagminbouwjaar">(?)</a>
+                    <div id="help_cfg_bagminbouwjaar" style="display: none;" title="<fmt:message key="cfg_bagminbouwjaar.label"/>">
+                        <fmt:message key="cfg_bagminbouwjaar.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_bagmaxopp.label"/></label>
+                    <html:text property="cfg_bagmaxopp" size="10" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_bagmaxopp">(?)</a>
+                    <div id="help_cfg_bagmaxopp" style="display: none;" title="<fmt:message key="cfg_bagmaxopp.label"/>">
+                        <fmt:message key="cfg_bagmaxopp.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_bagminopp.label"/></label>
+                    <html:text property="cfg_bagminopp" size="10" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_bagminopp">(?)</a>
+                    <div id="help_cfg_bagminopp" style="display: none;" title="<fmt:message key="cfg_bagminopp.label"/>">
+                        <fmt:message key="cfg_bagminopp.uitleg"/>
+                    </div>
                 </div>
             </div>
         </div>
