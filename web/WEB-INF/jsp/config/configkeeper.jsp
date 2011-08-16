@@ -942,6 +942,38 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </div>
                 </div>
                 <div class="configrow">
+                    <label><fmt:message key="cfg_bagBouwjaarAttr.label"/></label>
+                    <html:text property="cfg_bagBouwjaarAttr" size="30" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_bagBouwjaarAttr">(?)</a>
+                    <div id="help_cfg_bagBouwjaarAttr" style="display: none;" title="<fmt:message key="cfg_bagBouwjaarAttr.label"/>">
+                        <fmt:message key="cfg_bagBouwjaarAttr.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_bagOppAttr.label"/></label>
+                    <html:text property="cfg_bagOppAttr" size="30" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_bagOppAttr">(?)</a>
+                    <div id="help_cfg_bagOppAttr" style="display: none;" title="<fmt:message key="cfg_bagOppAttr.label"/>">
+                        <fmt:message key="cfg_bagOppAttr.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_bagGebruiksfunctieAttr.label"/></label>
+                    <html:text property="cfg_bagGebruiksfunctieAttr" size="30" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_bagGebruiksfunctieAttr">(?)</a>
+                    <div id="help_cfg_bagGebruiksfunctieAttr" style="display: none;" title="<fmt:message key="cfg_bagGebruiksfunctieAttr.label"/>">
+                        <fmt:message key="cfg_bagGebruiksfunctieAttr.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_bagGeomAttr.label"/></label>
+                    <html:text property="cfg_bagGeomAttr" size="30" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_bagGeomAttr">(?)</a>
+                    <div id="help_cfg_bagGeomAttr" style="display: none;" title="<fmt:message key="cfg_bagGeomAttr.label"/>">
+                        <fmt:message key="cfg_bagGeomAttr.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
                     <label><fmt:message key="cfg_bagmaxbouwjaar.label"/></label>
                     <html:text property="cfg_bagmaxbouwjaar" size="10" />
                     <a class="helpLink" href="#" id="helpLink_help_cfg_bagmaxbouwjaar">(?)</a>
