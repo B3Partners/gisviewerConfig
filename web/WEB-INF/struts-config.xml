@@ -173,6 +173,9 @@
             <!-- Redlining config items -->
             <form-property name="cfg_redliningkaartlaagid" type="java.lang.Integer"/>
             <form-property name="cfg_redlininggegevensbron" type="java.lang.Integer"/>
+            
+            <!-- Redlining config items -->
+            <form-property name="cfg_bagkaartlaagid" type="java.lang.Integer"/>
 
             <!-- Viewer tools aan/uit -->
             <form-property name="cfg_showRedliningTools" type="java.lang.Boolean"/>

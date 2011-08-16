@@ -91,6 +91,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <div class="tablabel sublabel" id="label_redlining">
             Redlining
         </div>
+        <div class="tablabel sublabel" id="label_bag">
+            BAG
+        </div>
     </div>
     <div class="tabcontents">
         <div class="tabcontent content_selecteerkaartlagen">
@@ -922,6 +925,25 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </div>
             </div>
             <div class="configadvanced"></div>
+        </div>                    
+        <div class="tabcontent content_bag">
+            <div class="configbasic">
+                <div class="configrow">
+                    <label><fmt:message key="cfg_bagkaartlaagid.label"/></label>
+                    <html:select property="cfg_bagkaartlaagid">
+                        <html:option value="0">-Kies een gegevensbron-</html:option>
+                        <c:forEach items="${redliningKaartlagen}" var="item">
+                            <html:option value="${item.id}">${item.naam}</html:option>
+                        </c:forEach>
+                    </html:select>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_bagkaartlaagid">(?)</a>
+                    <div id="help_cfg_bagkaartlaagid" style="display: none;" title="<fmt:message key="cfg_bagkaartlaagid.label"/>">
+                        <fmt:message key="cfg_bagkaartlaagid.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                </div>
+            </div>
         </div>
     </div>
     <div class="clearBoth"></div>
