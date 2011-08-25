@@ -132,7 +132,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 			this.benchmark = benchmark;
 
 			function log(s) {
-				if (console !== undefined && console.debug !== undefined) {
+				if (console !== undefined && (console.debug !== undefined || console.log !== undefined)) {
 					console.log(s);
 				} else {
 					alert(s);
@@ -959,8 +959,11 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 
         // Push all rows which matched the search string onto the table for display.
         var resultRowsCount = resultRows.length;
+        var tbody = $(table.tBodies[0])[0];
         for (var i=0; i < resultRowsCount; i++) {
-          $(table.tBodies[0]).append(resultRows[i]);
+          // Instead of using jQuery to append, use appendChild (much faster in IE)
+          //$(table.tBodies[0]).append(resultRows[i]);
+          tbody.appendChild(resultRows[i][0]);
         }
 
         // Update the table by executing some of tablesorter's triggers
@@ -991,8 +994,11 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 
         $.tablesorter.clearTableBody(table);
 
+        var tbody = $(table.tBodies[0])[0];
         for (var i=0; i < allRows.length; i++) {
-          $(table.tBodies[0]).append(allRows[i]);
+          // Instead of using jQuery to append, use appendChild (much faster in IE)
+          //$(table.tBodies[0]).append(allRows[i]);
+          tbody.appendChild(allRows[i][0]);
         }
 
         $(table).trigger("update");
@@ -1614,6 +1620,9 @@ function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
 
     // init filter
     $table.tablesorterFilter(filters);
+
+    //if(filtertrigger != "") $table.trigger("doFilter");
+
     if(hasCookie && cookieoptions.sorting) $table.trigger("sorton",[[cookieoptions.sorting]]);
 
     // init pager
@@ -1626,7 +1635,7 @@ function tablepagerfunc(tableid, tablewidth, cellheight, displayselect) {
     });
 
     setTimeout(function() {
-        moveToSelectedPage(); 
+        moveToSelectedPage();
         if(filtertrigger != "") $table.trigger("doFilter");
         jQuery("#tableoverlay").remove();
     }, 1000);
