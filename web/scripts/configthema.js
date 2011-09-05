@@ -71,7 +71,7 @@ function refreshTheLists(){
 
 function fillWmsLayerStyles(layerStyles) {
     dwr.util.removeAllOptions("style_select");
-    dwr.util.addOptions("style_select", ["-Kies een style-"]);
+    dwr.util.addOptions("style_select", [""]);
     dwr.util.addOptions("style_select", layerStyles);
 
     // Als een thema al een style heeft dan deze selecteren.
