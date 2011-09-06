@@ -41,6 +41,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <li><html:link page="/configCMS.do" module="" styleClass="${stijlklasse}"><fmt:message key="commons.configmenu.cms"/></html:link></li>
 
         <c:set var="stijlklasse" value="menulink" />
+        <c:if test="${requestJSP eq 'configThema.do'}">
+            <c:set var="stijlklasse" value="activemenulink" />
+        </c:if>
+        <li><html:link page="/configThema.do" module="" styleClass="${stijlklasse}"><fmt:message key="commons.topmenu.kaartbib"/></html:link></li>
+
+        <c:set var="stijlklasse" value="menulink" />
         <c:if test="${requestJSP eq 'help.do'}">
             <c:set var="stijlklasse" value="activemenulink" />
         </c:if>
