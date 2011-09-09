@@ -109,6 +109,7 @@
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
         </form-bean>
+
         <form-bean name="configKeeperForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
@@ -214,11 +215,13 @@
             <form-property name="cfg_fromMailAddress" type="java.lang.String"/>
             <form-property name="cfg_mailSubject" type="java.lang.String"/>
         </form-bean>
+
         <form-bean name="configRolPrioForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
             <form-property name="nieuwe_rol" type="java.lang.String"/>
         </form-bean>
+
         <form-bean name="kaartgroepForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
@@ -237,6 +240,7 @@
             <form-property name="default_visible" type="java.lang.Boolean"/>
             <form-property name="exclusive_childs" type="java.lang.Boolean"/>
         </form-bean>
+
         <form-bean name="gegevensbronForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
@@ -262,6 +266,18 @@
             <form-property name="pagina" type="java.lang.String"/>
             <form-property name="volgordeNr" type="java.lang.Integer"/>
         </form-bean>
+
+        <form-bean name="applicatieForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="applicatieID" type="java.lang.Integer"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="code" type="java.lang.String"/>
+            <form-property name="gebruikersCode" type="java.lang.String"/>
+            <form-property name="parent" type="java.lang.Integer"/>
+            <form-property name="datum_gebruikt" type="java.lang.String"/>
+        </form-bean>
+        
     </form-beans>
     <global-exceptions>
     </global-exceptions>
@@ -345,6 +361,11 @@
         <action path="/configCMS" type="nl.b3p.gis.viewer.ConfigCMSAction" name="cmsForm" scope="request" validate="false">
             <forward name="success" path="configcms"/>
             <forward name="failure" path="configcms"/>
+        </action>
+
+        <action path="/configApplicatie" type="nl.b3p.gis.viewer.ConfigApplicatieAction" name="applicatieForm" scope="request" validate="false">
+            <forward name="success" path="configApplicatie"/>
+            <forward name="failure" path="configApplicatie"/>
         </action>
     </action-mappings>
     

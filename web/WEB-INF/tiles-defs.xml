@@ -104,6 +104,12 @@
         <put name="menu" value="/WEB-INF/jsp/commons/viewermenu.jsp"/>
     </definition>
 
+    <definition name="configApplicatie" extends="config">
+        <put name="title" value="Applicatie - overzicht" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/config/configapplicatie.jsp"/>
+        <put name="menu" value="/WEB-INF/jsp/commons/viewermenu.jsp"/>
+    </definition>
+
     <!-- pop up-->
     <definition name="configzoekconfiguratieveld" extends="templatePopup">
         <put name="title" value="Configureer de zoekervelden" type="string"/>
