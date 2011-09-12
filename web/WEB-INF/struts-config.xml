@@ -272,10 +272,8 @@
             <form-property name="alt_action" type="java.lang.String"/>
             <form-property name="applicatieID" type="java.lang.Integer"/>
             <form-property name="naam" type="java.lang.String"/>
-            <form-property name="code" type="java.lang.String"/>
             <form-property name="gebruikersCode" type="java.lang.String"/>
             <form-property name="parent" type="java.lang.Integer"/>
-            <form-property name="datum_gebruikt" type="java.lang.String"/>
         </form-bean>
         
     </form-beans>

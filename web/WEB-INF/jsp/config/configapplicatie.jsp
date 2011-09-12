@@ -35,9 +35,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <table id="applicatieTable" class="tablesorter" style="width: 100%;">
             <thead>
                 <tr>
-                    <th style="width: 40%;">Naam</th>
-                    <th style="width: 25%;">Code</th>
-                    <th style="width: 20%;">Datum gebruikt</th>
+                    <th style="width: 20%;">Naam</th>
+                    <th style="width: 25%;">Applicatiecode</th>
+                    <th style="width: 25%;">Gebruikerscode</th>
+                    <th style="width: 15%;">Datum gebruikt</th>
+                    <th style="width: 15%;">Acties</th>
                 </tr>
             </thead>
 
@@ -46,10 +48,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <c:set var="id_selected" value="" />
                     <c:if test="${item.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
                     <c:url var="link" value="/configApplicatie.do?edit=submit&applicatieID=${item.id}"/>
+                    <c:url var="link_settings" value="/configKeeper.do?appCode=${item.code}" />
                     <tr>
                         <td><c:out value="${item.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                         <td>${item.code}</td>
+                        <td>${item.gebruikersCode}</td>
                         <td>${item.datum_gebruikt}</td>
+                        <td><a href="${link_settings}"><img src="images/settings.png" border="0" alt="Ga naar applicatieinstellingen" title="Ga naar applicatieinstellingen" height="20"/></a></td>
                     </tr>
                 </c:forEach>
             </tbody>
@@ -62,59 +67,73 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <html:hidden property="action"/>
         <html:hidden property="alt_action"/>
         <html:hidden property="applicatieID"/>
-        <input type="hidden" name="refreshLists">
     </div>
 
-    <div style="margin-left: 5px; clear: both; margin-top: 10px;">
-        <div class="berichtenbalk" style="margin-top: 5px;">
-            <tiles:insert definition="actionMessages"/>
+    <div class="berichtenbalk" style="margin-top: 5px;">
+        <tiles:insert definition="actionMessages"/>
+    </div>
+
+    <div class="ie7clear"></div>
+    <div style="float: right; clear: both; width: 940px; margin-right: 20px; margin-bottom: 5px;">
+        <div style="float: left; margin-left: 10px;">
+            <input type="checkbox" id="advancedToggle" /> Toon geavanceerde opties
         </div>
-
-        <h2>Applicatie</h2>
-        
-        <table>
-            <tr>
-                <td>Naam</td>
-                <td><html:text property="naam" size="20"/></td>
-            </tr>
-            <tr>
-                <td>Code</td>
-                <td><html:text property="code" size="20"/></td>
-            </tr>
-            <tr>
-                <td>Gebruikers code</td>
-                <td><html:text property="gebruikersCode" size="20"/></td>
-            </tr>
-            <tr>
-                <td>Parent</td>
-                <td><html:text property="parent" size="20"/></td>
-            </tr>
-            <tr>
-                <td>Datum gebruikt</td>
-                <td><html:text property="datum_gebruikt" size="20"/></td>
-            </tr>
-        </table>
-
-        <div class="knoppenbalk">
+        <div style="float: right;">
             <c:if test="${empty form.map.applicatieID}">
                 <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u deze applicatie wilt opslaan?');">
-                    Opslaan
+                    <fmt:message key='button.save'/>
                 </html:submit>
             </c:if>
             <c:if test="${!empty form.map.applicatieID}">
                 <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u deze applicatie wilt opslaan?');">
-                    Opslaan
+                    <fmt:message key='button.save'/>
                 </html:submit>
 
                 <input type="button" class="knop" onclick="window.location='<html:rewrite page='/configApplicatie.do' />'" value="<fmt:message key='button.cancel'/>" />
-                
+
                 <html:submit property="delete" accesskey="d" styleClass="knop removeButton" onclick="return confirm('Weet u zeker dat u deze applicatie wilt verwijderen?');">
                     <fmt:message key="button.remove"/>
                 </html:submit>
             </c:if>
         </div>
-
     </div>
+
+    <div class="ie7clear"></div>
+    <div class="tabcontents fullwidthtab">
+        <div class="tabcontent defaulttab">
+            <div class="configbasic">
+                <div class="configrow">
+                    <label><fmt:message key="configapplicatie.naam.label"/></label>
+                    <html:text property="naam" size="60"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configapplicatie_naam">(?)</a>
+                    <div id="help_configapplicatie_naam" style="display: none;" title="<fmt:message key="configapplicatie.naam.label"/>">
+                        <fmt:message key="configapplicatie.naam.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="configapplicatie.gebruikerscode.label"/></label>
+                    <html:text property="gebruikersCode" size="60"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configapplicatie_gebcode">(?)</a>
+                    <div id="help_configapplicatie_gebcode" style="display: none;" title="<fmt:message key="configapplicatie.gebruikerscode.label"/>">
+                        <fmt:message key="configapplicatie.gebruikerscode.uitleg"/>
+                    </div>
+                </div>
+            </div>
+            <div class="configadvanced">
+                <%--
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configapplicatie.parent.label"/></label>
+                    <html:text property="parent" size="20"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configapplicatie_parent">(?)</a>
+                    <div id="help_configapplicatie_parent" style="display: none;" title="<fmt:message key="configapplicatie.parent.label"/>">
+                        <fmt:message key="configapplicatie.parent.uitleg"/>
+                    </div>
+                </div>
+                --%>
+            </div>
+    </div>
+</div>
+
 </html:form>
 
 <script type="text/javascript">
