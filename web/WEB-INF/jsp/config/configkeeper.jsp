@@ -19,6 +19,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
 <%@ page isELIgnored="false"%>
 
+<script type="text/javascript" src="<html:rewrite page='/scripts/kaartselectie.js'/>"></script>
+<script type="text/javascript" src="<html:rewrite page="/scripts/simple_treeview.js"/>"></script>
+
 <div class="infobalk">
     <div class="infobalk_description"><fmt:message key="configkeeper.infobalk"/></div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
@@ -29,13 +32,14 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </div>
 
 <span class="rolnaamHeader">
-    Viewer instellingen voor  <b>${header_Rolnaam}</b>
+    Viewer instellingen voor  <b>${header_appcode}</b>
 </span>
 
 <html:form action="/configKeeper">
     <html:hidden property="action" />
     <html:hidden property="alt_action" />
     <html:hidden property="rolnaam" />
+    <html:hidden property="appcode" />
 
     <html:hidden property="cfg_multipleActiveThemas" />
     <html:hidden property="cfg_autoRedirect" />
@@ -50,17 +54,18 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 Opslaan
             </html:submit>
             &nbsp;
-            <html:submit property="resetRolInstellingen" styleClass="knop refreshButton" accesskey="r" onclick="return confirm('Weet u zeker dat u de rolinstellingen wilt herstellen naar de standaard waarden?');">
-                Herstel naar standaard rolinstellingen
+            <html:submit property="resetInstellingen" styleClass="knop refreshButton" accesskey="r" onclick="return confirm('Weet u zeker dat u de instellingen wilt herstellen naar de standaard waarden?');">
+                Herstel naar standaard instellingen
             </html:submit>
         </div>
     </div>
     <div class="ie7clear"></div>
 
     <div class="tablabels">
-        <div class="tablabel" id="label_selecteerkaartlagen">
-            Opstart kaarten
+        <div class="tablabel" id="label_kaartselectie">
+            Basisboom
         </div>
+
         <div class="tablabel" id="label_kaartlagen">
             Algemeen
         </div>
@@ -95,32 +100,41 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             BAG
         </div>
     </div>
+
     <div class="tabcontents">
-        <div class="tabcontent content_selecteerkaartlagen">
-            <div class="tabfilterrow">
-                <div class="tabfilterrowleft">
-                    Filter &nbsp;&nbsp;<input type="text" id="inputfilter" size="35" />
-                </div>
-                <div class="tabfilterrowright"><a href="#" id="showAllLayers">Toon alle lagen</a></div>
-                <div style="clear: both;"></div>
+        
+        <div class="tabcontent content_kaartselectie">
+
+            <div class="kaartselectieKoppen">
+                <h3>Vaste kaartlagen</h3>
+                <h4>Laag tonen</h4>
+                <h4 class="col2">Laag aan bij opstarten</h4>
             </div>
-            <div class="configbasic">
-                <div id="kaartlagenmessage">
-                    Voer het filterveld in om lagen te zoeken of klik op "Toon alle lagen" om alle lagen te tonen
-                </div>
-                <div id="kaartlagenlist" style="display: none;">
-                    <c:forEach var="cuItem" items="${listLayers}" varStatus="counter">
-                        <c:if test="${!empty cuItem.name}">
-                            <div class="kaartlaag_select"><html:multibox property="cfg_opstartkaarten" value="${cuItem.name}" onclick="layerClick(this)" styleId="layercheckbox${counter.count}" /><label>${cuItem.name}</label></div>
-                        </c:if>
-                    </c:forEach>
-                </div>
-				<div id="selectedkaartlagenlist" style="float: left; width: 745px; clear: left; margin-top: 10px; padding-top: 10px; border-top: 1px solid Black;">
-					<div style="float: left; clear: both; width: 100%; margin-bottom: 5px;">Geselecteerde lagen:</div>
-				</div>
-            </div>
-            <div class="configadvanced"></div>
+            <div style="clear: both;"></div>
+
+            <div class="kaartselectie" id="mainTreeDiv"></div>
+
+            <script type="text/javascript">
+                treeview_create({
+                    "id": "mainTreeDiv",
+                    "root": ${tree},
+                    "rootChildrenAsRoots": true,
+                    "itemLabelCreatorFunction": createLeaf,
+                    "toggleImages": {
+                        "collapsed": "<html:rewrite page="/images/treeview/plus.gif"/>",
+                        "expanded": "<html:rewrite page="/images/treeview/minus.gif"/>",
+                        "leaf": "<html:rewrite page="/images/treeview/leaft.gif"/>"
+                    },
+                    "saveExpandedState": true,
+                    "saveScrollState": true,
+                    "expandAll": true,
+                    "childrenPadding": '20px',
+                    "zebraEffect": true
+                });
+            </script>
+            
         </div>
+
         <div class="tabcontent content_kaartlagen">
 
             <div class="configbasic">
@@ -621,7 +635,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                 <div class="configrow">
                     <label><fmt:message key="cfg_vergunningstraal.label"/> <fmt:message key="cfg_straal.label"/></label>
-                    <html:text property="cfg_vergunningstraal"/></label>
+                    <html:text property="cfg_vergunningstraal"/>
                 </div>
             </div>
             <div class="configadvanced"></div>
@@ -664,7 +678,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </div>
                 <div class="configrow">
                     <label><fmt:message key="cfg_voorzieningstraal.label"/> <fmt:message key="cfg_straal.label"/></label>
-                    <html:text property="cfg_voorzieningstraal"/></label>
+                    <html:text property="cfg_voorzieningstraal"/>
                 </div>
 
                 <div class="configrow">
@@ -1010,5 +1024,48 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
     <div class="clearBoth"></div>
 </html:form>
+
+<script type="text/javascript">
+function treeZebra() {
+    var treecounter = 0;
+    var zebracounter = 0;
+    $j(".kaartselectie").each(function() {
+        if(treecounter <= 1) zebracounter = 0;
+        $j(".treeview_row", this).each(function() {
+            // check if visible
+            if($j(this).parent().parent().parent().parent().is(":visible")) {
+                $j(this).removeClass("treeview_odd_row");
+                if(zebracounter%2==0) {
+                    $j(this).addClass("treeview_odd_row");
+                }
+                zebracounter++;
+            }
+        });
+        treecounter++;
+    });
+}
+
+$j(function() {
+    $j("#kaartselectieAddServiceLink").click(function() {
+        $j("#kaartselectieAddService").show();
+        $j(this).hide();
+        return false;
+    });
+    $j('.kaartselectieBody').click(function() {
+        closeSldContainers();
+    });
+    $j('.helpbutton').hover(function() {
+        $j(this).parent().parent().find('.help').show();
+    }, function() {
+        $j(this).parent().parent().find('.help').hide();
+    });
+    $j('.help').hover(function() {
+        $j(this).show();
+    }, function() {
+        $j(this).hide();
+    });
+    treeZebra();
+});
+</script>
 
 <script type="text/javascript" src="<html:rewrite page="/scripts/configkeeper.js"/>"></script>

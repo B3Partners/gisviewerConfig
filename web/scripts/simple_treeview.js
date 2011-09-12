@@ -1,21 +1,25 @@
 /*
-Copyright 2007-2011 B3Partners BV.
-
-This program is distributed under the terms
-of the GNU General Public License.
-
-You should have received a copy of the GNU General Public License
-along with this software. If not, see http://www.gnu.org/licenses/gpl.html
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-*/
+ * B3P Gisviewer is an extension to Flamingo MapComponents making
+ * it a complete webbased GIS viewer and configuration tool that
+ * works in cooperation with B3P Kaartenbalie.
+ *
+ * Copyright 2006, 2007, 2008 B3Partners BV
+ * 
+ * This file is part of B3P Gisviewer.
+ * 
+ * B3P Gisviewer is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * B3P Gisviewer is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with B3P Gisviewer.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 var globalTreeOptions = {};
 
@@ -53,6 +57,10 @@ function treeview_create(options) {
 	if(!options.childrenPadding) {
 		options.childrenPadding = "10px";
 	}
+        
+        if(!options.zebraEffect) {
+                options.zebraEffect = false;
+        }
 
 	if(!options.rootChildrenAsRoots) {
 		if(haveInnerHTML && options.itemHtmlLabelCreatorFunction) {
@@ -105,10 +113,12 @@ function treeview_expandItemParents(treeId, treeItemId) {
 }
 
 function treeview_expandItemChildren(treeId, treeItemId) {
-	var options = globalTreeOptions[treeId];
-	var DOMItemId = treeview_getDOMItemId(options, treeItemId);
-	var itemNode = document.getElementById(DOMItemId);
-	treeview_expandItemNodeChildren(itemNode);
+	treeview_changeItemChildren(treeId,treeItemId,true);
+}
+
+function treeview_collapseItemChildren(treeId, treeItemId) {
+	treeview_changeItemChildren(treeId,treeItemId,false);
+	
 }
 
 function treeview_findItem(root, itemId) {
@@ -130,10 +140,29 @@ function treeview_findItem(root, itemId) {
 
 /*** private functies ***/
 
+function treeview_changeItemChildren(treeId, treeItemId,expand){
+    var options = globalTreeOptions[treeId];
+    var DOMItemId = treeview_getDOMItemId(options, treeItemId);
+    var itemNode = document.getElementById(DOMItemId);
+    if (expand){
+	treeview_expandItemNodeChildren(itemNode);    
+    }else{
+        treeview_collapseItemNodeChildren(itemNode);
+    }
+}
+
 function treeview_expandItemNodeChildren(itemNode) {
 	var childrenNode = document.getElementById(itemNode.id + "_children");
 	if(childrenNode != undefined) {
 		if(childrenNode.style.display == "none") {
+			treeview_toggleItemChildren(itemNode.id);
+		}
+	}
+}
+function treeview_collapseItemNodeChildren(itemNode) {
+	var childrenNode = document.getElementById(itemNode.id + "_children");
+	if(childrenNode != undefined) {
+		if(childrenNode.style.display != "none") {
 			treeview_toggleItemChildren(itemNode.id);
 		}
 	}
@@ -170,13 +199,15 @@ function treeview_toggleClick(e) {
 
 	treeview_toggleItemChildren(DOMItemId);
 
+        if(typeof treeZebra == 'function') treeZebra();
+
 	return false;
 }
 
 function treeview_toggleItemChildren(DOMItemId) {
 	var children = document.getElementById(DOMItemId + "_children");
 	var toggle = document.getElementById(DOMItemId + "_toggle");
-	if(children != undefined) {
+	if(children != undefined && toggle!= undefined) {
 		var options = treeview_getOptions(DOMItemId);
 
 		/* nieuwe state, omgekeerd van huidige state */
@@ -350,6 +381,7 @@ function treeview_createContentNode(options, id, item) {
 
 	var td0 = document.createElement("td");
 	td0.style.verticalAlign = "middle";
+        if(options.zebraEffect) td0.style.width = '12px';
 	td0.appendChild(labelContainer.togglea);
 
 	var td1 = document.createElement("td");
@@ -358,6 +390,7 @@ function treeview_createContentNode(options, id, item) {
 	td1.appendChild(labelContainer);
 
 	var tr = document.createElement("tr");
+        if(options.zebraEffect) tr.className = 'treeview_row';
 	tr.appendChild(td0);
 	tr.appendChild(td1);
 	var tbody = document.createElement("tbody");
@@ -366,6 +399,7 @@ function treeview_createContentNode(options, id, item) {
 	table.border = 0;
 	table.cellSpacing = 0;
 	table.style.padding = 0;
+        if(options.zebraEffect) table.style.width = '100%';
 	table.appendChild(tbody);
 
 	return table;

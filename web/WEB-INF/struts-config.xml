@@ -113,6 +113,23 @@
         <form-bean name="configKeeperForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="appcode" type="java.lang.String"/>
+
+            <!-- kaartselectie props voor basisboom config -->
+            <form-property name="kaartgroepenAan" type="java.lang.String[]"/>
+            <form-property name="kaartlagenAan" type="java.lang.String[]"/>
+            <form-property name="kaartgroepenDefaultAan" type="java.lang.String[]"/>
+            <form-property name="kaartlagenDefaultAan" type="java.lang.String[]"/>
+            <form-property name="layersAan" type="java.lang.String[]"/>
+            <form-property name="layersDefaultAan" type="java.lang.String[]"/>
+            <form-property name="servicesAan" type="java.lang.String[]"/>
+            <form-property name="useLayerStyles" type="java.lang.String[]"/>
+            <form-property name="userLayerIds" type="java.lang.String[]"/>
+            <form-property name="useLayerSldParts" type="java.lang.String[]"/>
+            <form-property name="groupName" type="java.lang.String"/>
+            <form-property name="serviceUrl" type="java.lang.String"/>
+            <form-property name="sldUrl" type="java.lang.String"/>
+
             <form-property name="cfg_useCookies" type="java.lang.Boolean"/>
             <form-property name="cfg_objectInfoType" type="java.lang.String"/>
             <form-property name="cfg_autoRedirect" type="java.lang.Integer"/>

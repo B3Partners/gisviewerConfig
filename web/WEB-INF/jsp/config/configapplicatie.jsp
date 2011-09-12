@@ -37,8 +37,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <tr>
                     <th style="width: 20%;">Naam</th>
                     <th style="width: 25%;">Applicatiecode</th>
-                    <th style="width: 25%;">Gebruikerscode</th>
-                    <th style="width: 15%;">Datum gebruikt</th>
+                    <th style="width: 20%;">Gebruikerscode</th>
+                    <th style="width: 20%;">Datum gebruikt</th>
                     <th style="width: 15%;">Acties</th>
                 </tr>
             </thead>
@@ -48,7 +48,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <c:set var="id_selected" value="" />
                     <c:if test="${item.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
                     <c:url var="link" value="/configApplicatie.do?edit=submit&applicatieID=${item.id}"/>
-                    <c:url var="link_settings" value="/configKeeper.do?appCode=${item.code}" />
+                    <c:url var="link_settings" value="/configKeeper.do?appcode=${item.code}" />
                     <tr>
                         <td><c:out value="${item.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                         <td>${item.code}</td>
@@ -116,6 +116,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <a class="helpLink" href="#" id="helpLink_help_configapplicatie_gebcode">(?)</a>
                     <div id="help_configapplicatie_gebcode" style="display: none;" title="<fmt:message key="configapplicatie.gebruikerscode.label"/>">
                         <fmt:message key="configapplicatie.gebruikerscode.uitleg"/>
+                    </div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="configapplicatie.appcode.label"/></label>
+                    
+                    ${appcode}
+                    
+                    <a class="helpLink" href="#" id="helpLink_help_configapplicatie_appcode">(?)</a>
+                    <div id="help_configapplicatie_appcode" style="display: none;" title="<fmt:message key="configapplicatie.appcode.label"/>">
+                        <fmt:message key="configapplicatie.appcode.uitleg"/>
                     </div>
                 </div>
             </div>
