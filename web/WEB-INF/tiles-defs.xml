@@ -93,14 +93,8 @@
     <definition name="loginblock" path="/WEB-INF/jsp/commons/userAndLogout.jsp"/>
 
     <definition name="configKeeper" extends="config">
-        <put name="title" value="Viewer ontwerp - Instellingen" type="string"/>
+        <put name="title" value="Applicatieinstellingen" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configkeeper.jsp"/>
-        <put name="menu" value="/WEB-INF/jsp/commons/viewermenu.jsp"/>
-    </definition>
-
-    <definition name="configRolPrio" extends="config">
-        <put name="title" value="Viewer ontwerp - Selecteer view" type="string"/>
-        <put name="content" value="/WEB-INF/jsp/config/configrolprio.jsp"/>
         <put name="menu" value="/WEB-INF/jsp/commons/viewermenu.jsp"/>
     </definition>
 

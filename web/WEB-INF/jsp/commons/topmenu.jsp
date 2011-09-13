@@ -28,7 +28,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <html:link page="/configThema.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.kaartbib"/></html:link>
         
         <c:set var="stijlklasse" value="menulink" />
-        <html:link page="/configRolPrio.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.ontwerp"/></html:link>
+        <html:link page="/configApplicatie.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.ontwerp"/></html:link>
         
         <c:set var="stijlklasse" value="menulink" />
         <html:link page="/reset.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.reset"/></html:link>

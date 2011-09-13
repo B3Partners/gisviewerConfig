@@ -32,7 +32,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </div>
 
 <span class="rolnaamHeader">
-    Viewer instellingen voor  <b>${header_appcode}</b>
+    Applicatiecode is <b>${header_appcode}</b>
 </span>
 
 <html:form action="/configKeeper">
@@ -133,40 +133,42 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 });
             </script>
 
-            <div class="kaartselectieKoppen">
-                <h3>Eigen kaartlagen</h3>
-                <h4>Laag tonen</h4>
-                <h4 class="col2">Laag aan bij opstarten</h4>
-                <h4 class="col3">Style</h4>
-            </div>
-            <div style="clear: both;"></div>
+            <c:if test="${!empty servicesTrees}">
+                <div class="kaartselectieKoppen">
+                    <h3>Eigen kaartlagen</h3>
+                    <h4>Laag tonen</h4>
+                    <h4 class="col2">Laag aan bij opstarten</h4>
+                    <h4 class="col3">Style</h4>
+                </div>
+                <div style="clear: both;"></div>
 
-            <c:forEach var="serviceTree" items="${servicesTrees}" varStatus="status">
-                <div id="layerTreeDiv${status.count}" class="kaartselectie"></div>
+                <c:forEach var="serviceTree" items="${servicesTrees}" varStatus="status">
+                    <div id="layerTreeDiv${status.count}" class="kaartselectie"></div>
 
-                <script type="text/javascript">
-                treeview_create({
-                    "id": 'layerTreeDiv${status.count}',
-                    "root": ${serviceTree},
-                    "rootChildrenAsRoots": false,
-                    "itemLabelCreatorFunction": createServiceLeaf,
-                    "toggleImages": {
-                        "collapsed": "<html:rewrite page="/images/treeview/plus.gif"/>",
-                        "expanded": "<html:rewrite page="/images/treeview/minus.gif"/>",
-                        "leaf": "<html:rewrite page="/images/treeview/leaft.gif"/>"
-                    },
-                    "saveExpandedState": true,
-                    "saveScrollState": true,
-                    "expandAll": true,
-                    "childrenPadding": '20px',
-                    "zebraEffect": true
-                });
-                </script>
-            </c:forEach>
+                    <script type="text/javascript">
+                    treeview_create({
+                        "id": 'layerTreeDiv${status.count}',
+                        "root": ${serviceTree},
+                        "rootChildrenAsRoots": false,
+                        "itemLabelCreatorFunction": createServiceLeaf,
+                        "toggleImages": {
+                            "collapsed": "<html:rewrite page="/images/treeview/plus.gif"/>",
+                            "expanded": "<html:rewrite page="/images/treeview/minus.gif"/>",
+                            "leaf": "<html:rewrite page="/images/treeview/leaft.gif"/>"
+                        },
+                        "saveExpandedState": true,
+                        "saveScrollState": true,
+                        "expandAll": true,
+                        "childrenPadding": '20px',
+                        "zebraEffect": true
+                    });
+                    </script>
+                </c:forEach>
 
-            <div class="kaartselectieBody">
-                <html:submit property="deleteWMSServices" styleClass="submitbutton deletebutton">Services wissen</html:submit>
-            </div>
+                <div class="kaartselectieBody">
+                    <html:submit property="deleteWMSServices" styleClass="submitbutton deletebutton">Services wissen</html:submit>
+                </div>
+            </c:if>
 
             <a href="#" id="kaartselectieAddServiceLink">Nieuwe WMS Service toevoegen</a>
             <div style="clear: both;"></div>
