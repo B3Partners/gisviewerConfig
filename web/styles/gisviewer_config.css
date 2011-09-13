@@ -583,7 +583,7 @@ a#showAllLayers {
 
 .kaartlaagselectieContainer {
     position: absolute;
-    left: 600px;
+    left: 910px;
     margin-top: -14px;
 }
 
@@ -739,6 +739,7 @@ a#showAllLayers {
 .kaartselectieBody .rightButton, #kaartselectieAddService .rightButton {
     float: right;
     margin-right: 10px;
+    margin-top: -30px;
 }
 
 #kaartselectieAddService .rightButton {

@@ -132,7 +132,61 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     "zebraEffect": true
                 });
             </script>
-            
+
+            <div class="kaartselectieKoppen">
+                <h3>Eigen kaartlagen</h3>
+                <h4>Laag tonen</h4>
+                <h4 class="col2">Laag aan bij opstarten</h4>
+                <h4 class="col3">Style</h4>
+            </div>
+            <div style="clear: both;"></div>
+
+            <c:forEach var="serviceTree" items="${servicesTrees}" varStatus="status">
+                <div id="layerTreeDiv${status.count}" class="kaartselectie"></div>
+
+                <script type="text/javascript">
+                treeview_create({
+                    "id": 'layerTreeDiv${status.count}',
+                    "root": ${serviceTree},
+                    "rootChildrenAsRoots": false,
+                    "itemLabelCreatorFunction": createServiceLeaf,
+                    "toggleImages": {
+                        "collapsed": "<html:rewrite page="/images/treeview/plus.gif"/>",
+                        "expanded": "<html:rewrite page="/images/treeview/minus.gif"/>",
+                        "leaf": "<html:rewrite page="/images/treeview/leaft.gif"/>"
+                    },
+                    "saveExpandedState": true,
+                    "saveScrollState": true,
+                    "expandAll": true,
+                    "childrenPadding": '20px',
+                    "zebraEffect": true
+                });
+                </script>
+            </c:forEach>
+
+            <div class="kaartselectieBody">
+                <html:submit property="deleteWMSServices" styleClass="submitbutton deletebutton">Services wissen</html:submit>
+            </div>
+
+            <a href="#" id="kaartselectieAddServiceLink">Nieuwe WMS Service toevoegen</a>
+            <div style="clear: both;"></div>
+            <div id="kaartselectieAddService">
+                <h4>Nieuwe WMS Service toevoegen</h4>
+                <label for="groupName">Groep</label>
+                <html:text property="groupName" size="20" />
+                <label for="serviceUrl">Url</label>
+                <html:text property="serviceUrl" size="40" />
+
+                <%--
+                <label for="sldUrl">Sld url</label>
+                <html:text property="sldUrl" size="40" />
+                --%>
+
+                <div class="kaartselectieBody">
+                    <html:submit property="saveWMSService" styleClass="rightButton submitbutton">Service toevoegen</html:submit>
+                </div>
+            </div>
+
         </div>
 
         <div class="tabcontent content_kaartlagen">
