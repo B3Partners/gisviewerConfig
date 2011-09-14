@@ -49,12 +49,16 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <c:if test="${item.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
                     <c:url var="link" value="/configApplicatie.do?edit=submit&applicatieID=${item.id}"/>
                     <c:url var="link_settings" value="/configKeeper.do?appcode=${item.code}" />
+                    <c:url var="link_copy" value="/configApplicatie.do?copy=t&applicatieID=${item.id}"/>
                     <tr>
                         <td><c:out value="${item.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                         <td>${item.code}</td>
                         <td>${item.gebruikersCode}</td>
                         <td>${item.datum_gebruikt}</td>
-                        <td><a href="${link_settings}"><img src="images/settings.png" border="0" alt="Ga naar applicatieinstellingen" title="Ga naar applicatieinstellingen" height="20"/></a></td>
+                        <td>
+                            <a href="${link_settings}"><img src="images/settings.png" border="0" alt="Bekijk applicatieinstellingen" title="Bekijk applicatieinstellingen" height="20"/></a>
+                            &nbsp;&nbsp;<a href="${link_copy}"><img src="images/copy.png" border="0" alt="Kopieer applicatie" title="Kopieer applicatie" height="20"/></a>
+                        </td>
                     </tr>
                 </c:forEach>
             </tbody>
