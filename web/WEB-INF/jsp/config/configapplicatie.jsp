@@ -35,11 +35,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <table id="applicatieTable" class="tablesorter" style="width: 100%;">
             <thead>
                 <tr>
-                    <th style="width: 20%;">Naam</th>
-                    <th style="width: 25%;">Applicatiecode</th>
-                    <th style="width: 20%;">Gebruikerscode</th>
-                    <th style="width: 20%;">Datum gebruikt</th>
-                    <th style="width: 15%;">Acties</th>
+                    <th style="width: 16%;">Naam</th>
+                    <th style="width: 23%;">Applicatiecode</th>
+                    <th style="width: 23%;">Gebruikerscode</th>
+                    <th style="width: 15%;">Datum gebruikt</th>
+                    <th style="width: 7%;">Acties</th>
+                    <th style="width: 9%;">User app.</th>
+                    <th style="width: 7%;">Versie</th>
                 </tr>
             </thead>
 
@@ -59,6 +61,16 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <a href="${link_settings}"><img src="images/settings.png" border="0" alt="Bekijk applicatieinstellingen" title="Bekijk applicatieinstellingen" height="20"/></a>
                             &nbsp;&nbsp;<a href="${link_copy}"><img src="images/copy.png" border="0" alt="Kopieer applicatie" title="Kopieer applicatie" height="20"/></a>
                         </td>
+
+                        <c:if test="${item.user_copy}">
+                            <td>Ja</td>
+                        </c:if>
+
+                        <c:if test="${not item.user_copy}">
+                            <td>Nee</td>
+                        </c:if>
+                        
+                        <td>${item.versie}</td>
                     </tr>
                 </c:forEach>
             </tbody>
