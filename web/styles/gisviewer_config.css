@@ -506,6 +506,13 @@ a#showAllLayers {
     padding-left: 25px;
 }
 
+.backButton {
+    background-image: url(/gisviewerconfig/images/icons/back.png);
+    background-position: 5px 50%;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+
 /* Kaartselectie css */
 .kaartselectieBody {
     margin-top: 10px;

@@ -50,10 +50,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             <input type="checkbox" id="advancedToggle" /> Toon geavanceerde opties
         </div>
         <div style="float: right;">
+            <input type="button" class="knop backButton" onclick="window.location='<html:rewrite page='/configApplicatie.do' />'" value="<fmt:message key='button.back'/>" />
+            
             <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u dit wilt opslaan?');">
                 Opslaan
             </html:submit>
-            &nbsp;
+            
             <html:submit property="resetInstellingen" styleClass="knop refreshButton" accesskey="r" onclick="return confirm('Weet u zeker dat u de instellingen wilt herstellen naar de standaard waarden?');">
                 Herstel naar standaard instellingen
             </html:submit>
