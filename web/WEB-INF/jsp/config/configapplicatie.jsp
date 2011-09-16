@@ -35,13 +35,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <table id="applicatieTable" class="tablesorter" style="width: 100%;">
             <thead>
                 <tr>
-                    <th style="width: 16%;">Naam</th>
-                    <th style="width: 23%;">Applicatiecode</th>
-                    <th style="width: 23%;">Gebruikerscode</th>
-                    <th style="width: 15%;">Datum gebruikt</th>
-                    <th style="width: 7%;">Acties</th>
+                    <th style="width: 19%;">Naam</th>                    
+                    <th style="width: 12%;">Datum gebruikt</th>                  
                     <th style="width: 9%;">User app.</th>
                     <th style="width: 7%;">Versie</th>
+                    <th style="width: 23%;" class="{sorter: false} no-filter">Applicatiecode</th>
+                    <th style="width: 23%;" class="{sorter: false} no-filter">Gebruikerscode</th>
+                    <th style="width: 7%;" class="{sorter: false} no-filter">Acties</th>
                 </tr>
             </thead>
 
@@ -54,23 +54,22 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <c:url var="link_copy" value="/configApplicatie.do?copy=t&applicatieID=${item.id}"/>
                     <tr>
                         <td><c:out value="${item.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                        <td>${item.code}</td>
-                        <td>${item.gebruikersCode}</td>
-                        <td>${item.datum_gebruikt}</td>
-                        <td>
-                            <a href="${link_settings}"><img src="images/settings.png" border="0" alt="Bekijk applicatieinstellingen" title="Bekijk applicatieinstellingen" height="20"/></a>
-                            &nbsp;&nbsp;<a href="${link_copy}"><img src="images/copy.png" border="0" alt="Kopieer applicatie" title="Kopieer applicatie" height="20"/></a>
-                        </td>
-
+                        <td><fmt:formatDate value="${item.datum_gebruikt}" pattern="dd-MM-yyyy HH:mm"/></td>
+                        
                         <c:if test="${item.user_copy}">
                             <td>Ja</td>
                         </c:if>
-
                         <c:if test="${not item.user_copy}">
                             <td>Nee</td>
                         </c:if>
                         
                         <td>${item.versie}</td>
+                        <td>${item.code}</td>
+                        <td>${item.gebruikersCode}</td>
+                        <td>
+                            <a href="${link_settings}"><img src="images/settings.png" border="0" alt="Bekijk applicatieinstellingen" title="Bekijk applicatieinstellingen" height="20"/></a>
+                            &nbsp;&nbsp;<a href="${link_copy}"><img src="images/copy.png" border="0" alt="Kopieer applicatie" title="Kopieer applicatie" height="20"/></a>
+                        </td>
                     </tr>
                 </c:forEach>
             </tbody>

@@ -32,7 +32,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </div>
 
 <span class="rolnaamHeader">
-    Applicatiecode is <b>${header_appcode}</b>
+    Instellingen voor <b>'${header_appnaam}'</b>.
 </span>
 
 <html:form action="/configKeeper">
