@@ -231,6 +231,9 @@
             <form-property name="cfg_smtpHost" type="java.lang.String"/>
             <form-property name="cfg_fromMailAddress" type="java.lang.String"/>
             <form-property name="cfg_mailSubject" type="java.lang.String"/>
+
+            <form-property name="cfg_activeTab" type="java.lang.String"/>
+            <form-property name="cfg_extent" type="java.lang.String"/>
         </form-bean>
 
         <form-bean name="kaartgroepForm" type="org.apache.struts.validator.DynaValidatorForm">

@@ -285,6 +285,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_maxResults.uitleg"/>
                     </div>
                 </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_extent.label"/></label>
+                    <html:text property="cfg_extent" size="40"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_extent">(?)</a>
+                    <div id="help_cfg_extent" style="display: none;" title="<fmt:message key="cfg_extent.label"/>">
+                        <fmt:message key="cfg_extent.uitleg"/>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -519,7 +528,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
                     </html:select>
-
                 </div>
             </div>
             <div class="configadvanced">
@@ -538,6 +546,19 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <a class="helpLink" href="#" id="helpLink_help_cfg_tabWidth">(?)</a>
                     <div id="help_cfg_tabWidth" style="display: none;" title="<fmt:message key="cfg_tabWidth.label"/>">
                         <fmt:message key="cfg_tabWidth.uitleg"/>
+                    </div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_activeTab.label"/></label>
+                    <html:select property="cfg_activeTab" styleClass="tabblad_select">
+                        <c:forEach items="${tabLabels}" var="item" varStatus="status">
+                            <html:option value="${tabValues[status.count-1]}">${item}</html:option>
+                        </c:forEach>
+                    </html:select>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_activeTab">(?)</a>
+                    <div id="help_cfg_activeTab" style="display: none;" title="<fmt:message key="cfg_activeTab.label"/>">
+                        <fmt:message key="cfg_activeTab.uitleg"/>
                     </div>
                 </div>
             </div>
