@@ -144,6 +144,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="configapplicatie.appcode.uitleg"/>
                     </div>
                 </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="configapplicatie.defaultapp.label"/></label>
+                    <html:checkbox property="defaultApp" />
+                    <a class="helpLink" href="#" id="helpLink_help_configapplicatie_defaultapp">(?)</a>
+                    <div id="help_configapplicatie_defaultapp" style="display: none;" title="<fmt:message key="configapplicatie.defaultapp.label"/>">
+                        <fmt:message key="configapplicatie.defaultapp.uitleg"/>
+                    </div>
+                </div>
             </div>
             <div class="configadvanced">
                 <%--
