@@ -168,6 +168,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="configcluster.aanuitvink.uitleg"/>
                     </div>
                 </div>
+                <%--
                 <div class="configrow configrowtree">
                     <label><fmt:message key="configcluster.defaultaangevinkt"/></label>
                     <html:checkbox property="default_visible"/>
@@ -176,6 +177,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="configcluster.defaultaangevinkt.uitleg"/>
                     </div>
                 </div>
+                --%>
                 <div class="configrow configrowtree">
                     <label><fmt:message key="configcluster.exclusive_childs"/></label>
                     <html:checkbox property="exclusive_childs"/>

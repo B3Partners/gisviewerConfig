@@ -322,12 +322,14 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
         <div class="tabcontent content_opties">
             <div class="configbasic">
-                
+
+                <%--
                 <div class="configrow configrowfull">
                     <label><fmt:message key="configthema.defaultvisible"/></label>
                     <html:checkbox property="visible"/>
                     <a class="helpLink" href="#" id="helpLink_help_configthemadefaultvisible">(?)</a><div id="help_configthemadefaultvisible" style="display: none;" title="<fmt:message key="configthema.defaultvisible"/>"><fmt:message key="configthema.defaultvisible.uitleg"/></div>
                 </div>
+                --%>
                 <div class="configrow configrowfull">
                     <label><fmt:message key="cfg_layoutAdminData.label"/></label>
                     <html:select property="layoutadmindata">
