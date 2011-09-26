@@ -100,6 +100,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <div class="configrow configrowtree">
                     <label><fmt:message key="configgb_bron.label"/></label>
                     <html:select property="bron" onchange="refreshFeatureList(this);" styleId='connectie_select' styleClass="configGegevensbronSelect">
+                        <html:option value="">-Kies een bron-</html:option>
                         <html:option value="0">Kaartenbalie Wfs</html:option>
                         <c:forEach var="cuItem" items="${listBronnen}">
                             <html:option value="${cuItem.id}">
@@ -110,13 +111,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <a href="#" class="helpLink" id="helpLink_help_configgb_bron">(?)</a><div id="help_configgb_bron" style="display: none;" title="<fmt:message key="configgb_bron.label"/>"><fmt:message key="configgb_bron.uitleg"/></div>
                 </div>
 
-                <c:set var="connectieType" value="wfs"/>
+                <c:set var="connectieType" value="jdbc"/>
                 <c:if test="${form.map.bron != null}">
-                    <c:forEach var="i" items="${listBronnen}">
-                        <c:if test="${i.id==form.map.bron && i.type=='jdbc'}">
-                            <c:set var="connectieType" value="jdbc"/>
-                        </c:if>
-                    </c:forEach>
+                    <c:if test="${form.map.bron == '0'}">
+                        <c:set var="connectieType" value="wfs"/>
+                    </c:if>
                 </c:if>
 
                 <div class="configrow configrowtree">

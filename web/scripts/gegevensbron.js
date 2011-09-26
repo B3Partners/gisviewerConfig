@@ -96,7 +96,7 @@ function handleFeatureList(list){
     dwr.util.addOptions("admin_tabel_select",[""]);
     dwr.util.addOptions("admin_tabel_select",list,"0","1");
 
-    var data = [ {value:"",label:"Kies eerst tabel of feature...."} ];
+    var data = [ {value:"",label:"-Selecteer eerst een tabel-"} ];
     
     dwr.util.addOptions("admin_pk_select", data, "value", "label");
 
