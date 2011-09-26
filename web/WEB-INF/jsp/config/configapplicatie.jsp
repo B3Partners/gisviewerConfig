@@ -29,7 +29,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <div class="infobalk_description">APPLICATIES</div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
-
+<c:set var="appUrl" value='http://${pageContext.request.serverName}:${pageContext.request.serverPort}/gisviewer/viewer.do?appCode='/>
 <c:if test="${!empty applicaties}">
     <div class="tablesortercontainer" style="margin-top: 20px;">
         <table id="applicatieTable" class="tablesorter" style="width: 100%;">
@@ -64,7 +64,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         </c:if>
                         
                         <td>${item.versie}</td>
-                        <td>${item.code}</td>
+                        <td>
+                            <a href="${appUrl}${item.code}" title="Open Applicatie">${item.code}</a>
+                        </td>
                         <td>${item.gebruikersCode}</td>
                         <td>
                             <a href="${link_settings}"><img src="images/settings.png" border="0" alt="Bekijk applicatieinstellingen" title="Bekijk applicatieinstellingen" height="20"/></a>
