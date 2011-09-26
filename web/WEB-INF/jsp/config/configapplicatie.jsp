@@ -65,7 +65,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         
                         <td>${item.versie}</td>
                         <td>
-                            <a href="${appUrl}${item.code}" title="Open Applicatie">${item.code}</a>
+                            <a href="${appUrl}${item.code}" title="Open Applicatie" target="_new">${item.code}</a>
                         </td>
                         <td>${item.gebruikersCode}</td>
                         <td>
@@ -138,8 +138,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                 <div class="configrow">
                     <label><fmt:message key="configapplicatie.appcode.label"/></label>
-                    
-                    ${appcode}
+
+                    <a href="${appUrl}${appcode}" title="Open Applicatie" target="_new">${appcode}</a>
                     
                     <a class="helpLink" href="#" id="helpLink_help_configapplicatie_appcode">(?)</a>
                     <div id="help_configapplicatie_appcode" style="display: none;" title="<fmt:message key="configapplicatie.appcode.label"/>">

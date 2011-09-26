@@ -589,7 +589,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <html:option value="${item.id}">${item.naam}</html:option>
                         </c:forEach>
                     </html:select>
-
                 </div>
                 <div class="configrow">
                     <label><fmt:message key="cfg_zoekenid3.label"/></label>
@@ -605,6 +604,66 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <label><fmt:message key="cfg_zoekenid4.label"/></label>
 
                     <html:select property="cfg_zoekenid4">
+                        <html:option value="leeg">-Kies een zoekingang-</html:option>
+                        <c:forEach items="${zoekConfigs}" var="item">
+                            <html:option value="${item.id}">${item.naam}</html:option>
+                        </c:forEach>
+                    </html:select>
+                </div>                    
+                <div class="configrow">
+                    <label><fmt:message key="cfg_zoekenid5.label"/></label>
+
+                    <html:select property="cfg_zoekenid5">
+                        <html:option value="leeg">-Kies een zoekingang-</html:option>
+                        <c:forEach items="${zoekConfigs}" var="item">
+                            <html:option value="${item.id}">${item.naam}</html:option>
+                        </c:forEach>
+                    </html:select>
+                </div>                    
+                <div class="configrow">
+                    <label><fmt:message key="cfg_zoekenid6.label"/></label>
+
+                    <html:select property="cfg_zoekenid6">
+                        <html:option value="leeg">-Kies een zoekingang-</html:option>
+                        <c:forEach items="${zoekConfigs}" var="item">
+                            <html:option value="${item.id}">${item.naam}</html:option>
+                        </c:forEach>
+                    </html:select>
+                </div>                    
+                <div class="configrow">
+                    <label><fmt:message key="cfg_zoekenid7.label"/></label>
+
+                    <html:select property="cfg_zoekenid7">
+                        <html:option value="leeg">-Kies een zoekingang-</html:option>
+                        <c:forEach items="${zoekConfigs}" var="item">
+                            <html:option value="${item.id}">${item.naam}</html:option>
+                        </c:forEach>
+                    </html:select>
+                </div>                    
+                <div class="configrow">
+                    <label><fmt:message key="cfg_zoekenid8.label"/></label>
+
+                    <html:select property="cfg_zoekenid8">
+                        <html:option value="leeg">-Kies een zoekingang-</html:option>
+                        <c:forEach items="${zoekConfigs}" var="item">
+                            <html:option value="${item.id}">${item.naam}</html:option>
+                        </c:forEach>
+                    </html:select>
+                </div>                    
+                <div class="configrow">
+                    <label><fmt:message key="cfg_zoekenid9.label"/></label>
+
+                    <html:select property="cfg_zoekenid9">
+                        <html:option value="leeg">-Kies een zoekingang-</html:option>
+                        <c:forEach items="${zoekConfigs}" var="item">
+                            <html:option value="${item.id}">${item.naam}</html:option>
+                        </c:forEach>
+                    </html:select>
+                </div>                   
+                <div class="configrow">
+                    <label><fmt:message key="cfg_zoekenid10.label"/></label>
+
+                    <html:select property="cfg_zoekenid10">
                         <html:option value="leeg">-Kies een zoekingang-</html:option>
                         <c:forEach items="${zoekConfigs}" var="item">
                             <html:option value="${item.id}">${item.naam}</html:option>

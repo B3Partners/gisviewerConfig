@@ -153,6 +153,12 @@
             <form-property name="cfg_zoekenid2" type="java.lang.String"/>
             <form-property name="cfg_zoekenid3" type="java.lang.String"/>
             <form-property name="cfg_zoekenid4" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid5" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid6" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid7" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid8" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid9" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid10" type="java.lang.String"/>
             <form-property name="cfg_planselectieid1" type="java.lang.String"/>
             <form-property name="cfg_planselectieid2" type="java.lang.String"/>
             <!--  zoekingangen keuze voor voorziening Zoeker -->
