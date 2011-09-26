@@ -35,6 +35,14 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 <html:form action="/wizardZoekConfiguratie">
 
+<%-- Hidden veld hier nodig om usecaching waarde van stap 2 correct
+over te nemen. Anders wordt bij het aanmaken van nieuw zoekveld
+de usecaching waarde verkeerd gezet omdat ook stap 3 uit Actionw erdt aangeroepen
+--%>
+<c:if test="${usecaching == '1'}">
+    <input type="hidden" name="usecaching" value="1"/>
+</c:if>
+              
 <input type="hidden" name="step3" id="stepElement"/>
 <input type="hidden" name="bronId" value="${bronId}"/>
 <input type="hidden" name="featureType" value="${featureType}"/>

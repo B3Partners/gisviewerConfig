@@ -72,7 +72,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <td><fmt:message key="configzoekconfiguratie.usecaching"/></td>
                 <td>
                     <c:choose>
-                        <c:when test="${not empty usecaching}">
+                        <c:when test="${usecaching == '1'}">
                             <input type="checkbox" name="usecaching" checked="checked"/>
                         </c:when>
                         <c:otherwise>
@@ -88,10 +88,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <c:if test="${empty zoekConfiguratieId}">
             <html:submit property="step1" styleClass="knop"><fmt:message key='button.previous'/></html:submit>
         </c:if>
-        <html:submit property="step3" styleClass="knop"><fmt:message key='button.next'/></html:submit>
+        
         <c:if test="${not empty zoekConfiguratieId}">
             <input type="button" class="knop removeButton" onclick="deleteZoekConfiguratie(${zoekConfiguratieId})" value="<fmt:message key='button.remove'/>" />
             <input type="button" class="knop" onclick="window.location='<html:rewrite page='/configZoekConfiguratie.do'/>'" value="<fmt:message key='button.cancel'/>" />
         </c:if>
+
+        <html:submit property="step3" styleClass="knop"><fmt:message key='button.next'/></html:submit>
     </div>
 </html:form>

@@ -39,7 +39,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
     
     <div class="wizardButtonBar">
-        <html:submit property="step1" styleClass="knop"><fmt:message key='button.next'/></html:submit>
         <input type="button" class="knop" onclick="window.location='<html:rewrite page='/configZoekConfiguratie.do'/>'" value="<fmt:message key='button.cancel'/>" />
+        <html:submit property="step1" styleClass="knop"><fmt:message key='button.next'/></html:submit>
     </div>
 </html:form>

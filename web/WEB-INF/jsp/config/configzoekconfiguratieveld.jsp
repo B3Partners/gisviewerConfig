@@ -76,8 +76,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <td><fmt:message key="configzoekconfiguratieveld.inputtype"/></td>
                 <td>
                     <html:select styleId="type" property="inputtype">
-                        <html:option value="1">Dropdown</html:option>
                         <html:option value="2">Tekst</html:option>
+                        <html:option value="1">Dropdown</html:option>                        
                         <html:option value="3">Autosuggest</html:option>
                     </html:select>
                 </td>
@@ -150,16 +150,29 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
     var types = new Array();
     var index=0;
+
     types[index]=new Object();
-    types[index].option={"-1" : "Alleen tonen"};
-    types[index].forZoek=true;
-    types[index].forResultaat=true;
+    types[index].option={"0":"Lijkt op"};//new Option("Geen","0");//
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
+    types[index].forResultaat=false;
+
+    index++;
+    types[index]=new Object();
+    types[index].option={"6" : "Gelijk aan"};
+    types[index].forResultaat=false;
     types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
 
     index++;
     types[index]=new Object();
     types[index].option={"2" : "Tonen en doorgeven"};
     types[index].forZoek=false;
+    types[index].forResultaat=true;
+    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
+    
+    index++;
+    types[index]=new Object();
+    types[index].option={"-1" : "Alleen tonen"};
+    types[index].forZoek=true;
     types[index].forResultaat=true;
     types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
 
@@ -169,12 +182,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
     types[index].forZoek=false;
     types[index].forResultaat=true;
-
-    index++;
-    types[index]=new Object();
-    types[index].option={"0":"Lijkt op"};//new Option("Geen","0");//
-    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
-    types[index].forResultaat=false;
 
     index++;
     types[index]=new Object();
@@ -211,12 +218,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     index++;
     types[index]=new Object();
     types[index].option={"50" : "Groter dan datum"};
-    types[index].forResultaat=false;
-    types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
-
-    index++;
-    types[index]=new Object();
-    types[index].option={"6" : "Gelijk aan"};
     types[index].forResultaat=false;
     types[index].disallowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine,DUMMY";
 
