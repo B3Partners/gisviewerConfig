@@ -1202,7 +1202,8 @@ $j(function() {
     }, function() {
         $j(this).hide();
     });
-    treeZebra();
+
+    //treeZebra();
 });
 </script>
 
