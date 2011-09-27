@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/gisviewerconfig">
+<Context path="/gisviewerconfig" antiJARLocking="true">
+<!-- adam:
 <Resource
-    auth="Container"
-    driverClassName="org.postgresql.Driver"
-    logAbandoned="true"
-    maxActive="100"
-    maxIdle="30"
-    maxWait="10000"
-    minEvictableIdleTimeMillis="10000"
-    name="jdbc/gisviewer"
-    username="accplimsld"
-    password="meqAr3We"
-    removeAbandoned="true"
-    removeAbandonedTimeout="60"
-    timeBetweenEvictionRunsMillis="60000"
-    type="javax.sql.DataSource"
-    url="jdbc:postgresql://localhost/accplimsld_gisviewer"
-    validationQuery="select 1"
-/> 
-</Context> 
+auth="Container"
+driverClassName="org.postgresql.Driver"
+logAbandoned="true"
+maxActive="100"
+maxIdle="30"
+maxWait="10000"
+name="jdbc/gisviewer"
+username="amsterdam"
+password="***REMOVED***"
+removeAbandoned="true"
+removeAbandonedTimeout="60"
+type="javax.sql.DataSource"
+url="jdbc:postgresql://x10.b3p.nl:5432/amsterdam_gisviewer"
+minEvictableIdleTimeMillis="10000"
+timeBetweenEvictionRunsMillis="60000"
+/>-->
+<Resource
+  	auth="Container"
+  	driverClassName="oracle.jdbc.driver.OracleDriver"
+  	logAbandoned="true"
+  	maxActive="100"
+  	maxIdle="30"
+  	maxWait="10000"
+  	name="jdbc/gisviewer"
+  	username="gisviewer_plim35"
+  	password="plim35"
+  	removeAbandoned="true"
+  	removeAbandonedTimeout="60"
+  	type="javax.sql.DataSource"
+  	url="jdbc:oracle:thin:@kantoor.b3p.nl:1521:ORCL"
+	minEvictableIdleTimeMillis="10000"
+	timeBetweenEvictionRunsMillis="60000"
+  />
+</Context>
