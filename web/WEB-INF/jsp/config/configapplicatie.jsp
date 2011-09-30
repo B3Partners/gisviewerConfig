@@ -155,6 +155,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="configapplicatie.defaultapp.uitleg"/>
                     </div>
                 </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="configapplicatie.readonly.label"/></label>
+                    <html:checkbox property="readOnly" value="CHECKED"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configapplicatie_readonly">(?)</a>
+                    <div id="help_configapplicatie_readonly" style="display: none;" title="<fmt:message key="configapplicatie.readonly.label"/>">
+                        <fmt:message key="configapplicatie.readonly.uitleg"/>
+                    </div>
+                </div>
             </div>
             <div class="configadvanced">
                 <%--
