@@ -43,8 +43,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <input type="hidden" name="refreshLists">
     </div>
     <c:if test="${!empty tekstBlokken}">
-        <div class="tablesortercontainer">
-            <table id="connectietable" class="tablesorter">
+        <div class="tablesortercontainer" style="margin-top: 20px;">
+            <table id="connectietable" class="tablesorter" width="100%">
                 <thead>
                     <tr>
                         <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
@@ -73,7 +73,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                                 </c:if>
                             </td>
                             <td><c:out value="${ci.pagina}"/></td>
-                            <td><c:out value="${ci.cdate}"/></td>
+                            <td><fmt:formatDate value="${ci.cdate}" pattern="dd-MM-yyyy HH:mm"/></td>
                         </tr>
                     </c:forEach>
                 </tbody>
