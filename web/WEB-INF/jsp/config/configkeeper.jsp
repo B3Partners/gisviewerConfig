@@ -127,8 +127,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         "expanded": "<html:rewrite page="/images/treeview/minus.gif"/>",
                         "leaf": "<html:rewrite page="/images/treeview/leaft.gif"/>"
                     },
-                    "saveExpandedState": true,
-                    "saveScrollState": true,
+                    "saveExpandedState": false,
+                    "saveScrollState": false,
                     "expandAll": false,
                     "childrenPadding": '20px',
                     "zebraEffect": false
