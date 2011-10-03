@@ -102,14 +102,14 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </html:submit>
             </c:if>
             <c:if test="${!empty form.map.applicatieID}">
-                <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u deze applicatie wilt opslaan?');">
-                    <fmt:message key='button.save'/>
+                <html:submit property="delete" accesskey="d" styleClass="knop removeButton" onclick="return confirm('Weet u zeker dat u deze applicatie wilt verwijderen?');">
+                    <fmt:message key="button.remove"/>
                 </html:submit>
 
                 <input type="button" class="knop" onclick="window.location='<html:rewrite page='/configApplicatie.do' />'" value="<fmt:message key='button.cancel'/>" />
 
-                <html:submit property="delete" accesskey="d" styleClass="knop removeButton" onclick="return confirm('Weet u zeker dat u deze applicatie wilt verwijderen?');">
-                    <fmt:message key="button.remove"/>
+                <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u deze applicatie wilt opslaan?');">
+                    <fmt:message key='button.save'/>
                 </html:submit>
             </c:if>
         </div>
