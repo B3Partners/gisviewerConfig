@@ -129,9 +129,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     },
                     "saveExpandedState": true,
                     "saveScrollState": true,
-                    "expandAll": true,
+                    "expandAll": false,
                     "childrenPadding": '20px',
-                    "zebraEffect": true
+                    "zebraEffect": false
                 });
             </script>
 
@@ -1203,7 +1203,7 @@ $j(function() {
         $j(this).hide();
     });
 
-    //treeZebra();
+    treeZebra();
 });
 </script>
 
