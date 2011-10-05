@@ -23,7 +23,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <c:set var="requestURI" value="${fn:split(requestScope['javax.servlet.forward.request_uri'], '/')}" />
     <c:set var="requestJSP" value="${requestURI[fn:length(requestURI) - 1]}" />
 
-    <c:if test="${pageContext.request.remoteUser != null}">
+    <c:if test="${pageContext.request.remoteUser != null}">        
+        <c:set var="stijlklasse" value="menulink" />
+        <html:link target="_blank" page="/help.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.help"/></html:link>
+
         <c:set var="stijlklasse" value="menulink" />
         <html:link page="/configThema.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.kaartbib"/></html:link>
         
