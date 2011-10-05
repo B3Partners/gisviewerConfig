@@ -70,7 +70,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <td>${item.gebruikersCode}</td>
                         <td>
                             <a href="${link_settings}"><img src="images/settings.png" border="0" alt="Bekijk applicatieinstellingen" title="Bekijk applicatieinstellingen" height="20"/></a>
-                            &nbsp;&nbsp;<a href="${link_copy}"><img src="images/copy.png" border="0" alt="Kopieer applicatie" title="Kopieer applicatie" height="20"/></a>
+                            &nbsp;&nbsp;<a href="${link_copy}"><img src="images/copy.png" border="0" alt="Kopieer applicatie" title="Kopieer applicatie" height="20" onclick="return confirm('Weet u zeker dat u deze applicatie wilt kopieeren?');"/></a>
                         </td>
                     </tr>
                 </c:forEach>
