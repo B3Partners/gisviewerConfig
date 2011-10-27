@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/gisviewerconfig">
-<!-- Resource PG b3p-demo
-<Resource
-    auth="Container"
-    driverClassName="org.postgresql.Driver"
-    logAbandoned="true"
-    maxActive="100"
-    maxIdle="30"
-    maxWait="10000"
-    minEvictableIdleTimeMillis="10000"
-    name="jdbc/gisviewer"
-    username="dev"
-    password="b3p"
-    removeAbandoned="true"
-    removeAbandonedTimeout="60"
-    timeBetweenEvictionRunsMillis="60000"
-    type="javax.sql.DataSource"
-    url="jdbc:postgresql://b3p-demoserver/barneveld_gisviewer"
+ <Resource 
+    auth="Container" 
+    driverClassName="org.postgresql.Driver" 
+    logAbandoned="true" 
+    maxActive="100" 
+    maxIdle="30" 
+    maxWait="10000" 
+    minEvictableIdleTimeMillis="10000" 
+    name="jdbc/gisviewer" 
+    password="***REMOVED***" 
+    removeAbandoned="true" 
+    removeAbandonedTimeout="60" 
+    timeBetweenEvictionRunsMillis="60000" 
+    type="javax.sql.DataSource" 
+    url="jdbc:postgresql://localhost:5432/gisviewer" 
+    username="postgres" 
     validationQuery="select 1"
-/> -->
-
-<!-- Resource Oracle b3p-demo -->
+ />
+  <!--
 <Resource
     auth="Container"
     driverClassName="oracle.jdbc.driver.OracleDriver"
@@ -29,8 +27,8 @@
     maxIdle="30"
     maxWait="10000"
     name="jdbc/gisviewer"
-    username="gisviewer"
-    password="gisviewer"
+    username="gisviewer_plim35"
+    password="plim35"
     removeAbandoned="true"
     removeAbandonedTimeout="60"
     type="javax.sql.DataSource"
@@ -38,4 +36,5 @@
     minEvictableIdleTimeMillis="10000"
     timeBetweenEvictionRunsMillis="60000"
 />
+-->
 </Context>
