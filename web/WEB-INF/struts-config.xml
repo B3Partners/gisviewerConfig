@@ -240,6 +240,14 @@
 
             <form-property name="cfg_activeTab" type="java.lang.String"/>
             <form-property name="cfg_extent" type="java.lang.String"/>
+            
+            <!-- cyclomedia formulier -->
+            <form-property name="cfg_cyclo_apikey" type="java.lang.String"/>
+            <form-property name="cfg_cyclo_accountid" type="java.lang.String"/>
+            <form-property name="cfg_cyclo_wachtwoord" type="java.lang.String"/>
+            <form-property name="cfg_cyclo_privatebase64key" type="java.lang.String"/>
+            <form-property name="cfg_cyclo_keybestand" type="org.apache.struts.upload.FormFile"/>
+            
         </form-bean>
 
         <form-bean name="kaartgroepForm" type="org.apache.struts.validator.DynaValidatorForm">

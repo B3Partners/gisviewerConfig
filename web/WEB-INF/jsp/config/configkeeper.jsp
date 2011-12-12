@@ -35,7 +35,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     Instellingen voor <b>'${header_appnaam}'</b>.
 </span>
 
-<html:form action="/configKeeper">
+<html:form action="/configKeeper" enctype="multipart/form-data" >
     <html:hidden property="action" />
     <html:hidden property="alt_action" />
     <html:hidden property="rolnaam" />
@@ -67,7 +67,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <div class="tablabel" id="label_kaartselectie">
             Basisboom
         </div>
-
         <div class="tablabel" id="label_kaartlagen">
             Algemeen
         </div>
@@ -76,6 +75,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         </div>
         <div class="tablabel" id="label_tools">
             Tools
+        </div>
+        <div class="tablabel" id="label_cyclomedia">
+            Cyclomedia
         </div>
         <div class="tablabel" id="label_tabbladen">
             Modules
@@ -479,6 +481,56 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             </div>
 
         </div>
+                    
+        <div class="tabcontent content_cyclomedia">
+
+            <div class="configbasic">
+                <div class="configrow">
+                    <label><fmt:message key="cfg_cyclo_apikey.label"/></label>
+                    <html:text property="cfg_cyclo_apikey" size="80"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_cyclo_apikey">(?)</a>
+                    <div id="help_cfg_cyclo_apikey" style="display: none;" title="<fmt:message key="cfg_cyclo_apikey.label"/>">
+                        <fmt:message key="cfg_cyclo_apikey.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_cyclo_accountid.label"/></label>
+                    <html:text property="cfg_cyclo_accountid" size="10"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_cyclo_accountid">(?)</a>
+                    <div id="help_cfg_cyclo_accountid" style="display: none;" title="<fmt:message key="cfg_cyclo_accountid.label"/>">
+                        <fmt:message key="cfg_cyclo_accountid.uitleg"/>
+                    </div>
+                </div>                
+                <div class="configrow">
+                    <label><fmt:message key="cfg_cyclo_wachtwoord.label"/></label>
+                    <html:password property="cfg_cyclo_wachtwoord" size="10"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_cyclo_wachtwoord">(?)</a>
+                    <div id="help_cfg_cyclo_wachtwoord" style="display: none;" title="<fmt:message key="cfg_cyclo_wachtwoord.label"/>">
+                        <fmt:message key="cfg_cyclo_wachtwoord.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_cyclo_keybestand.label"/></label>
+                    <html:file size="30" property="cfg_cyclo_keybestand" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_cyclo_keybestand">(?)</a>
+                    <div id="help_cfg_cyclo_keybestand" style="display: none;" title="<fmt:message key="cfg_cyclo_keybestand.label"/>">
+                        <fmt:message key="cfg_cyclo_keybestand.uitleg"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="configadvanced">
+                <div class="configrow">
+                    <label><fmt:message key="cfg_cyclo_privatebase64key.label"/></label>
+                    <html:textarea property="cfg_cyclo_privatebase64key" rows="5" cols="80" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_cyclo_privatebase64key">(?)</a>
+                    <div id="help_cfg_cyclo_privatebase64key" style="display: none;" title="<fmt:message key="cfg_cyclo_privatebase64key.label"/>">
+                        <fmt:message key="cfg_cyclo_privatebase64key.uitleg"/>
+                    </div>
+                </div>
+            </div>
+        </div>      
+        
         <div class="tabcontent content_tabbladen">
             <p>
                 U kunt hier tot maximaal vijf modules selecteren die worden
