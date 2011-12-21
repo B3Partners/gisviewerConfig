@@ -13,6 +13,7 @@
             <url-pattern>/help*</url-pattern>
             <url-pattern>/services/*</url-pattern>
             <url-pattern>/wizard*</url-pattern>
+            <url-pattern>/beheer.do*</url-pattern>
         </web-resource-collection>       
         <auth-constraint>
             <role-name>beheerder</role-name>
@@ -24,7 +25,7 @@
       <form-login-config>
           <form-login-page>/login.do</form-login-page>
           <form-error-page>/loginError.do</form-error-page>
-          <form-default-page>/beheer.do</form-default-page>
+          <form-default-page>/index.do</form-default-page>
           <form-logout-page>/logout.do</form-logout-page>
       </form-login-config>
       <cookie-auth-token-config>
