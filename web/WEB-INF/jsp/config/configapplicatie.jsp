@@ -35,9 +35,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <table id="applicatieTable" class="tablesorter" style="width: 100%;">
             <thead>
                 <tr>
-                    <th style="width: 19%;">Naam</th>                    
-                    <th style="width: 12%;">Datum gebruikt</th>                  
-                    <th style="width: 9%;">User app.</th>
+                    <th style="width: 16%;">Naam</th>                    
+                    <!-- <th style="width: 12%;">Datum gebruikt</th> -->                
+                    <th style="width: 24%;">E-mail</th>
                     <th style="width: 7%;">Versie</th>
                     <th style="width: 23%;" class="{sorter: false} no-filter">Applicatiecode</th>
                     <th style="width: 23%;" class="{sorter: false} no-filter">Gebruikerscode</th>
@@ -54,14 +54,20 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <c:url var="link_copy" value="/configApplicatie.do?copy=t&applicatieID=${item.id}"/>
                     <tr>
                         <td><c:out value="${item.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                        <td><fmt:formatDate value="${item.datum_gebruikt}" pattern="dd-MM-yyyy HH:mm"/></td>
                         
+                        <!-- 
+                        <td><fmt:formatDate value="${item.datum_gebruikt}" pattern="dd-MM-yyyy HH:mm"/></td>
+                        -->
+                        
+                        <!--
                         <c:if test="${item.user_copy}">
                             <td>Ja</td>
                         </c:if>
                         <c:if test="${not item.user_copy}">
                             <td>Nee</td>
                         </c:if>
+                        -->
+                        <td>${item.email}</td>
                         
                         <td>${item.versie}</td>
                         <td>
@@ -164,19 +170,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="configapplicatie.readonly.uitleg"/>
                     </div>
                 </div>
-            </div>
-            <div class="configadvanced">
-                <%--
-                <div class="configrow configrowfull">
-                    <label><fmt:message key="configapplicatie.parent.label"/></label>
-                    <html:text property="parent" size="20"/>
-                    <a class="helpLink" href="#" id="helpLink_help_configapplicatie_parent">(?)</a>
-                    <div id="help_configapplicatie_parent" style="display: none;" title="<fmt:message key="configapplicatie.parent.label"/>">
-                        <fmt:message key="configapplicatie.parent.uitleg"/>
+                
+                <div class="configrow">
+                    <label><fmt:message key="configapplicatie.email.label"/></label>
+                    <html:text property="email" size="60"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configapplicatie_email">(?)</a>
+                    <div id="help_configapplicatie_email" style="display: none;" title="<fmt:message key="configapplicatie.email.label"/>">
+                        <fmt:message key="configapplicatie.email.uitleg"/>
                     </div>
                 </div>
-                --%>
             </div>
+            <div class="configadvanced"></div>
     </div>
 </div>
 
