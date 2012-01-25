@@ -291,13 +291,20 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_maxResults.uitleg"/>
                     </div>
                 </div>
-
                 <div class="configrow">
                     <label><fmt:message key="cfg_extent.label"/></label>
                     <html:text property="cfg_extent" size="40"/>
                     <a class="helpLink" href="#" id="helpLink_help_cfg_extent">(?)</a>
                     <div id="help_cfg_extent" style="display: none;" title="<fmt:message key="cfg_extent.label"/>">
                         <fmt:message key="cfg_extent.uitleg"/>
+                    </div>
+                </div>                    
+                <div class="configrow">
+                    <label><fmt:message key="cfg_useUserWmsDropdown.label"/></label>
+                    <html:checkbox property="cfg_useUserWmsDropdown"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_useUserWmsDropdown">(?)</a>
+                    <div id="help_cfg_useUserWmsDropdown" style="display: none;" title="<fmt:message key="cfg_useUserWmsDropdown.label"/>">
+                        <fmt:message key="cfg_useUserWmsDropdown.uitleg"/>
                     </div>
                 </div>
             </div>

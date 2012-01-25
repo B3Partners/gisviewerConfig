@@ -248,6 +248,7 @@
             <form-property name="cfg_cyclo_privatebase64key" type="java.lang.String"/>
             <form-property name="cfg_cyclo_keybestand" type="org.apache.struts.upload.FormFile"/>
             
+            <form-property name="cfg_useUserWmsDropdown" type="java.lang.Boolean"/>            
         </form-bean>
 
         <form-bean name="kaartgroepForm" type="org.apache.struts.validator.DynaValidatorForm">
@@ -304,6 +305,16 @@
             <form-property name="parent" type="java.lang.Integer"/>
             <form-property name="defaultApp" type="java.lang.Boolean"/>
             <form-property name="readOnly" type="java.lang.Boolean"/>
+        </form-bean>
+        
+        <form-bean name="userWMSListForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="serviceId" type="java.lang.Integer"/>
+            <form-property name="name" type="java.lang.String"/>
+            <form-property name="groupname" type="java.lang.String"/>
+            <form-property name="url" type="java.lang.String"/>
+            <form-property name="sld_url" type="java.lang.String"/>
         </form-bean>
         
     </form-beans>
@@ -387,10 +398,13 @@
             <forward name="success" path="configcms"/>
             <forward name="failure" path="configcms"/>
         </action>
-
         <action path="/configApplicatie" type="nl.b3p.gis.viewer.ConfigApplicatieAction" name="applicatieForm" scope="request" validate="false">
             <forward name="success" path="configApplicatie"/>
             <forward name="failure" path="configApplicatie"/>
+        </action>
+        <action path="/configUserWMSList" type="nl.b3p.gis.viewer.ConfigUserWMSList" name="userWMSListForm" scope="request" validate="false">
+            <forward name="success" path="configUserWMSList"/>
+            <forward name="failure" path="configUserWMSList"/>
         </action>
     </action-mappings>
     

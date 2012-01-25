@@ -65,7 +65,11 @@
     <definition name="configgegevensbron" extends="config">
         <put name="title" value="Gegevensbron configuratie" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configgegevensbron.jsp"/>
-    </definition>
+    </definition>    
+    <definition name="configUserWMSList" extends="config">
+        <put name="title" value="Toegestane WMS - overzicht" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/config/configuserwmslist.jsp"/>
+    </definition>    
     <definition name="configcms" extends="config">
         <put name="title" value="CMS configuratie" type="string"/>
         <put name="content" value="/WEB-INF/jsp/config/configcms.jsp"/>

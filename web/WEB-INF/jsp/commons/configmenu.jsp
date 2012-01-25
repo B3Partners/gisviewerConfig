@@ -37,6 +37,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             <ul>
                 <li><html:link page="/configThema.do" module=""><fmt:message key="commons.configmenu.thema"/></html:link></li>
                 <li><html:link page="/configKaartGroep.do" module=""><fmt:message key="commons.configmenu.cluster"/></html:link></li>
+                <li><html:link page="/configUserWMSList.do" module=""><fmt:message key="commons.configmenu.userwms.list"/></html:link></li>
             </ul>
         </li>
 
