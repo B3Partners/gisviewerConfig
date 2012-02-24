@@ -133,7 +133,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         },
                         "saveExpandedState": false,
                         "saveScrollState": false,
-                        "expandAll": false,
+                        "expandAll": true,
                         "childrenPadding": '20px',
                         "zebraEffect": false
                     });
