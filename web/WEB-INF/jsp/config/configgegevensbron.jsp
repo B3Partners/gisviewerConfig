@@ -77,6 +77,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="button.save"/>
                     </html:submit>
                 </div>
+                
+                <div class="knoppen" style="margin-left: 10px;">
+                    <html:submit property="copy" accesskey="c" styleClass="knop copyButton" onclick="return confirm('Weet u zeker dat u de gegevensbron wilt kopieeren?');">
+                        Kopieeren
+                    </html:submit>
+                </div>
             </c:if>
         </div>
     </div>

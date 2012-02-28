@@ -499,6 +499,13 @@ a#showAllLayers {
     padding-left: 25px;
 }
 
+.copyButton {
+    background-image: url(/gisviewerconfig/images/icons/copy.png);
+    background-position: 5px 50%;
+    background-repeat: no-repeat;
+    padding-left: 25px;
+}
+
 .refreshButton {
     background-image: url(/gisviewerconfig/images/icons/arrow_refresh.png);
     background-position: 5px 50%;
