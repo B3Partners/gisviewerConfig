@@ -37,11 +37,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <tr>
                     <th style="width: 16%;">Naam</th>                    
                     <!-- <th style="width: 12%;">Datum gebruikt</th> -->                
-                    <th style="width: 24%;">E-mail</th>
+                    <th style="width: 20%;">E-mail</th>
                     <th style="width: 7%;">Versie</th>
                     <th style="width: 23%;" class="{sorter: false} no-filter">Applicatiecode</th>
                     <th style="width: 23%;" class="{sorter: false} no-filter">Gebruikerscode</th>
-                    <th style="width: 7%;" class="{sorter: false} no-filter">Acties</th>
+                    <th style="width: 11%;" class="{sorter: false} no-filter">Acties</th>
                 </tr>
             </thead>
 
@@ -52,6 +52,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <c:url var="link" value="/configApplicatie.do?edit=submit&applicatieID=${item.id}"/>
                     <c:url var="link_settings" value="/configKeeper.do?appcode=${item.code}" />
                     <c:url var="link_copy" value="/configApplicatie.do?copy=t&applicatieID=${item.id}"/>
+                    <c:url var="link_cyclo" value="/configCyclomedia.do?appcode=${item.code}" />
                     <tr>
                         <td><c:out value="${item.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                         
@@ -77,6 +78,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <td>
                             <a href="${link_settings}"><img src="images/settings.png" border="0" alt="Bekijk applicatieinstellingen" title="Bekijk applicatieinstellingen" height="20"/></a>
                             &nbsp;&nbsp;<a href="${link_copy}"><img src="images/copy.png" border="0" alt="Kopieer applicatie" title="Kopieer applicatie" height="20" onclick="return confirm('Weet u zeker dat u deze applicatie wilt kopieeren?');"/></a>
+                            &nbsp;&nbsp;<a href="${link_cyclo}"><img src="images/foto.png" border="0" alt="Bekijk cyclomedia instellingen" title="Bekijk cyclomedia instellingen" height="20"/></a>
                         </td>
                     </tr>
                 </c:forEach>

@@ -101,6 +101,12 @@
         <put name="content" value="/WEB-INF/jsp/config/configkeeper.jsp"/>
         <put name="menu" value="/WEB-INF/jsp/commons/viewermenu.jsp"/>
     </definition>
+    
+    <definition name="configCyclomedia" extends="config">
+        <put name="title" value="Cyclomediainstellingen" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/config/configcyclomedia.jsp"/>
+        <put name="menu" value="/WEB-INF/jsp/commons/viewermenu.jsp"/>
+    </definition>
 
     <definition name="configApplicatie" extends="config">
         <put name="title" value="Applicatie - overzicht" type="string"/>

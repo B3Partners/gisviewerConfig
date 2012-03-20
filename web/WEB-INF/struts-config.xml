@@ -241,14 +241,19 @@
             <form-property name="cfg_activeTab" type="java.lang.String"/>
             <form-property name="cfg_extent" type="java.lang.String"/>
             
-            <!-- cyclomedia formulier -->
+            <form-property name="cfg_useUserWmsDropdown" type="java.lang.Boolean"/>            
+        </form-bean>
+        
+        <form-bean name="configCyclomediaForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="appcode" type="java.lang.String"/>
+            
             <form-property name="cfg_cyclo_apikey" type="java.lang.String"/>
             <form-property name="cfg_cyclo_accountid" type="java.lang.String"/>
             <form-property name="cfg_cyclo_wachtwoord" type="java.lang.String"/>
             <form-property name="cfg_cyclo_privatebase64key" type="java.lang.String"/>
             <form-property name="cfg_cyclo_keybestand" type="org.apache.struts.upload.FormFile"/>
-            
-            <form-property name="cfg_useUserWmsDropdown" type="java.lang.Boolean"/>            
         </form-bean>
 
         <form-bean name="kaartgroepForm" type="org.apache.struts.validator.DynaValidatorForm">
@@ -383,10 +388,17 @@
             <forward name="wizardDone" path="/configZoekConfiguratie.do"/>
             <forward name="wizardCreateBron" path="/configConnectie.do?create=t"/>
         </action>
+        
         <action path="/configKeeper" type="nl.b3p.gis.viewer.ConfigKeeperAction" name="configKeeperForm" scope="request" validate="false">
             <forward name="success" path="configKeeper"/>
             <forward name="failure" path="configKeeper"/>
         </action>
+        
+        <action path="/configCyclomedia" type="nl.b3p.gis.viewer.ConfigCyclomediaAction" name="configCyclomediaForm" scope="request" validate="false">
+            <forward name="success" path="configCyclomedia"/>
+            <forward name="failure" path="configCyclomedia"/>
+        </action>
+        
         <action path="/configKaartGroep" type="nl.b3p.gis.viewer.ConfigKaartGroepAction" name="kaartgroepForm" scope="request" validate="false">
             <forward name="success" path="configkaartgroep"/>
             <forward name="failure" path="configkaartgroep"/>
