@@ -304,6 +304,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_useUserWmsDropdown.uitleg"/>
                     </div>
                 </div>
+                    
+                <div class="configrow">
+                    <label><fmt:message key="cfg_datasetDownload.label"/></label>
+                    <html:checkbox property="cfg_datasetDownload"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_datasetDownload">(?)</a>
+                    <div id="help_cfg_datasetDownload" style="display: none;" title="<fmt:message key="cfg_datasetDownload.label"/>">
+                        <fmt:message key="cfg_datasetDownload.uitleg"/>
+                    </div>
+                </div>
             </div>
 
         </div>
