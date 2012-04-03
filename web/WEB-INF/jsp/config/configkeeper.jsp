@@ -295,7 +295,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <div id="help_cfg_extent" style="display: none;" title="<fmt:message key="cfg_extent.label"/>">
                         <fmt:message key="cfg_extent.uitleg"/>
                     </div>
-                </div>                    
+                </div>  
+                <div class="configrow">
+                    <label><fmt:message key="cfg_tilingResolutions.label"/></label>
+                    <html:text property="cfg_tilingResolutions" size="80"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_tilingResolutions">(?)</a>
+                    <div id="help_cfg_tilingResolutions" style="display: none;" title="<fmt:message key="cfg_tilingResolutions.label"/>">
+                        <fmt:message key="cfg_tilingResolutions.uitleg"/>
+                    </div>
+                </div>
                 <div class="configrow">
                     <label><fmt:message key="cfg_useUserWmsDropdown.label"/></label>
                     <html:checkbox property="cfg_useUserWmsDropdown"/>
