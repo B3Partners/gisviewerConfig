@@ -92,6 +92,10 @@
         <put name="title" value="Wizard zoekingang - Stap 4: Zoek- en resultaatvelden" type="string"/>
         <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie4.jsp"/>
     </definition>
+    <definition name="wizardzoekconfiguratie5" extends="wizardzoekconfiguratie">
+        <put name="title" value="Wizard zoekingang - Stap 5: Kaartlagen" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie5.jsp"/>
+    </definition>
 
     <!-- tiles met herbruikbare onderdelen die in de content pagina's kunnen worden ge-insert  -->
     <definition name="loginblock" path="/WEB-INF/jsp/commons/userAndLogout.jsp"/>

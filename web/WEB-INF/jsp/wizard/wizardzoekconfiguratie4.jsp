@@ -155,6 +155,7 @@ de usecaching waarde verkeerd gezet omdat ook stap 3 uit Actionw erdt aangeroepe
 
     <div class="knoppenbalk">
         <html:submit property="step2" styleClass="knop"><fmt:message key='button.previous'/></html:submit>
+        <html:submit property="step5" styleClass="knop"><fmt:message key='button.next'/></html:submit>
         <input type="button" class="knop" onclick="openStartPage()"value="<fmt:message key='button.ok'/>"/>
     </div>
     

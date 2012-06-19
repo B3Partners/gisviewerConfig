@@ -108,6 +108,7 @@
         <form-bean name="wizardZoekConfiguratieForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="layersAan" type="java.lang.String[]"/>
         </form-bean>
 
         <form-bean name="configKeeperForm" type="org.apache.struts.validator.DynaValidatorForm">
@@ -386,6 +387,8 @@
             <forward name="step2" path="wizardzoekconfiguratie2"/>
             <forward name="step3" path="wizardzoekconfiguratie3"/>
             <forward name="step4" path="wizardzoekconfiguratie4"/>
+            <forward name="step5" path="wizardzoekconfiguratie5"/>
+            <forward name="saveStep5" path="wizardzoekconfiguratie"/>
             <forward name="wizardDone" path="/configZoekConfiguratie.do"/>
             <forward name="wizardCreateBron" path="/configConnectie.do?create=t"/>
         </action>
