@@ -60,7 +60,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         </table>
     </div>
     <div class="wizardButtonBar">
-        <html:submit property="step4" styleClass="knop"><fmt:message key='button.previous'/></html:submit> 
+        <html:submit property="step3" styleClass="knop"><fmt:message key='button.previous'/></html:submit> 
         <html:submit property="saveStep5" styleClass="knop"><fmt:message key='button.save'/></html:submit>
     </div>
 </html:form>
