@@ -40,27 +40,44 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </script>
 
     <div class="wizardQuestionBlock">
-        <p>
+        <p style="margin-left: 10px;">
             <fmt:message key="wizardzoekconfiguratie.vraag.kaartlaag"/>
-        </p> 
-        <table>
-            <thead>Selecteer kaartlagen</thead>
-            <c:forEach var="laag" items="${themas}">
-            <tr>
-                <td>
-                    <html:multibox property="layersAan">
-                        <c:out value="${laag.id}"/>
-                    </html:multibox>
-                </td>
-                <td>
-                    <c:out value="${laag.naam}"/>
-                </td>
-            </tr>
-            </c:forEach>
-        </table>
+        </p>
+        <div class="tablesortercontainer">
+            <table id="kaartlaagselectietable" class="tablesorter">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;" class="no-filter"></th>
+                        <th style="width: 90%;">Kaartlaag</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="laag" items="${themas}">
+                    <tr>
+                        <td>
+                            <html:multibox property="layersAan">
+                                <c:out value="${laag.id}"/>
+                            </html:multibox>
+                        </td>
+                        <td>
+                            <c:out value="${laag.naam}"/>
+                        </td>
+                    </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="wizardButtonBar">
         <html:submit property="step3" styleClass="knop"><fmt:message key='button.previous'/></html:submit> 
         <html:submit property="saveStep5" styleClass="knop"><fmt:message key='button.save'/></html:submit>
     </div>
 </html:form>
+<script type="text/javascript">
+    tablepager(
+        'kaartlaagselectietable',
+        '650',
+        '16',
+        false
+    );
+</script>
