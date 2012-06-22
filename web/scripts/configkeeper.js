@@ -108,3 +108,7 @@ $j(document).ready(function() {
     showModules();
     $j(".tabblad_select").change(showModules);
 });
+
+function gpsBufferVisible(visible){
+    document.getElementById("gpsbuffer").style.display = visible.checked ? "block" : "none";
+}

@@ -489,6 +489,22 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_showLayerSelectionTool.uitleg"/>
                     </div>
                 </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_showGPSTool.label"/></label>
+                    <html:checkbox property="cfg_showGPSTool" onchange="gpsBufferVisible(this);"/>
+                    <div id="gpsbuffer" style="display:none;">
+                       <fmt:message key="cfg_GPSBuffer.label"/>
+                        <html:text property="cfg_GPSBuffer" size="5"/>
+                        <div id="help_cfg_GPSBuffer" style="display: none;" title="<fmt:message key="cfg_GPSBuffer.label"/>">
+                            <fmt:message key="cfg_GPSBuffer.uitleg"/>
+                        </div>
+                    </div>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_showGPSTool">(?)</a>
+                    <div id="help_cfg_showGPSTool" style="display: none;" title="<fmt:message key="cfg_showGPSTool.label"/>">
+                        <fmt:message key="cfg_showGPSTool.uitleg"/>
+                    </div>
+                </div>
+                
             </div>
             <div class="configadvanced">
                 <div class="configrow">
