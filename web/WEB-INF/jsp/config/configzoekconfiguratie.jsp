@@ -22,9 +22,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <script type="text/javascript">
     var attribuutFormUrl="<html:rewrite page='/configZoekConfiguratieVeld.do' module=''/>";
 </script>
+<script type='text/javascript' src="<html:rewrite page='/dwr/engine.js' module=''/>"></script>
 <script type='text/javascript' src="<html:rewrite page='/dwr/interface/JZoekConfiguratieUtil.js' module=''/>">
 </script>
-<script type='text/javascript' src="<html:rewrite page='/dwr/engine.js' module=''/>"></script>
 <script type="text/javascript" src="<html:rewrite page='/scripts/zoekConfiguratie.js' module=''/>"></script>
 
 <c:set var="form" value="${zoekConfiguratieForm}"/>
