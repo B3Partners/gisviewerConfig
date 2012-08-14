@@ -33,7 +33,7 @@
         <servlet-class>nl.b3p.gis.viewer.services.HibernateUtil</servlet-class>
         <init-param>
             <param-name>kburl</param-name>
-            <param-value>http://www.kaartenbalie.nl/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
+            <param-value>http://demo.kaartenbalie.nl/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
         </init-param>
         <init-param>
             <param-name>anonymous_user</param-name>
@@ -66,73 +66,7 @@
             <param-value>2</param-value>
         </init-param>
         <load-on-startup>2</load-on-startup>
-    </servlet>
-    <servlet>
-        <servlet-name>Data2CSV</servlet-name>
-        <servlet-class>nl.b3p.gis.viewer.services.Data2CSV</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CreateMapPDF</servlet-name>
-        <servlet-class>nl.b3p.gis.viewer.services.CreateMapPDF</servlet-class>
-        <init-param>
-            <param-name>addFooter</param-name>
-            <param-value>false</param-value>
-        </init-param>
-        <init-param>
-            <param-name>logoPath</param-name>
-            <param-value>/images/barneveld/bg_top_bv.gif</param-value>
-        </init-param>
-        <init-param>
-            <param-name>extraImagePath</param-name>
-            <param-value>/images/barneveld/noordpijl.png</param-value>
-        </init-param>
-        <init-param>
-            <param-name>disclaimer</param-name>
-            <param-value>- Aan deze afdruk kunnen geen rechten worden ontleend -</param-value>
-        </init-param>
-    </servlet>
-    <servlet>
-        <description>fetches document in background to hide actual location of document</description>
-        <servlet-name>DocFetcher</servlet-name>
-        <servlet-class>nl.b3p.gis.utils.DocFetcherServlet</servlet-class>
-        <init-param>
-            <param-name>locationPrefix</param-name>
-            <param-value>http://b3p-demoserver/gisviewer</param-value>
-        </init-param>
-        <init-param>
-            <param-name>directoryKeepDepth</param-name>
-            <param-value>1</param-value>
-        </init-param>
-        <init-param>
-            <param-name>fetchMethod</param-name>
-            <param-value>HTTP</param-value>
-        </init-param>
-    </servlet>
-    <servlet>
-        <description>adds credentials and redirects to cyclomedia</description>
-        <servlet-name>CycloramaFetcher</servlet-name>
-        <servlet-class>nl.b3p.gis.utils.CycloramaFetcherServlet</servlet-class>
-        <init-param>
-            <param-name>accountId</param-name>
-            <param-value>9999</param-value>
-        </init-param>
-        <init-param>
-            <param-name>cyclomediaUrl</param-name>
-            <param-value>http://live.cyclomedia.nl/cycloscopeliteview/cycloviewui.asp?</param-value>
-        </init-param>
-        <init-param>
-            <param-name>privateBase64Key</param-name>
-            <param-value></param-value>
-        </init-param>
-    </servlet>
-    <servlet>
-        <servlet-name>CreateSLD</servlet-name>
-        <servlet-class>nl.b3p.gis.viewer.services.SldServlet</servlet-class>
-        <init-param>
-            <param-name>defaultSld</param-name>
-            <param-value>/WEB-INF/defaultSld.xml</param-value>
-        </init-param>
-     </servlet>    
+    </servlet>    
     <servlet-mapping>
         <servlet-name>action</servlet-name>
         <url-pattern>*.do</url-pattern>
@@ -151,27 +85,7 @@
         <servlet-name>dwr-invoker</servlet-name>
         <url-pattern>/dwr/*</url-pattern>
     </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>Data2CSV</servlet-name>
-        <url-pattern>/services/Data2CSV</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CreateMapPDF</servlet-name>
-        <url-pattern>/services/CreateMapPDF</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DocFetcher</servlet-name>
-        <url-pattern>/docfetcher</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CycloramaFetcher</servlet-name>
-        <url-pattern>/cycloramafetcher</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CreateSLD</servlet-name>
-        <url-pattern>/CreateSLD</url-pattern>
-    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             480
