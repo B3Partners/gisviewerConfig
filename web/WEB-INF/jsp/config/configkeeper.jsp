@@ -321,6 +321,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_datasetDownload.uitleg"/>
                     </div>
                 </div>
+                    
+                <div class="configrow">
+                    <label><fmt:message key="cfg_showServiceUrl.label"/></label>
+                    <html:checkbox property="cfg_showServiceUrl"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_showServiceUrl">(?)</a>
+                    <div id="help_cfg_showServiceUrl" style="display: none;" title="<fmt:message key="cfg_showServiceUrl.label"/>">
+                        <fmt:message key="cfg_showServiceUrl.uitleg"/>
+                    </div>
+                </div>
             </div>
 
         </div>
