@@ -28,11 +28,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </div>
 <html:form action="/wizardZoekConfiguratie">
     <input type="hidden" name="bronId" value="${bronId}"/>
-<input type="hidden" id="zoekConfiguratieId" name="zoekConfiguratieId" value="${zoekConfiguratieId}"/>
+    <input type="hidden" id="zoekConfiguratieId" name="zoekConfiguratieId" value="${zoekConfiguratieId}"/>
+
     <div class="berichtenbalk">
-            <tiles:insert definition="actionMessages"/>
+        <tiles:insert definition="actionMessages"/>
     </div>
-    
+
     <script type="text/javascript">
         var attribuutFormUrl="<html:rewrite page='/configZoekConfiguratieVeld.do' module=''/>";
         var startPage="<html:rewrite page='/configZoekConfiguratie.do' module=''/>";
@@ -40,8 +41,16 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
     <div class="wizardQuestionBlock">
         <p style="margin-left: 10px;">
-            <fmt:message key="wizardzoekconfiguratie.vraag.kaartlaag"/>
+            Selecteer een of meerdere kaartlagen die aangezet moeten worden bij 
+            deze zoekingang. De volgende kaartlagen zijn aangevinkt:
         </p>
+
+        <ul>
+        <c:forEach var="naam" items="${layerNamesOn}">
+            <li><c:out value="${naam}" /></li>
+        </c:forEach>
+        </ul>
+
         <div class="tablesortercontainer">
             <table id="kaartlaagselectietable" class="tablesorter">
                 <thead>
@@ -52,16 +61,16 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </thead>
                 <tbody>
                     <c:forEach var="laag" items="${themas}">
-                    <tr>
-                        <td>
-                            <html:multibox property="layersAan">
-                                <c:out value="${laag.id}"/>
-                            </html:multibox>
-                        </td>
-                        <td>
-                            <c:out value="${laag.naam}"/>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                                <html:multibox property="layersAan">
+                                    <c:out value="${laag.id}"/>
+                                </html:multibox>
+                            </td>
+                            <td>
+                                <c:out value="${laag.naam}"/>
+                            </td>
+                        </tr>
                     </c:forEach>
                 </tbody>
             </table>
@@ -69,14 +78,14 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
     <div class="wizardButtonBar">
         <html:submit property="step3" styleClass="knop"><fmt:message key='button.previous'/></html:submit> 
-        <html:submit property="saveStep5" styleClass="knop"><fmt:message key='button.save'/></html:submit>
+        <html:submit property="saveStep5" styleClass="knop" onclick="return postFullTableData('Bezig opslaan zoekingan kaartlagen...');"><fmt:message key='button.save'/></html:submit>
     </div>
 </html:form>
 <script type="text/javascript">
     tablepager(
-        'kaartlaagselectietable',
-        '650',
-        '16',
-        false
-    );
+    'kaartlaagselectietable',
+    '650',
+    '16',
+    false
+);
 </script>
