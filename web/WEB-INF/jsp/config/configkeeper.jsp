@@ -51,11 +51,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         </div>
         <div style="float: right;">
             <input type="button" class="knop backButton" onclick="window.location='<html:rewrite page='/configApplicatie.do' />'" value="<fmt:message key='button.back'/>" />
-            
+
             <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u dit wilt opslaan?');">
                 Opslaan
             </html:submit>
-            
+
             <html:submit property="resetInstellingen" styleClass="knop refreshButton" accesskey="r" onclick="return confirm('Weet u zeker dat u de instellingen wilt herstellen naar de standaard waarden?');">
                 Herstel naar standaard instellingen
             </html:submit>
@@ -100,14 +100,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <div class="tablabel sublabel" id="label_bag">
             BAG
         </div>
+        <div class="tablabel sublabel" id="label_tekenen">
+            Teken
+        </div>
     </div>
 
     <div class="tabcontents">
-        
+
         <div class="tabcontent content_kaartselectie">
 
             <div style="position: relative;">
-            
+
                 <div class="kaartselectieKoppen">
                     <h3>Vaste kaartlagen</h3>
                     <h4>Laag tonen</h4>
@@ -149,22 +152,22 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <div id="layerTreeDiv${status.count}" class="kaartselectie"></div>
 
                         <script type="text/javascript">
-                        treeview_create({
-                            "id": 'layerTreeDiv${status.count}',
-                            "root": ${serviceTree},
-                            "rootChildrenAsRoots": false,
-                            "itemLabelCreatorFunction": createServiceLeaf,
-                            "toggleImages": {
-                                "collapsed": "<html:rewrite page="/images/treeview/plus.gif"/>",
-                                "expanded": "<html:rewrite page="/images/treeview/minus.gif"/>",
-                                "leaf": "<html:rewrite page="/images/treeview/leaft.gif"/>"
-                            },
-                            "saveExpandedState": true,
-                            "saveScrollState": true,
-                            "expandAll": true,
-                            "childrenPadding": '20px',
-                            "zebraEffect": true
-                        });
+                            treeview_create({
+                                "id": 'layerTreeDiv${status.count}',
+                                "root": ${serviceTree},
+                                "rootChildrenAsRoots": false,
+                                "itemLabelCreatorFunction": createServiceLeaf,
+                                "toggleImages": {
+                                    "collapsed": "<html:rewrite page="/images/treeview/plus.gif"/>",
+                                    "expanded": "<html:rewrite page="/images/treeview/minus.gif"/>",
+                                    "leaf": "<html:rewrite page="/images/treeview/leaft.gif"/>"
+                                },
+                                "saveExpandedState": true,
+                                "saveScrollState": true,
+                                "expandAll": true,
+                                "childrenPadding": '20px',
+                                "zebraEffect": true
+                            });
                         </script>
                     </c:forEach>
 
@@ -191,9 +194,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <html:submit property="saveWMSService" styleClass="rightButton submitbutton">Service toevoegen</html:submit>
                     </div>
                 </div>
-                
+
             </div>
-                
+
         </div>
 
         <div class="tabcontent content_kaartlagen">
@@ -312,7 +315,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_useUserWmsDropdown.uitleg"/>
                     </div>
                 </div>
-                    
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_datasetDownload.label"/></label>
                     <html:checkbox property="cfg_datasetDownload"/>
@@ -321,13 +324,21 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_datasetDownload.uitleg"/>
                     </div>
                 </div>
-                    
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_showServiceUrl.label"/></label>
                     <html:checkbox property="cfg_showServiceUrl"/>
                     <a class="helpLink" href="#" id="helpLink_help_cfg_showServiceUrl">(?)</a>
                     <div id="help_cfg_showServiceUrl" style="display: none;" title="<fmt:message key="cfg_showServiceUrl.label"/>">
                         <fmt:message key="cfg_showServiceUrl.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_edit.label"/></label>
+                    <html:checkbox property="cfg_showEditTool"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_edit">(?)</a>
+                    <div id="help_cfg_edit" style="display: none;" title="<fmt:message key="cfg_edit.label"/>">
+                        <fmt:message key="cfg_edit.uitleg"/>
                     </div>
                 </div>
             </div>
@@ -502,7 +513,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <label><fmt:message key="cfg_showGPSTool.label"/></label>
                     <html:checkbox property="cfg_showGPSTool" onchange="gpsBufferVisible(this);"/>
                     <div id="gpsbuffer" style="display:none;">
-                       <fmt:message key="cfg_GPSBuffer.label"/>
+                        <fmt:message key="cfg_GPSBuffer.label"/>
                         <html:text property="cfg_GPSBuffer" size="5"/>
                         <div id="help_cfg_GPSBuffer" style="display: none;" title="<fmt:message key="cfg_GPSBuffer.label"/>">
                             <fmt:message key="cfg_GPSBuffer.uitleg"/>
@@ -512,8 +523,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <div id="help_cfg_showGPSTool" style="display: none;" title="<fmt:message key="cfg_showGPSTool.label"/>">
                         <fmt:message key="cfg_showGPSTool.uitleg"/>
                     </div>
-                </div>
-                
+                </div>                
             </div>
             <div class="configadvanced">
                 <div class="configrow">
@@ -527,7 +537,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             </div>
 
         </div>   
-        
+
         <div class="tabcontent content_tabbladen">
             <p>
                 U kunt hier tot maximaal vijf modules selecteren die worden
@@ -946,7 +956,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <div class="tabcontent content_meldingen">
 
             <div class="configbasic">
-                
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldingwelkomtekst.label"/></label>
                     <html:textarea property="cfg_meldingwelkomtekst" cols="40" rows="5" />
@@ -1030,7 +1040,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </div>
                 </div>
                 -->
-                
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldingnaam.label"/></label>
                     <html:text property="cfg_meldingnaam" size="50"/>
@@ -1039,7 +1049,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_meldingnaam.uitleg"/>
                     </div>
                 </div>
-                    
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldingemail.label"/></label>
                     <html:text property="cfg_meldingemail" size="50"/>
@@ -1048,7 +1058,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_meldingemail.uitleg"/>
                     </div>
                 </div>
-                
+
                 <!--
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldinglayoutemailbehandelaar.label"/></label>
@@ -1130,7 +1140,56 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </div>
             </div>
             <div class="configadvanced"></div>
-        </div>                    
+        </div>  
+
+        <div class="tabcontent content_tekenen">
+            <div class="configbasic">
+                <div class="configrow">
+                    <label><fmt:message key="cfg_tekenTitel.label"/></label>
+                    <html:text property="cfg_tekenTitel" size="50"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_tekenTitel">(?)</a>
+                    <div id="help_cfg_tekenTitel" style="display: none;" title="<fmt:message key="cfg_tekenTitel.label"/>">
+                        <fmt:message key="cfg_tekenTitel.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_tekenTekstBoven.label"/></label>
+                    <html:text property="cfg_tekenTekstBoven" size="50"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_tekenTekstBoven">(?)</a>
+                    <div id="help_cfg_tekenTekstBoven" style="display: none;" title="<fmt:message key="cfg_tekenTekstBoven.label"/>">
+                        <fmt:message key="cfg_tekenTekstBoven.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_tekenPlaatje.label"/></label>
+                    <html:text property="cfg_tekenPlaatje" size="50"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_tekenPlaatje">(?)</a>
+                    <div id="help_cfg_tekenPlaatje" style="display: none;" title="<fmt:message key="cfg_tekenPlaatjebel"/>">
+                        <fmt:message key="cfg_tekenPlaatje.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_tekenTekstOnder.label"/></label>
+                    <html:text property="cfg_tekenTekstOnder" size="50"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_tekenTekstOnder">(?)</a>
+                    <div id="help_cfg_tekenTekstOnder" style="display: none;" title="<fmt:message key="cfg_tekenTekstOnder.label"/>">
+                        <fmt:message key="cfg_tekenTekstOnder.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_tekenGegevensbron.label"/></label>
+
+                    <html:select property="cfg_tekenGegevensbron">
+                        <html:option value="0">-Kies een gegevensbron-</html:option>
+                        <c:forEach items="${tekenGegevensbronnen}" var="item">
+                            <html:option value="${item.id}">${item.naam}</html:option>
+                        </c:forEach>
+                    </html:select>
+
+                </div>
+            </div>
+            <div class="configadvanced"></div>
+        </div>
         <div class="tabcontent content_bag">
             <div class="configbasic">
                 <div class="configrow">
@@ -1217,47 +1276,47 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </html:form>
 
 <script type="text/javascript">
-function treeZebra() {
-    var treecounter = 0;
-    var zebracounter = 0;
-    $j(".kaartselectie").each(function() {
-        if(treecounter <= 1) zebracounter = 0;
-        $j(".treeview_row", this).each(function() {
-            // check if visible
-            if($j(this).parent().parent().parent().parent().is(":visible")) {
-                $j(this).removeClass("treeview_odd_row");
-                if(zebracounter%2==0) {
-                    $j(this).addClass("treeview_odd_row");
+    function treeZebra() {
+        var treecounter = 0;
+        var zebracounter = 0;
+        $j(".kaartselectie").each(function() {
+            if(treecounter <= 1) zebracounter = 0;
+            $j(".treeview_row", this).each(function() {
+                // check if visible
+                if($j(this).parent().parent().parent().parent().is(":visible")) {
+                    $j(this).removeClass("treeview_odd_row");
+                    if(zebracounter%2==0) {
+                        $j(this).addClass("treeview_odd_row");
+                    }
+                    zebracounter++;
                 }
-                zebracounter++;
-            }
+            });
+            treecounter++;
         });
-        treecounter++;
-    });
-}
+    }
 
-$j(function() {
-    $j("#kaartselectieAddServiceLink").click(function() {
-        $j("#kaartselectieAddService").show();
-        $j(this).hide();
-        return false;
-    });
-    $j('.kaartselectieBody').click(function() {
-        closeSldContainers();
-    });
-    $j('.helpbutton').hover(function() {
-        $j(this).parent().parent().find('.help').show();
-    }, function() {
-        $j(this).parent().parent().find('.help').hide();
-    });
-    $j('.help').hover(function() {
-        $j(this).show();
-    }, function() {
-        $j(this).hide();
-    });
+    $j(function() {
+        $j("#kaartselectieAddServiceLink").click(function() {
+            $j("#kaartselectieAddService").show();
+            $j(this).hide();
+            return false;
+        });
+        $j('.kaartselectieBody').click(function() {
+            closeSldContainers();
+        });
+        $j('.helpbutton').hover(function() {
+            $j(this).parent().parent().find('.help').show();
+        }, function() {
+            $j(this).parent().parent().find('.help').hide();
+        });
+        $j('.help').hover(function() {
+            $j(this).show();
+        }, function() {
+            $j(this).hide();
+        });
 
-    treeZebra();
-});
+        treeZebra();
+    });
 </script>
 
 <script type="text/javascript" src="<html:rewrite page="/scripts/configkeeper.js"/>"></script>

@@ -206,6 +206,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <a href="#" class="helpLink" id="helpLink_help_configgb_opmerking">(?)</a><div id="help_configgb_opmerking" style="display: none;" title="<fmt:message key="configgb_opmerking.label"/>"><fmt:message key="configgb_opmerking.uitleg"/></div>
                 </div>
 
+                <div class="configrow configrowtree">
+                    <label><fmt:message key="configgb_editable.label"/></label>
+                    <html:checkbox property="editable" onchange="editableChanged(this)" />
+                    <a href="#" class="helpLink" id="helpLink_help_configgb_editable">(?)</a><div id="help_configgb_editable" style="display: none;" title="<fmt:message key="configgb_editable.label"/>"><fmt:message key="configgb_editable.uitleg"/></div>
+                </div>
+                <div class="configrow configrowtree">
+                    <label><fmt:message key="configgb_geometryeditable.label"/></label>
+                    <html:checkbox property="geometryeditable" />
+                    <a href="#" class="helpLink" id="helpLink_help_configgb_geometryeditable">(?)</a><div id="help_configgb_geometryeditable" style="display: none;" title="<fmt:message key="configgb_geometryeditable.label"/>"><fmt:message key="configgb_geometryeditable.uitleg"/></div>
+                </div>
+
                 <div class="configrow configrowtree" style="margin-top: 25px;">
                     <a href="configThemaData.do?gegevensbronID=${mainid}">Objectdata bewerken</a>
                 </div>

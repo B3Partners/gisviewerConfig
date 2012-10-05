@@ -72,6 +72,8 @@
             <form-property name="omschrijving" type="java.lang.String"/>
             <form-property name="uitgebreid" type="java.lang.Boolean"/>
             <form-property name="basisregel" type="java.lang.Boolean"/>
+            <form-property name="editable" type="java.lang.Boolean"/>
+            <form-property name="defaultValues" type="java.lang.String"/>
             <form-property name="voorbeelden" type="java.lang.String"/>
             <form-property name="kolombreedte" type="java.lang.String"/>
             <form-property name="waardeTypeID" type="java.lang.String"/>
@@ -81,6 +83,7 @@
             <form-property name="dataorder" type="java.lang.String"/>
             <form-property name="gegevensbronID" type="java.lang.String"/>
             <form-property name="basisregels" type="java.lang.Integer[]"/>
+            <form-property name="editables" type="java.lang.Integer[]"/>
         </form-bean>
         <form-bean name="zoekConfiguratieForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
@@ -199,6 +202,13 @@
             <form-property name="cfg_redliningkaartlaagid" type="java.lang.Integer"/>
             <form-property name="cfg_redlininggegevensbron" type="java.lang.Integer"/>
             
+            <!-- Tekenen config items -->
+            <form-property name="cfg_tekenGegevensbron" type="java.lang.Integer"/>
+            <form-property name="cfg_tekenTekstBoven" type="java.lang.String"/>
+            <form-property name="cfg_tekenTekstOnder" type="java.lang.String"/>
+            <form-property name="cfg_tekenTitel" type="java.lang.String"/>
+            <form-property name="cfg_tekenPlaatje" type="java.lang.String"/>
+            
             <!-- Redlining config items -->
             <form-property name="cfg_bagkaartlaagid" type="java.lang.Integer"/>
             <form-property name="cfg_bagmaxbouwjaar" type="java.lang.Integer"/>
@@ -219,6 +229,7 @@
             <form-property name="cfg_showLayerSelectionTool" type="java.lang.Boolean"/>
             <form-property name="cfg_showGPSTool" type="java.lang.Boolean"/>
             <form-property name="cfg_GPSBuffer" type="java.lang.String"/>
+            <form-property name="cfg_showEditTool" type="java.lang.Boolean"/>
             <form-property name="cfg_layerGrouping" type="java.lang.String"/>
             <form-property name="cfg_popupWidth" type="java.lang.String"/>
             <form-property name="cfg_popupHeight" type="java.lang.String"/>
@@ -294,6 +305,8 @@
             <form-property name="admin_query" type="java.lang.String"/>
             <form-property name="admin_tabel_opmerkingen" type="java.lang.String"/>
             <form-property name="volgordenr" type="java.lang.String"/>
+            <form-property name="editable" type="java.lang.Boolean"/>
+            <form-property name="geometryeditable" type="java.lang.Boolean"/>
         </form-bean>
         <form-bean name="cmsForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>

@@ -78,7 +78,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <th style="width: 35%;"><fmt:message key="configthemadata.label"/></th>
                         <th style="width: 35%;"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></th>
                         <!-- class="{sorter: false}" -->
-                        <th style="width: 10%;"><fmt:message key="configthemadata.basisregel"/></th>
+                        <th style="width: 5%;"><fmt:message key="configthemadata.basisregel"/></th>
+                        <c:if test="${gegevensbron.editable}">
+                            <th style="width: 5%;"><fmt:message key="configthemadata.bewerkbaar"/></th>
+                        </c:if>
                     </tr>
                 </thead>
                 <tbody>
@@ -118,6 +121,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <td>
                                 <html:multibox property="basisregels" value="${ci.id}"/>
                             </td>
+                            <c:if test="${gegevensbron.editable}">
+                                <td>
+                                    <html:multibox property="editables" value="${ci.id}"/>
+                                </td>
+                            </c:if>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -262,7 +270,23 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <a class="helpLink" href="#" id="helpLink_help_configthemadataomschrijving">(?)</a>
                     <div id="help_configthemadataomschrijving" style="display: none;" title="<fmt:message key="configthemadata.omschrijving"/>"><fmt:message key="configthemadata.omschrijving.uitleg"/></div>
                 </div>
-
+                
+                <c:if test="${gegevensbron.editable}">
+                    <div class="configrow">
+                        <label><fmt:message key="configthemadata.bewerkbaar"/></label>
+                        <html:checkbox property="editable"/>
+                        <a class="helpLink" href="#" id="helpLink_help_configthemadataeditable">(?)</a>
+                        <div id="help_configthemadataeditable" style="display: none;" title="<fmt:message key="configthemadata.bewerkbaar"/>"><fmt:message key="configthemadata.bewerkbaar.uitleg"/></div>
+                    </div>
+                </c:if>
+                <c:if test="${gegevensbron.editable}">
+                    <div class="configrow">
+                        <label><fmt:message key="configthemadata.defaultValues"/></label>
+                        <html:text property="defaultValues" size="140"/>
+                        <a class="helpLink" href="#" id="helpLink_help_configthemadatadefaultValues">(?)</a>
+                        <div id="help_configthemadatadefaultValues" style="display: none;" title="<fmt:message key="configthemadata.defaultValues"/>"><fmt:message key="configthemadata.defaultValues.uitleg"/></div>
+                    </div>
+                </c:if>
                 <div class="configrow" style="margin-top: 10px;">
                     <a class="helpLink" href="#" id="helpLink_help_configthemadata_niet_tonen">(?)</a>
                     <div id="help_configthemadata_niet_tonen" style="display: none;" title="<fmt:message key="configthemadata_niet_tonen.label"/>">

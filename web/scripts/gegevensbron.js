@@ -99,7 +99,9 @@ function handleFeatureList(list){
     var data = [ {value:"",label:"-Selecteer eerst een tabel-"} ];
     
     dwr.util.addOptions("admin_pk_select", data, "value", "label");
-
+    
+    // Handle selected brontype for editable gegevensbron
+    updateEditables();
     return true;
 }
 
@@ -122,3 +124,30 @@ function refreshTheLists(){
     document.forms[0].refreshLists.value="do";
     document.forms[0].submit();
 }
+
+function editableChanged(input){
+    if(!input.checked){
+        $j(':input[name=geometryeditable]')[0].checked = false;
+    }
+}
+
+function updateEditables (){
+    var bronId =  $j("#connectie_select")[0].value;
+    JConfigListsUtil.isBronJDBC(bronId,handleBronEditable);
+}
+
+function handleBronEditable(isJDBC){
+    if(isJDBC){
+        $j(':input[name=editable]')[0].disabled = false;
+        $j(':input[name=geometryeditable]')[0].disabled = false;
+    }else{
+        $j(':input[name=editable]')[0].checked = false;
+        $j(':input[name=editable]')[0].disabled = true;
+        $j(':input[name=geometryeditable]')[0].checked = false;
+        $j(':input[name=geometryeditable]')[0].disabled = true;
+    }
+}
+
+$j(document).ready(function(){
+    updateEditables();
+});
