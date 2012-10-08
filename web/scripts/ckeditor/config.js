@@ -29,7 +29,7 @@ CKEDITOR.editorConfig = function( config )
     [
         ['Cut','Copy','Paste','PasteText','PasteFromWord'],
         ['Undo','Redo','SelectAll','RemoveFormat'],
-        ['Image','Table','HorizontalRule','Smiley','SpecialChar'],
+        ['Image','Table','HorizontalRule','Smiley','SpecialChar','Source'],
         '/',
         ['Styles','Format'],
         ['Bold','Italic','Strike'],
