@@ -121,12 +121,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <td>
                                 <html:multibox property="basisregels" value="${ci.id}"/>
                             </td>
-                            <c:if test="${ci.editable}">                                
+                            <c:if test="${gegevensbron.editable && ci.editable}">                                
                                 <td>
                                     <c:out value="Ja" />
                                 </td>
                             </c:if>
-                            <c:if test="${!ci.editable}">                                
+                            <c:if test="${gegevensbron.editable && !ci.editable}">                                
                                 <td>
                                     <c:out value="Nee" />
                                 </td>
