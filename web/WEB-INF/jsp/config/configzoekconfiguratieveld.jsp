@@ -99,8 +99,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         </c:forEach>
                     </html:select>
                 </td>
-            </tr>
+            </tr>            
             </c:if>
+            
+            <tr>
+                <td>Uitleg</td>
+                <td><html:textarea property="omschrijving"></html:textarea></td>
+            </tr>
 
             <tr>
                 <td></td>

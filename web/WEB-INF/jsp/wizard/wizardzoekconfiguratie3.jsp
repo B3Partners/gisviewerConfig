@@ -44,6 +44,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <td><input type="text" name="naam" value="${naam}"/></td>
             </tr>
             <tr>
+                <td>Omschrijving:</td>
+                <td><textarea name="omschrijving" rows="5" cols="60">${omschrijving}</textarea></td>
+            </tr>
+            <tr>
                 <td><fmt:message key="configzoekconfiguratie.vervolgzoeker"/></td>
                 <td>
                     <select name="parentZoekConfiguratie">
