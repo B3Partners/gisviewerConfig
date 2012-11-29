@@ -146,6 +146,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <html:option value="gisviewer_help">Gisviewer help</html:option>
                             <html:option value="gisviewer_login">Gisviewer login</html:option>
                             <html:option value="gisviewer_tab">Gisviewer tabblad</html:option>
+                            
+                            <%-- Solparc options --%>
+                            <html:option value="solparc_maatschappelijk">Maatschappelijke voorzieningen</html:option>
+                            <html:option value="solparc_actueel">Actuele zaken</html:option>
+                            <html:option value="solparc_wijkgericht">Wijkgericht werken</html:option>
+                            <html:option value="solparc_openbareruimte">Beheer openbare ruimte</html:option>
+                            <html:option value="solparc_natuur">Natuur, milieu en cultuurhistorie</html:option>
+                            <html:option value="solparc_gemeente">Gemeente op de kaart</html:option>
+                            
                             <html:option value="config_home">Gisviewerconfig home</html:option>
                             <html:option value="config_help">Gisviewerconfig help</html:option>
                         </html:select>
@@ -160,6 +169,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </td>
                     <td colspan="3">
                         <html:text property="volgordeNr" size="10"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <fmt:message key="configcmskleur.label"/> <a href="#" onclick="return showHelpDialog('help_configcmskleur');">(?)</a>
+                        <div id="help_configcmsurl" style="display: none;" title="<fmt:message key="configcmskleur.label"/>">
+                            <p><fmt:message key="configcmskleur.uitleg"/></p>
+                        </div>
+                    </td>
+                    <td colspan="3">
+                        <html:text property="kleur" size="40"/>
                     </td>
                 </tr>
             </table>

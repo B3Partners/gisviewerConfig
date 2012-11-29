@@ -319,6 +319,7 @@
             <form-property name="toonUrl" type="java.lang.Boolean"/>
             <form-property name="pagina" type="java.lang.String"/>
             <form-property name="volgordeNr" type="java.lang.Integer"/>
+            <form-property name="kleur" type="java.lang.String"/>
         </form-bean>
 
         <form-bean name="applicatieForm" type="org.apache.struts.validator.DynaValidatorForm">
