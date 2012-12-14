@@ -174,7 +174,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <tr>
                     <td>
                         <fmt:message key="configcmskleur.label"/> <a href="#" onclick="return showHelpDialog('help_configcmskleur');">(?)</a>
-                        <div id="help_configcmsurl" style="display: none;" title="<fmt:message key="configcmskleur.label"/>">
+                        <div id="help_configcmskleur" style="display: none;" title="<fmt:message key="configcmskleur.label"/>">
                             <p><fmt:message key="configcmskleur.uitleg"/></p>
                         </div>
                     </td>
