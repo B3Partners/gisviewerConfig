@@ -77,7 +77,7 @@
             <form-property name="voorbeelden" type="java.lang.String"/>
             <form-property name="kolombreedte" type="java.lang.String"/>
             <form-property name="waardeTypeID" type="java.lang.String"/>
-            <form-property name="dataTypeID" type="java.lang.String"/>
+            <form-property name="dataTypeID" type="java.lang.String" initial="1" />
             <form-property name="commando" type="java.lang.String"/>
             <form-property name="kolomnaam" type="java.lang.String"/>
             <form-property name="dataorder" type="java.lang.String"/>
@@ -142,6 +142,7 @@
             <form-property name="cfg_refreshDelay" type="java.lang.Integer"/>
             <form-property name="cfg_minBboxZoeken" type="java.lang.Integer"/>
             <form-property name="cfg_maxResults" type="java.lang.Integer"/>
+            <form-property name="cfg_defaultSearchRadius" type="java.lang.Integer"/>
             <form-property name="cfg_expandAll" type="java.lang.Boolean"/>
             <form-property name="cfg_multipleActiveThemas" type="java.lang.Boolean"/>
             <form-property name="rolnaam" type="java.lang.String"/>

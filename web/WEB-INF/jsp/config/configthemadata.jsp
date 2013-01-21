@@ -63,10 +63,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <a href="#" class="datalink" onclick="javascript: document.getElementById('createAllThemaData').value='doe';submit()">Maak ontbrekende Themadata objecten voor thema</a>
                     </c:if>--%>
                     <html:submit property="updateBasisregels" styleClass="knop" onclick="return postFullTableData('Bezig met batch update');"><fmt:message key="configthemadata.updatebasisregels.button"/></html:submit>
-                </td>
-            </tr>
-        </table>
-    </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
     <c:if test="${!empty listThemaData}">
         <div class="tablesortercontainer">
@@ -275,7 +275,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <a class="helpLink" href="#" id="helpLink_help_configthemadataomschrijving">(?)</a>
                     <div id="help_configthemadataomschrijving" style="display: none;" title="<fmt:message key="configthemadata.omschrijving"/>"><fmt:message key="configthemadata.omschrijving.uitleg"/></div>
                 </div>
-                
+
                 <c:if test="${gegevensbron.editable}">
                     <div class="configrow">
                         <label><fmt:message key="configthemadata.bewerkbaar"/></label>

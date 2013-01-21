@@ -291,6 +291,16 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_maxResults.uitleg"/>
                     </div>
                 </div>
+                
+                <div class="configrow">
+                    <label><fmt:message key="cfg_defaultSearchRadius.label"/></label>
+                    <html:text property="cfg_defaultSearchRadius" size="5"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_defaultSearchRadius">(?)</a>
+                    <div id="help_cfg_defaultSearchRadius" style="display: none;" title="<fmt:message key="cfg_defaultSearchRadius.label"/>">
+                        <fmt:message key="cfg_defaultSearchRadius.uitleg"/>
+                    </div>
+                </div>
+                    
                 <div class="configrow">
                     <label><fmt:message key="cfg_extent.label"/></label>
                     <html:text property="cfg_extent" size="40"/>
