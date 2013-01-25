@@ -55,25 +55,18 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             </tr>
             <tr>
 
-                <td><fmt:message key="configzoekconfiguratieveld.type"/>
-                </td>
+                <td>Type</td>
                 <td>
                     <html:select styleId="type" property="type">
 
                     </html:select>
                 </td>
-            </tr>
-            <tr>
-                <td><fmt:message key="configzoekconfiguratieveld.volgorde"/>
-                </td>
-                <td><html:text property="volgorde"></html:text>
-                </td>
-            </tr>
+            </tr>            
 
             <!-- Attributen alleen bij een zoekveld -->
             <c:if test="${attribuutType == 'zoek'}">
             <tr>
-                <td><fmt:message key="configzoekconfiguratieveld.inputtype"/></td>
+                <td>Soort invoer</td>
                 <td>
                     <html:select styleId="type" property="inputtype">
                         <html:option value="2">Tekst</html:option>
@@ -83,11 +76,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </td>
             </tr>
             <tr>
-                <td><fmt:message key="configzoekconfiguratieveld.inputsize"/></td>
+                <td>Max. invoerlengte</td>
                 <td><html:text property="inputsize"></html:text></td>
             </tr>
             <tr>
-                <td>Opzoeklijst</td>
+                <td>Dropdown waarden</td>
+                <td><html:text property="dropDownValues"></html:text></td>
+            </tr>            
+            <tr>
+                <td>Gebruik opzoeklijst</td>
                 <td><html:select property="inputzoekconfiguratie">
                         <html:option value="">
                             Geen
@@ -101,6 +98,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </td>
             </tr>            
             </c:if>
+            
+            <tr>
+                <td><fmt:message key="configzoekconfiguratieveld.volgorde"/>
+                </td>
+                <td><html:text property="volgorde"></html:text>
+                </td>
+            </tr>
             
             <tr>
                 <td>Uitleg</td>

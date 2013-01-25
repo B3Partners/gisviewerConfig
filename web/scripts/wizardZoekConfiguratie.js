@@ -96,8 +96,8 @@ function addAttribuut(zoekConfigid,paramName){
 function openAsDialog(dialogdiv){
     dialogdiv.dialog({
         autoOpen: false,
-        height: 270,
-        width: 350,
+        width: 400,
+        height: 350,    
         resizable: false,
         draggable: true,
         modal: true
@@ -123,9 +123,3 @@ function deleteZoekConfiguratie(id){
         }
     }
 }
-
-/*
-$j(document).ready(function() {
-    openAsDialog($j("#dialogPopUp"));
-});
-*/
