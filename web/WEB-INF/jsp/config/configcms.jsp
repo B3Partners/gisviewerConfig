@@ -135,6 +135,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </tr>
                 <tr>
                     <td>
+                        <fmt:message key="configcmsinlogicon.label"/> <a href="#" onclick="return showHelpDialog('help_configcmsinlogicon');">(?)</a>
+                        <div id="help_configcmsinlogicon" style="display: none;" title="<fmt:message key="configcmsinlogicon.label"/>">
+                            <p><fmt:message key="configcmsinlogicon.uitleg"/></p>
+                        </div>
+                    </td>
+                    <td colspan="3">
+                        <html:checkbox property="inlogIcon" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <fmt:message key="configcmspagina.label"/> <a href="#" onclick="return showHelpDialog('help_configcmspagina');">(?)</a>
                         <div id="help_configcmspagina" style="display: none;" title="<fmt:message key="configcmspagina.label"/>">
                             <p><fmt:message key="configcmspagina.uitleg"/></p>
