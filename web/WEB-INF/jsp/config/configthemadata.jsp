@@ -73,12 +73,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             <table id="themadatatable" class="tablesorter">
                 <thead>
                     <tr>
-                        <th style="width: 10%;">Status</th>
-                        <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
-                        <th style="width: 35%;"><fmt:message key="configthemadata.label"/></th>
-                        <th style="width: 35%;"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></th>
-                        <!-- class="{sorter: false}" -->
-                        <th style="width: 5%;"><fmt:message key="configthemadata.basisregel"/></th>
+                        <th style="width: 15%;" class="no-filter">Status</th>
+                        <th style="width: 5%;">Volgorde</th>
+                        <th style="width: 10%;" class="no-filter">&nbsp;</th>                        
+                        <th style="width: 15%;"><fmt:message key="configthemadata.label"/></th>                                     
+                        <th style="width: 20%;" class="no-filter">&nbsp;</th>
+                        <th style="width: 20%;"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></th>
+                        <th style="width: 15%;" class="no-filter"><fmt:message key="configthemadata.basisregel"/></th>
                         <c:if test="${gegevensbron.editable}">
                             <th style="width: 5%;"><fmt:message key="configthemadata.bewerkbaar"/></th>
                         </c:if>
@@ -105,8 +106,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                                     </c:otherwise>
                                 </c:choose>
                             </td>
-                            <td><c:out value="${ci.dataorder}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
+                            <td><c:out value="${ci.dataorder}"/></td>
+                            <td><html:text property="volgordeVelden.${ci.id}" size="3" /><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
                             <td><c:out value="${ci.label}"/></td>
+                            <td><html:text property="labelVelden.${ci.id}" size="15" /></td>
                             <c:set var="accolade" value="}"/>
                             <td>
                                 <c:choose>
@@ -311,7 +314,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     tablepager(
     'themadatatable',
     '930',
-    '16',
+    '18',
     false // display numberOfPages dropdown
 );
 </script>
