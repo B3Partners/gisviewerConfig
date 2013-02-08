@@ -29,6 +29,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <li><html:link page="/index.do" module="" styleClass="${stijlklasse}"><fmt:message key="commons.configmenu.home"/></html:link></li>
 
         <c:set var="stijlklasse" value="menulink" />
+         <c:if test="${requestJSP eq 'reset.do' || requestJSP eq ''}">
+            <c:set var="stijlklasse" value="activemenulink" />
+        </c:if>
+        <li><html:link page="/reset.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.reset"/></html:link></li>
+        
+        <c:set var="stijlklasse" value="menulink" />
         <c:if test="${requestJSP eq 'configApplicatie.do'}">
             <c:set var="stijlklasse" value="activemenulink" />
         </c:if>
