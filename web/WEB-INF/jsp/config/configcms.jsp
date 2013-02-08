@@ -200,13 +200,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             <!-- Bij nieuw alleen opslaan en annuleren tonen -->
             <c:if test="${empty form.map.tekstBlokID}">
                 <div class="knoppen">
+                    <input type="button" class="knop" onclick="window.location='<html:rewrite page='/configCMS.do' />'" value="<fmt:message key='button.cancel'/>" />
+                </div>
+                <div class="knoppen">
                     <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u dit tekstblok wilt opslaan?');">
                         <fmt:message key="button.save"/>
                     </html:submit>
-                </div>
-                <div class="knoppen">
-                    <input type="button" class="knop" onclick="window.location='<html:rewrite page='/configCMS.do' />'" value="<fmt:message key='button.cancel'/>" />
-                </div>
+                </div>                
             </c:if>
 
             <!-- Bij bewerken nieuw, wissen en opslaan tonen -->

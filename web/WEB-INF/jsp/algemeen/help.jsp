@@ -63,7 +63,27 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <table>
                     <tr>
                         <td><img style="border: 0;" src="images/pdf.png" border="0" alt="PDF icon" title="PDF icon"></td>
-                        <td><a href="http://source.b3partners.nl/docs/Beheerhandleiding_GIS_Suite_3.5.pdf" target="_blank">Bekijk de Beheerhandleiding voor GIS Suite 3.5</a></td>
+                        <td><a href="http://source.b3partners.nl/docs/3.6/Beheerhandleiding_Datastorelinker_3.6.pdf" target="_blank">Beheerhandleiding Datastorelinker 3.6</a></td>
+                    </tr>
+                    <tr>
+                        <td><img style="border: 0;" src="images/pdf.png" border="0" alt="PDF icon" title="PDF icon"></td>
+                        <td><a href="http://source.b3partners.nl/docs/3.6/Beheerhandleiding_FAQ_en_Uitleg_3.6.pdf" target="_blank">Veelgestelde vragen en uitleg B3P GIS Suite 3.6</a></td>
+                    </tr>
+                    <tr>
+                        <td><img style="border: 0;" src="images/pdf.png" border="0" alt="PDF icon" title="PDF icon"></td>
+                        <td><a href="http://source.b3partners.nl/docs/3.6/Beheerhandleiding_Gisviewer_3.6.pdf" target="_blank">Beheerhandleiding Gisviewer 3.6</a></td>
+                    </tr>
+                    <tr>
+                        <td><img style="border: 0;" src="images/pdf.png" border="0" alt="PDF icon" title="PDF icon"></td>
+                        <td><a href="http://source.b3partners.nl/docs/3.6/Beheerhandleiding_Gisviewerconfig_3.6.pdf" target="_blank">Beheerhandleiding Gisviewerconfig 3.6</a></td>
+                    </tr>
+                    <tr>
+                        <td><img style="border: 0;" src="images/pdf.png" border="0" alt="PDF icon" title="PDF icon"></td>
+                        <td><a href="http://source.b3partners.nl/docs/3.6/Beheerhandleiding_Kaartenbalie_3.6.pdf" target="_blank">Beheerhandleiding Kaartenbalie 3.6</a></td>
+                    </tr>
+                    <tr>
+                        <td><img style="border: 0;" src="images/pdf.png" border="0" alt="PDF icon" title="PDF icon"></td>
+                        <td><a href="http://source.b3partners.nl/docs/3.6/Installatiehandleiding_B3P_Gis_Suite_v3.6.pdf" target="_blank">Installatiehandleiding B3P GIS Suite 3.6</a></td>
                     </tr>
                 </table>
                 
