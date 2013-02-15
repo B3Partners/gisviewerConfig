@@ -272,13 +272,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <div id="help_configthemadatadataorder" style="display: none;" title="<fmt:message key="configthemadata.dataorder"/>"><fmt:message key="configthemadata.dataorder.uitleg"/></div>
                 </div>
 
-                <div class="configrow">
-                    <label><fmt:message key="configthemadata.omschrijving"/></label>
-                    <html:text property="omschrijving" size="140"/>
-                    <a class="helpLink" href="#" id="helpLink_help_configthemadataomschrijving">(?)</a>
-                    <div id="help_configthemadataomschrijving" style="display: none;" title="<fmt:message key="configthemadata.omschrijving"/>"><fmt:message key="configthemadata.omschrijving.uitleg"/></div>
-                </div>
-
                 <c:if test="${gegevensbron.editable}">
                     <div class="configrow">
                         <label><fmt:message key="configthemadata.bewerkbaar"/></label>
@@ -295,6 +288,14 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <div id="help_configthemadatadefaultValues" style="display: none;" title="<fmt:message key="configthemadata.defaultValues"/>"><fmt:message key="configthemadata.defaultValues.uitleg"/></div>
                     </div>
                 </c:if>
+
+                <div class="configrow">
+                    <label><fmt:message key="configthemadata.omschrijving"/></label>
+                    <html:text property="omschrijving" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadataomschrijving">(?)</a>
+                    <div id="help_configthemadataomschrijving" style="display: none;" title="<fmt:message key="configthemadata.omschrijving"/>"><fmt:message key="configthemadata.omschrijving.uitleg"/></div>
+                </div>
+
                 <div class="configrow" style="margin-top: 10px;">
                     <a class="helpLink" href="#" id="helpLink_help_configthemadata_niet_tonen">(?)</a>
                     <div id="help_configthemadata_niet_tonen" style="display: none;" title="<fmt:message key="configthemadata_niet_tonen.label"/>">
