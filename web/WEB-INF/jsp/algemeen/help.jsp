@@ -63,27 +63,23 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <table>
                     <tr>
                         <td><img style="border: 0;" src="images/pdf.png" border="0" alt="PDF icon" title="PDF icon"></td>
-                        <td><a href="http://source.b3partners.nl/docs/3.6/Beheerhandleiding_Datastorelinker_3.6.pdf" target="_blank">Beheerhandleiding Datastorelinker 3.6</a></td>
+                        <td><a href="http://source.b3partners.nl/docs/4.0/Beheerhandleiding_Datastorelinker_4.0.pdf" target="_blank">Beheerhandleiding Datastorelinker</a></td>
                     </tr>
                     <tr>
                         <td><img style="border: 0;" src="images/pdf.png" border="0" alt="PDF icon" title="PDF icon"></td>
-                        <td><a href="http://source.b3partners.nl/docs/3.6/Beheerhandleiding_FAQ_en_Uitleg_3.6.pdf" target="_blank">Veelgestelde vragen en uitleg B3P GIS Suite 3.6</a></td>
+                        <td><a href="http://source.b3partners.nl/docs/4.0/Beheerhandleiding_FAQ_en_Uitleg_4.0.pdf" target="_blank">Veelgestelde vragen en uitleg B3P GIS Suite</a></td>
                     </tr>
                     <tr>
                         <td><img style="border: 0;" src="images/pdf.png" border="0" alt="PDF icon" title="PDF icon"></td>
-                        <td><a href="http://source.b3partners.nl/docs/3.6/Beheerhandleiding_Gisviewer_3.6.pdf" target="_blank">Beheerhandleiding Gisviewer 3.6</a></td>
+                        <td><a href="http://source.b3partners.nl/docs/4.0/Beheerhandleiding_Gisviewer_4.0.pdf" target="_blank">Beheerhandleiding Gisviewer</a></td>
                     </tr>
                     <tr>
                         <td><img style="border: 0;" src="images/pdf.png" border="0" alt="PDF icon" title="PDF icon"></td>
-                        <td><a href="http://source.b3partners.nl/docs/3.6/Beheerhandleiding_Gisviewerconfig_3.6.pdf" target="_blank">Beheerhandleiding Gisviewerconfig 3.6</a></td>
+                        <td><a href="http://source.b3partners.nl/docs/4.0/Beheerhandleiding_Gisviewerconfig_4.0.pdf" target="_blank">Beheerhandleiding Gisviewerconfig</a></td>
                     </tr>
                     <tr>
                         <td><img style="border: 0;" src="images/pdf.png" border="0" alt="PDF icon" title="PDF icon"></td>
-                        <td><a href="http://source.b3partners.nl/docs/3.6/Beheerhandleiding_Kaartenbalie_3.6.pdf" target="_blank">Beheerhandleiding Kaartenbalie 3.6</a></td>
-                    </tr>
-                    <tr>
-                        <td><img style="border: 0;" src="images/pdf.png" border="0" alt="PDF icon" title="PDF icon"></td>
-                        <td><a href="http://source.b3partners.nl/docs/3.6/Installatiehandleiding_B3P_Gis_Suite_v3.6.pdf" target="_blank">Installatiehandleiding B3P GIS Suite 3.6</a></td>
+                        <td><a href="http://source.b3partners.nl/docs/4.0/Beheerhandleiding_Kaartenbalie_4.0.pdf" target="_blank">Beheerhandleiding Kaartenbalie</a></td>
                     </tr>
                 </table>
                 
