@@ -102,14 +102,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <label><fmt:message key="configcluster.naam"/></label>
                     <html:text property="naam" size="60"/>
                 </div>
-                <div class="configrow configrowtree">
-                    <label><fmt:message key="configcluster.metadatalink"/></label>
-                    <html:text property="metadatalink"  size="60"/>
-                    <a href="#" class="helpLink" id="helpLink_help_cluster_meta">(?)</a>
-                    <div id="help_cluster_meta" style="display: none;" title="<fmt:message key="configcluster.metadatalink"/>">
-                        <fmt:message key="configcluster.metadatalink.uitleg"/>
-                    </div>
-                </div>
+
                 <div class="configrow configrowtree">
                     <label><fmt:message key="configcluster.volgorde"/></label>
                     <html:text property="belangnr" size="10"/>
@@ -118,74 +111,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="configcluster.volgorde.uitleg"/>
                     </div>
                 </div>
-                <div class="configrow configrowtree">
-                    <label><fmt:message key="configcluster.omschrijving"/></label>
-                    <html:text property="omschrijving"  size="60"/>
-                    <a href="#" class="helpLink" id="helpLink_help_cluster_omschr">(?)</a>
-                    <div id="help_cluster_omschr" style="display: none;" title="<fmt:message key="configcluster.omschrijving"/>">
-                        <fmt:message key="configcluster.omschrijving.uitleg"/>
-                    </div>
-                </div>
-                <div class="configrow configrowtree">
-                    <label><fmt:message key="configcluster.geenconfiglagen"/></label>
-                    <html:checkbox property="default_cluster"/>
-                    <a href="#" class="helpLink" id="helpLink_help_cluster_noconfig">(?)</a>
-                    <div id="help_cluster_noconfig" style="display: none;" title="<fmt:message key="configcluster.geenconfiglagen"/>">
-                        <fmt:message key="configcluster.geenconfiglagen.uitleg"/>
-                    </div>
-                </div>
-                <div class="configrow configrowtree">
-                    <label><fmt:message key="configcluster.onzichtbaarinlegenda"/></label>
-                    <html:checkbox property="hide_legend"/>
-                    <a href="#" class="helpLink" id="helpLink_help_cluster_onzichtbaar">(?)</a>
-                    <div id="help_cluster_onzichtbaar" style="display: none;" title="<fmt:message key="configcluster.onzichtbaarinlegenda"/>">
-                        <fmt:message key="configcluster.onzichtbaarinlegenda.uitleg"/>
-                    </div>
-                </div>
-                <div class="configrow configrowtree">
-                    <label><fmt:message key="configcluster.onzichtbaarinboom"/></label>
-                    <html:checkbox property="hide_tree"/>
-                    <a href="#" class="helpLink" id="helpLink_help_cluster_onzichtbaarinboom">(?)</a>
-                    <div id="help_cluster_onzichtbaarinboom" style="display: none;" title="<fmt:message key="configcluster.onzichtbaarinboom"/>">
-                        <fmt:message key="configcluster.onzichtbaarinboom.uitleg"/>
-                        <fmt:message key="configcluster.onzichtbaar.combinatie.uitleg"/>
-                    </div>
-                </div>
-                <div class="configrow configrowtree">
-                    <label><fmt:message key="configcluster.achtergrondlagen"/></label>
-                    <html:checkbox property="background_cluster"/>
-                    <a href="#" class="helpLink" id="helpLink_help_cluster_achtergrond">(?)</a>
-                    <div id="help_cluster_achtergrond" style="display: none;" title="<fmt:message key="configcluster.achtergrondlagen"/>">
-                        <fmt:message key="configcluster.achtergrondlagen.uitleg"/>
-                    </div>
-                </div>
 
-                <div class="configrow configrowtree">
-                    <label><fmt:message key="configcluster.aanuitvink"/></label>
-                    <html:checkbox property="callable"/>
-                    <a href="#" class="helpLink" id="helpLink_help_cluster_aanuitvink">(?)</a>
-                    <div id="help_cluster_aanuitvink" style="display: none;" title="<fmt:message key="configcluster.aanuitvink"/>">
-                        <fmt:message key="configcluster.aanuitvink.uitleg"/>
-                    </div>
-                </div>
-                <%--
-                <div class="configrow configrowtree">
-                    <label><fmt:message key="configcluster.defaultaangevinkt"/></label>
-                    <html:checkbox property="default_visible"/>
-                    <a href="#" class="helpLink" id="helpLink_help_cluster_defaultaan">(?)</a>
-                    <div id="help_cluster_defaultaan" style="display: none;" title="<fmt:message key="configcluster.defaultaangevinkt"/>">
-                        <fmt:message key="configcluster.defaultaangevinkt.uitleg"/>
-                    </div>
-                </div>
-                --%>
-                <div class="configrow configrowtree">
-                    <label><fmt:message key="configcluster.exclusive_childs"/></label>
-                    <html:checkbox property="exclusive_childs"/>
-                    <a href="#" class="helpLink" id="helpLink_help_cluster_exclusive_childs">(?)</a>
-                    <div id="help_cluster_exclusive_childs" style="display: none;" title="<fmt:message key="configcluster.exclusive_childs"/>">
-                        <fmt:message key="configcluster.exclusive_childs.uitleg"/>
-                    </div>
-                </div>
                 <div class="configrow configrowtree">
                     <label><fmt:message key="configcluster.oudercluster"/></label>
 
@@ -204,6 +130,80 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="configcluster.oudercluster.uitleg"/>
                     </div>
                 </div>
+
+                <div class="configrow configrowtree">
+                    <label><fmt:message key="configcluster.aanuitvink"/></label>
+                    <html:checkbox property="callable"/>
+                    <a href="#" class="helpLink" id="helpLink_help_cluster_aanuitvink">(?)</a>
+                    <div id="help_cluster_aanuitvink" style="display: none;" title="<fmt:message key="configcluster.aanuitvink"/>">
+                        <fmt:message key="configcluster.aanuitvink.uitleg"/>
+                    </div>
+                </div>
+
+                <div class="configrow configrowtree">
+                    <label><fmt:message key="configcluster.achtergrondlagen"/></label>
+                    <html:checkbox property="background_cluster"/>
+                    <a href="#" class="helpLink" id="helpLink_help_cluster_achtergrond">(?)</a>
+                    <div id="help_cluster_achtergrond" style="display: none;" title="<fmt:message key="configcluster.achtergrondlagen"/>">
+                        <fmt:message key="configcluster.achtergrondlagen.uitleg"/>
+                    </div>
+                </div>
+
+                <div class="configrow configrowtree">
+                    <label><fmt:message key="configcluster.geenconfiglagen"/></label>
+                    <html:checkbox property="default_cluster"/>
+                    <a href="#" class="helpLink" id="helpLink_help_cluster_noconfig">(?)</a>
+                    <div id="help_cluster_noconfig" style="display: none;" title="<fmt:message key="configcluster.geenconfiglagen"/>">
+                        <fmt:message key="configcluster.geenconfiglagen.uitleg"/>
+                    </div>
+                </div>
+                    
+                <div class="configrow configrowtree">
+                    <label><fmt:message key="configcluster.onzichtbaarinlegenda"/></label>
+                    <html:checkbox property="hide_legend"/>
+                    <a href="#" class="helpLink" id="helpLink_help_cluster_onzichtbaar">(?)</a>
+                    <div id="help_cluster_onzichtbaar" style="display: none;" title="<fmt:message key="configcluster.onzichtbaarinlegenda"/>">
+                        <fmt:message key="configcluster.onzichtbaarinlegenda.uitleg"/>
+                    </div>
+                </div>
+                    
+                <div class="configrow configrowtree">
+                    <label><fmt:message key="configcluster.onzichtbaarinboom"/></label>
+                    <html:checkbox property="hide_tree"/>
+                    <a href="#" class="helpLink" id="helpLink_help_cluster_onzichtbaarinboom">(?)</a>
+                    <div id="help_cluster_onzichtbaarinboom" style="display: none;" title="<fmt:message key="configcluster.onzichtbaarinboom"/>">
+                        <fmt:message key="configcluster.onzichtbaarinboom.uitleg"/>
+                        <fmt:message key="configcluster.onzichtbaar.combinatie.uitleg"/>
+                    </div>
+                </div>   
+                    
+                <div class="configrow configrowtree">
+                    <label><fmt:message key="configcluster.exclusive_childs"/></label>
+                    <html:checkbox property="exclusive_childs"/>
+                    <a href="#" class="helpLink" id="helpLink_help_cluster_exclusive_childs">(?)</a>
+                    <div id="help_cluster_exclusive_childs" style="display: none;" title="<fmt:message key="configcluster.exclusive_childs"/>">
+                        <fmt:message key="configcluster.exclusive_childs.uitleg"/>
+                    </div>
+                </div>
+                    
+                <div class="configrow configrowtree">
+                    <label><fmt:message key="configcluster.metadatalink"/></label>
+                    <html:text property="metadatalink"  size="60"/>
+                    <a href="#" class="helpLink" id="helpLink_help_cluster_meta">(?)</a>
+                    <div id="help_cluster_meta" style="display: none;" title="<fmt:message key="configcluster.metadatalink"/>">
+                        <fmt:message key="configcluster.metadatalink.uitleg"/>
+                    </div>
+                </div>
+                    
+                <div class="configrow configrowtree">
+                    <label><fmt:message key="configcluster.omschrijving"/></label>
+                    <html:text property="omschrijving"  size="60"/>
+                    <a href="#" class="helpLink" id="helpLink_help_cluster_omschr">(?)</a>
+                    <div id="help_cluster_omschr" style="display: none;" title="<fmt:message key="configcluster.omschrijving"/>">
+                        <fmt:message key="configcluster.omschrijving.uitleg"/>
+                    </div>
+                </div>
+
             </div>
             <div class="configadvanced"></div>
         </div>

@@ -194,12 +194,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </div>
 
                 <div class="configrow">
-                    <label><fmt:message key="configthemadata.eenheid"/></label>
-                    <html:text property="eenheid" size="140"/>
-                    <a class="helpLink" href="#" id="helpLink_help_configthemadataeenheid">(?)</a>
-                    <div id="help_configthemadataeenheid" style="display: none;" title="<fmt:message key="configthemadata.eenheid"/>"><fmt:message key="configthemadata.eenheid.uitleg"/></div>
+                    <label><fmt:message key="configthemadata.dataorder"/></label>
+                    <html:text property="dataorder" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadatadataorder">(?)</a>
+                    <div id="help_configthemadatadataorder" style="display: none;" title="<fmt:message key="configthemadata.dataorder"/>"><fmt:message key="configthemadata.dataorder.uitleg"/></div>
                 </div>
-
+                
                 <div class="configrow">
                     <label><fmt:message key="configthemadata.basisregel"/></label>
                     <html:checkbox property="basisregel"/>
@@ -208,11 +208,20 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </div>
 
                 <div class="configrow">
+                    <label><fmt:message key="configthemadata.eenheid"/></label>
+                    <html:text property="eenheid" size="140"/>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemadataeenheid">(?)</a>
+                    <div id="help_configthemadataeenheid" style="display: none;" title="<fmt:message key="configthemadata.eenheid"/>"><fmt:message key="configthemadata.eenheid.uitleg"/></div>
+                </div>
+
+                <!--
+                <div class="configrow">
                     <label><fmt:message key="configthemadata.voorbeelden"/></label>
                     <html:text property="voorbeelden" size="140"/>
                     <a class="helpLink" href="#" id="helpLink_help_configthemadatavoorbeelden">(?)</a>
                     <div id="help_configthemadatavoorbeelden" style="display: none;" title="<fmt:message key="configthemadata.voorbeelden"/>"><fmt:message key="configthemadata.voorbeelden.uitleg"/></div>
                 </div>
+                -->
 
                 <div class="configrow">
                     <label><fmt:message key="configthemadata.kolombreedte"/></label>
@@ -263,14 +272,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <div id="help_configthemadatakolomnaam" style="display: none;" title="<fmt:message key="configthemadata.kolomnaam"/>"><fmt:message key="configthemadata.kolomnaam.uitleg"/></div>
                         </div>
                     </c:otherwise>
-                </c:choose>
-
-                <div class="configrow">
-                    <label><fmt:message key="configthemadata.dataorder"/></label>
-                    <html:text property="dataorder" size="140"/>
-                    <a class="helpLink" href="#" id="helpLink_help_configthemadatadataorder">(?)</a>
-                    <div id="help_configthemadatadataorder" style="display: none;" title="<fmt:message key="configthemadata.dataorder"/>"><fmt:message key="configthemadata.dataorder.uitleg"/></div>
-                </div>
+                </c:choose>                
 
                 <c:if test="${gegevensbron.editable}">
                     <div class="configrow">

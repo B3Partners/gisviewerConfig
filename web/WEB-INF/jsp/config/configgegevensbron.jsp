@@ -77,7 +77,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="button.save"/>
                     </html:submit>
                 </div>
-                
+
                 <div class="knoppen" style="margin-left: 10px;">
                     <html:submit property="copy" accesskey="c" styleClass="knop copyButton" onclick="return confirm('Weet u zeker dat u de gegevensbron wilt kopieeren?');">
                         Kopieeren
@@ -192,6 +192,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <label><fmt:message key="configgb_${connectieType}_adminquery.label"/></label>
                     <html:text property="admin_query" size="80" styleId="admin_query_text"/>
                     <a href="#" class="helpLink" id="helpLink_help_configgb_${connectieType}_adminquery">(?)</a><div id="help_configgb_${connectieType}_adminquery" style="display: none;" title="<fmt:message key="configgb_${connectieType}_adminquery.label"/>"><fmt:message key="configgb_${connectieType}_adminquery.uitleg"/></div>
+                </div>                
+
+                <div class="configrow configrowtree">
+                    <label><fmt:message key="configgb_editable.label"/></label>
+                    <html:checkbox property="editable" onchange="editableChanged(this)" />
+                    <a href="#" class="helpLink" id="helpLink_help_configgb_editable">(?)</a><div id="help_configgb_editable" style="display: none;" title="<fmt:message key="configgb_editable.label"/>"><fmt:message key="configgb_editable.uitleg"/></div>
+                </div>
+                <div class="configrow configrowtree">
+                    <label><fmt:message key="configgb_geometryeditable.label"/></label>
+                    <html:checkbox property="geometryeditable" />
+                    <a href="#" class="helpLink" id="helpLink_help_configgb_geometryeditable">(?)</a><div id="help_configgb_geometryeditable" style="display: none;" title="<fmt:message key="configgb_geometryeditable.label"/>"><fmt:message key="configgb_geometryeditable.uitleg"/></div>
                 </div>
 
                 <div class="configrow configrowtree">
@@ -204,17 +215,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <label><fmt:message key="configgb_opmerking.label"/></label>
                     <html:text property="admin_tabel_opmerkingen" size="80"/>
                     <a href="#" class="helpLink" id="helpLink_help_configgb_opmerking">(?)</a><div id="help_configgb_opmerking" style="display: none;" title="<fmt:message key="configgb_opmerking.label"/>"><fmt:message key="configgb_opmerking.uitleg"/></div>
-                </div>
-
-                <div class="configrow configrowtree">
-                    <label><fmt:message key="configgb_editable.label"/></label>
-                    <html:checkbox property="editable" onchange="editableChanged(this)" />
-                    <a href="#" class="helpLink" id="helpLink_help_configgb_editable">(?)</a><div id="help_configgb_editable" style="display: none;" title="<fmt:message key="configgb_editable.label"/>"><fmt:message key="configgb_editable.uitleg"/></div>
-                </div>
-                <div class="configrow configrowtree">
-                    <label><fmt:message key="configgb_geometryeditable.label"/></label>
-                    <html:checkbox property="geometryeditable" />
-                    <a href="#" class="helpLink" id="helpLink_help_configgb_geometryeditable">(?)</a><div id="help_configgb_geometryeditable" style="display: none;" title="<fmt:message key="configgb_geometryeditable.label"/>"><fmt:message key="configgb_geometryeditable.uitleg"/></div>
                 </div>
 
                 <div class="configrow configrowtree" style="margin-top: 25px;">
