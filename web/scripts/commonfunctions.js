@@ -106,7 +106,7 @@ function showHelpDialog(divid) {
     return false;
 }
 
-function showHideAdvanced() {
+function showHideAdvanced(showAdvancedOptions) {
     if(!showAdvancedOptions)
     {
         $j(".configadvanced").hide();
@@ -197,10 +197,9 @@ $j(document).ready(function() {
 
     if(hasAdvancedItems) {
         $j("#advancedToggle").click(function(){
-            showAdvancedOptions = $j(this).is(':checked');
-            showHideAdvanced();
+            showHideAdvanced($j(this).is(':checked'));
         });
-        showHideAdvanced();
+        showHideAdvanced($j("#advancedToggle").is(':checked'));
     } else {
         $j("#advancedToggle").parent().hide();
     }
