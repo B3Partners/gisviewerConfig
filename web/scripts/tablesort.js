@@ -1486,6 +1486,7 @@ jQuery.tablesorter.addParser({
 
 
 function tablepager(tableid, tablewidth, cellheight, displayselect) {
+    if(!document.getElementById(tableid)) return;
     // Load IE6 immediatly because of positioning of elements. For the rest of the browsers: wait until DOM tree is loaded
     if (ieVersion <= 6 && ieVersion != -1) {
         tablepagerfunc(tableid, tablewidth, cellheight, displayselect);
