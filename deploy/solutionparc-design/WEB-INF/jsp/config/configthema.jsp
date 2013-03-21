@@ -31,6 +31,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <script type="text/javascript" src='dwr/util.js'></script>
 <script type="text/javascript" src='dwr/interface/JConfigListsUtil.js'></script>
 <script type="text/javascript" src="<html:rewrite page="/scripts/configthema.js"/>"></script>
+<script type="text/javascript" src="<html:rewrite page="/scripts/jquery.dataTables.min.js"/>"></script>
 
 <div class="infobalk">
     <div class="infobalk_description"><fmt:message key="configthema.infobalk"/></div>
@@ -50,11 +51,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
 
     <c:if test="${!empty allThemas}">
-        <div class="tablesortercontainer">
-            <table id="themalisttable" class="tablesorter">
+            <table id="themalisttable" style="height: 1px;">
                 <thead>
                     <tr>
-                        <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
+                        <th style="width: 10%;">Volgorde</th>
                         <th style="width: 30%;">Naam</th>
                         <th style="width: 20%;"><fmt:message key="configthema.cluster"/></th>
                         <th style="width: 10%;">Objectdata</th>
@@ -64,14 +64,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <c:forEach var="ci" varStatus="status" items="${allThemas}">
                         <c:url var="link" value="/configThema.do?edit=submit&themaID=${ci.id}" />
                         <c:set var="id_selected" value='' />
-                        <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
-                        <tr>
-                            <td><c:out value="${ci.belangnr}"/>&nbsp;<input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                            <td><c:out value="${ci.naam}"/>&nbsp;</td>
+                        <c:if test="${ci.id == mainid}"><c:set var="id_selected" value=' class="row_selected"' /></c:if>
+                        <tr data-link="${link}"${id_selected}>
+                            <td><c:out value="${ci.belangnr}"/></td>
+                            <td><c:out value="${ci.naam}"/></td>
                             <td><c:out value="${ci.cluster.naam}"/></td>
-
                             <c:set var="accolade" value="}"/>
-
                             <td>                                                            
                                 <c:if test="${!empty ci.gegevensbron}">
                                     &nbsp;<html:link page="/configThemaData.do?gegevensbronID=${ci.gegevensbron.id}">Bewerken</html:link>&nbsp;
@@ -81,7 +79,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </c:forEach>
                 </tbody>
             </table>
-        </div>
     </c:if>
 
     <div class="berichtenbalk">
@@ -397,15 +394,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             }
         </c:forEach>
     </c:if>
-
-        tablepager(
-        'themalisttable',
-        //'textExtraction: myCellParser',
-        '930', // table width in pixels
-        '20', // cell height
-        false // display numberOfPages dropdown
-    );
-
         var pageConnectionType="${connectieType}";
         var currentConnectionType="${connectieType}";
         var connectionTypes=new Array();
@@ -414,4 +402,21 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <c:forEach var="cuItem" items="${listConnecties}">
         connectionTypes["${cuItem.id}"]="${cuItem.type}";
     </c:forEach>
+        
+    $j(document).ready(function() {
+        $j('#themalisttable').dataTable({
+            "bSortClasses": false,
+            "aoColumns": [
+                { "sType": "numeric" }, // sorting config
+                { "sType": "string" },
+                { "sType": "string" },
+                { "sType": "html" }
+            ],
+            "bStateSave": true,
+            "sPaginationType": "full_numbers"
+        });
+        $j('#themalisttable tbody').delegate("tr", "click", function() {
+            window.location.href = $j(this).attr('data-link');
+        });
+    });
 </script>
