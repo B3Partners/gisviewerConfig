@@ -209,6 +209,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     index++;
     types[index]=new Object();
     types[index].option={"33" : "Start Location"};
+    types[index].forZoek=false;
     types[index].forResultaat=true;
     types[index].allowedBindings="Geometry,Point,Polygon,Line,MultiPoint,MultiPolygon,MultiLine";
     types[index].disallowedBindings="DUMMY";
