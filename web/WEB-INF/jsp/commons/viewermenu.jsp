@@ -21,7 +21,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <c:set var="requestURI" value="${fn:split(requestScope['javax.servlet.forward.request_uri'], '/')}" />
 <c:set var="requestJSP" value="${requestURI[fn:length(requestURI) - 1]}" />
 <div id="topmenu">
-    <ul class="sf-menu">
+    <ul class="menu">
         <c:set var="stijlklasse" value="menulink" />
         <c:if test="${requestJSP eq 'index.do' || requestJSP eq ''}">
             <c:set var="stijlklasse" value="activemenulink" />
@@ -59,34 +59,3 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <li><html:link target="_blank" page="/help.do" module="" styleClass="${stijlklasse}"><fmt:message key="commons.configmenu.help"/></html:link></li>
     </ul>
 </div>
-
-<script type="text/javascript">
-$j(document).ready(function(){
-    $j(".menulink, .activemenulink").css({
-        'height': '18px',
-        'padding-top': '8px'
-    })
-
-    $j("ul.sf-menu").superfish({
-        dropShadows: false,
-        speed: 'fast',
-        animation: {opacity:'show',height:'show'}
-    }).find('ul').bgIframe({opacity:false});
-
-    if($j.browser.msie && ieVersion <= 7)
-    {
-        $j("ul.sf-menu").children('li').each(function() {
-            if(ieVersion <= 6) {
-                var linkWidth = $j(this).find("a").outerWidth();
-                if($j(this).find("ul").length > 0) {
-                    linkWidth += 1;
-                    $j(this).find("a").width(linkWidth);
-                }
-                $j(this).width(linkWidth);
-            } else {
-                $j(this).width($j(this).find("a").outerWidth());
-            }
-        });
-    }
-}); 
-</script>

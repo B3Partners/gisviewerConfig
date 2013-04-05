@@ -29,5 +29,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
           <c:out value="${message}"/>
         </div>
     </html:messages>
-</div> 
+</div>
+<div style="clear: both;"></div>
 

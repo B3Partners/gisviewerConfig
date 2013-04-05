@@ -20,26 +20,21 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <%@ page isELIgnored="false"%>
 
 <div id="topmenu">
-    <c:set var="requestURI" value="${fn:split(requestScope['javax.servlet.forward.request_uri'], '/')}" />
-    <c:set var="requestJSP" value="${requestURI[fn:length(requestURI) - 1]}" />
+    <ul class="menu">
+        <c:set var="requestURI" value="${fn:split(requestScope['javax.servlet.forward.request_uri'], '/')}" />
+        <c:set var="requestJSP" value="${requestURI[fn:length(requestURI) - 1]}" />
 
-    <c:if test="${pageContext.request.remoteUser != null}">        
-        <c:set var="stijlklasse" value="menulink" />
-        <html:link target="_blank" page="/help.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.configmenu.help"/></html:link>
+        <c:if test="${pageContext.request.remoteUser != null}">        
+            <li><html:link target="_blank" page="/help.do" styleClass="menulink" module=""><fmt:message key="commons.configmenu.help"/></html:link></li>
+            <li><html:link page="/configThema.do" styleClass="menulink" module=""><fmt:message key="commons.topmenu.kaartbib"/></html:link></li>
+            <li><html:link page="/configApplicatie.do" styleClass="menulink" module=""><fmt:message key="commons.topmenu.ontwerp"/></html:link></li>
+            <li><html:link page="/reset.do" styleClass="menulink" module=""><fmt:message key="commons.topmenu.reset"/></html:link></li>
+        </c:if>
 
         <c:set var="stijlklasse" value="menulink" />
-        <html:link page="/configThema.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.kaartbib"/></html:link>
-        
-        <c:set var="stijlklasse" value="menulink" />
-        <html:link page="/configApplicatie.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.ontwerp"/></html:link>
-        
-        <c:set var="stijlklasse" value="menulink" />
-        <html:link page="/reset.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.reset"/></html:link>
-    </c:if>
-
-    <c:set var="stijlklasse" value="menulink" />
-    <c:if test="${requestJSP eq 'index.do' or requestJSP eq 'indexlist.do' or requestJSP eq ''}">
-        <c:set var="stijlklasse" value="activemenulink" />
-    </c:if>
-    <html:link page="/index.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.home"/></html:link>
+        <c:if test="${requestJSP eq 'index.do' or requestJSP eq 'indexlist.do' or requestJSP eq ''}">
+            <c:set var="stijlklasse" value="activemenulink" />
+        </c:if>
+        <li><html:link page="/index.do" styleClass="${stijlklasse}" module=""><fmt:message key="commons.topmenu.home"/></html:link></li>
+    </ul>
 </div>

@@ -34,7 +34,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <!-- Loop door tekstblokken heen -->
 <c:forEach var="tb" varStatus="status" items="${tekstBlokken}">
     <div class="content_block">
-        <div class="content_title"><c:out value="${tb.titel}"/></div>
+        <h1 class="content_title"><c:out value="${tb.titel}"/></h1>
 
         <!-- Indien toonUrl aangevinkt is dan inhoud van url in iFrame tonen -->
         <c:if test="${tb.toonUrl}">
@@ -64,7 +64,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <!-- Gewone help pagina tonen als er geen tekstblokken zijn -->
 <c:if test="${empty tekstBlokken}">
     <div class="content_block">
-        <div class="content_title">B3P Gisviewer configuratie</div>
+        <h1 class="content_title">B3P Gisviewer configuratie</h1>
 
         <div class="inleiding_body">
             <p>
@@ -78,7 +78,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </c:if>
 
 <div class="content_block">
-    <div class="content_title">Laatste nieuwsberichten</div>
+    <h1 class="content_title">Laatste nieuwsberichten</h1>
     <div class="content_body">
         <div class="tweet"></div>
     </div>
@@ -86,7 +86,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <%@include file="/WEB-INF/jsp/tweets.jsp" %>
 </div>
 
-<div style="clear: both;"></div>
+<div style="clear: both; height: 20px;"></div>
     
 <c:if test="${pageContext.request.remoteUser != null}">
     <div class="uitloggen">
@@ -98,7 +98,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <c:if test="${pageContext.request.remoteUser == null}">
 
 <div class="content_block">
-    <div class="content_title">Inloggen</div>
+    <h1 class="content_title">Inloggen</h1>
 
     <div class="content_body">
         <form id="loginForm" action="j_security_check" method="POST">
