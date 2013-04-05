@@ -27,6 +27,9 @@
     }
     &:hover a {
         color: $menu-hovertext-color;
+        &.activemenulink {
+            color: $activemenu-text-color;
+        }
     }
     &:hover li a {
         color: $submenu-text-color;
