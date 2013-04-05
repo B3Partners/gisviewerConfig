@@ -153,6 +153,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </td>
                     <td colspan="3">
                         <html:select property="pagina">
+							<html:option value="GEEN">NIET ZICHTBAAR</html:option>
+                        
                             <html:option value="gisviewer_home">Gisviewer home</html:option>
                             <html:option value="gisviewer_help">Gisviewer help</html:option>
                             <html:option value="gisviewer_login">Gisviewer login</html:option>
@@ -196,7 +198,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <tr>
                     <td>
                         <fmt:message key="configcmshoogte.label"/> <a href="#" onclick="return showHelpDialog('help_configcmshoogte');">(?)</a>
-                        <div id="help_configcmshoogthe" style="display: none;" title="<fmt:message key="configcmshoogte.label"/>">
+                        <div id="help_configcmshoogte" style="display: none;" title="<fmt:message key="configcmshoogte.label"/>">
                             <p><fmt:message key="configcmshoogte.uitleg"/></p>
                         </div>
                     </td>
