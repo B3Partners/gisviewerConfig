@@ -50,38 +50,34 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
 
     <c:if test="${!empty allThemas}">
-        <div class="tablesortercontainer">
-            <table id="themalisttable" class="tablesorter">
-                <thead>
-                    <tr>
-                        <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
-                        <th style="width: 30%;">Naam</th>
-                        <th style="width: 20%;"><fmt:message key="configthema.cluster"/></th>
-                        <th style="width: 10%;">Objectdata</th>
+        <table id="themalisttable" class="dataTable">
+            <thead>
+                <tr>
+                    <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
+                    <th style="width: 30%;">Naam</th>
+                    <th style="width: 20%;"><fmt:message key="configthema.cluster"/></th>
+                    <th style="width: 10%;">Objectdata</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="ci" varStatus="status" items="${allThemas}">
+                    <c:url var="link" value="/configThema.do?edit=submit&themaID=${ci.id}" />
+                    <c:set var="id_selected" value='' />
+                    <c:if test="${ci.id == mainid}"><c:set var="id_selected" value=' class="row_selected"' /></c:if>
+                    <tr data-link="${link}"${id_selected}>
+                        <td><c:out value="${ci.belangnr}"/></td>
+                        <td><c:out value="${ci.naam}"/></td>
+                        <td><c:out value="${ci.cluster.naam}"/></td>
+                        <c:set var="accolade" value="}"/>
+                        <td>                                                            
+                            <c:if test="${!empty ci.gegevensbron}">
+                                &nbsp;<html:link page="/configThemaData.do?gegevensbronID=${ci.gegevensbron.id}">Bewerken</html:link>&nbsp;
+                            </c:if>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="ci" varStatus="status" items="${allThemas}">
-                        <c:url var="link" value="/configThema.do?edit=submit&themaID=${ci.id}" />
-                        <c:set var="id_selected" value='' />
-                        <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
-                        <tr>
-                            <td><c:out value="${ci.belangnr}"/>&nbsp;<input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                            <td><c:out value="${ci.naam}"/>&nbsp;</td>
-                            <td><c:out value="${ci.cluster.naam}"/></td>
-
-                            <c:set var="accolade" value="}"/>
-
-                            <td>                                                            
-                                <c:if test="${!empty ci.gegevensbron}">
-                                    &nbsp;<html:link page="/configThemaData.do?gegevensbronID=${ci.gegevensbron.id}">Bewerken</html:link>&nbsp;
-                                </c:if>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
+                </c:forEach>
+            </tbody>
+        </table>
     </c:if>
 
     <div class="berichtenbalk">
@@ -397,15 +393,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             }
         </c:forEach>
     </c:if>
-
-        tablepager(
-        'themalisttable',
-        //'textExtraction: myCellParser',
-        '930', // table width in pixels
-        '14', // cell height
-        false // display numberOfPages dropdown
-    );
-
         var pageConnectionType="${connectieType}";
         var currentConnectionType="${connectieType}";
         var connectionTypes=new Array();

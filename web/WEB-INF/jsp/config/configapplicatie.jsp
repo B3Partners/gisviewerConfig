@@ -31,60 +31,45 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </div>
 <c:set var="appUrl" value='http://${pageContext.request.serverName}:${pageContext.request.serverPort}/gisviewer/viewer.do?appCode='/>
 <c:if test="${!empty applicaties}">
-    <div class="tablesortercontainer" style="margin-top: 20px;">
-        <table id="applicatieTable" class="tablesorter" style="width: 100%;">
-            <thead>
-                <tr>
-                    <th style="width: 16%;">Naam</th>                    
-                    <!-- <th style="width: 12%;">Datum gebruikt</th> -->                
-                    <th style="width: 20%;">E-mail</th>
-                    <th style="width: 7%;">Versie</th>
-                    <th style="width: 23%;" class="{sorter: false} no-filter">Applicatiecode</th>
-                    <th style="width: 23%;" class="{sorter: false} no-filter">Gebruikerscode</th>
-                    <th style="width: 11%;" class="{sorter: false} no-filter">Acties</th>
-                </tr>
-            </thead>
+    <table id="applicatieTable" class="dataTable">
+        <thead>
+            <tr>
+                <th style="width: 16%;">Naam</th>                                   
+                <th style="width: 20%;">E-mail</th>
+                <th style="width: 7%;">Versie</th>
+                <th style="width: 23%;" class="{sorter: false} no-filter">Applicatiecode</th>
+                <th style="width: 23%;" class="{sorter: false} no-filter">Gebruikerscode</th>
+                <th style="width: 11%;" class="{sorter: false} no-filter">Acties</th>
+            </tr>
+        </thead>
 
-            <tbody>
-                <c:forEach items="${applicaties}" var="item">
-                    <c:set var="id_selected" value="" />
-                    <c:if test="${item.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
-                    <c:url var="link" value="/configApplicatie.do?edit=submit&applicatieID=${item.id}"/>
-                    <c:url var="link_settings" value="/configKeeper.do?appcode=${item.code}" />
-                    <c:url var="link_copy" value="/configApplicatie.do?copy=t&applicatieID=${item.id}"/>
-                    <c:url var="link_cyclo" value="/configCyclomedia.do?appcode=${item.code}" />
-                    <tr>
-                        <td><c:out value="${item.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                        
-                        <!-- 
-                        <td><fmt:formatDate value="${item.datum_gebruikt}" pattern="dd-MM-yyyy HH:mm"/></td>
-                        -->
-                        
-                        <!--
-                        <c:if test="${item.user_copy}">
-                            <td>Ja</td>
-                        </c:if>
-                        <c:if test="${not item.user_copy}">
-                            <td>Nee</td>
-                        </c:if>
-                        -->
-                        <td>${item.email}</td>
-                        
-                        <td>${item.versie}</td>
-                        <td>
-                            <a href="${appUrl}${item.code}" title="Open Applicatie" target="_new">${item.code}</a>
-                        </td>
-                        <td>${item.gebruikersCode}</td>
-                        <td>
-                            <a href="${link_settings}"><img src="images/settings.png" border="0" alt="Bekijk applicatieinstellingen" title="Bekijk applicatieinstellingen" height="20"/></a>
-                            &nbsp;&nbsp;<a href="${link_copy}"><img src="images/copy.png" border="0" alt="Kopieer applicatie" title="Kopieer applicatie" height="20" onclick="return confirm('Weet u zeker dat u deze applicatie wilt kopieeren?');"/></a>
-                            &nbsp;&nbsp;<a href="${link_cyclo}"><img src="images/foto.png" border="0" alt="Bekijk cyclomedia instellingen" title="Bekijk cyclomedia instellingen" height="20"/></a>
-                        </td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-    </div>
+        <tbody>
+            <c:forEach items="${applicaties}" var="item">
+                <c:url var="link" value="/configApplicatie.do?edit=submit&applicatieID=${item.id}"/>
+                <c:url var="link_settings" value="/configKeeper.do?appcode=${item.code}" />
+                <c:url var="link_copy" value="/configApplicatie.do?copy=t&applicatieID=${item.id}"/>
+                <c:url var="link_cyclo" value="/configCyclomedia.do?appcode=${item.code}" />
+                <c:set var="id_selected" value='' />
+                <c:if test="${item.id == mainid}"><c:set var="id_selected" value=' class="row_selected"' /></c:if>
+                <tr data-link="${link}"${id_selected}>
+                    <td><c:out value="${item.naam}"/></td>
+
+                    <td>${item.email}</td>
+
+                    <td>${item.versie}</td>
+                    <td>
+                        <a href="${appUrl}${item.code}" title="Open Applicatie" target="_new">${item.code}</a>
+                    </td>
+                    <td>${item.gebruikersCode}</td>
+                    <td>
+                        <a href="${link_settings}"><img src="images/settings.png" border="0" alt="Bekijk applicatieinstellingen" title="Bekijk applicatieinstellingen" height="20"/></a>
+                        &nbsp;&nbsp;<a href="${link_copy}"><img src="images/copy.png" border="0" alt="Kopieer applicatie" title="Kopieer applicatie" height="20" onclick="return confirm('Weet u zeker dat u deze applicatie wilt kopieeren?');"/></a>
+                        &nbsp;&nbsp;<a href="${link_cyclo}"><img src="images/foto.png" border="0" alt="Bekijk cyclomedia instellingen" title="Bekijk cyclomedia instellingen" height="20"/></a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
 </c:if>
 
 <html:form action="/configApplicatie" focus="${focus}">
@@ -187,12 +172,3 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </div>
 
 </html:form>
-
-<script type="text/javascript">
-    tablepager (
-        'applicatieTable',
-        '930', // table width in pixels
-        '20', // cell height
-        false // display numberOfPages dropdown
-    );
-</script>

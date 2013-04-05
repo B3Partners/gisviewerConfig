@@ -69,76 +69,74 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         </div>
 
     <c:if test="${!empty listThemaData}">
-        <div class="tablesortercontainer">
-            <table id="themadatatable" class="tablesorter">
-                <thead>
-                    <tr>
-                        <th style="width: 15%;" class="no-filter">Status</th>
-                        <th style="width: 5%;">Volgorde</th>
-                        <th style="width: 10%;" class="no-filter">&nbsp;</th>                        
-                        <th style="width: 15%;"><fmt:message key="configthemadata.label"/></th>                                     
-                        <th style="width: 20%;" class="no-filter">&nbsp;</th>
-                        <th style="width: 20%;"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></th>
-                        <th style="width: 15%;" class="no-filter"><fmt:message key="configthemadata.basisregel"/></th>
-                        <c:if test="${gegevensbron.editable}">
-                            <th style="width: 5%;"><fmt:message key="configthemadata.bewerkbaar"/></th>
+        <table id="themadatatable" class="dataTable">
+            <thead>
+                <tr>
+                    <th style="width: 15%;" class="no-filter">Status</th>
+                    <th style="width: 5%;">Volgorde</th>
+                    <th style="width: 10%;" class="no-filter">&nbsp;</th>                        
+                    <th style="width: 15%;"><fmt:message key="configthemadata.label"/></th>                                     
+                    <th style="width: 20%;" class="no-filter">&nbsp;</th>
+                    <th style="width: 20%;"><fmt:message key="configthemadata.${connectieType}.kolomnaam"/></th>
+                    <th style="width: 15%;" class="no-filter"><fmt:message key="configthemadata.basisregel"/></th>
+                    <c:if test="${gegevensbron.editable}">
+                        <th style="width: 5%;"><fmt:message key="configthemadata.bewerkbaar"/></th>
+                    </c:if>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="ci" varStatus="status" items="${listThemaData}">
+                    <c:url var="link" value="/configThemaData.do?edit=submit&themaDataID=${ci.id}"/>
+                    <c:set var="id_selected" value='' />
+                    <c:if test="${ci.id == mainid}"><c:set var="id_selected" value=' class="row_selected"' /></c:if>
+                    <tr data-link="${link}"${id_selected}>
+                        <td>
+                            <c:set var="bracketKolomNaam" value="[${ci.id}:KOLOMNAAM]"/>
+                            <c:set var="bracketCommando" value="[${ci.id}:COMMANDO]"/>
+                            <c:choose>
+                                <c:when test="${fn:contains(listUglyThemaData, bracketKolomNaam)}">
+                                    <span style="color: red"><fmt:message key="configthemadata.${connectieType}.kolomnaamfout"/></span>
+                                </c:when>
+                                <c:when test="${fn:contains(listUglyThemaData, bracketCommando)}">
+                                    <span style="color: red"><fmt:message key="configthemadata.commandofout"/></span>
+                                </c:when>
+                                <c:otherwise>
+                                    <span style="color: green">GOED</span>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td><c:out value="${ci.dataorder}"/></td>
+                        <td><html:text property="volgordeVelden.${ci.id}" size="3" /></td>
+                        <td><c:out value="${ci.label}"/></td>
+                        <td><html:text property="labelVelden.${ci.id}" size="15" /></td>
+                        <c:set var="accolade" value="}"/>
+                        <td>
+                            <c:choose>
+                                <c:when test="${fn:contains(ci.kolomnaam, accolade)}">
+                                    <span title="<c:out value='${ci.kolomnaam}'/>"><c:out value='${fn:substringAfter(ci.kolomnaam, accolade)}'/></span>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:out value='${ci.kolomnaam}'/>
+                                </c:otherwise>
+                            </c:choose>
+                            &nbsp;</td>
+                        <td>
+                            <html:multibox property="basisregels" value="${ci.id}"/>
+                        </td>
+                        <c:if test="${gegevensbron.editable && ci.editable}">                                
+                            <td>
+                                <c:out value="Ja" />
+                            </td>
+                        </c:if>
+                        <c:if test="${gegevensbron.editable && !ci.editable}">                                
+                            <td>
+                                <c:out value="Nee" />
+                            </td>
                         </c:if>
                     </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="ci" varStatus="status" items="${listThemaData}">
-                        <c:set var="id_selected" value='' />
-                        <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
-                        <c:url var="link" value="/configThemaData.do?edit=submit&themaDataID=${ci.id}"/>
-                        <tr>
-                            <td>
-                                <c:set var="bracketKolomNaam" value="[${ci.id}:KOLOMNAAM]"/>
-                                <c:set var="bracketCommando" value="[${ci.id}:COMMANDO]"/>
-                                <c:choose>
-                                    <c:when test="${fn:contains(listUglyThemaData, bracketKolomNaam)}">
-                                        <span style="color: red"><fmt:message key="configthemadata.${connectieType}.kolomnaamfout"/></span>
-                                    </c:when>
-                                    <c:when test="${fn:contains(listUglyThemaData, bracketCommando)}">
-                                        <span style="color: red"><fmt:message key="configthemadata.commandofout"/></span>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <span style="color: green">GOED</span>
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                            <td><c:out value="${ci.dataorder}"/></td>
-                            <td><html:text property="volgordeVelden.${ci.id}" size="3" /><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                            <td><c:out value="${ci.label}"/></td>
-                            <td><html:text property="labelVelden.${ci.id}" size="15" /></td>
-                            <c:set var="accolade" value="}"/>
-                            <td>
-                                <c:choose>
-                                    <c:when test="${fn:contains(ci.kolomnaam, accolade)}">
-                                        <span title="<c:out value='${ci.kolomnaam}'/>"><c:out value='${fn:substringAfter(ci.kolomnaam, accolade)}'/></span>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <c:out value='${ci.kolomnaam}'/>
-                                    </c:otherwise>
-                                </c:choose>
-                                &nbsp;</td>
-                            <td>
-                                <html:multibox property="basisregels" value="${ci.id}"/>
-                            </td>
-                            <c:if test="${gegevensbron.editable && ci.editable}">                                
-                                <td>
-                                    <c:out value="Ja" />
-                                </td>
-                            </c:if>
-                            <c:if test="${gegevensbron.editable && !ci.editable}">                                
-                                <td>
-                                    <c:out value="Nee" />
-                                </td>
-                            </c:if>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
+                </c:forEach>
+            </tbody>
+        </table>
     </c:if>
 
     <div class="berichtenbalk" style="margin-top: 5px;">
@@ -311,13 +309,3 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
     <div style="clear: both;"></div> 
 </html:form>
-<script type="text/javascript">
-    //$j(':checkbox').check();
-    
-    tablepager(
-    'themadatatable',
-    '930',
-    '18',
-    false // display numberOfPages dropdown
-);
-</script>

@@ -51,41 +51,31 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         </c:forEach>
         </ul>
 
-        <div class="tablesortercontainer">
-            <table id="kaartlaagselectietable" class="tablesorter">
-                <thead>
+        <table id="kaartlaagselectietable" class="dataTable">
+            <thead>
+                <tr>
+                    <th style="width: 10%;" class="{sorter: false} no-filter"></th>
+                    <th style="width: 90%;">Kaartlaag</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="laag" items="${themas}">
                     <tr>
-                        <th style="width: 10%;" class="no-filter"></th>
-                        <th style="width: 90%;">Kaartlaag</th>
+                        <td>
+                            <html:multibox property="layersAan">
+                                <c:out value="${laag.id}"/>
+                            </html:multibox>
+                        </td>
+                        <td>
+                            <c:out value="${laag.naam}"/>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="laag" items="${themas}">
-                        <tr>
-                            <td>
-                                <html:multibox property="layersAan">
-                                    <c:out value="${laag.id}"/>
-                                </html:multibox>
-                            </td>
-                            <td>
-                                <c:out value="${laag.naam}"/>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
+                </c:forEach>
+            </tbody>
+        </table>
     </div>
     <div class="wizardButtonBar">
         <html:submit property="step3" styleClass="knop"><fmt:message key='button.previous'/></html:submit> 
         <html:submit property="saveStep5" styleClass="knop" onclick="return postFullTableData('Bezig opslaan zoekingan kaartlagen...');"><fmt:message key='button.save'/></html:submit>
     </div>
 </html:form>
-<script type="text/javascript">
-    tablepager(
-    'kaartlaagselectietable',
-    '650',
-    '16',
-    false
-);
-</script>

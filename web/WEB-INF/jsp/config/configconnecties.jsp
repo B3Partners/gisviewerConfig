@@ -42,44 +42,42 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <input type="hidden" name="refreshLists">
     </div>
     <c:if test="${!empty allConnecties}">
-        <div class="tablesortercontainer">
-            <table id="connectietable" class="tablesorter">
-                <thead>
-                    <tr>
-                        <!-- <th style="width: 10%;">Status</th> -->
-                        <th style="width: 5%;" class="{sorter:'digit'}">Volgorde</th>
-                        <th style="width: 25%;"><label><fmt:message key="configconnectie.naam"/></th>
-                        <th style="width: 70%;"><label><fmt:message key="configconnectie.url"/></th>
-                        </div>
-                </thead>
-                <tbody>
-                    <c:forEach var="ci" varStatus="status" items="${allConnecties}">
-                        <c:set var="id_selected" value="" />
-                        <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
-                        <c:url var="link" value="/configConnectie.do?edit=submit&bronId=${ci.id}"/>
-                        <tr>
-                            <%--
-                            <td>
-                                <c:set var="testId" value="${ci.id}"/>
+        <table id="connectietable" class="dataTable">
+            <thead>
+                <tr>
+                    <!-- <th style="width: 10%;">Status</th> -->
+                    <th style="width: 5%;" class="{sorter:'digit'}">Volgorde</th>
+                    <th style="width: 25%;"><label><fmt:message key="configconnectie.naam"/></th>
+                    <th style="width: 70%;"><label><fmt:message key="configconnectie.url"/></th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="ci" varStatus="status" items="${allConnecties}">
+                    <c:url var="link" value="/configConnectie.do?edit=submit&bronId=${ci.id}"/>
+                    <c:set var="id_selected" value='' />
+                    <c:if test="${ci.id == mainid}"><c:set var="id_selected" value=' class="row_selected"' /></c:if>
+                    <tr data-link="${link}"${id_selected}>
+                        <%--
+                        <td>
+                            <c:set var="testId" value="${ci.id}"/>
 
-                                <c:choose>
-                                    <c:when test="${fn:contains(validBronIds, testId)}">
-                                        <span style="color: green">GOED</span>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <span style="color: red">FOUT</span>
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                            --%>
-                            <td><c:out value="${ci.volgorde}"/></td>
-                            <td><c:out value="${ci.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                            <td><c:out value="${ci.url}"/></td>
-                            </div>
-                        </c:forEach>
-                </tbody>
-            </table>
-        </div>
+                            <c:choose>
+                                <c:when test="${fn:contains(validBronIds, testId)}">
+                                    <span style="color: green">GOED</span>
+                                </c:when>
+                                <c:otherwise>
+                                    <span style="color: red">FOUT</span>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                        --%>
+                        <td><c:out value="${ci.volgorde}"/></td>
+                        <td><c:out value="${ci.naam}"/></td>
+                        <td><c:out value="${ci.url}"/></td>
+                        </div>
+                    </c:forEach>
+            </tbody>
+        </table>
     </c:if>
 
     <div class="berichtenbalk" style="margin-top: 5px;">
@@ -160,10 +158,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </html:form>
 <script type="text/javascript">
     var globalrows;
-    tablepager(
-    'connectietable',
-    '930',
-    '14',
-    false // display numberOfPages dropdown
-);
 </script>

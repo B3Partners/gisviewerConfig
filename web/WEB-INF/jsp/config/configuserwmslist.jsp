@@ -31,32 +31,29 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </div>
     
 <c:if test="${!empty services}">
-    <div class="tablesortercontainer" style="margin-top: 20px;">
-        <table id="userWMSListTable" class="tablesorter" style="width: 100%;">
-            <thead>
-                <tr>
-                    <th style="width: 20%;">Naam</th>                    
-                    <th style="width: 20%;">Groep</th>                  
-                    <th style="width: 30%;">Url</th>
-                    <th style="width: 30%;">Sld url</th>
+    <table id="userWMSListTable" class="dataTable">
+        <thead>
+            <tr>
+                <th style="width: 20%;">Naam</th>                    
+                <th style="width: 20%;">Groep</th>                  
+                <th style="width: 30%;">Url</th>
+                <th style="width: 30%;">Sld url</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach items="${services}" var="item">
+                <c:url var="link" value="/configUserWMSList.do?edit=submit&serviceId=${item.id}"/>                    
+                <c:set var="id_selected" value='' />
+                <c:if test="${item.id == mainid}"><c:set var="id_selected" value=' class="row_selected"' /></c:if>
+                <tr data-link="${link}"${id_selected}>
+                    <td><c:out value="${item.name}"/></td>                     
+                    <td>${item.groupname}</td>                        
+                    <td>${item.url}</td>
+                    <td>${item.sld_url}</td>
                 </tr>
-            </thead>
-
-            <tbody>
-                <c:forEach items="${services}" var="item">
-                    <c:set var="id_selected" value="" />
-                    <c:if test="${item.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
-                    <c:url var="link" value="/configUserWMSList.do?edit=submit&serviceId=${item.id}"/>                    
-                    <tr>
-                        <td><c:out value="${item.name}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>                     
-                        <td>${item.groupname}</td>                        
-                        <td>${item.url}</td>
-                        <td>${item.sld_url}</td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-    </div>
+            </c:forEach>
+        </tbody>
+    </table>
 </c:if>
 
 <html:form action="/configUserWMSList" focus="${focus}">
@@ -144,12 +141,3 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </div>
 
 </html:form>
-
-<script type="text/javascript">
-    tablepager (
-        'userWMSListTable',
-        '930', // table width in pixels
-        '20', // cell height
-        false // display numberOfPages dropdown
-    );
-</script>

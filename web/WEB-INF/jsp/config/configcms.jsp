@@ -43,42 +43,40 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <input type="hidden" name="refreshLists">
     </div>
     <c:if test="${!empty tekstBlokken}">
-        <div class="tablesortercontainer" style="margin-top: 20px;">
-            <table id="connectietable" class="tablesorter" width="100%">
-                <thead>
-                    <tr>
-                        <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
-                        <th style="width: 25%;">Titel</th>
-                        <th style="width: 25%;">Url</th>
-                        <th style="width: 10%;">Toon url</th>
-                        <th style="width: 15%;">Pagina</th>
-                        <th style="width: 15%;">Datum</th>
+        <table id="connectietable" class="dataTable">
+            <thead>
+                <tr>
+                    <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
+                    <th style="width: 25%;">Titel</th>
+                    <th style="width: 25%;">Url</th>
+                    <th style="width: 10%;">Toon url</th>
+                    <th style="width: 15%;">Pagina</th>
+                    <th style="width: 15%;">Datum</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="ci" varStatus="status" items="${tekstBlokken}">
+                    <c:url var="link" value="/configCMS.do?edit=submit&tekstBlokID=${ci.id}"/>
+                    <c:set var="id_selected" value='' />
+                    <c:if test="${ci.id == mainid}"><c:set var="id_selected" value=' class="row_selected"' /></c:if>
+                    <tr data-link="${link}"${id_selected}>
+                        <td><c:out value="${ci.volgordeNr}"/></td>
+                        <td><c:out value="${ci.titel}"/></td>
+                        <td><c:out value="${ci.url}"/></td>
+                        <td>
+                            <c:if test="${ci.toonUrl}">
+                                <c:out value="Ja"/>
+                            </c:if>
+                            <c:if test="${!ci.toonUrl}">
+                                <c:out value="Nee"/>
+                            </c:if>
+                        </td>
+                        <td><c:out value="${ci.pagina}"/></td>
+                        <td><fmt:formatDate value="${ci.cdate}" pattern="dd-MM-yyyy HH:mm"/></td>
                     </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="ci" varStatus="status" items="${tekstBlokken}">
-                        <c:set var="id_selected" value="" />
-                        <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
-                        <c:url var="link" value="/configCMS.do?edit=submit&tekstBlokID=${ci.id}"/>
-                        <tr>
-                            <td><c:out value="${ci.volgordeNr}"/></td>
-                            <td><c:out value="${ci.titel}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                            <td><c:out value="${ci.url}"/></td>
-                            <td>
-                                <c:if test="${ci.toonUrl}">
-                                    <c:out value="Ja"/>
-                                </c:if>
-                                <c:if test="${!ci.toonUrl}">
-                                    <c:out value="Nee"/>
-                                </c:if>
-                            </td>
-                            <td><c:out value="${ci.pagina}"/></td>
-                            <td><fmt:formatDate value="${ci.cdate}" pattern="dd-MM-yyyy HH:mm"/></td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
+                </c:forEach>
+            </tbody>
+        </table>
     </c:if>
 
     <div id="content_style" style="float: left; clear: left;">
@@ -245,10 +243,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </html:form>
 <script type="text/javascript">
     var globalrows;
-    tablepager(
-        'connectietable',
-        '930',
-        '14',
-        false // display numberOfPages dropdown
-    );
 </script>

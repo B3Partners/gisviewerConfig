@@ -757,3 +757,61 @@ a.highlightlink:hover{
     }
     @include clearfix();
 }
+
+.dataTables_wrapper {
+    padding: 15px;
+    .dataTables_filter {
+        margin-bottom: 5px;
+    }
+    .paging_full_numbers {
+        a.paginate_button, a.paginate_active {
+            @include border-radius(0px);
+        }
+        a.paginate_active {
+            background-color: #FFF0C4;
+        }
+    }
+}
+
+table.dataTable {
+    position: absolute;
+    left: -9999px;
+    border-spacing: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #CCCCCC;
+    .filter {
+        th {
+            text-align: center;
+        }
+        input {
+            width: 100%;
+        }
+    }
+    thead, tfoot {
+        tr {
+            border: 0px none;
+        }
+        th {
+            font-weight: bold;
+            border: 1px solid #FFFFFF;
+        }
+    }
+    td, th {
+        padding: 5px;
+    }
+    tr.odd {
+        background-color: $basecolor3;
+    }
+    tr.odd, tr.even {
+        &:hover {
+            background-color: #FFF0C4;
+        }
+        &.row_selected {
+            background-color: #FFF0C4;
+            td {
+                background-color: #FFF0C4;
+            }
+        }
+    }
+}

@@ -32,7 +32,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </div>
 
 <span class="rolnaamHeader">
-    Instellingen voor <b>'${header_appnaam}'</b>.
+    Instellingen voor <strong>'${header_appnaam}'</strong>.
 </span>
 
 <html:form action="/configKeeper" >
@@ -115,6 +115,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <h3>Vaste kaartlagen</h3>
                     <h4>Laag tonen</h4>
                     <h4 class="col2">Laag aan bij opstarten</h4>
+                    <h4 class="col3">Style</h4>
                 </div>
                 <div style="clear: both;"></div>
 

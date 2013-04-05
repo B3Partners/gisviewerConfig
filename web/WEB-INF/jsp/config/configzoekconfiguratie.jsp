@@ -35,33 +35,31 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </div>
     
 <c:if test="${!empty zoekConfiguraties}">
-    <div class="tablesortercontainer">
-        <table id="zoekconfiguratieTable" class="tablesorter">
-            <thead>
-                <tr>
-                    <th style="width: 5%;" class="{sorter:'digit'}">ID</th>
-                    <th style="width: 20%;"><fmt:message key="configzoekconfiguratie.naam"/></th>
-                    <th style="width: 20%;"><fmt:message key="configzoekconfiguratie.featuretype"/></th>
-                    <th style="width: 35%;"><fmt:message key="configzoekconfiguratie.parentbron"/></th>
-                    <th style="width: 20%;"><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></th>
+    <table id="zoekconfiguratieTable" class="dataTable">
+        <thead>
+            <tr>
+                <th style="width: 5%;" class="{sorter:'digit'}">ID</th>
+                <th style="width: 20%;"><fmt:message key="configzoekconfiguratie.naam"/></th>
+                <th style="width: 20%;"><fmt:message key="configzoekconfiguratie.featuretype"/></th>
+                <th style="width: 35%;"><fmt:message key="configzoekconfiguratie.parentbron"/></th>
+                <th style="width: 20%;"><fmt:message key="configzoekconfiguratie.parentzoekconfiguratie"/></th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="zc" varStatus="status" items="${zoekConfiguraties}">
+                <c:url var="link" value="/wizardZoekConfiguratie.do?step2=submit&zoekConfiguratieId=${zc.id}"/>
+                <c:set var="id_selected" value='' />
+                <c:if test="${zc.id == mainid}"><c:set var="id_selected" value=' class="row_selected"' /></c:if>
+                <tr data-link="${link}"${id_selected}>
+                    <td><c:out value="${zc.id}"/></td>
+                    <td><c:out value="${zc.naam}"/></td>
+                    <td><c:out value="${zc.featureType}"/></td>
+                    <td><c:out value="${zc.parentBron}"/></td>
+                    <td><c:out value="${zc.parentZoekConfiguratie}"/></td>
                 </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="zc" varStatus="status" items="${zoekConfiguraties}">
-                    <c:set var="id_selected" value="" />
-                    <c:if test="${zc.id == form.map.zoekConfiguratieId}"><c:set var="id_selected" value='selected' /></c:if>
-                    <c:url var="link" value="/wizardZoekConfiguratie.do?step2=submit&zoekConfiguratieId=${zc.id}"/>
-                    <tr>
-                        <td><c:out value="${zc.id}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                        <td><c:out value="${zc.naam}"/></td>
-                        <td><c:out value="${zc.featureType}"/></td>
-                        <td><c:out value="${zc.parentBron}"/></td>
-                        <td><c:out value="${zc.parentZoekConfiguratie}"/></td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-    </div>
+            </c:forEach>
+        </tbody>
+    </table>
 </c:if>
 
 <div class="berichtenbalk" style="margin-top: 5px;">
@@ -71,12 +69,3 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <div id="content_style" style="float: left; clear: left;">
     <input type="button" class="knop newButton" onclick="window.location='<html:rewrite page='/wizardZoekConfiguratie.do'/>'" value="<fmt:message key='button.new'/>"/>
 </div>
-
-<script type="text/javascript">
-    tablepager(
-        'zoekconfiguratieTable',
-        '930',
-        '14',
-        false // display numberOfPages dropdown
-    );
-</script>

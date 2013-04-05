@@ -41,29 +41,27 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
 
     <c:if test="${!empty allClusters}">
-        <div class="tablesortercontainer">
-            <table id="clustertable" class="tablesorter">
-                <thead>
-                    <tr>
-                        <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
-                        <th style="width: 40%;"><fmt:message key="configcluster.naam"/></th>
-                        <th style="width: 40%;"><fmt:message key="configcluster.ouder"/></th>
+        <table id="clustertable" class="dataTable">
+            <thead>
+                <tr>
+                    <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
+                    <th style="width: 40%;"><fmt:message key="configcluster.naam"/></th>
+                    <th style="width: 40%;"><fmt:message key="configcluster.ouder"/></th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="ci" varStatus="status" items="${allClusters}">
+                    <c:url var="link" value="/configCluster.do?edit=submit&clusterID=${ci.id}"/>
+                    <c:set var="id_selected" value='' />
+                    <c:if test="${ci.id == mainid}"><c:set var="id_selected" value=' class="row_selected"' /></c:if>
+                    <tr data-link="${link}"${id_selected}>
+                        <td><c:out value="${ci.belangnr}"/></td>
+                        <td><c:out value="${ci.naam}"/></td>
+                        <td><c:out value="${ci.parent.naam}"/></td>
                     </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="ci" varStatus="status" items="${allClusters}">
-                        <c:set var="id_selected" value='' />
-                        <c:if test="${ci.id == mainid}"><c:set var="id_selected" value='selected' /></c:if>
-                        <c:url var="link" value="/configCluster.do?edit=submit&clusterID=${ci.id}"/>
-                        <tr>
-                            <td><c:out value="${ci.belangnr}"/>&nbsp;<input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                            <td><c:out value="${ci.naam}"/><input type="hidden" name="link" value="${link}" /><input type="hidden" name="selected" value="${id_selected}" /></td>
-                            <td><c:out value="${ci.parent.naam}"/></td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </div>
+                </c:forEach>
+            </tbody>
+        </table>
     </c:if>
 
     <div id="content_style" style="float: left; clear: left;">
@@ -294,12 +292,3 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <!--<a href="#" onclick="$j('#clustertable').setSelection('20', true);">Click!</a>-->
     </div>
 </html:form>
-
-<script type="text/javascript">
-    tablepager(
-        'clustertable',
-        '930',
-        '14',
-        false // display numberOfPages dropdown
-    );
-</script>
