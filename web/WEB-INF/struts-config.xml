@@ -325,6 +325,7 @@
             <form-property name="volgordeNr" type="java.lang.Integer"/>
             <form-property name="kleur" type="java.lang.String"/>
             <form-property name="inlogIcon" type="java.lang.Boolean"/>
+            <form-property name="hoogte" type="java.lang.Integer"/>
         </form-bean>
 
         <form-bean name="applicatieForm" type="org.apache.struts.validator.DynaValidatorForm">

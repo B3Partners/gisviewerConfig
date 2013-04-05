@@ -193,6 +193,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <html:text property="kleur" size="40"/>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <fmt:message key="configcmshoogte.label"/> <a href="#" onclick="return showHelpDialog('help_configcmshoogte');">(?)</a>
+                        <div id="help_configcmshoogthe" style="display: none;" title="<fmt:message key="configcmshoogte.label"/>">
+                            <p><fmt:message key="configcmshoogte.uitleg"/></p>
+                        </div>
+                    </td>
+                    <td colspan="3">
+                        <html:text property="hoogte" size="40"/>
+                    </td>
+                </tr>
             </table>
         </div>
 
