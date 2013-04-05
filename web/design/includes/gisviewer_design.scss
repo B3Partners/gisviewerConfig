@@ -488,7 +488,7 @@ body.pdfExportClass {
     
     @include border-radius(8px);
     @include box-shadow(#666 0px 2px 3px);
-    @include background-image(linear-gradient($basecolor2, shade($basecolor2, 20)));
+    @include background-image(linear-gradient($basecolor2, tint($basecolor2, 60)));
 
 }
 

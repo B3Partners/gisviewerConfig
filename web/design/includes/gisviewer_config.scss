@@ -203,7 +203,7 @@
 
 /*Wizard*/
 .wizardQuestionBlock{
-    background-color: $basecolor3;
+    background-color: $background-color;
     width: 915px;
     padding: 10px;
     /*height: 400px;*/
@@ -271,32 +271,32 @@ a.clusterEditLinkActive, a.gbEditLinkActive {
 .tablabels .tablabel {
     float: right;
     clear: both;
-    border: 1px solid $basecolor1;
+    border: 1px solid $label-border-color;
     border-right: 0px none;
     width: 140px;
     padding: 10px;
     padding-right: 0px;
     background-color: $label-bgcolor;
-    color: $basecolor1;
+    color: $label-color;
     margin-bottom: 4px;
     cursor: pointer;
 }
 
 .tablabels .tablabel.sublabel {
     width: 120px;
-    color: $basecolor1;
+    color: $sublabel-color;
     background-color: $sublabel-bgcolor;
 }
 
 .tablabels .tablabel.active {
     width: 145px;
-    color: White;
+    color: $label-active-color;
     background-color: $label-active-bgcolor;
 }
 
 .tablabels .tablabel.sublabel.active {
     width: 125px;
-    color: $basecolor1;
+    color: $sublabel-active-color;
     background-color: $sublabel-active-bgcolor;
 }
 
