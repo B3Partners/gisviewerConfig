@@ -40,7 +40,8 @@ body.homebody {
 }
 
 #content {
-    width: $content-width;
+    width: $content-width - (2 * $content-padding);
+    padding: $content-padding;
     @include center-textleft;
     @include clearfix;
 }
