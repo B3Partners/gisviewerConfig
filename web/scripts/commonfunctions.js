@@ -209,7 +209,7 @@ $j(document).ready(function() {
 });
 
 // Datatables
-$j(document).ready(function() {
+jQuery(document).ready(function() {
     (function($) {
         // Custom sorting
         jQuery.fn.dataTableExt.oSort['dutchdates-asc']  = function(a,b) { 
@@ -234,6 +234,7 @@ $j(document).ready(function() {
             // Setup sorting and filtering
             var columnSettings = [];
             var $filters = $('<tr class="filter"></tr>');
+            var filterCount = 0;
             $table.find('thead tr').first().find('th').each(function(index) {
                 var colSetting = {};
                 var sortType = "string";
@@ -251,6 +252,7 @@ $j(document).ready(function() {
                 if($(this).hasClass('no-filter')) {
                     $filters.append('<th>&nbsp;</th>');
                 } else {
+                    filterCount++;
                     var $filter = $('<input type="text" name="filter" title="' + $(this).text() + '" />').keyup(function(e) {
                         if(dataTableObj !== null) dataTableObj.fnFilter( this.value, index );
                     });
@@ -281,7 +283,7 @@ $j(document).ready(function() {
                 }
             });
             // Append filters
-            $table.find('thead').append($filters);
+            if(filterCount !== 0) $table.find('thead').append($filters);
             // Handle row click
             $table.find('tbody').delegate("td", "click", function(e) {
                 var $row = $(this);
@@ -292,6 +294,7 @@ $j(document).ready(function() {
                     console.log('contains link!');
                 }
             });
+            // Show table
             $table.css({
                 'position': 'static',
                 'left': '0px'
