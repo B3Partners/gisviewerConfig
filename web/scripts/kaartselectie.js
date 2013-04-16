@@ -12,9 +12,11 @@ function createLeaf(container, item) {
     container.appendChild(document.createTextNode(' '));
     container.appendChild(document.createTextNode(item.title));
 
-    /* aan/uit vinkjes kaartgroepen en kaartlagen */
+    /* aan/uit vinkjes kaartgroepen en kaartlagen */    
     if (!item.cluster) {
         if (item.kaartSelected) {
+            showItem = true;
+            
             container.appendChild(createCheckboxThema(item, true));
         } else {
             container.appendChild(createCheckboxThema(item, false));
@@ -24,18 +26,20 @@ function createLeaf(container, item) {
     }
 
     container.appendChild(document.createTextNode(' '));
-
+    
     /* default aan/uit vinkjes kaartgroepen en kaartlagen */
-    if (!item.cluster) {
+    if (!item.cluster) {        
         if (item.kaartDefaultOn) {
+            startItem = true;
+            
             container.appendChild(createCheckboxDefaultOnThema(item, true));
-        } else {
+        } else {            
             container.appendChild(createCheckboxDefaultOnThema(item, false));
         }
-    } else if (item.callable) {
-        if (item.groupDefaultOn) {
+    } else if (item.callable) { 
+        if (item.groupDefaultOn) {            
             container.appendChild(createCheckboxDefaultOnCluster(item, true));
-        } else {
+        } else {            
             container.appendChild(createCheckboxDefaultOnCluster(item, false));
         }
     }
@@ -76,10 +80,12 @@ function createServiceLeaf(container, item) {
 
 function createCheckboxThema(item, checked) {
     var checkbox;
+    
+    var imageId = item.id;
 
     if (ieVersion <= 8 && ieVersion != -1) {
 
-        var checkboxControleString = '<input style="display: none;" class="checkboxThema" name="kaartlagenAan" type="checkbox" id="' + item.id + '"';
+        var checkboxControleString = '<input style="display: none;" class="checkboxThema" name="kaartlagenAan" type="checkbox" id="' + imageId + '"';
         if (checked) {
             checkboxControleString += ' checked="checked"';
         }
@@ -89,7 +95,7 @@ function createCheckboxThema(item, checked) {
 
     } else {
         checkbox = document.createElement('input');
-        checkbox.id = item.id;
+        checkbox.id = imageId;
         checkbox.className = "checkboxThema";
         checkbox.type = 'checkbox';
         checkbox.name = 'kaartlagenAan'
@@ -106,7 +112,7 @@ function createCheckboxThema(item, checked) {
     
     var imagetype = notcheckedimage;
     if(checked) imagetype = checkedimage;
-    var img = createImageReplacement(item.id, imagetype, '', "on_" + item.id);
+    var img = createImageReplacement(imageId, imagetype, '', "on_" + item.id);
     
     div.appendChild(img);
     div.appendChild(checkbox);
@@ -116,10 +122,12 @@ function createCheckboxThema(item, checked) {
 
 function createCheckboxDefaultOnThema(item, checked) {
     var checkbox;
+    
+    var imageId = 'on_' + item.id;
 
     if (ieVersion <= 8 && ieVersion != -1) {
 
-        var checkboxControleString = '<input style="display: none;" class="checkboxThemaOn" name="kaartlagenDefaultAan" type="checkbox" id="on_' + item.id + '"';
+        var checkboxControleString = '<input style="display: none;" class="checkboxThemaOn" name="kaartlagenDefaultAan" type="checkbox" id="' + imageId + '"';
         if (checked) {
             checkboxControleString += ' checked="checked"';
         }
@@ -129,7 +137,7 @@ function createCheckboxDefaultOnThema(item, checked) {
 
     } else {
         checkbox = document.createElement('input');
-        checkbox.id = 'on_' + item.id;
+        checkbox.id = imageId;
         checkbox.className = "checkboxThemaOn";
         checkbox.type = 'checkbox';
         checkbox.name = 'kaartlagenDefaultAan'
@@ -146,7 +154,7 @@ function createCheckboxDefaultOnThema(item, checked) {
     
     var imagetype = notcheckedimage;
     if(checked) imagetype = checkedimage;
-    var img = createImageReplacement("on_" + item.id, imagetype, item.id, '');
+    var img = createImageReplacement(imageId, imagetype, item.id, '');
     
     div.appendChild(img);
     div.appendChild(checkbox);
@@ -156,9 +164,11 @@ function createCheckboxDefaultOnThema(item, checked) {
 
 function createCheckboxLayer(item, checked) {
     var checkbox;
+    
+    var imageId = 'l_' +item.id;
 
     if (ieVersion <= 8 && ieVersion != -1) {
-        var checkboxControleString = '<input style="display: none;" name="layersAan" type="checkbox" id="l_' + item.id + '"';
+        var checkboxControleString = '<input style="display: none;" name="layersAan" type="checkbox" id="' + imageId + '"';
         if (checked) {
             checkboxControleString += ' checked="checked"';
         }
@@ -168,7 +178,7 @@ function createCheckboxLayer(item, checked) {
 
     } else {
         checkbox = document.createElement('input');
-        checkbox.id = 'l_' +item.id;
+        checkbox.id = imageId;
         checkbox.type = 'checkbox';
         checkbox.name = 'layersAan'
         checkbox.style.display = 'none';
@@ -184,7 +194,7 @@ function createCheckboxLayer(item, checked) {
     
     var imagetype = notcheckedimage;
     if(checked) imagetype = checkedimage;
-    var img = createImageReplacement("l_" + item.id, imagetype, '', "lOn_" + item.id);
+    var img = createImageReplacement(imageId, imagetype, '', "lOn_" + item.id);
     
     div.appendChild(img);
     div.appendChild(checkbox);
@@ -194,10 +204,12 @@ function createCheckboxLayer(item, checked) {
 
 function createCheckboxDefaultOnLayer(item, checked) {
     var checkbox;
+    
+    var imageId = 'lOn_' + item.id;
 
     if (ieVersion <= 8 && ieVersion != -1) {
 
-        var checkboxControleString = '<input style="display: none" name="layersDefaultAan" type="checkbox" id="lOn_' + item.id + '"';
+        var checkboxControleString = '<input style="display: none" name="layersDefaultAan" type="checkbox" id="' + imageId + '"';
         if (checked) {
             checkboxControleString += ' checked="checked"';
         }
@@ -207,7 +219,7 @@ function createCheckboxDefaultOnLayer(item, checked) {
 
     } else {
         checkbox = document.createElement('input');
-        checkbox.id = 'lOn_' + item.id;
+        checkbox.id = imageId;
         checkbox.type = 'checkbox';
         checkbox.name = 'layersDefaultAan'
         checkbox.style.display = 'none';
@@ -223,7 +235,7 @@ function createCheckboxDefaultOnLayer(item, checked) {
     
     var imagetype = notcheckedimage;
     if(checked) imagetype = checkedimage;
-    var img = createImageReplacement("lOn_" + item.id, imagetype, "l_" + item.id, '');
+    var img = createImageReplacement(imageId, imagetype, "l_" + item.id, '');
     
     div.appendChild(img);
     div.appendChild(checkbox);
@@ -468,10 +480,12 @@ function createCheckboxCluster(item, checked) {
 
 function createCheckboxDefaultOnCluster(item, checked) {
     var checkbox;
-
+    
+    var imageId = 'on_' + item.id + '_cluster';
+    
     if (ieVersion <= 8 && ieVersion != -1) {
 
-        var checkboxControleString = '<input style="display: none;" class="checkboxThemaOn" name="kaartgroepenDefaultAan" type="checkbox" id="on_' + item.id + '"';
+        var checkboxControleString = '<input style="display: none;" class="checkboxThemaOn" name="kaartgroepenDefaultAan" type="checkbox" id="' + imageId + '"';
         if (checked) {
             checkboxControleString += ' checked="checked"';
         }
@@ -481,7 +495,7 @@ function createCheckboxDefaultOnCluster(item, checked) {
 
     } else {
         checkbox = document.createElement('input');
-        checkbox.id = 'on_' + item.id;
+        checkbox.id = imageId;
         checkbox.className = "checkboxThemaOn";
         checkbox.type = 'checkbox';
         checkbox.name = 'kaartgroepenDefaultAan'
@@ -498,7 +512,7 @@ function createCheckboxDefaultOnCluster(item, checked) {
 
     var imagetype = notcheckedimage;
     if(checked) imagetype = checkedimage;
-    var img = createImageReplacement("on_" + item.id, imagetype, item.id, '');
+    var img = createImageReplacement(imageId, imagetype, item.id, '');
 
     div.appendChild(img);
     div.appendChild(checkbox);
