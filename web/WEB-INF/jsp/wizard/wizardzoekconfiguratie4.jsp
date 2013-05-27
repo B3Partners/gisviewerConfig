@@ -124,6 +124,8 @@ de usecaching waarde verkeerd gezet omdat ook stap 3 uit Actionw erdt aangeroepe
                 </td>
             </tr>
         </table>
+                
+        <%--
         <c:if test="${not empty parentZoekVelden}">
             <div class="tipsContainer">
                 <fmt:message key="wizardzoekconfiguratie.parentzoekvelden"/>
@@ -140,6 +142,8 @@ de usecaching waarde verkeerd gezet omdat ook stap 3 uit Actionw erdt aangeroepe
                 </ul>
             </div>
         </c:if>
+        --%>
+        
         <c:if test="${not empty tips}">
             <div class="tipsContainer">
                 <fmt:message key="wizardzoekconfiguratie.tip"/>
