@@ -40,11 +40,18 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         </c:if>
         <li><html:link page="/configApplicatie.do" module="" styleClass="${stijlklasse}"><fmt:message key="commons.configmenu.applicatie"/></html:link></li>
 
+        <!-- cms menu -->
         <c:set var="stijlklasse" value="menulink" />
-        <c:if test="${requestJSP eq 'configCMS.do'}">
+        <c:if test="${requestJSP eq 'configConnectie.do' || requestJSP eq 'configGegevensbron.do' || requestJSP eq 'configThemaData.do'}">
             <c:set var="stijlklasse" value="activemenulink" />
         </c:if>
-        <li><html:link page="/configCMS.do" module="" styleClass="${stijlklasse}"><fmt:message key="commons.configmenu.cms"/></html:link></li>
+        <li class="submenu">
+            <a href="#" class="${stijlklasse}"><fmt:message key="commons.configmenu.cms"/></a>
+            <ul>
+                <li><html:link page="/configCMSPagina.do" module=""><fmt:message key="commons.configmenu.cmspagina"/></html:link></li>
+                <li><html:link page="/configCMS.do" module=""><fmt:message key="commons.configmenu.tekstblok"/></html:link></li>          
+            </ul>
+        </li>
 
         <c:set var="stijlklasse" value="menulink" />
         <c:if test="${requestJSP eq 'configThema.do'}">

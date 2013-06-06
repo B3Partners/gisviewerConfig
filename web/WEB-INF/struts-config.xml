@@ -327,7 +327,7 @@
             <form-property name="inlogIcon" type="java.lang.Boolean"/>
             <form-property name="hoogte" type="java.lang.Integer"/>
         </form-bean>
-
+        
         <form-bean name="applicatieForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
             <form-property name="alt_action" type="java.lang.String"/>
@@ -348,6 +348,15 @@
             <form-property name="groupname" type="java.lang.String"/>
             <form-property name="url" type="java.lang.String"/>
             <form-property name="sld_url" type="java.lang.String"/>
+        </form-bean>
+        
+        <form-bean name="cmsPaginaForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="cmsPaginaID" type="java.lang.Integer"/>
+            <form-property name="titel" type="java.lang.String"/>
+            <form-property name="tekst" type="java.lang.String"/>
+            <form-property name="thema" type="java.lang.String"/>
         </form-bean>
         
     </form-beans>
@@ -447,6 +456,10 @@
         <action path="/configUserWMSList" type="nl.b3p.gis.viewer.ConfigUserWMSList" name="userWMSListForm" scope="request" validate="false">
             <forward name="success" path="configUserWMSList"/>
             <forward name="failure" path="configUserWMSList"/>
+        </action>
+        <action path="/configCMSPagina" type="nl.b3p.gis.viewer.ConfigCMSPaginaAction" name="cmsPaginaForm" scope="request" validate="false">
+            <forward name="success" path="configcmspagina"/>
+            <forward name="failure" path="configcmspagina"/>
         </action>
     </action-mappings>
     
