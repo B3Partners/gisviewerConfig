@@ -77,9 +77,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             <table cellpadding="2" cellspacing="2" border="0">
                 <tr>
                     <td>
-                        <fmt:message key="configcmstitel.label"/> <a href="#" onclick="return showHelpDialog('help_configcmstitel');">(?)</a>
-                        <div id="help_configcmstitel" style="display: none;" title="<fmt:message key="configcmstitel.label"/>">
-                            <p><fmt:message key="configcmstitel.uitleg"/></p>
+                        <fmt:message key="configcmspaginatitel.label"/> <a href="#" onclick="return showHelpDialog('help_configcmspaginatitel');">(?)</a>
+                        <div id="help_configcmspaginatitel" style="display: none;" title="<fmt:message key="configcmspaginatitel.label"/>">
+                            <p><fmt:message key="configcmspaginatitel.uitleg"/></p>
                         </div>           
                     </td>
                     <td colspan="3">
@@ -88,9 +88,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </tr>
                 <tr>
                     <td>
-                        <fmt:message key="configcmstekst.label"/> <a href="#" onclick="return showHelpDialog('help_configcmstekst');">(?)</a>
-                        <div id="help_configcmstekst" style="display: none;" title="<fmt:message key="configcmstekst.label"/>">
-                            <p><fmt:message key="configcmstekst.uitleg"/></p>
+                        <fmt:message key="configcmspaginatekst.label"/> <a href="#" onclick="return showHelpDialog('help_configcmspaginatekst');">(?)</a>
+                        <div id="help_configcmspaginatekst" style="display: none;" title="<fmt:message key="configcmspaginatekst.label"/>">
+                            <p><fmt:message key="configcmspaginatekst.uitleg"/></p>
                         </div>
                     </td>
                     <td colspan="3">
@@ -100,16 +100,18 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 
                 <tr>
                     <td>
-                        <fmt:message key="configcmspagina.label"/> <a href="#" onclick="return showHelpDialog('help_configcmspagina');">(?)</a>
-                        <div id="help_configcmspagina" style="display: none;" title="<fmt:message key="configcmspagina.label"/>">
-                            <p><fmt:message key="configcmspagina.uitleg"/></p>
+                        <fmt:message key="configcmspaginathema.label"/> <a href="#" onclick="return showHelpDialog('help_configcmspaginathema');">(?)</a>
+                        <div id="help_configcmspaginathema" style="display: none;" title="<fmt:message key="configcmspaginathema.label"/>">
+                            <p><fmt:message key="configcmspaginathema.uitleg"/></p>
                         </div>
                     </td>
                     <td colspan="3">
                         <html:select property="thema">
-                            <html:option value="Standaard">Default</html:option>
+                            <html:option value="">-</html:option>
                             
-                            <html:option value="Gouda">Gouda</html:option>
+                            <%-- TODO: Deze options uit design folder lezen --%>
+                            <html:option value="gouda">gouda</html:option>
+                            <html:option value="dronten">dronten</html:option>
                         </html:select>
                     </td>
                 </tr>
