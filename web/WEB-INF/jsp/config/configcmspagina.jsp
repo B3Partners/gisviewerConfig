@@ -110,8 +110,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             <html:option value="">-</html:option>
                             
                             <%-- TODO: Deze options uit design folder lezen --%>
-                            <html:option value="gouda">gouda</html:option>
-                            <html:option value="dronten">dronten</html:option>
+                            <html:option value="gouda">Gemeente Gouda</html:option>
+                            <html:option value="dronten">Gemeente Dronten</html:option>
+                            <html:option value="solutionparc">B3P Solutionparc</html:option>                            
                         </html:select>
                     </td>
                 </tr>

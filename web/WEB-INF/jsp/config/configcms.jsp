@@ -71,7 +71,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                                 <c:out value="Nee"/>
                             </c:if>
                         </td>
-                        <td><c:out value="${ci.pagina}"/></td>
+                        <td><c:out value="${ci.cmsPagina}"/></td>
                         <td><fmt:formatDate value="${ci.cdate}" pattern="dd-MM-yyyy HH:mm"/></td>
                     </tr>
                 </c:forEach>
@@ -82,10 +82,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <div id="content_style" style="float: left; clear: left;">
         <div class="berichtenbalk" style="margin-top: 5px;">
             <tiles:insert definition="actionMessages"/>
-       </div>
+        </div>
 
         <div class="maintable" style="margin-top: 5px;">
-            
+
             <table cellpadding="2" cellspacing="2" border="0">
                 <tr>
                     <td>
@@ -142,6 +142,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <html:checkbox property="inlogIcon" />
                     </td>
                 </tr>
+                
+                <%--
                 <tr>
                     <td>
                         <fmt:message key="configcmspagina.label"/> <a href="#" onclick="return showHelpDialog('help_configcmspagina');">(?)</a>
@@ -152,25 +154,47 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <td colspan="3">
                         <html:select property="pagina">
                             <html:option value="GEEN">NIET ZICHTBAAR</html:option>
-                            
+
                             <html:option value="gisviewer_home">Gisviewer home</html:option>
                             <html:option value="gisviewer_help">Gisviewer help</html:option>
                             <html:option value="gisviewer_login">Gisviewer login</html:option>
                             <html:option value="gisviewer_tab">Gisviewer tabblad</html:option>
-                            
-                            <%-- Solparc options --%>
+
                             <html:option value="solparc_maatschappelijk">Maatschappelijke voorzieningen</html:option>
                             <html:option value="solparc_actueel">Actuele zaken</html:option>
                             <html:option value="solparc_wijkgericht">Wijkgericht werken</html:option>
                             <html:option value="solparc_openbareruimte">Beheer openbare ruimte</html:option>
                             <html:option value="solparc_natuur">Natuur, milieu en cultuurhistorie</html:option>
                             <html:option value="solparc_gemeente">Gemeente op de kaart</html:option>
-                            
+
                             <html:option value="config_home">Gisviewerconfig home</html:option>
                             <html:option value="config_help">Gisviewerconfig help</html:option>
                         </html:select>
                     </td>
                 </tr>
+                --%>
+
+                <!-- Loop door aangemaakte cms pagina's -->
+                <tr>
+                    <td>
+                        <fmt:message key="configcmspagina.label"/> <a href="#" onclick="return showHelpDialog('help_configcmspagina');">(?)</a>
+                        <div id="help_configcmspagina" style="display: none;" title="<fmt:message key="configcmspagina.label"/>">
+                            <p><fmt:message key="configcmspagina.uitleg"/></p>
+                        </div>
+                    </td>
+                    <td colspan="3">
+                        <html:select property="cmsPagina">
+                            <html:option value="">-</html:option>
+
+                            <c:forEach var="pageItem" items="${cmsPaginas}">
+                                <html:option value="${pageItem.id}">
+                                    <c:out value="${pageItem.titel}"/>
+                                </html:option>
+                            </c:forEach>
+                        </html:select>
+                    </td>
+                </tr>
+
                 <tr>
                     <td>
                         <fmt:message key="configcmsvolgorde.label"/> <a href="#" onclick="return showHelpDialog('help_configcmsvolgorde');">(?)</a>
