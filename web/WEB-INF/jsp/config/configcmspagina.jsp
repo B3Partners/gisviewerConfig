@@ -17,7 +17,12 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 --%>
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
+
 <%@ page isELIgnored="false"%>
+
+<script type="text/javascript" src='dwr/engine.js'></script>
+<script type='text/javascript' src='dwr/util.js'></script>
+<script type="text/javascript" src='dwr/interface/JCrossWebAppUtil.js'></script>
 
 <script type="text/javascript" src="<html:rewrite page="/scripts/ckeditor/ckeditor.js"/>"></script>
 
@@ -59,7 +64,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <tr data-link="${link}"${id_selected}>
                         <td><c:out value="${ci.titel}"/></td>
                         <td><c:out value="${ci.thema}"/></td>
-                        
+
                         <td><fmt:formatDate value="${ci.cdate}" pattern="dd-MM-yyyy HH:mm"/></td>
                     </tr>
                 </c:forEach>
@@ -70,10 +75,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <div id="content_style" style="float: left; clear: left;">
         <div class="berichtenbalk" style="margin-top: 5px;">
             <tiles:insert definition="actionMessages"/>
-       </div>
+        </div>
 
         <div class="maintable" style="margin-top: 5px;">
-            
+
             <table cellpadding="2" cellspacing="2" border="0">
                 <tr>
                     <td>
@@ -97,7 +102,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <html:textarea styleClass="ckeditor" property="tekst" rows="8" cols="100"/>
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td>
                         <fmt:message key="configcmspaginathema.label"/> <a href="#" onclick="return showHelpDialog('help_configcmspaginathema');">(?)</a>
@@ -106,13 +111,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         </div>
                     </td>
                     <td colspan="3">
-                        <html:select property="thema">
+                        <html:select styleId="thema" property="thema">
                             <html:option value="">-</html:option>
-                            
-                            <%-- TODO: Deze options uit design folder lezen --%>
-                            <html:option value="gouda">Gemeente Gouda</html:option>
-                            <html:option value="dronten">Gemeente Dronten</html:option>
-                            <html:option value="solutionparc">B3P Solutionparc</html:option>                            
                         </html:select>
                     </td>
                 </tr>
@@ -154,5 +154,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
 </html:form>
 <script type="text/javascript">
-    var globalrows;
+    JCrossWebAppUtil.getGisviewerThemes(handleThemes);
+    
+    function handleThemes(themes) {       
+        dwr.util.addOptions("thema", themes);
+    }
 </script>

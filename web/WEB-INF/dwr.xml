@@ -17,6 +17,10 @@
         <create creator="new" javascript="EditUtil">
             <param name="class" value="nl.b3p.gis.utils.EditUtil"/>
         </create>
+        <create creator="new" javascript="JCrossWebAppUtil">
+            <param name="class" value="nl.b3p.gis.utils.CrossWebAppUtil"/>
+            <include method="getGisviewerThemes"/>
+        </create>
         <convert match="java.lang.Exception" converter="exception">
             <param name="include" value="message,lineNumber"/>
         </convert>
