@@ -35,6 +35,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 <c:set var="focus" value="titel"/>
 
+<c:set var="viewerUrl" value='http://${pageContext.request.serverName}:${pageContext.request.serverPort}/gisviewer/cms/'/>
+
 <div class="infobalk">
     <div class="infobalk_description">CMS PAGINA CONFIGURATIE</div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
@@ -64,7 +66,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <c:set var="id_selected" value=' class="row_selected"' />
                     </c:if>
                     <tr data-link="${link}"${id_selected} >
-                        <td><c:out value="${ci.titel}"/></td>
+                        <td><a href="${viewerUrl}${ci.id}/${ci.sefUrl}.htm" title="SEF Url naar CMS pagina van viewer" target="_new">${ci.titel}</a></td>
                         <td class="thema">
                             <c:out value="${ci.thema}"/>
                             <c:if test="${ci.id == mainid}">
