@@ -358,6 +358,7 @@
             <form-property name="titel" type="java.lang.String"/>
             <form-property name="tekst" type="java.lang.String"/>
             <form-property name="thema" type="java.lang.String"/>
+            <form-property name="showPlainAndMapButton" type="java.lang.Boolean"/> 
         </form-bean>
         
     </form-beans>

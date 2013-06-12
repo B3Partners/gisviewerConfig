@@ -116,6 +116,18 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         </html:select>
                     </td>
                 </tr>
+                
+                <tr>
+                    <td>
+                        <fmt:message key="configcmspaginaplaindandmap.label"/> <a href="#" onclick="return showHelpDialog('help_configcmspaginaplaindandmap');">(?)</a>
+                        <div id="help_configcmspaginaplaindandmap" style="display: none;" title="<fmt:message key="configcmspaginaplaindandmap.label"/>">
+                            <p><fmt:message key="configcmspaginaplaindandmap.uitleg"/></p>
+                        </div>
+                    </td>
+                    <td colspan="3">
+                        <html:checkbox property="showPlainAndMapButton" />
+                    </td>
+                </tr>
             </table>
         </div>
 
