@@ -58,13 +58,19 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             </thead>
             <tbody>
                 <c:forEach var="ci" varStatus="status" items="${cmsPaginas}">
-                    <c:url var="link" value="/configCMSPagina.do?edit=submit&cmsPaginaID=${ci.id}"/>
+                    <c:url var="link" value="/configCMSPagina.do?edit=submit&cmsPaginaID=${ci.id}" />
                     <c:set var="id_selected" value='' />
-                    <c:if test="${ci.id == mainid}"><c:set var="id_selected" value=' class="row_selected"' /></c:if>
-                    <tr data-link="${link}"${id_selected}>
+                    <c:if test="${ci.id == mainid}">
+                        <c:set var="id_selected" value=' class="row_selected"' />
+                    </c:if>
+                    <tr data-link="${link}"${id_selected} >
                         <td><c:out value="${ci.titel}"/></td>
-                        <td><c:out value="${ci.thema}"/></td>
-
+                        <td class="thema">
+                            <c:out value="${ci.thema}"/>
+                            <c:if test="${ci.id == mainid}">
+                                <script type="text/javascript"> var thema = '${ci.thema}';</script>
+                            </c:if>
+                        </td>
                         <td><fmt:formatDate value="${ci.cdate}" pattern="dd-MM-yyyy HH:mm"/></td>
                     </tr>
                 </c:forEach>
@@ -112,11 +118,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </td>
                     <td colspan="3">
                         <html:select styleId="thema" property="thema">
-                            <html:option value="">-</html:option>
+                            <html:option value="">STANDAARD</html:option>
                         </html:select>
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td>
                         <fmt:message key="configcmspaginaplaindandmap.label"/> <a href="#" onclick="return showHelpDialog('help_configcmspaginaplaindandmap');">(?)</a>
@@ -166,9 +172,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
 </html:form>
 <script type="text/javascript">
+    // get available gisviewer themes using ajax
     JCrossWebAppUtil.getGisviewerThemes(handleThemes);
     
     function handleThemes(themes) {       
         dwr.util.addOptions("thema", themes);
+        
+        // set current selected page theme for dropdown
+        if (typeof thema !== "undefined") {
+            dwr.util.setValue("thema", thema);
+        }
     }
 </script>
