@@ -48,8 +48,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <li class="submenu">
             <a href="#" class="${stijlklasse}"><fmt:message key="commons.configmenu.cms"/></a>
             <ul>
+                <li><html:link page="/configCMSMenu.do" module="">Menu</html:link></li>          
+                <li><html:link page="/configCMSMenuItem.do" module="">Menu item</html:link></li>          
                 <li><html:link page="/configCMSPagina.do" module=""><fmt:message key="commons.configmenu.cmspagina"/></html:link></li>
-                <li><html:link page="/configCMS.do" module=""><fmt:message key="commons.configmenu.tekstblok"/></html:link></li>          
+                <li><html:link page="/configCMS.do" module=""><fmt:message key="commons.configmenu.tekstblok"/></html:link></li>            
             </ul>
         </li>
 

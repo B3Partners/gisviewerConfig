@@ -359,6 +359,26 @@
             <form-property name="tekst" type="java.lang.String"/>
             <form-property name="thema" type="java.lang.String"/>
             <form-property name="showPlainAndMapButton" type="java.lang.Boolean"/> 
+            <form-property name="cmsMenu" type="java.lang.Integer"/>
+            <form-property name="loginRequired" type="java.lang.Boolean"/>
+        </form-bean>
+        
+        <form-bean name="cmsMenuForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="cmsMenuID" type="java.lang.Integer"/>
+            <form-property name="titel" type="java.lang.String"/>
+            <form-property name="cmsMenuItemsAan" type="java.lang.String[]"/>
+        </form-bean>
+        
+        <form-bean name="cmsMenuItemForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="cmsMenuItemID" type="java.lang.Integer"/>
+            <form-property name="titel" type="java.lang.String"/>
+            <form-property name="url" type="java.lang.String"/>
+            <form-property name="icon" type="java.lang.String"/>
+            <form-property name="volgordenr" type="java.lang.Integer"/>
         </form-bean>
         
     </form-beans>
@@ -462,6 +482,14 @@
         <action path="/configCMSPagina" type="nl.b3p.gis.viewer.ConfigCMSPaginaAction" name="cmsPaginaForm" scope="request" validate="false">
             <forward name="success" path="configcmspagina"/>
             <forward name="failure" path="configcmspagina"/>
+        </action>
+        <action path="/configCMSMenu" type="nl.b3p.gis.viewer.ConfigCMSMenuAction" name="cmsMenuForm" scope="request" validate="false">
+            <forward name="success" path="configcmsmenu"/>
+            <forward name="failure" path="configcmsmenu"/>
+        </action>
+        <action path="/configCMSMenuItem" type="nl.b3p.gis.viewer.ConfigCMSMenuItemAction" name="cmsMenuItemForm" scope="request" validate="false">
+            <forward name="success" path="configcmsmenuitem"/>
+            <forward name="failure" path="configcmsmenuitem"/>
         </action>
     </action-mappings>
     

@@ -82,6 +82,18 @@
         <put name="menu" value="/WEB-INF/jsp/commons/viewermenu.jsp"/>
     </definition>
     
+    <definition name="configcmsmenu" extends="config">
+        <put name="title" value="CMS Menu configuratie" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/config/configcmsmenu.jsp"/>
+        <put name="menu" value="/WEB-INF/jsp/commons/viewermenu.jsp"/>
+    </definition>
+    
+    <definition name="configcmsmenuitem" extends="config">
+        <put name="title" value="CMS Menu item configuratie" type="string"/>
+        <put name="content" value="/WEB-INF/jsp/config/configcmsmenuitem.jsp"/>
+        <put name="menu" value="/WEB-INF/jsp/commons/viewermenu.jsp"/>
+    </definition>
+    
     <definition name="wizardzoekconfiguratie" extends="config">
         <put name="title" value="Wizard zoekingang - Stap 1: Selecteer bron" type="string"/>
         <put name="content" value="/WEB-INF/jsp/wizard/wizardzoekconfiguratie.jsp"/>

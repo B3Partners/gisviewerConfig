@@ -136,6 +136,40 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <html:checkbox property="showPlainAndMapButton" />
                     </td>
                 </tr>
+                
+                <!-- Loop door cms menus -->
+                <tr>
+                    <td>
+                        <fmt:message key="configcmspaginamenu.label"/> <a href="#" onclick="return showHelpDialog('help_configcmspaginamenu');">(?)</a>
+                        <div id="help_configcmspaginamenu" style="display: none;" title="<fmt:message key="configcmspaginamenu.label"/>">
+                            <p><fmt:message key="configcmspaginamenu.uitleg"/></p>
+                        </div>
+                    </td>
+                    <td colspan="3">
+                        <html:select property="cmsMenu">
+                            <html:option value="">GEEN MENU TONEN</html:option>
+
+                            <c:forEach var="pageItem" items="${cmsMenus}">
+                                <html:option value="${pageItem.id}">
+                                    <c:out value="${pageItem.titel}"/>
+                                </html:option>
+                            </c:forEach>
+                        </html:select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <fmt:message key="configcmspaginalogin.label"/> <a href="#" onclick="return showHelpDialog('help_configcmspaginalogin');">(?)</a>
+                        <div id="help_configcmspaginalogin" style="display: none;" title="<fmt:message key="configcmspaginalogin.label"/>">
+                            <p><fmt:message key="configcmspaginalogin.uitleg"/></p>
+                        </div>
+                    </td>
+                    <td colspan="3">
+                        <html:checkbox property="loginRequired" />
+                    </td>
+                </tr>
+                
             </table>
         </div>
 
