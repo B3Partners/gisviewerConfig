@@ -50,7 +50,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             <input type="checkbox" id="advancedToggle" /> Toon geavanceerde opties
         </div>
         <div style="float: right;">
-            <input type="button" class="knop backButton" onclick="window.location='<html:rewrite page='/configApplicatie.do' />'" value="<fmt:message key='button.back'/>" />
+            <input type="button" class="knop backButton" onclick="window.location = '<html:rewrite page='/configApplicatie.do' />'" value="<fmt:message key='button.back'/>" />
 
             <html:submit property="save" accesskey="s" styleClass="knop saveButton" onclick="return confirm('Weet u zeker dat u dit wilt opslaan?');">
                 Opslaan
@@ -122,22 +122,22 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <div class="kaartselectie" id="mainTreeDiv"></div>
 
                 <script type="text/javascript">
-                    treeview_create({
-                        "id": "mainTreeDiv",
-                        "root": ${tree},
-                        "rootChildrenAsRoots": true,
-                        "itemLabelCreatorFunction": createLeaf,
-                        "toggleImages": {
-                            "collapsed": "<html:rewrite page="/images/treeview/plus.gif"/>",
-                            "expanded": "<html:rewrite page="/images/treeview/minus.gif"/>",
-                            "leaf": "<html:rewrite page="/images/treeview/leaft.gif"/>"
-                        },
-                        "saveExpandedState": false,
-                        "saveScrollState": false,
-                        "expandAll": true,
-                        "childrenPadding": '20px',
-                        "zebraEffect": false
-                    });
+                treeview_create({
+                    "id": "mainTreeDiv",
+                    "root": ${tree},
+                    "rootChildrenAsRoots": true,
+                    "itemLabelCreatorFunction": createLeaf,
+                    "toggleImages": {
+                        "collapsed": "<html:rewrite page="/images/treeview/plus.gif"/>",
+                        "expanded": "<html:rewrite page="/images/treeview/minus.gif"/>",
+                        "leaf": "<html:rewrite page="/images/treeview/leaft.gif"/>"
+                    },
+                    "saveExpandedState": false,
+                    "saveScrollState": false,
+                    "expandAll": true,
+                    "childrenPadding": '20px',
+                    "zebraEffect": false
+                });
                 </script>
 
                 <c:if test="${!empty servicesTrees}">
@@ -174,7 +174,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                     <div class="kaartselectieBody">
                         <html:submit property="deleteWMSServices" styleClass="submitbutton deletebutton">Services wissen</html:submit>
-                    </div>
+                        </div>
                 </c:if>
 
                 <a href="#" id="kaartselectieAddServiceLink">Nieuwe WMS Service toevoegen</a>
@@ -193,18 +193,18 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                     <div class="kaartselectieBody">
                         <html:submit property="saveWMSService" styleClass="rightButton submitbutton">Service toevoegen</html:submit>
+                        </div>
                     </div>
+
                 </div>
 
             </div>
 
-        </div>
+            <div class="tabcontent content_kaartlagen">
 
-        <div class="tabcontent content_kaartlagen">
-
-            <div class="configbasic">
-                <div class="configrow">
-                    <label><fmt:message key="cfg_expandAll.label"/></label>
+                <div class="configbasic">
+                    <div class="configrow">
+                        <label><fmt:message key="cfg_expandAll.label"/></label>
                     <html:checkbox property="cfg_expandAll"/>
                     <a class="helpLink" href="#" id="helpLink_help_cfg_expandAll">(?)</a>
                     <div id="help_cfg_expandAll" style="display: none;" title="<fmt:message key="cfg_expandAll.label"/>">
@@ -292,7 +292,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_maxResults.uitleg"/>
                     </div>
                 </div>
-                
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_defaultSearchRadius.label"/></label>
                     <html:text property="cfg_defaultSearchRadius" size="5"/>
@@ -301,7 +301,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_defaultSearchRadius.uitleg"/>
                     </div>
                 </div>
-                    
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_extent.label"/></label>
                     <html:text property="cfg_extent" size="40"/>
@@ -309,7 +309,17 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <div id="help_cfg_extent" style="display: none;" title="<fmt:message key="cfg_extent.label"/>">
                         <fmt:message key="cfg_extent.uitleg"/>
                     </div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_fullextent.label"/></label>
+                    <html:text property="cfg_fullextent" size="40"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_fullextent">(?)</a>
+                    <div id="help_cfg_fullextent" style="display: none;" title="<fmt:message key="cfg_fullextent.label"/>">
+                        <fmt:message key="cfg_fullextent.uitleg"/>
+                    </div>
                 </div>  
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_tilingResolutions.label"/></label>
                     <html:text property="cfg_tilingResolutions" size="80"/>
@@ -635,6 +645,21 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_activeTab.uitleg"/>
                     </div>
                 </div>
+
+                <!-- Transparantie slider tabblad -->
+                <div class="configrow">
+                    <label><fmt:message key="cfg_transSliderTab.label"/></label>
+                    <html:select property="cfg_transSliderTab" styleClass="tabblad_select">
+                        <c:forEach items="${tabSliderLabels}" var="item" varStatus="status">
+                            <html:option value="${tabSliderValues[status.count-1]}">${item}</html:option>
+                        </c:forEach>
+                    </html:select>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_transSliderTab">(?)</a>
+                    <div id="help_cfg_transSliderTab" style="display: none;" title="<fmt:message key="cfg_transSliderTab.label"/>">
+                        <fmt:message key="cfg_transSliderTab.uitleg"/>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="tabcontent content_zoeken">
@@ -1015,12 +1040,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <!--
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldingstatus.label"/></label>
-                    <html:text property="cfg_meldingstatus" size="50" />
-                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldingstatus">(?)</a>
-                    <div id="help_cfg_meldingstatus" style="display: none;" title="<fmt:message key="cfg_meldingstatus.label"/>">
-                        <fmt:message key="cfg_meldingstatus.uitleg"/>
-                    </div>
-                </div>
+                <html:text property="cfg_meldingstatus" size="50" />
+                <a class="helpLink" href="#" id="helpLink_help_cfg_meldingstatus">(?)</a>
+                <div id="help_cfg_meldingstatus" style="display: none;" title="<fmt:message key="cfg_meldingstatus.label"/>">
+                <fmt:message key="cfg_meldingstatus.uitleg"/>
+            </div>
+        </div>
                 -->
 
                 <div class="configrow">
@@ -1044,12 +1069,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <!--
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldinglayoutemailmelder.label"/></label>
-                    <html:text property="cfg_meldinglayoutemailmelder" size="50" />
-                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldinglayoutemailmelder">(?)</a>
-                    <div id="help_cfg_meldinglayoutemailmelder" style="display: none;" title="<fmt:message key="cfg_meldinglayoutemailmelder.label"/>">
-                        <fmt:message key="cfg_meldinglayoutemailmelder.uitleg"/>
-                    </div>
-                </div>
+                <html:text property="cfg_meldinglayoutemailmelder" size="50" />
+                <a class="helpLink" href="#" id="helpLink_help_cfg_meldinglayoutemailmelder">(?)</a>
+                <div id="help_cfg_meldinglayoutemailmelder" style="display: none;" title="<fmt:message key="cfg_meldinglayoutemailmelder.label"/>">
+                <fmt:message key="cfg_meldinglayoutemailmelder.uitleg"/>
+            </div>
+        </div>
                 -->
 
                 <div class="configrow">
@@ -1073,23 +1098,23 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <!--
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldinglayoutemailbehandelaar.label"/></label>
-                    <html:text property="cfg_meldinglayoutemailbehandelaar" size="50"/>
-                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldinglayoutemailbehandelaar">(?)</a>
-                    <div id="help_cfg_meldinglayoutemailbehandelaar" style="display: none;" title="<fmt:message key="cfg_meldinglayoutemailbehandelaar.label"/>">
-                        <fmt:message key="cfg_meldinglayoutemailbehandelaar.uitleg"/>
-                    </div>
-                </div>
+                <html:text property="cfg_meldinglayoutemailbehandelaar" size="50"/>
+                <a class="helpLink" href="#" id="helpLink_help_cfg_meldinglayoutemailbehandelaar">(?)</a>
+                <div id="help_cfg_meldinglayoutemailbehandelaar" style="display: none;" title="<fmt:message key="cfg_meldinglayoutemailbehandelaar.label"/>">
+                <fmt:message key="cfg_meldinglayoutemailbehandelaar.uitleg"/>
+            </div>
+        </div>
                 -->
-                
+
                 <!--
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldingtekentoolicoon.label"/></label>
-                    <html:text property="cfg_meldingtekentoolicoon" size="50"/>
-                    <a class="helpLink" href="#" id="helpLink_help_cfg_meldingtekentoolicoon">(?)</a>
-                    <div id="help_cfg_meldingtekentoolicoon" style="display: none;" title="<fmt:message key="cfg_meldingtekentoolicoon.label"/>">
-                        <fmt:message key="cfg_meldingtekentoolicoon.uitleg"/>
-                    </div>
-                </div>
+                <html:text property="cfg_meldingtekentoolicoon" size="50"/>
+                <a class="helpLink" href="#" id="helpLink_help_cfg_meldingtekentoolicoon">(?)</a>
+                <div id="help_cfg_meldingtekentoolicoon" style="display: none;" title="<fmt:message key="cfg_meldingtekentoolicoon.label"/>">
+                <fmt:message key="cfg_meldingtekentoolicoon.uitleg"/>
+            </div>
+        </div>
                 -->
 
                 <div class="configrow">
@@ -1291,12 +1316,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         var treecounter = 0;
         var zebracounter = 0;
         $j(".kaartselectie").each(function() {
-            if(treecounter <= 1) zebracounter = 0;
+            if (treecounter <= 1)
+                zebracounter = 0;
             $j(".treeview_row", this).each(function() {
                 // check if visible
-                if($j(this).parent().parent().parent().parent().is(":visible")) {
+                if ($j(this).parent().parent().parent().parent().is(":visible")) {
                     $j(this).removeClass("treeview_odd_row");
-                    if(zebracounter%2==0) {
+                    if (zebracounter % 2 == 0) {
                         $j(this).addClass("treeview_odd_row");
                     }
                     zebracounter++;

@@ -27,10 +27,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <!--[if IE 8]> <html class="lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html> <!--<![endif]-->
     <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="Expires" content="-1">
         <meta http-equiv="Cache-Control" content="max-age=0, no-store">
-        <meta http-equiv=”X-UA-Compatible” content=”IE=edge” />
 
         <title><tiles:insert name='title'/> - B3P GIS Viewer</title>
         <link href="styles/gisviewer_base.css" rel="stylesheet" type="text/css">
@@ -67,6 +67,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 $j(this).width($j(this).find("a").outerWidth());
             });
             $j("#header_content").find(".menu").css('visibility', 'visible');
+            $j("#header").css({"position": "relative", "z-index": 300});
+            $j("#content_normal").css({"z-index": 200});
         </script>
         <![endif]-->
     </body>

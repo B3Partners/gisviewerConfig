@@ -259,7 +259,9 @@
             
             <!-- Algemeen form fields -->
             <form-property name="cfg_activeTab" type="java.lang.String"/>
-            <form-property name="cfg_extent" type="java.lang.String"/>            
+            <form-property name="cfg_transSliderTab" type="java.lang.String"/>            
+            <form-property name="cfg_extent" type="java.lang.String"/>
+            <form-property name="cfg_fullextent" type="java.lang.String"/>                     
             <form-property name="cfg_useUserWmsDropdown" type="java.lang.Boolean"/>            
             <form-property name="cfg_datasetDownload" type="java.lang.Boolean"/>            
             <form-property name="cfg_tilingResolutions" type="java.lang.String"/>
