@@ -236,7 +236,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </c:choose>
                 
                 <c:choose>
-                    <c:when test="${fn:length(listLegendLayers)>1}">
+                    <c:when test="${fn:length(listLegendLayers) > 0}">
                         <div class="configrow configrowfull">
                             <label><fmt:message key="configthema.wmslegendlayers"/></label>
                             <html:select property="wms_legendlayer_real" styleClass="configSelect">
