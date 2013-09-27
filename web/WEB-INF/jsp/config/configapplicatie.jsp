@@ -58,7 +58,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                     <td>${item.versie}</td>
                     <td>
-                        <a href="${appUrl}${item.code}&amp;forceViewer=true" title="Open Applicatie" target="_new">${item.code}</a>
+                        <a href="${appUrl}${item.code}&amp;forceViewer=true&amp;cmsId=1" title="Open Applicatie" target="_new">${item.code}</a>
                     </td>
                     <td>${item.gebruikersCode}</td>
                     <td>
