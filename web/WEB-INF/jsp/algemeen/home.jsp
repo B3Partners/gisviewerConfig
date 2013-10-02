@@ -85,10 +85,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <div class="content_block">
     <h1 class="content_title">Laatste nieuwsberichten</h1>
     <div class="content_body">
-        <div class="tweet"></div>
+        <div class="tweet">
+            <a class="twitter-timeline" href="https://twitter.com/B3Partners/b3partners" data-widget-id="349847499529400320" width="420" height="300" data-link-color="#005A9C">Tweets from @B3Partners</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
     </div>
-    <!-- Live Tweets -->
-    <%@include file="/WEB-INF/jsp/tweets.jsp" %>
 </div>
 
 <div style="clear: both; height: 20px;"></div>
