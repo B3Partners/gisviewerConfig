@@ -145,37 +145,25 @@ $j(document).ready(function() {
                     var $helpContentDiv = $j("#" + $j(this).attr("id").replace("helpLink_", ""));
                     var helpContent = $helpContentDiv.html();
                     var helpTitle = $helpContentDiv.attr("title");
-                    var tipPos = 'rightTop';
-                    var tipTarget = 'leftMiddle'
                     $j(this).qtip({
                         content: {
                             text: helpContent,
-                            title: {
-                                text: helpTitle
-                            }
+                            title: helpTitle
                         },
-                        show: 'mouseover',
-                        hide: 'mouseout',
-                        position: {
-                            corner: {
-                                target: tipTarget,
-                                tooltip: tipPos
-                            }
-                        },
-                        style: {
-                            name: 'cream',
-                            tip: tipPos,
-                            color: 'black',
-                            title: {
-                                border: '0px none',
-                                color: 'black'
-                            },
-                            width: {
-                                max: 325 
-                            }
+                        hide: {
+                            event: 'mouseout'
                         },
                         show: {
-                            delay: 25
+                            event: 'click mouseenter'
+                        },
+                        position: {
+                            my: 'right top',
+                            at: 'left middle',
+                            target: $j(this),
+                            viewport: $j(window),
+                            adjust: {
+                                x: -10
+                            }
                         }
                     });
                 }
@@ -208,8 +196,15 @@ $j(document).ready(function() {
     if($j(".tablabel").length != 0) labelClick($j(".tablabel").first());
     
     // Datatables
+    var tables = [];
     jQuery('.dataTable').each(function() {
-        new B3PDataTable(this);
+        tables.push(new B3PDataTable(this));
+    });
+    
+    jQuery('.postCheckboxTable').click(function() {
+        for(var x in tables) {
+            tables[x].showAllRows();
+        }
     });
 });
 
@@ -401,6 +396,7 @@ function B3PDataTable(table) {
      */
     this.initDataTable = function() {
         this.dataTableObj = this.table.dataTable({
+            "iDisplayLength": 10,
             "bSortClasses": false,
             "aoColumns": this.columnSettings,
             "bStateSave": true,
@@ -505,7 +501,28 @@ function B3PDataTable(table) {
             'left': '0px'
         });
         return true;
-    };  
+    };
+    
+    /**
+     * Function to show all rows (remove pagination).
+     * This is mainly used to post all input fields in a tables
+     * @returns {Boolean}
+     */
+    this.showAllRows = function() {
+        var wrapper = this.table.parent(), wrapperHeight = wrapper.height();
+        wrapper.css({
+            'height': wrapperHeight + 'px',
+            'overflow': 'hidden'
+        });
+        this.table.css({
+            'position': 'absolute',
+            'left': '-99999px'
+        });
+        jQuery('<div>Bezig met opslaan...</div>')
+                .css({ 'clear': 'both', 'margin-top': '15px;' })
+                .insertAfter(jQuery('.dataTables_filter', wrapper));
+        jQuery('tbody', this.table).append( this.dataTableObj.fnGetHiddenNodes() );
+    };
 
     /**
      * Install dataTable extensions, needed for some functionality
@@ -552,6 +569,26 @@ function B3PDataTable(table) {
                     this.oApi._fnCalculateEnd( oSettings );
                 }
                 this.oApi._fnDraw( oSettings );
+            };
+        }
+        if(typeof jQuery.fn.dataTableExt.oApi.fnGetHiddenNodes === "undefined") {
+            jQuery.fn.dataTableExt.oApi.fnGetHiddenNodes = function ( oSettings ) {
+                /* Note the use of a DataTables 'private' function thought the 'oApi' object */
+                var anNodes = this.oApi._fnGetTrNodes( oSettings );
+                var anDisplay = jQuery('tbody tr', oSettings.nTable);
+
+                /* Remove nodes which are being displayed */
+                for ( var i=0 ; i<anDisplay.length ; i++ )
+                {
+                    var iIndex = jQuery.inArray( anDisplay[i], anNodes );
+                    if ( iIndex != -1 )
+                    {
+                        anNodes.splice( iIndex, 1 );
+                    }
+                }
+
+                /* Fire back the array to the caller */
+                return anNodes;
             };
         }
     })();

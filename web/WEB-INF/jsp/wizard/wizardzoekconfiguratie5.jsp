@@ -76,6 +76,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     </div>
     <div class="wizardButtonBar">
         <html:submit property="step3" styleClass="knop"><fmt:message key='button.previous'/></html:submit> 
-        <html:submit property="saveStep5" styleClass="knop" onclick="return postFullTableData('Bezig opslaan zoekingan kaartlagen...');"><fmt:message key='button.save'/></html:submit>
+        <html:submit property="saveStep5" styleClass="knop postCheckboxTable"><fmt:message key='button.save'/></html:submit>
     </div>
 </html:form>
