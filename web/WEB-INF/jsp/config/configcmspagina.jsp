@@ -53,9 +53,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <table id="connectietable" class="dataTable">
             <thead>
                 <tr>
-                    <th style="width: 30%;">Titel</th>
-                    <th style="width: 35%;">Thema</th>
-                    <th style="width: 35%;">Datum</th>
+                    <th style="width: 10%;">ID</th>
+                    <th style="width: 60%;">Titel</th>
+                    <th style="width: 15%;">Thema</th>
+                    <th style="width: 15%;">Datum</th>
                 </tr>
             </thead>
             <tbody>
@@ -66,6 +67,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <c:set var="id_selected" value=' class="row_selected"' />
                     </c:if>
                     <tr data-link="${link}"${id_selected} >
+                        <td><c:out value="${ci.id}"/></td>
                         <td><a href="${viewerUrl}${ci.id}/${ci.sefUrl}.htm" title="SEF Url naar CMS pagina van viewer" target="_new">${ci.titel}</a></td>
                         <td class="thema">
                             <c:out value="${ci.thema}"/>
