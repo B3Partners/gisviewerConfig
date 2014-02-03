@@ -40,8 +40,10 @@ function createLeaf(container, item) {
 
 function createEditLink(item){
     var lnk = document.createElement('a');
+    
+    var label = item.title + ' (' + item.volgorde + ')';
 
-    lnk.innerHTML = item.title ? item.title : item.id;
+    lnk.innerHTML = item.title ? label : item.id;
     lnk.className='gbEditLink';
     if(pageGegevensbronId != '' && item.id == pageGegevensbronId) lnk.className='gbEditLinkActive';
     lnk.href = 'configGegevensbron.do?edit=submit&gegevensbronID='+item.id;

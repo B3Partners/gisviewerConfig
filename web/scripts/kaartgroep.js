@@ -38,7 +38,10 @@ function createLeaf(container, item) {
 
 function createEditLink(item){
     var lnk = document.createElement('a');
-    lnk.innerHTML = item.title ? item.title : item.id;
+    
+    var label = item.title + ' (' + item.volgorde + ')';
+    
+    lnk.innerHTML = item.title ? label : item.id;
     lnk.className='clusterEditLink';
     if(pageClusterId != '' && item.id == pageClusterId) lnk.className='clusterEditLinkActive';
     lnk.href = 'configKaartGroep.do?edit=submit&clusterID='+item.id;
