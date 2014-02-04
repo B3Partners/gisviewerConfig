@@ -85,12 +85,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <div class="tablabel sublabel" id="label_planselectie">
             Planselectie
         </div>
-        <div class="tablabel sublabel" id="label_vergunningen">
-            Vergunning
-        </div>
-        <div class="tablabel sublabel" id="label_voorzieningen">
-            Voorziening
-        </div>
         <div class="tablabel sublabel" id="label_meldingen">
             Melding
         </div>
@@ -561,59 +555,108 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
         <div class="tabcontent content_tabbladen">
             <p>
-                U kunt hier tot maximaal vijf modules selecteren die worden
-                getoond in de viewer. Deze worden getoond in de volgorde
-                van 1 tot en met 5. Extra module instellingen zijn beschikbaar
+                U kunt hier tot maximaal 10 modules selecteren die worden
+                getoond. Deze modules worden op volgorde getoond aan de
+                linker- of rechterkant van de viewer in tabbladen.
+
+                Voor sommige modules zijn extra instellingen beschikbaar
                 in de kleinere tabs.
             </p>
 
-            <div class="configbasic">
+            <p>
+                <a href="#" onclick="resetModuleElements();">Modules opnieuw instellen</a>
+            </p>
 
+            <div class="configbasic">
+                <p><b>Linkerkant</b></p>
+
+                <!-- config voor modules in linker tab -->
                 <div class="configrow">
                     <label>Module 1</label>
-                    <html:select property="cfg_tab1" styleClass="tabblad_select">
+                    <html:select styleId="cfg_tab1_left" property="cfg_tab1_left" styleClass="tabblad_select" onchange="checkModuleAvailable(this);">
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
                     </html:select>
-
                 </div>
                 <div class="configrow">
                     <label>Module 2</label>
-                    <html:select property="cfg_tab2" styleClass="tabblad_select">
+                    <html:select styleId="cfg_tab2_left" property="cfg_tab2_left" styleClass="tabblad_select" onchange="checkModuleAvailable(this);">
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
                     </html:select>
-
                 </div>
                 <div class="configrow">
                     <label>Module 3</label>
-                    <html:select property="cfg_tab3" styleClass="tabblad_select">
+                    <html:select styleId="cfg_tab3_left" property="cfg_tab3_left" styleClass="tabblad_select" onchange="checkModuleAvailable(this);">
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
                     </html:select>
-
                 </div>
                 <div class="configrow">
                     <label>Module 4</label>
-                    <html:select property="cfg_tab4" styleClass="tabblad_select">
+                    <html:select styleId="cfg_tab4_left" property="cfg_tab4_left" styleClass="tabblad_select" onchange="checkModuleAvailable(this);">
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
                     </html:select>
-
                 </div>
                 <div class="configrow">
                     <label>Module 5</label>
-                    <html:select property="cfg_tab5" styleClass="tabblad_select">
+                    <html:select styleId="cfg_tab5_left" property="cfg_tab5_left" styleClass="tabblad_select" onchange="checkModuleAvailable(this);">
+                        <c:forEach items="${tabLabels}" var="item" varStatus="status">
+                            <html:option value="${tabValues[status.count-1]}">${item}</html:option>
+                        </c:forEach>
+                    </html:select>
+                </div>
+
+                <p><b>Rechterkant</b></p>           
+
+                <!-- config voor modules in rechter tab -->
+                <div class="configrow">
+                    <label>Module 6</label>
+                    <html:select styleId="cfg_tab1" property="cfg_tab1" styleClass="tabblad_select" onchange="checkModuleAvailable(this);">
+                        <c:forEach items="${tabLabels}" var="item" varStatus="status">
+                            <html:option value="${tabValues[status.count-1]}">${item}</html:option>
+                        </c:forEach>
+                    </html:select>
+                </div>
+                <div class="configrow">
+                    <label>Module 7</label>
+                    <html:select styleId="cfg_tab2" property="cfg_tab2" styleClass="tabblad_select" onchange="checkModuleAvailable(this);">
+                        <c:forEach items="${tabLabels}" var="item" varStatus="status">
+                            <html:option value="${tabValues[status.count-1]}">${item}</html:option>
+                        </c:forEach>
+                    </html:select>
+                </div>
+                <div class="configrow">
+                    <label>Module 8</label>
+                    <html:select styleId="cfg_tab3" property="cfg_tab3" styleClass="tabblad_select" onchange="checkModuleAvailable(this);">
+                        <c:forEach items="${tabLabels}" var="item" varStatus="status">
+                            <html:option value="${tabValues[status.count-1]}">${item}</html:option>
+                        </c:forEach>
+                    </html:select>
+                </div>
+                <div class="configrow">
+                    <label>Module 9</label>
+                    <html:select styleId="cfg_tab4" property="cfg_tab4" styleClass="tabblad_select" onchange="checkModuleAvailable(this);">
+                        <c:forEach items="${tabLabels}" var="item" varStatus="status">
+                            <html:option value="${tabValues[status.count-1]}">${item}</html:option>
+                        </c:forEach>
+                    </html:select>
+                </div>
+                <div class="configrow">
+                    <label>Module 10</label>
+                    <html:select styleId="cfg_tab5" property="cfg_tab5" styleClass="tabblad_select" onchange="checkModuleAvailable(this);">
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
                     </html:select>
                 </div>
             </div>
+
             <div class="configadvanced">
                 <div class="configrow">
                     <label><fmt:message key="cfg_useMouseOverTabs.label"/></label>
@@ -662,6 +705,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
             </div>
         </div>
+
         <div class="tabcontent content_zoeken">
 
             <div class="configbasic">
@@ -801,193 +845,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </html:select>
                 </div>
             </div>
-        </div>
-
-        <div class="tabcontent content_vergunningen">
-            <div class="configbasic">
-                <div class="configrow">
-                    <label><fmt:message key="cfg_vergunningid1.label"/></label>
-
-                    <html:select property="cfg_vergunningid1">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_vergunningid2.label"/></label>
-
-                    <html:select property="cfg_vergunningid2">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_vergunningid3.label"/></label>
-
-                    <html:select property="cfg_vergunningid3">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_vergunningid4.label"/></label>
-
-                    <html:select property="cfg_vergunningid4">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_vergunningid5.label"/></label>
-
-                    <html:select property="cfg_vergunningid5">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_vergunningid6.label"/></label>
-                    <html:select property="cfg_vergunningid6">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-                </div>
-
-                <div class="configrow">
-                    <label><fmt:message key="cfg_vergunningstraal.label"/> <fmt:message key="cfg_straal.label"/></label>
-                    <html:text property="cfg_vergunningstraal"/>
-                </div>
-            </div>
-            <div class="configadvanced"></div>
-        </div>
-
-        <div class="tabcontent content_voorzieningen">
-            <div class="configbasic">
-                <div class="configrow">
-                    <label><fmt:message key="cfg_voorzieningid1.label"/></label>
-
-                    <html:select property="cfg_voorzieningid1">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_voorzieningid2.label"/></label>
-
-                    <html:select property="cfg_voorzieningid2">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_voorzieningid3.label"/></label>
-
-                    <html:select property="cfg_voorzieningid3">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_voorzieningstraal.label"/> <fmt:message key="cfg_straal.label"/></label>
-                    <html:text property="cfg_voorzieningstraal"/>
-                </div>
-
-                <div class="configrow">
-                    <label><fmt:message key="cfg_voorzieningtype1.label"/></label>
-
-                    <html:select property="cfg_voorzieningtype1">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_voorzieningtype2.label"/></label>
-
-                    <html:select property="cfg_voorzieningtype2">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_voorzieningtype3.label"/></label>
-
-                    <html:select property="cfg_voorzieningtype3">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_voorzieningtype4.label"/></label>
-
-                    <html:select property="cfg_voorzieningtype4">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_voorzieningtype5.label"/></label>
-
-                    <html:select property="cfg_voorzieningtype5">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_voorzieningtype6.label"/></label>
-
-                    <html:select property="cfg_voorzieningtype6">
-                        <html:option value="leeg">-Kies een zoekingang-</html:option>
-                        <c:forEach items="${zoekConfigs}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-
-                </div>
-            </div>
-            <div class="configadvanced"></div>
-
-        </div>
+        </div>        
 
         <div class="tabcontent content_meldingen">
 
@@ -1312,48 +1170,48 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </html:form>
 
 <script type="text/javascript">
-    function treeZebra() {
-        var treecounter = 0;
-        var zebracounter = 0;
-        $j(".kaartselectie").each(function() {
-            if (treecounter <= 1)
-                zebracounter = 0;
-            $j(".treeview_row", this).each(function() {
-                // check if visible
-                if ($j(this).parent().parent().parent().parent().is(":visible")) {
-                    $j(this).removeClass("treeview_odd_row");
-                    if (zebracounter % 2 == 0) {
-                        $j(this).addClass("treeview_odd_row");
-                    }
-                    zebracounter++;
-                }
-            });
-            treecounter++;
-        });
-    }
+                            function treeZebra() {
+                                var treecounter = 0;
+                                var zebracounter = 0;
+                                $j(".kaartselectie").each(function() {
+                                    if (treecounter <= 1)
+                                        zebracounter = 0;
+                                    $j(".treeview_row", this).each(function() {
+                                        // check if visible
+                                        if ($j(this).parent().parent().parent().parent().is(":visible")) {
+                                            $j(this).removeClass("treeview_odd_row");
+                                            if (zebracounter % 2 == 0) {
+                                                $j(this).addClass("treeview_odd_row");
+                                            }
+                                            zebracounter++;
+                                        }
+                                    });
+                                    treecounter++;
+                                });
+                            }
 
-    $j(function() {
-        $j("#kaartselectieAddServiceLink").click(function() {
-            $j("#kaartselectieAddService").show();
-            $j(this).hide();
-            return false;
-        });
-        $j('.kaartselectieBody').click(function() {
-            closeSldContainers();
-        });
-        $j('.helpbutton').hover(function() {
-            $j(this).parent().parent().find('.help').show();
-        }, function() {
-            $j(this).parent().parent().find('.help').hide();
-        });
-        $j('.help').hover(function() {
-            $j(this).show();
-        }, function() {
-            $j(this).hide();
-        });
+                            $j(function() {
+                                $j("#kaartselectieAddServiceLink").click(function() {
+                                    $j("#kaartselectieAddService").show();
+                                    $j(this).hide();
+                                    return false;
+                                });
+                                $j('.kaartselectieBody').click(function() {
+                                    closeSldContainers();
+                                });
+                                $j('.helpbutton').hover(function() {
+                                    $j(this).parent().parent().find('.help').show();
+                                }, function() {
+                                    $j(this).parent().parent().find('.help').hide();
+                                });
+                                $j('.help').hover(function() {
+                                    $j(this).show();
+                                }, function() {
+                                    $j(this).hide();
+                                });
 
-        treeZebra();
-    });
+                                treeZebra();
+                            });
 </script>
 
 <script type="text/javascript" src="<html:rewrite page="/scripts/configkeeper.js"/>"></script>

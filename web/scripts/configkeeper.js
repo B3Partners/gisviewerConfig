@@ -78,6 +78,76 @@ function showModules() {
     });
 }
 
+function gpsBufferVisible(visible){
+    document.getElementById("gpsbuffer").style.display = visible.checked ? "block" : "none";
+}
+
+// element id's from module dropdowns
+var moduleElementIds = new Array(
+    "cfg_tab1_left",
+    "cfg_tab2_left",
+    "cfg_tab3_left",
+    "cfg_tab4_left",
+    "cfg_tab5_left",
+    "cfg_tab1",
+    "cfg_tab2",
+    "cfg_tab3",
+    "cfg_tab4",
+    "cfg_tab5"
+);
+      
+// current selected values from dropdowns
+// needed to set if newly selected value already exists
+var currentModuleValues = {
+    "cfg_tab1_left" : "",
+    "cfg_tab2_left" : "",
+    "cfg_tab3_left" : "",
+    "cfg_tab4_left" : "",
+    "cfg_tab5_left" : "",
+    "cfg_tab1" : "",
+    "cfg_tab2" : "",
+    "cfg_tab3" : "",
+    "cfg_tab4" : "",
+    "cfg_tab5" : ""
+};
+
+function fillSelectedModuleValues() {
+    for (var i = 0; i < moduleElementIds.length; i++) {
+        var value = $j("#" + moduleElementIds[i] + " option:selected").val();
+        
+        currentModuleValues[moduleElementIds[i]] = value;
+    }
+}
+
+// checks if other module dropdown already has the selected value
+function checkModuleAvailable(element) {    
+    var oldValue = currentModuleValues[element.id];
+    
+    var id = element.id;
+    var value = element.value;
+            
+    for (var i = 0; i < moduleElementIds.length; i++) {        
+        if (moduleElementIds[i] !== id && value !== 'leeg') {            
+            if ($j("#" + moduleElementIds[i]).val() == value) {  
+                $j("#" + id).val(oldValue);
+                
+                alert("Module mag niet meerdere malen gekozen worden.");
+            }
+        }           
+    }
+    
+    fillSelectedModuleValues();
+}
+
+// resets all module dropdowns for user
+function resetModuleElements() {
+    for (var i = 0; i < moduleElementIds.length; i++) {
+        $j("#" + moduleElementIds[i]).val('leeg');
+    }
+    
+    fillSelectedModuleValues();
+}
+
 var $origList = null;
 $j(document).ready(function() {
     $j("#kaartlagenlist").find("input:checked").each(function() {
@@ -108,8 +178,6 @@ $j(document).ready(function() {
     showModules();
     $j(".tabblad_select").change(showModules);
     document.getElementById("gpsbuffer").style.display = $j("[name=cfg_showGPSTool]")[0].checked ? "block" : "none";
-});
 
-function gpsBufferVisible(visible){
-    document.getElementById("gpsbuffer").style.display = visible.checked ? "block" : "none";
-}
+    fillSelectedModuleValues();
+});

@@ -153,11 +153,19 @@
             <form-property name="cfg_showLegendInTree" type="java.lang.Boolean"/>
             <form-property name="cfg_useMouseOverTabs" type="java.lang.Boolean"/>
             <form-property name="cfg_layoutAdminData" type="java.lang.String"/>
+            
+            <!-- linker en rechter modules -->
             <form-property name="cfg_tab1" type="java.lang.String"/>
             <form-property name="cfg_tab2" type="java.lang.String"/>
             <form-property name="cfg_tab3" type="java.lang.String"/>
             <form-property name="cfg_tab4" type="java.lang.String"/>
-            <form-property name="cfg_tab5" type="java.lang.String"/>
+            <form-property name="cfg_tab5" type="java.lang.String"/>            
+            <form-property name="cfg_tab1_left" type="java.lang.String"/>
+            <form-property name="cfg_tab2_left" type="java.lang.String"/>
+            <form-property name="cfg_tab3_left" type="java.lang.String"/>
+            <form-property name="cfg_tab4_left" type="java.lang.String"/>
+            <form-property name="cfg_tab5_left" type="java.lang.String"/>
+            
             <form-property name="cfg_zoekenid1" type="java.lang.String"/>
             <form-property name="cfg_zoekenid2" type="java.lang.String"/>
             <form-property name="cfg_zoekenid3" type="java.lang.String"/>
@@ -170,25 +178,6 @@
             <form-property name="cfg_zoekenid10" type="java.lang.String"/>
             <form-property name="cfg_planselectieid1" type="java.lang.String"/>
             <form-property name="cfg_planselectieid2" type="java.lang.String"/>
-            <!--  zoekingangen keuze voor voorziening Zoeker -->
-            <form-property name="cfg_voorzieningid1" type="java.lang.String"/>
-            <form-property name="cfg_voorzieningid2" type="java.lang.String"/>
-            <form-property name="cfg_voorzieningid3" type="java.lang.String"/>
-            <form-property name="cfg_voorzieningtype1" type="java.lang.String"/>
-            <form-property name="cfg_voorzieningtype2" type="java.lang.String"/>
-            <form-property name="cfg_voorzieningtype3" type="java.lang.String"/>
-            <form-property name="cfg_voorzieningtype4" type="java.lang.String"/>
-            <form-property name="cfg_voorzieningtype5" type="java.lang.String"/>
-            <form-property name="cfg_voorzieningtype6" type="java.lang.String"/>
-            <form-property name="cfg_voorzieningstraal" type="java.lang.String"/>
-            <!--  zoekingangen keuze voor vergunning Zoeker -->
-            <form-property name="cfg_vergunningid1" type="java.lang.String"/>
-            <form-property name="cfg_vergunningid2" type="java.lang.String"/>
-            <form-property name="cfg_vergunningid3" type="java.lang.String"/>
-            <form-property name="cfg_vergunningid4" type="java.lang.String"/>
-            <form-property name="cfg_vergunningid5" type="java.lang.String"/>
-            <form-property name="cfg_vergunningid6" type="java.lang.String"/>
-            <form-property name="cfg_vergunningstraal" type="java.lang.String"/>
             <form-property name="cfg_meldingwelkomtekst" type="java.lang.String"/>
             <form-property name="cfg_meldingprefix" type="java.lang.String"/>
             <form-property name="cfg_meldingtype" type="java.lang.String"/>
