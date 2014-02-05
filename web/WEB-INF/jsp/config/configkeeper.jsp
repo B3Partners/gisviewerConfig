@@ -675,6 +675,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_tabWidth.uitleg"/>
                     </div>
                 </div>
+                    
+                <div class="configrow">
+                    <label><fmt:message key="cfg_tabWidthLeft.label"/></label>
+                    <html:text property="cfg_tabWidthLeft" size="5"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_tabWidth">(?)</a>
+                    <div id="help_cfg_tabWidthLeft" style="display: none;" title="<fmt:message key="cfg_tabWidthLeft.label"/>">
+                        <fmt:message key="cfg_tabWidthLeft.uitleg"/>
+                    </div>
+                </div>
 
                 <div class="configrow">
                     <label><fmt:message key="cfg_activeTab.label"/></label>
