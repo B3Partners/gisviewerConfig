@@ -54,8 +54,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             <thead>
                 <tr>
                     <th style="width: 10%;" class="{sorter:'digit'}">Volgorde</th>
-                    <th style="width: 30%;">Naam</th>
-                    <th style="width: 20%;"><fmt:message key="configthema.cluster"/></th>
+                    <th style="width: 25%;">Naam</th>
+                    <th style="width: 15%;"><fmt:message key="configthema.cluster"/></th>
+                    <th style="width: 10%;">WMS layer</th>
                     <th style="width: 10%;">Objectdata</th>
                 </tr>
             </thead>
@@ -68,6 +69,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <td><c:out value="${ci.belangnr}"/></td>
                         <td><c:out value="${ci.naam}"/></td>
                         <td><c:out value="${ci.cluster.naam}"/></td>
+                        <td><c:out value="${ci.wms_layers_real}"/></td>
                         <c:set var="accolade" value="}"/>
                         <td>                                                            
                             <c:if test="${!empty ci.gegevensbron}">
