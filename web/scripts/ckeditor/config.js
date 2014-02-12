@@ -8,7 +8,9 @@ CKEDITOR.editorConfig = function( config )
 	// Define changes to default configuration here. For example:
 	config.language = 'nl';
 	config.uiColor = '#EEEEEE';
-        config.toolbar = 'MyToolbar';
+    config.toolbar = 'MyToolbar';
+    config.height = '140px';
+    config.width = '700px';
 
     /*
     config.toolbar_MyToolbar =

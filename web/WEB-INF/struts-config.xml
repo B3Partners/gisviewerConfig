@@ -35,6 +35,7 @@
             <form-property name="layoutadmindata" type="java.lang.String"/>
             <form-property name="style" type="java.lang.String"/>
             <form-property name="gegevensbron" type="java.lang.String"/>
+            <form-property name="info_tekst" type="java.lang.String"/>
         </form-bean>
         <form-bean name="clusterForm" type="org.apache.struts.validator.DynaValidatorForm">
             <form-property name="action" type="java.lang.String"/>
@@ -256,6 +257,10 @@
             <form-property name="cfg_datasetDownload" type="java.lang.Boolean"/>            
             <form-property name="cfg_tilingResolutions" type="java.lang.String"/>
             <form-property name="cfg_showServiceUrl" type="java.lang.Boolean"/>     
+        
+            <!-- info tab settings -->
+            <form-property name="cfg_showLeftInfoTab" type="java.lang.Boolean"/>
+            <form-property name="cfg_widthLeftInfoTab" type="java.lang.Integer"/>
         </form-bean>
         
         <form-bean name="configCyclomediaForm" type="org.apache.struts.validator.DynaValidatorForm">

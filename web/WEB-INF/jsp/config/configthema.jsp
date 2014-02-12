@@ -32,6 +32,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <script type="text/javascript" src='dwr/interface/JConfigListsUtil.js'></script>
 <script type="text/javascript" src="<html:rewrite page="/scripts/configthema.js"/>"></script>
 
+<script type="text/javascript" src="<html:rewrite page="/scripts/ckeditor/ckeditor.js"/>"></script>
+
 <div class="infobalk">
     <div class="infobalk_description"><fmt:message key="configthema.infobalk"/></div>
     <div class="infobalk_actions"> <tiles:insert name="loginblock"/> </div>
@@ -189,6 +191,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <label><fmt:message key="configthema.opmerkingen"/></label>
                     <html:text property="opmerkingen" size="140"/>
                     <a class="helpLink" href="#" id="helpLink_help_configthemaopmerkingen">(?)</a><div id="help_configthemaopmerkingen" style="display: none;" title="<fmt:message key="configthema.opmerkingen"/>"><fmt:message key="configthema.opmerkingen.uitleg"/></div>
+                </div>
+                
+                <div class="configrow configrowfull">
+                    <label><fmt:message key="configthema.infotekst.label"/></label>
+                    <a class="helpLink" href="#" id="helpLink_help_configthemainfotekst">(?)</a><div id="help_configthemainfotekst" style="display: none;" title="<fmt:message key="configthema.infotekst.label"/>"><fmt:message key="configthema.infotekst.uitleg"/></div>
+                </div>
+                
+                <div class="configrow configrowfull">
+                    <html:textarea styleClass="ckeditor" property="info_tekst" />
                 </div>
             </div>
 

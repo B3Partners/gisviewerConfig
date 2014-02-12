@@ -711,6 +711,25 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_transSliderTab.uitleg"/>
                     </div>
                 </div>
+                    
+                <!-- new setting for info tab on left side of viewer -->
+                <div class="configrow">
+                    <label><fmt:message key="cfg_showLeftInfoTab.label"/></label>
+                    <html:checkbox property="cfg_showLeftInfoTab"/>
+                    <a class="helpLink "href="#" id="helpLink_help_cfg_showLeftInfoTab">(?)</a>
+                    <div id="help_cfg_showLeftInfoTab" style="display: none;" title="<fmt:message key="cfg_showLeftInfoTab.label"/>">
+                        <fmt:message key="cfg_showLeftInfoTab.uitleg"/>
+                    </div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_widthLeftInfoTab.label"/></label>
+                    <html:text property="cfg_widthLeftInfoTab" size="5"/>
+                    <a class="helpLink" href="#" id="helpLink_cfg_widthLeftInfoTab">(?)</a>
+                    <div id="help_cfg_widthLeftInfoTab" style="display: none;" title="<fmt:message key="cfg_widthLeftInfoTab.label"/>">
+                        <fmt:message key="cfg_widthLeftInfoTab.uitleg"/>
+                    </div>
+                </div>
 
             </div>
         </div>
