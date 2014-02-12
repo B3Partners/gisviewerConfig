@@ -259,8 +259,7 @@
             <form-property name="cfg_showServiceUrl" type="java.lang.Boolean"/>     
         
             <!-- info tab settings -->
-            <form-property name="cfg_showLeftInfoTab" type="java.lang.Boolean"/>
-            <form-property name="cfg_widthLeftInfoTab" type="java.lang.Integer"/>
+            <form-property name="cfg_showInfoTab" type="java.lang.String"/>
         </form-bean>
         
         <form-bean name="configCyclomediaForm" type="org.apache.struts.validator.DynaValidatorForm">

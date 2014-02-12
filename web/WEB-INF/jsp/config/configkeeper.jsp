@@ -97,6 +97,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <div class="tablabel sublabel" id="label_tekenen">
             Teken
         </div>
+        <div class="tablabel sublabel" id="label_layerinfo">
+            Laag informatie
+        </div>
     </div>
 
     <div class="tabcontents">
@@ -711,25 +714,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_transSliderTab.uitleg"/>
                     </div>
                 </div>
-                    
-                <!-- new setting for info tab on left side of viewer -->
-                <div class="configrow">
-                    <label><fmt:message key="cfg_showLeftInfoTab.label"/></label>
-                    <html:checkbox property="cfg_showLeftInfoTab"/>
-                    <a class="helpLink "href="#" id="helpLink_help_cfg_showLeftInfoTab">(?)</a>
-                    <div id="help_cfg_showLeftInfoTab" style="display: none;" title="<fmt:message key="cfg_showLeftInfoTab.label"/>">
-                        <fmt:message key="cfg_showLeftInfoTab.uitleg"/>
-                    </div>
-                </div>
-
-                <div class="configrow">
-                    <label><fmt:message key="cfg_widthLeftInfoTab.label"/></label>
-                    <html:text property="cfg_widthLeftInfoTab" size="5"/>
-                    <a class="helpLink" href="#" id="helpLink_cfg_widthLeftInfoTab">(?)</a>
-                    <div id="help_cfg_widthLeftInfoTab" style="display: none;" title="<fmt:message key="cfg_widthLeftInfoTab.label"/>">
-                        <fmt:message key="cfg_widthLeftInfoTab.uitleg"/>
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -1062,7 +1046,30 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </div>
             </div>
             <div class="configadvanced"></div>
-        </div>  
+        </div>
+                    
+        <div class="tabcontent content_layerinfo">
+
+            <div class="configbasic">
+                <div class="configrow" style="margin-bottom: 15px;">
+                    <fmt:message key="tab-layerinfo-content.header"/>
+                </div>
+
+                <!-- new setting for info tab on left side of viewer -->
+                <div class="configrow">
+                    <label><fmt:message key="cfg_showInfoTab.label"/></label>
+                    <html:select property="cfg_showInfoTab">
+                        <html:option value="click">Klikken op icoontje</html:option>
+                        <html:option value="auto">Automatisch bij aanvinken checkbox</html:option>
+                    </html:select>
+                    <a class="helpLink "href="#" id="helpLink_help_cfg_showInfoTab">(?)</a>
+                    <div id="help_cfg_showInfoTab" style="display: none;" title="<fmt:message key="cfg_showInfoTab.label"/>">
+                        <fmt:message key="cfg_showInfoTab.uitleg"/>
+                    </div>
+                </div>
+            </div>
+            <div class="configadvanced"></div>
+        </div>
 
         <div class="tabcontent content_tekenen">
             <div class="configbasic">
