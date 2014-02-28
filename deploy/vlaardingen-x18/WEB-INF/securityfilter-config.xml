@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE securityfilter-config PUBLIC
+    "-//SecurityFilter.org//DTD Security Filter Configuration 2.0//EN"
+    "http://www.securityfilter.org/dtd/securityfilter-config_2_0.dtd">
+
+<securityfilter-config>
+    <!-- Viewer alleen door ingelogde personen -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Config</web-resource-name>
+            <url-pattern>/config*</url-pattern>
+            <url-pattern>/help*</url-pattern>
+            <url-pattern>/services/*</url-pattern>
+            <url-pattern>/wizard*</url-pattern>
+        </web-resource-collection>       
+        <auth-constraint>
+            <role-name>beheerder</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+  <login-config>
+      <auth-method>FORM_COOKIE_TOKEN</auth-method>
+      <form-login-config>
+          <form-login-page>/login.do</form-login-page>
+          <form-error-page>/loginError.do</form-error-page>
+          <form-default-page>/beheer.do</form-default-page>
+          <form-logout-page>/logout.do</form-logout-page>
+      </form-login-config>
+      <cookie-auth-token-config>
+          <set-cookies>true</set-cookies>
+          <accept-cookie>false</accept-cookie>
+            <!-- deze waardes zijn voor (HOU DEZE INFORMATIE UP-TO-DATE!): www.kaartenbalie.nl 81BF677C3015E66FE5F2A71DDA21160B Extra hash: s6AWd5MYe39B5NP3UaLl4 -->
+            <secret-key>FB1DA71D53D9CC80639BBE93FDFBF05E</secret-key>
+            <extra-hash-string>V72jQshRQ9bRTL0TO3tLX</extra-hash-string>
+            <cookie-paths>/kaartenbalie</cookie-paths>
+            <cookie-expire>28800</cookie-expire>
+      </cookie-auth-token-config>
+   </login-config>
+
+   <realm className="nl.b3p.gis.viewer.services.GisSecurityRealm"/>
+</securityfilter-config>
