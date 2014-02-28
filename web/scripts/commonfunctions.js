@@ -365,7 +365,23 @@ function B3PDataTable(table) {
             colSetting.bSortable = false;
         }
         colSetting.sType = sortType;
+        colSetting.fnCreatedCell = function (nTd) {
+            jQuery(nTd).wrapInner(
+                jQuery('<span class="tablespan"></span>')
+            );
+        };
         return colSetting;
+    };
+    
+    /**
+     * Sets max-width on each column to prevent large texts from pushing table off screen
+     * @returns {Boolean}
+     */
+    this.setTablecellWidth = function() {
+        this.table.find('.tablespan').each(function() {
+            jQuery(this).css('max-width', jQuery(this).parent().width());
+        });
+        return true;
     };
     
     /**
@@ -395,6 +411,7 @@ function B3PDataTable(table) {
      * @returns {Object}
      */
     this.initDataTable = function() {
+        var me = this;
         this.dataTableObj = this.table.dataTable({
             "iDisplayLength": 10,
             "bSortClasses": false,
@@ -415,6 +432,9 @@ function B3PDataTable(table) {
                 "sInfoFiltered": " - gefilterd (in totaal _MAX_ items)",
                 "sEmptyTable": "Geen items gevonden",
                 "sZeroRecords": "Geen items gevonden"
+            },
+            "fnDrawCallback": function() {
+                me.setTablecellWidth();
             }
         });
         this.tableSettings = this.dataTableObj.fnSettings();

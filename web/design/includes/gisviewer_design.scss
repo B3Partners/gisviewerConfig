@@ -799,6 +799,12 @@ table.dataTable {
     }
     td, th {
         padding: 5px;
+        .tablespan {
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
     tr.odd {
         background-color: $basecolor3;
