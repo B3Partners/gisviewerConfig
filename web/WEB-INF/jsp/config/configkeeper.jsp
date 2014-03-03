@@ -410,6 +410,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <label><fmt:message key="cfg_layoutAdminData.label"/></label>
                     <html:select property="cfg_layoutAdminData">
                         <html:option value="admindata1"><fmt:message key="cfg_layoutAdminData.1"/></html:option>
+                        <html:option value="admindata1a"><fmt:message key="cfg_layoutAdminData.1a"/></html:option>
                         <html:option value="admindata2"><fmt:message key="cfg_layoutAdminData.2"/></html:option>
                         <html:option value="admindata3"><fmt:message key="cfg_layoutAdminData.3"/></html:option>
                         <html:option value="all_vertical_tab1"><fmt:message key="cfg_layoutAdminData.all_vertical_tab1"/></html:option>
