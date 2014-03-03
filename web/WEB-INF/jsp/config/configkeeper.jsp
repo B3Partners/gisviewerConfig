@@ -1059,8 +1059,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <div class="configrow">
                     <label><fmt:message key="cfg_showInfoTab.label"/></label>
                     <html:select property="cfg_showInfoTab">
-                        <html:option value="click">Klikken op icoontje</html:option>
-                        <html:option value="auto">Automatisch bij aanvinken checkbox</html:option>
+                        <html:option value="off">Niet tonen</html:option>
+                        <html:option value="click">Na klikken op info icoon</html:option>
+                        <html:option value="auto">Na aanvinken kaartlaag</html:option>
                     </html:select>
                     <a class="helpLink "href="#" id="helpLink_help_cfg_showInfoTab">(?)</a>
                     <div id="help_cfg_showInfoTab" style="display: none;" title="<fmt:message key="cfg_showInfoTab.label"/>">
