@@ -32,7 +32,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <input type="hidden" name="featureType" value="${featureType}"/>
     <input type="hidden" id="hiddenDelete" name="delete"/>
     <div class="berichtenbalk">
-            <tiles:insert definition="actionMessages"/>
+        <tiles:insert definition="actionMessages"/>
     </div>
     <div class="wizardQuestionBlock">
         <p>
@@ -64,8 +64,26 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         </c:forEach>
                     </select>
                 </td>
+            </tr>   
 
+            <tr>
+                <td><fmt:message key="configzoekconfiguratie.forUsageIn"/></td>
+                <td>
+                    <select name="forUsageIn">
+                        <c:forEach items="${forUsageMap}" var="entry">                           
+                            <c:choose>
+                                <c:when test="${entry.key == selectedUsage}">
+                                    <option value="${entry.key}" selected="true">${entry.value}</option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${entry.key}">${entry.value}</option>
+                                </c:otherwise>
+                            </c:choose>           
+                        </c:forEach>
+                    </select>
+                </td>
             </tr>
+
         </table>
 
         <p><fmt:message key="configzoekconfiguratie.usecaching.uitleg"/></p>
@@ -91,12 +109,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <c:if test="${empty zoekConfiguratieId}">
             <html:submit property="step1" styleClass="knop"><fmt:message key='button.previous'/></html:submit>
         </c:if>
-        
+
         <c:if test="${not empty zoekConfiguratieId}">
             <input type="button" class="knop removeButton" onclick="deleteZoekConfiguratie(${zoekConfiguratieId})" value="<fmt:message key='button.remove'/>" />
-            <input type="button" class="knop" onclick="window.location='<html:rewrite page='/configZoekConfiguratie.do'/>'" value="<fmt:message key='button.cancel'/>" />
+            <input type="button" class="knop" onclick="window.location = '<html:rewrite page='/configZoekConfiguratie.do'/>'" value="<fmt:message key='button.cancel'/>" />
         </c:if>
 
         <html:submit property="step3" styleClass="knop"><fmt:message key='button.next'/></html:submit>
-    </div>
+        </div>
 </html:form>
