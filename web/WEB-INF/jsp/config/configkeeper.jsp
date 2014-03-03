@@ -217,6 +217,44 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_showLegendInTree.uitleg"/>
                     </div>
                 </div>
+
+                <!-- Setting for Viewer top menu -->
+                <div class="configrow">
+                    <label><fmt:message key="cfg_helpUrl.label"/></label>
+                    <html:text property="cfg_helpUrl" size="30"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_helpUrl">(?)</a>
+                    <div id="help_cfg_helpUrl" style="display: none;" title="<fmt:message key="cfg_helpUrl.label"/>">
+                        <fmt:message key="cfg_helpUrl.uitleg"/>
+                    </div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_showGoogleMapsIcon.label"/></label>
+                    <html:checkbox property="cfg_showGoogleMapsIcon"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_showGoogleMapsIcon">(?)</a>
+                    <div id="help_cfg_showGoogleMapsIcon" style="display: none;" title="<fmt:message key="cfg_showGoogleMapsIcon.label"/>">
+                        <fmt:message key="cfg_showGoogleMapsIcon.uitleg"/>
+                    </div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_showBookmarkIcon.label"/></label>
+                    <html:checkbox property="cfg_showBookmarkIcon"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_showBookmarkIcon">(?)</a>
+                    <div id="help_cfg_showBookmarkIcon" style="display: none;" title="<fmt:message key="cfg_showBookmarkIcon.label"/>">
+                        <fmt:message key="cfg_showBookmarkIcon.uitleg"/>
+                    </div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_contactUrl.label"/></label>
+                    <html:text property="cfg_contactUrl" size="30"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_contactUrl">(?)</a>
+                    <div id="help_cfg_contactUrl" style="display: none;" title="<fmt:message key="cfg_contactUrl.label"/>">
+                        <fmt:message key="cfg_contactUrl.uitleg"/>
+                    </div>
+                </div>
+
             </div>
 
             <div class="configadvanced">
@@ -679,7 +717,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_tabWidth.uitleg"/>
                     </div>
                 </div>
-                    
+
                 <div class="configrow">
                     <label><fmt:message key="cfg_tabWidthLeft.label"/></label>
                     <html:text property="cfg_tabWidthLeft" size="5"/>
@@ -1048,7 +1086,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             </div>
             <div class="configadvanced"></div>
         </div>
-                    
+
         <div class="tabcontent content_layerinfo">
 
             <div class="configbasic">
