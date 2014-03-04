@@ -266,6 +266,8 @@
             <form-property name="cfg_showGoogleMapsIcon" type="java.lang.Boolean"/>
             <form-property name="cfg_showBookmarkIcon" type="java.lang.Boolean"/>
             <form-property name="cfg_contactUrl" type="java.lang.String"/>
+            <form-property name="cfg_logoutUrl" type="java.lang.String"/>
+            
         </form-bean>
         
         <form-bean name="configCyclomediaForm" type="org.apache.struts.validator.DynaValidatorForm">

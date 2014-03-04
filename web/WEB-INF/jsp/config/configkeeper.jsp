@@ -255,6 +255,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </div>
                 </div>
 
+                <div class="configrow">
+                    <label><fmt:message key="cfg_logoutUrl.label"/></label>
+                    <html:text property="cfg_logoutUrl" size="30"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_logoutUrl">(?)</a>
+                    <div id="help_cfg_logoutUrl" style="display: none;" title="<fmt:message key="cfg_logoutUrl.label"/>">
+                        <fmt:message key="cfg_logoutUrl.uitleg"/>
+                    </div>
+                </div>
+
             </div>
 
             <div class="configadvanced">
