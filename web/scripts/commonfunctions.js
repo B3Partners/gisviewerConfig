@@ -240,6 +240,12 @@ function B3PDataTable(table) {
      * @type Array
      */
     this.columnSettings = [];
+    
+    /**
+     * Widths for each column
+     * @type Array
+     */
+    this.columnWidths = [];
 
     /**
      * Header row to hold the filters
@@ -264,6 +270,8 @@ function B3PDataTable(table) {
      * @returns {Boolean}
      */
     this.init = function() {
+        // We compute the column widths as soon as possible
+        this.columnWidths = this.getColumnWidths();
         var filterCount = this.initHeaders();
         if(this.preserveHeight) var tableHeight = this.calculatePageHeight(filterCount);
         var tableSettings = this.initDataTable();
@@ -365,21 +373,50 @@ function B3PDataTable(table) {
             colSetting.bSortable = false;
         }
         colSetting.sType = sortType;
-        colSetting.fnCreatedCell = function (nTd) {
-            jQuery(nTd).wrapInner(
-                jQuery('<span class="tablespan"></span>')
-            );
-        };
         return colSetting;
     };
     
     /**
-     * Sets max-width on each column to prevent large texts from pushing table off screen
+     * Compute the default width of all columns in the table
+     * @returns {Object}
+     */
+    this.getColumnWidths = function() {
+        var i = 0, me = this, columnWidths = [];
+        // Wrap all td's in the body in a .tablespan class (taking care of text-overflow and set width to 1px)
+        // So we can use the percentages set for the columns as widths
+        this.table.find('tbody td').wrapInner(jQuery('<span class="tablespan" style="width: 1px;"></span>'));
+        // Set the table to the maximum width (wrapper - 30px padding)
+        this.table.css('width', this.table.parent().width() - 30);
+        // Loop over first row and add width of each td to array
+        this.table.find('tbody tr:first-child td').each(function() {
+            columnWidths[i++] = jQuery(this).width();
+        });
+        // Reset width of table
+        this.table.css('width', 'auto');
+        // Return array with column widths
+        return columnWidths;
+    };
+    
+    /**
+     * Sets width on each column to prevent large texts from pushing table off screen
      * @returns {Boolean}
      */
     this.setTablecellWidth = function() {
-        this.table.find('.tablespan').each(function() {
-            jQuery(this).css('max-width', jQuery(this).parent().width());
+        var me = this;
+        // Loop over all rows
+        this.table.find('tbody tr').each(function() {
+            // Set index var
+            var i = 0;
+            // Loop over all cells
+            jQuery(this).find('td').each(function() {
+                var td = jQuery(this);
+                // Add tablespan container when td is empty so widths are consistant
+                if(td.is(':empty')) {
+                    td.append('<span class="tablespan"></span>');
+                }
+                // Set the max width
+                td.find('.tablespan').css('width', me.columnWidths[i++]);
+            });
         });
         return true;
     };
