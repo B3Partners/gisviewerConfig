@@ -28,6 +28,12 @@ function arrayContains(array,element) {
 }
 // jQuery gives problems with DWR - util.js, so noConflict mode. Usage for jQuery selecter becomes $j() instead of $()
 $j = jQuery.noConflict();
+// Trim polyfill
+if (typeof String.prototype.trim !== 'function') {
+    String.prototype.trim = function() {
+        return this.replace(/^\s+|\s+$/g, '');
+    };
+}
 
 attachOnload = function(onloadfunction) {
     if(typeof(onloadfunction) == 'function') {
@@ -149,7 +155,7 @@ function showHelpDialog(divid) {
             me.advancedToggle = $(me.config.advancedtoggle);
             me.advancedItems = $(me.config.advancedclass);
             me.advancedItems.each(function() { 
-                if(trim($(this).html()) !== '') useAdvancedToggle = true;
+                if($(this).html().trim() !== '') useAdvancedToggle = true;
             });
             if(B3PConfig.cookie.readCookie(me.getCookiename()) !== null) {
                 me.advancedToggle[0].checked = B3PConfig.cookie.readCookie(me.getCookiename()) === 'on';
