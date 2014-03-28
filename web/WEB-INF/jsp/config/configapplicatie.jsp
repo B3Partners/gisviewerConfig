@@ -131,8 +131,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                 <div class="configrow">
                     <label><fmt:message key="configapplicatie.appcode.label"/></label>
-
+                    
+                    <!--
                     <a href="${appUrl}${appcode}&amp;forceViewer=true" title="Open Applicatie" target="_new">${appcode}</a>
+                    -->
+                    <html:text property="appCode" size="60"/>
                     
                     <a class="helpLink" href="#" id="helpLink_help_configapplicatie_appcode">(?)</a>
                     <div id="help_configapplicatie_appcode" style="display: none;" title="<fmt:message key="configapplicatie.appcode.label"/>">
