@@ -47,7 +47,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <div class="ie7clear"></div>
     <div style="float: left; clear: both; width: 920px; margin-left: 15px; margin-bottom: 5px; margin-top: 25px;">
         <div style="float: left; margin-left: 155px;">
-            <input type="checkbox" id="advancedToggle" /> Toon geavanceerde opties
+            <input type="checkbox" id="advancedToggle" data-cookie-key="configkeeper" /> Toon geavanceerde opties
         </div>
         <div style="float: right;">
             <input type="button" class="knop backButton" onclick="window.location = '<html:rewrite page='/configApplicatie.do' />'" value="<fmt:message key='button.back'/>" />

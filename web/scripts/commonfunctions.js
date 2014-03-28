@@ -106,16 +106,73 @@ function showHelpDialog(divid) {
     return false;
 }
 
-function showHideAdvanced(showAdvancedOptions) {
-    if(!showAdvancedOptions)
-    {
-        $j(".configadvanced").hide();
-    }
-    else
-    {
-        $j(".configadvanced").show();
-    }
-}
+(function(B3PConfig) {
+    B3PConfig.cookie = {
+        createCookie: function(name,value,days) {
+            var expires;
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime()+(days*24*60*60*1000));
+                expires = "; expires="+date.toGMTString();
+            }
+            else expires = "";
+            document.cookie = name+"="+value+expires+"; path=/";
+        },
+        readCookie: function(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+
+        },
+        eraseCookie: function(name) {
+            this.createCookie(name,"",-1);
+        }
+    };
+})(window.B3PConfig || (window.B3PConfig = {}));
+
+(function(B3PConfig, $) {
+    B3PConfig.advancedToggle = {
+        config: {
+            advancedclass: '.configadvanced',
+            advancedtoggle: '#advancedToggle',
+            cookiename: 'advancedtoggle'
+        },
+        advancedToggle: null,
+        advancedItems: [],
+        init: function() {
+            var me = this, useAdvancedToggle = false;
+            me.advancedToggle = $(me.config.advancedtoggle);
+            me.advancedItems = $(me.config.advancedclass);
+            me.advancedItems.each(function() { 
+                if(trim($(this).html()) !== '') useAdvancedToggle = true;
+            });
+            if(B3PConfig.cookie.readCookie(me.getCookiename()) !== null) {
+                me.advancedToggle[0].checked = B3PConfig.cookie.readCookie(me.getCookiename()) === 'on';
+            }
+            if(useAdvancedToggle) {
+                me.advancedToggle.click(function(){
+                    me.showHideAdvanced();
+                });
+                me.showHideAdvanced();
+            } else {
+                me.advancedToggle.parent().hide();
+            }
+        },
+        showHideAdvanced: function () {
+            var showAdvancedOptions = this.advancedToggle.is(':checked');
+            B3PConfig.cookie.createCookie(this.getCookiename(), showAdvancedOptions ? 'on' : 'off', 7);
+            showAdvancedOptions ? this.advancedItems.show() : this.advancedItems.hide();
+        },
+        getCookiename: function() {
+            return this.config.cookiename + (this.advancedToggle.data('cookie-key') ? '-' + this.advancedToggle.data('cookie-key') : '');
+        }
+    };
+})(window.B3PConfig || (window.B3PConfig = {}), jQuery);
 
 var prevTab = null;
 var fbLbl;
@@ -178,19 +235,7 @@ $j(document).ready(function() {
         });
     });
 
-    var hasAdvancedItems = false;
-    $j(".configadvanced").each(function() {
-        if(trim($j(this).html()) != '') hasAdvancedItems = true;
-    });
-
-    if(hasAdvancedItems) {
-        $j("#advancedToggle").click(function(){
-            showHideAdvanced($j(this).is(':checked'));
-        });
-        showHideAdvanced($j("#advancedToggle").is(':checked'));
-    } else {
-        $j("#advancedToggle").parent().hide();
-    }
+    B3PConfig.advancedToggle.init();
     
     $j(".tabcontent").css("min-height", contentMinHeight);
     if($j(".tablabel").length != 0) labelClick($j(".tablabel").first());

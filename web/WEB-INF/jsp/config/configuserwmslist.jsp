@@ -71,7 +71,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     
     <div style="float: left; clear: both; width: 920px; margin-left: 15px; margin-bottom: 5px; margin-top: 25px;">
         <div style="float: left; margin-left: 10px;">
-            <input type="checkbox" id="advancedToggle" /> Toon geavanceerde opties
+            <input type="checkbox" id="advancedToggle" data-cookie-key="userwmslist" /> Toon geavanceerde opties
         </div>
         <div style="float: right;">
             <c:if test="${empty form.map.serviceId}">

@@ -45,7 +45,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <div class="ie7clear"></div>
     <div style="float: right; clear: both; width: 940px; margin-right: 20px; margin-bottom: 5px;">
         <div style="float: left; margin-left: 270px;">
-            <input type="checkbox" id="advancedToggle" /> Toon geavanceerde opties
+            <input type="checkbox" id="advancedToggle" data-cookie-key="kaartgroep" /> Toon geavanceerde opties
         </div>
         <div style="float: right;">
             <!-- Indien nieuw item maken dan alleen Opslaan en Annuleren knoppen tonen -->
