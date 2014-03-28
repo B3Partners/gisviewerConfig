@@ -373,6 +373,13 @@ function B3PDataTable(table) {
             colSetting.bSortable = false;
         }
         colSetting.sType = sortType;
+        colSetting.mRender = function(content, type) {
+            if(type === 'filter') {
+                // Remove all HTML tags from content to improve filtering
+                return content.replace(/<\/?[^>]+>/g, '').trim();
+            }
+            return content;
+        };
         return colSetting;
     };
     
