@@ -268,6 +268,11 @@
             <form-property name="cfg_contactUrl" type="java.lang.String"/>
             <form-property name="cfg_logoutUrl" type="java.lang.String"/>
             
+            <!-- Teken tab filter sld settings -->
+            <form-property name="cfg_tekenKaartlaagId" type="java.lang.Integer"/>
+            <form-property name="cfg_tekenFilterColumn" type="java.lang.String"/>
+            <form-property name="cfg_tekenFilterSld" type="java.lang.String"/>
+            
         </form-bean>
         
         <form-bean name="configCyclomediaForm" type="org.apache.struts.validator.DynaValidatorForm">

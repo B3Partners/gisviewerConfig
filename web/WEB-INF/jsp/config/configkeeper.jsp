@@ -119,22 +119,21 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <div class="kaartselectie" id="mainTreeDiv"></div>
 
                 <script type="text/javascript">
-                treeview_create({
-                    "id": "mainTreeDiv",
-                    "root": ${tree},
-                    "rootChildrenAsRoots": true,
-                    "itemLabelCreatorFunction": createLeaf,
-                    "toggleImages": {
-                        "collapsed": "<html:rewrite page="/images/treeview/plus.gif"/>",
-                        "expanded": "<html:rewrite page="/images/treeview/minus.gif"/>",
-                        "leaf": "<html:rewrite page="/images/treeview/leaft.gif"/>"
-                    },
-                    "saveExpandedState": false,
-                    "saveScrollState": false,
-                    "expandAll": true,
-                    "childrenPadding": '20px',
-                    "zebraEffect": false
-                });
+                    treeview_create({
+                        "id": "mainTreeDiv",
+                        "root": ${tree},
+                        "rootChildrenAsRoots": true,
+                        "itemLabelCreatorFunction": createLeaf,
+                        "toggleImages": {
+                            "collapsed": "<html:rewrite page="/images/treeview/plus.gif"/>",
+                            "expanded": "<html:rewrite page="/images/treeview/minus.gif"/>", "leaf": "<html:rewrite page="/images/treeview/leaft.gif"/>"
+                        },
+                        "saveExpandedState": false,
+                        "saveScrollState": false,
+                        "expandAll": true,
+                        "childrenPadding": '20px',
+                        "zebraEffect": false
+                    });
                 </script>
 
                 <c:if test="${!empty servicesTrees}">
@@ -1166,7 +1165,45 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                 </div>
             </div>
-            <div class="configadvanced"></div>
+
+            <div class="configadvanced">
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_tekenKaartlaagId.label"/></label>
+
+                    <html:select property="cfg_tekenKaartlaagId">
+                        <html:option value="0">-Kies een kaartlaag-</html:option>
+                        <c:forEach items="${tekenKaartlagen}" var="item">
+                            <html:option value="${item.id}">${item.naam}</html:option>
+                        </c:forEach>
+                    </html:select>
+
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_tekenKaartlaagId">(?)</a>
+                    <div id="help_cfg_tekenKaartlaagId" style="display: none;" title="<fmt:message key="cfg_tekenKaartlaagId.label"/>">
+                        <fmt:message key="cfg_tekenKaartlaagId.uitleg"/>
+                    </div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_tekenFilterColumn.label"/></label>
+                    <html:text property="cfg_tekenFilterColumn" size="30"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_tekenFilterColumn">(?)</a>
+                    <div id="help_cfg_tekenFilterColumn" style="display: none;" title="<fmt:message key="cfg_tekenFilterColumn.label"/>">
+                        <fmt:message key="cfg_tekenFilterColumn.uitleg"/>
+                    </div>
+                </div>
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_tekenFilterSld.label"/></label>
+                    <html:textarea property="cfg_tekenFilterSld" cols="60" rows="12" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_tekenFilterSld">(?)</a>
+                    <div id="help_cfg_tekenFilterSld" style="display: none;" title="<fmt:message key="cfg_tekenFilterSld.label"/>">
+                        <fmt:message key="cfg_tekenFilterSld.uitleg"/>
+                    </div>
+                </div>
+
+            </div> <!-- einde config advanced teken module -->
+
         </div>
         <div class="tabcontent content_bag">
             <div class="configbasic">
@@ -1254,48 +1291,48 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </html:form>
 
 <script type="text/javascript">
-                            function treeZebra() {
-                                var treecounter = 0;
-                                var zebracounter = 0;
-                                $j(".kaartselectie").each(function() {
-                                    if (treecounter <= 1)
-                                        zebracounter = 0;
-                                    $j(".treeview_row", this).each(function() {
-                                        // check if visible
-                                        if ($j(this).parent().parent().parent().parent().is(":visible")) {
-                                            $j(this).removeClass("treeview_odd_row");
-                                            if (zebracounter % 2 == 0) {
-                                                $j(this).addClass("treeview_odd_row");
-                                            }
-                                            zebracounter++;
-                                        }
-                                    });
-                                    treecounter++;
-                                });
-                            }
+    function treeZebra() {
+        var treecounter = 0;
+        var zebracounter = 0;
+        $j(".kaartselectie").each(function() {
+            if (treecounter <= 1)
+                zebracounter = 0;
+            $j(".treeview_row", this).each(function() {
+                // check if visible
+                if ($j(this).parent().parent().parent().parent().is(":visible")) {
+                    $j(this).removeClass("treeview_odd_row");
+                    if (zebracounter % 2 == 0) {
+                        $j(this).addClass("treeview_odd_row");
+                    }
+                    zebracounter++;
+                }
+            });
+            treecounter++;
+        });
+    }
 
-                            $j(function() {
-                                $j("#kaartselectieAddServiceLink").click(function() {
-                                    $j("#kaartselectieAddService").show();
-                                    $j(this).hide();
-                                    return false;
-                                });
-                                $j('.kaartselectieBody').click(function() {
-                                    closeSldContainers();
-                                });
-                                $j('.helpbutton').hover(function() {
-                                    $j(this).parent().parent().find('.help').show();
-                                }, function() {
-                                    $j(this).parent().parent().find('.help').hide();
-                                });
-                                $j('.help').hover(function() {
-                                    $j(this).show();
-                                }, function() {
-                                    $j(this).hide();
-                                });
+    $j(function() {
+        $j("#kaartselectieAddServiceLink").click(function() {
+            $j("#kaartselectieAddService").show();
+            $j(this).hide();
+            return false;
+        });
+        $j('.kaartselectieBody').click(function() {
+            closeSldContainers();
+        });
+        $j('.helpbutton').hover(function() {
+            $j(this).parent().parent().find('.help').show();
+        }, function() {
+            $j(this).parent().parent().find('.help').hide();
+        });
+        $j('.help').hover(function() {
+            $j(this).show();
+        }, function() {
+            $j(this).hide();
+        });
 
-                                treeZebra();
-                            });
+        treeZebra();
+    });
 </script>
 
 <script type="text/javascript" src="<html:rewrite page="/scripts/configkeeper.js"/>"></script>
