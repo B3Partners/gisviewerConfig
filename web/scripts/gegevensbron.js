@@ -41,7 +41,11 @@ function createLeaf(container, item) {
 function createEditLink(item){
     var lnk = document.createElement('a');
     
-    var label = item.title + ' (' + item.volgorde + ')';
+    if(item.volgorde != null && item.volgorde != ''){
+        var label = item.title + ' (' + item.volgorde + ')';
+    }else{
+        var label = item.title
+    }
 
     lnk.innerHTML = item.title ? label : item.id;
     lnk.className='gbEditLink';
