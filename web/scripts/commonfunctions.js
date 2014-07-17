@@ -511,6 +511,7 @@ function B3PDataTable(table) {
             "iDisplayLength": 10,
             "bSortClasses": false,
             "aoColumns": this.columnSettings,
+            "aaSorting": [],
             "bStateSave": true,
             "sPaginationType": "full_numbers",
             "oLanguage": {
