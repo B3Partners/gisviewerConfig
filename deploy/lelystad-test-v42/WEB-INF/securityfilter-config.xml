@@ -32,7 +32,7 @@
           <set-cookies>true</set-cookies>
           <accept-cookie>false</accept-cookie>
             <secret-key>5CA5418F8C72C048E279902561BE7C22</secret-key>
-            <extra-hash-string>CVDHQoOiPcmiTmVZt851</extra-hash-string>
+			<extra-hash-string>CVDHQoOiPcmiTmVZt851</extra-hash-string>
             <cookie-paths>/kaartenbalie</cookie-paths>
             <cookie-expire>28800</cookie-expire>
       </cookie-auth-token-config>

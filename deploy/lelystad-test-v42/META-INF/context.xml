@@ -10,10 +10,10 @@
   	name="jdbc/gisviewer"
   	username="GISVIEWER"
   	password="F9qLTS6zRJ"
+	url="jdbc:oracle:thin:@s-daor23:1521:Dwhgeot"
   	removeAbandoned="true"
   	removeAbandonedTimeout="60"
-  	type="javax.sql.DataSource"
-  	url="jdbc:oracle:thin:@s-daor23:1521:Dwhgeot"
+  	type="javax.sql.DataSource"  	
 	minEvictableIdleTimeMillis="10000"
 	timeBetweenEvictionRunsMillis="60000"
   />
