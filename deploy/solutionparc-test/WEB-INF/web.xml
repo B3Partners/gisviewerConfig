@@ -33,7 +33,7 @@
         <servlet-class>nl.b3p.gis.viewer.services.HibernateUtil</servlet-class>
         <init-param>
             <param-name>kburl</param-name>
-            <param-value>http://test.kaartenbalie.nl/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
+            <param-value>http://solparc.kaartenbalie.nl/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
         </init-param>
         <init-param>
             <param-name>anonymous_user</param-name>
@@ -77,7 +77,7 @@
         <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
         <init-param>
             <param-name>debug</param-name>
-            <param-value>true</param-value>
+            <param-value>false</param-value>
         </init-param>
     </servlet>
 
