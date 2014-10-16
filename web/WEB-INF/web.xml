@@ -33,22 +33,24 @@
         <servlet-class>nl.b3p.gis.viewer.services.HibernateUtil</servlet-class>
         <init-param>
             <param-name>kburl</param-name>
-            <param-value>http://vlaardingen42.kaartenbalie.nl/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
+            <param-value>http://localhost:8080/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
+        </init-param>
+        <init-param>
+            <param-name>internalKbUrl</param-name>
+            <param-value>http://localhost:8080/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
         </init-param>
         <init-param>
             <param-name>anonymous_user</param-name>
             <param-value>anoniem</param-value>
         </init-param>
-
-		<init-param>
+        <init-param>
             <param-name>cacheOnDisk</param-name>
             <param-value>true</param-value>
         </init-param>
         <init-param>
             <param-name>cacheOnDiskPath</param-name>
-            <param-value>/srv/cache/vlaardingen/</param-value>
+            <param-value>/home/boy/dev/xml/</param-value>
         </init-param>
-
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
@@ -87,7 +89,7 @@
         <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
         <init-param>
             <param-name>debug</param-name>
-            <param-value>false</param-value>
+            <param-value>true</param-value>
         </init-param>
     </servlet>
 
@@ -98,7 +100,7 @@
     
     <session-config>
         <session-timeout>
-            30
+            480
         </session-timeout>
     </session-config>
     <welcome-file-list>
