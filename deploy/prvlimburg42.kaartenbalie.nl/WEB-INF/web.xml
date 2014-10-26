@@ -36,8 +36,20 @@
             <param-value>http://prvlimburg42.kaartenbalie.nl/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
         </init-param>
         <init-param>
+            <param-name>internalKbUrl</param-name>
+            <param-value>http://prvlimburg42.kaartenbalie.nl/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
+        </init-param>
+        <init-param>
             <param-name>anonymous_user</param-name>
             <param-value>anoniem</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cacheOnDisk</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cacheOnDiskPath</param-name>
+            <param-value>/opt/data/kaartenbalie-acc/cache/</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
