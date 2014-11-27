@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/gisviewerconfig">
- <Resource 
+ <!-- Valve className="org.apache.catalina.valves.RemoteAddrValve" deny="127\.0\.\d+\.\d+"/ -->
+
+ <Resource
+    name="jdbc/gisviewer"
     auth="Container" 
-    driverClassName="org.postgresql.Driver" 
-    logAbandoned="true" 
-    maxActive="100" 
-    maxIdle="30" 
-    maxWait="10000" 
-    minEvictableIdleTimeMillis="10000" 
-    name="jdbc/gisviewer" 
-    password="***REMOVED***" 
-    removeAbandoned="true" 
-    removeAbandonedTimeout="60" 
-    timeBetweenEvictionRunsMillis="60000" 
     type="javax.sql.DataSource" 
-    url="jdbc:postgresql://localhost:5432/gisviewer" 
+    factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+    testWhileIdle="true"
+    testOnBorrow="true"
+    testOnReturn="false"
+    validationQuery="SELECT 1"
+    validationInterval="30000"
+    timeBetweenEvictionRunsMillis="30000"
+    maxActive="50" 
+    minIdle="10" 
+    maxWait="10000"
+    initialSize="10"
+    removeAbandonedTimeout="60"
+    removeAbandoned="true"
+    logAbandoned="true"
+    minEvictableIdleTimeMillis="30000" 
+    jmxEnabled="true"
     username="postgres" 
-    validationQuery="select 1"
- />
+    password="***REMOVED***" 
+    driverClassName="org.postgresql.Driver"
+    url="jdbc:postgresql://localhost:5433/solparc_gisviewer"
+/>
   <!--
 <Resource
     auth="Container"
