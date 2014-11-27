@@ -875,7 +875,16 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
             </div>
 
-            <div class="configadvanced"></div>
+            <div class="configadvanced">
+                <div class="configrow">
+                    <label><fmt:message key="cfg_zoeken_autoidentify.label"/></label>
+                    <html:checkbox property="cfg_zoeken_autoidentify"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_zoeken_autoidentify">(?)</a>
+                    <div id="help_cfg_zoeken_autoidentify" style="display: none;" title="<fmt:message key="cfg_zoeken_autoidentify.label"/>">
+                        <fmt:message key="cfg_zoeken_autoidentify.uitleg"/>
+                    </div>
+                </div>
+            </div>
         </div> <!-- Einde zoeken tabje -->
 
         <div class="tabcontent content_planselectie">

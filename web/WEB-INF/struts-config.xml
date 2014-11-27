@@ -177,6 +177,7 @@
             <form-property name="cfg_zoekenid8" type="java.lang.String"/>
             <form-property name="cfg_zoekenid9" type="java.lang.String"/>
             <form-property name="cfg_zoekenid10" type="java.lang.String"/>
+            <form-property name="cfg_zoeken_autoidentify" type="java.lang.Boolean"/>
             <form-property name="cfg_planselectieid1" type="java.lang.String"/>
             <form-property name="cfg_planselectieid2" type="java.lang.String"/>
             <form-property name="cfg_meldingwelkomtekst" type="java.lang.String"/>
