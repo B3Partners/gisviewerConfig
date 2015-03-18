@@ -46,7 +46,7 @@
         </init-param>
         <init-param>
             <param-name>cacheOnDiskPath</param-name>
-            <param-value>d:\maps\cache</param-value>
+            <param-value>D:\maps\cache\</param-value>
         </init-param>
 
         <load-on-startup>1</load-on-startup>

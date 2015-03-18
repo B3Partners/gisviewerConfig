@@ -33,11 +33,7 @@
         <servlet-class>nl.b3p.gis.viewer.services.HibernateUtil</servlet-class>
         <init-param>
             <param-name>kburl</param-name>
-            <param-value>http://venray.kaartenbalie.nl/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
-        </init-param>
-        <init-param>
-            <param-name>internalKbUrl</param-name>
-            <param-value>http://venray.kaartenbalie.nl/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
+            <param-value>http://localhost:8082/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
         </init-param>
         <init-param>
             <param-name>anonymous_user</param-name>
@@ -49,7 +45,7 @@
         </init-param>
         <init-param>
             <param-name>cacheOnDiskPath</param-name>
-            <param-value>/srv/cache/venray/</param-value>
+            <param-value>D:\maps\cache\</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -89,7 +85,7 @@
         <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
         <init-param>
             <param-name>debug</param-name>
-            <param-value>true</param-value>
+            <param-value>false</param-value>
         </init-param>
     </servlet>
 
@@ -100,7 +96,7 @@
     
     <session-config>
         <session-timeout>
-            480
+            30
         </session-timeout>
     </session-config>
     <welcome-file-list>
