@@ -575,6 +575,14 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     </div>
                 </div>
                 <div class="configrow">
+                    <label><fmt:message key="cfg_showXYTool.label"/></label>
+                    <html:checkbox property="cfg_showXYTool"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_showXYTool">(?)</a>
+                    <div id="help_cfg_showXYTool" style="display: none;" title="<fmt:message key="cfg_showXYTool.label"/>">
+                        <fmt:message key="cfg_showXYTool.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow">
                     <label><fmt:message key="cfg_showGPSTool.label"/></label>
                     <html:checkbox property="cfg_showGPSTool" onchange="gpsBufferVisible(this);"/>
                     <div id="gpsbuffer" style="display:none;">

@@ -225,6 +225,7 @@
             <form-property name="cfg_showLayerSelectionTool" type="java.lang.Boolean"/>
             <form-property name="cfg_showGPSTool" type="java.lang.Boolean"/>
             <form-property name="cfg_GPSBuffer" type="java.lang.String"/>
+            <form-property name="cfg_showXYTool" type="java.lang.Boolean"/>
             <form-property name="cfg_showEditTool" type="java.lang.Boolean"/>
             <form-property name="cfg_layerGrouping" type="java.lang.String"/>
             <form-property name="cfg_popupWidth" type="java.lang.String"/>
