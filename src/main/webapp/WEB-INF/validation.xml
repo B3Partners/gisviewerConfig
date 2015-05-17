@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+    <global>
+    </global>
+
+    <formset>
+        <form name="themaForm">
+            <field
+                property="naam"
+                depends="required">
+                <arg key="configthema.naam"/>
+            </field>
+        </form>
+        <form name="kaartgroepForm">
+            <field
+                property="naam"
+                depends="required">
+                <arg key="configcluster.naam"/>
+            </field>
+        </form>
+        <form name="connectieForm">
+            <field
+                property="url"
+                depends="required">
+                <arg key="configconnectie.url"/>
+            </field>
+            <field
+                property="naam"
+                depends="required">
+                <arg key="configconnectie.naam"/>
+            </field>
+        </form>
+        <form name="zoekConfiguratieVeldForm">
+            <field
+                property="attribuutnaam"
+                depends="required">
+                <arg key="configzoekconfiguratieveld.attribuutnaam"/>
+            </field>
+        </form>
+        <form name="cmsForm">
+            <field
+                property="titel"
+                depends="required">
+                <arg key="configcmstitel.label"/>
+            </field>
+        </form>
+    </formset>
+</form-validation>

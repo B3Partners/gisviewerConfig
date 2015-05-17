@@ -1,0 +1,602 @@
+body {
+    font-size: 8pt;
+    background: #FFF0C5;
+    color: #000000;
+    font-family: arial, sans-serif;
+}
+
+#header {
+    background-image: url(/gisviewerconfig/images/bovenbalk.gif);
+    background-repeat: repeat-x;
+}
+
+#header_content {
+    background-image: url(/gisviewerconfig/images/GisviewerConfig_small.gif);
+    background-repeat: no-repeat;
+}
+
+a.menulink, a.menulink:visited, a.menulink:active, a.activemenulink, a.activemenulink:visited, a.activemenulink:active {
+    display: block;
+    padding-top: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 21px;
+    border-bottom: 0px none White;
+    border-left: 1px solid #A0D9FF;
+    border-top: 1px solid #A0D9FF;
+    border-right: 1px solid #102F44;
+    color: #A0D9FF;
+    float: right;
+    font-size: 1em;
+}
+
+a.activemenulink, a.activemenulink:visited, a.activemenulink:active {
+    border-bottom: 0px none White;
+    border-left: 1px solid White;
+    border-top: 1px solid White;
+    border-right: 1px solid White;
+    background-color: White;
+    color: #144264;
+}
+
+.sf-menu li li {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    background-color: #183C56;
+    border-top: 1px solid #A0D9FF;
+}
+
+#header #topmenu .sf-menu li li a {
+    color: #A0D9FF;
+    font-size: 1em;
+}
+
+#wrapper {
+    background-image: url(/gisviewerconfig/images/maindiv_bg.gif);
+    background-position: center center;
+    background-repeat: repeat-y;
+    color: White;
+}
+
+#content {
+    background-color: White;
+}
+
+#content_viewer {
+    background-color: White;
+}
+
+.infobalk {
+    background-color: #FFD203;
+    background-image: url(/gisviewerconfig/images/balk_links_292w.gif);
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+}
+
+.infobalk .infobalk_description {
+    color: #FFF0C4;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.infobalk .infobalk_actions {
+    font-size: 8pt;
+    font-weight: bold;
+    color: #19619B;
+}
+
+.infobalk a {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+#footer {
+    background-image: url(/gisviewerconfig/images/onderbalk.gif);
+    background-repeat: repeat-x;
+}
+
+#footer_content {
+    background-image: url(/gisviewerconfig/images/footerbar.gif);
+    background-repeat: no-repeat;
+}
+
+.footer_tekst {
+    color: #7891A5;
+    font-size: 11px;
+    margin-top: 18px;
+}
+
+.footer_tekst a.gpl_link{
+    color: #7891A5;
+    font-size: 11px;
+    margin-top: 18px;
+    text-decoration: underline;
+}
+
+/* Common styles */
+th {
+    font-size: 8pt;
+    font-weight: bold;
+    text-align: left;
+}
+
+div, td, th, span, input, textarea, select, option, button {
+    font-size: 8pt;
+    color: #000000;
+    font-family: arial, sans-serif;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 11pt;
+    color: #196299;
+}
+
+a {
+    color: #196299;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+/* Design voor de content pagina's. Om dit design toe te passen moet er een div tag met ID content_style rond de content worden geplaatst. */
+#content_style, #content_style h1, #content_style h2, #content_style div, #content_style td, #content_style th, #content_style a, #content_style li {
+    color: #196299;
+}
+
+#content_style hr {
+    color: #196299;
+    background-color: #196299;
+    border: 0px none;
+    height: 1px;
+    width: 100%;
+}
+
+#content_style {
+    padding: 8px;
+}
+
+#content_style .kolomtabel td {
+    padding: 15px;
+    width: 430px;
+    overflow: visible;
+}
+
+#content_style div.inleiding {
+    background-color: #FFF0C5;
+    padding: 15px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 440px;
+    margin-left: -15px;
+}
+
+#content_style h1 {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    font-style: normal;
+    margin-left: 0px;
+    margin-bottom: 15px;
+}
+
+#content_style h2 {
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    font-style: normal;
+    margin-bottom: 0px;
+    margin-top: 15px;
+}
+
+#content_style div.inleiding h2 {
+    margin-top: 0px;
+}
+
+#content_style img {
+    border: 1px solid #196096;
+    padding: 4px;
+}
+
+#content_style a {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#content_style a:hover {
+    color: #FFD207;
+}
+
+#content_style .presentation_table {
+    border: 1px solid #196096;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#content_style .presentation_table td {
+    border: 1px solid #196096;
+    padding: 5px;
+    background-color: #E7EEF4;
+    width: auto;
+}
+
+#content_style .presentation_table th {
+    background-color: #196096;
+    color: White;
+    font-weight: bold;
+    padding: 5px;
+}
+
+#content_style td ul {
+    margin: 0px;
+    padding-left: 18px;
+}
+
+/* Config styles */
+#content_style .config_tab {
+    border: 1px solid #1C6CA7;
+}
+
+#content_style .config_tab_header {
+    border: 1px solid #1C6CA7;
+    color: #1C6CA7;
+    background-color: White;
+    border-bottom: 0px none;
+}
+
+#content_style .active_tab {
+    background-color: #1C6CA7;
+    color: White;
+}
+
+#adminqueryrow {
+    color: #196299;
+}
+
+.messages {
+    color: #000000;
+}
+
+.maintable {
+    background-color: #FFF;
+}
+
+table.tablesorter {
+	background-color: #CDCDCD;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+}
+table.tablesorter tbody tr.odd td {
+	background-color: #F0F0F6;
+}
+table.tablesorter tbody tr.hover td {
+	background-color: #DEDEDE;
+        cursor: pointer;
+}
+table.tablesorter tbody tr.selected td {
+	background-color: #FFEEBE;
+        cursor: pointer;
+}
+table.tablesorter tbody td a {
+    color: #196299;
+}
+
+/* Belangrijkste kleuren (blauw) en sorteerpijltjes */
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+        border: 1px solid #FFF;
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+        background-color: #8dbdd8;
+}
+table.tablesorter thead tr .header {
+	background-image: url(/gisviewerconfig/images/icons/bg.gif);
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(/gisviewerconfig/images/icons/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(/gisviewerconfig/images/icons/desc.gif);
+}
+
+/* nieuwe divs voor gebruik op Home pagina Gisviewer */
+.content_block {
+    float: left;
+    width: 450px;
+    margin-left: 15px;
+    min-height: 180px;
+}
+
+.content_block a {
+    padding-top: 5px;
+    color: #1962A0;
+    text-decoration: underline;
+}
+
+.content_title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #196299;
+    margin-top: 15px;
+    padding-bottom: 10px;
+}
+
+.inleiding_body {
+    background-color: #FFF0C5;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    color: #1962A0;
+    font-weight: bold;
+    min-height: 180px;
+    
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px 8px 8px 8px;
+    -webkit-box-shadow: #666 0px 2px 3px;
+    -moz-box-shadow: #666 0px 2px 3px;
+    box-shadow: #666 0px 2px 3px;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFF0C5), to(#FFE1A3));
+    background: -moz-linear-gradient(#FFF0C5, #FFE1A3);
+    background: -ms-linear-gradient(top, #FFF0C5, #FFE1A3);
+    background: -o-linear-gradient(top, #FFF0C5, #FFE1A3);
+    background: linear-gradient(#FFF0C5, #FFE1A3);
+}
+
+.content_body {
+    background-color: #FFF;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.content_body td {
+    padding-right: 10px;
+}
+
+.content_body a {
+    padding-top: 5px;
+    color: #1962A0;
+    text-decoration: underline;
+}
+
+.message {
+    color: red;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-bottom: 20px;
+}
+
+.inputfield {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    padding: 3px;
+    border: solid 1px #85b1de;
+    width: 200px;
+}
+
+.inlogbutton {
+    display: block;
+    margin-top: 10px;
+    padding: 8px;
+    border: solid 1px #000;
+}
+
+.hr_line {
+    margin-top: 20px;
+    text-align: left;
+    width: 200px;
+}
+
+.uitloggen {
+    clear: both;
+    width: 450px;
+    padding: 15px;
+}
+
+.uitloggen a {
+    color: #1962A0;
+    text-decoration: underline;
+}
+
+.fieldset_block_wide {
+    float: left;
+    width: 880px;
+    margin-left: 10px;
+}
+
+.fieldset_block {
+    float: left;
+    width: 435px;
+    margin-left: 10px;
+}
+
+.fieldset_block_small {
+    float: left;
+    width: 250px;
+    margin-left: 10px;
+}
+
+.fieldset_block_modules {
+    float: left;
+    width: 880px;
+    margin-left: 10px;
+}
+
+.fieldset_wide {
+    border: solid 2px #000;
+    padding: 10px;
+}
+
+.fieldset_wide td {
+    font-size: 1.2em;
+    padding: 5px;
+    width: 90px;
+}
+
+.fieldset1 {
+    border: solid 2px #000;
+    padding: 5px;
+    min-height: 260px;
+}
+
+.fieldset_small {
+    border: solid 2px #000;
+    padding: 10px;
+    min-height: 230px;
+}
+
+.fieldLegend {
+    margin-left: 10px;
+    font-size: 1.5em;
+}
+
+.clearBoth {
+    clear: both;
+    padding: 15px;
+}
+
+.colored1 {
+    background-color: #EAEAEA;
+}
+
+.colored2 {
+    background-color: #DDFFFF;
+}
+
+/* Design configuratie tabjes van configkeeper */
+#configkeeper_style, #configkeeper_style div {
+    color: #196299;
+    width: 550px;
+}
+
+#configkeeper_style {
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+#configkeeper_style p {
+    color: #000;
+}
+
+#configkeeper_style td {
+    padding-bottom: 5px;
+}
+
+#configkeeper_style .configkeeper_tab {
+    display: none;
+}
+
+#configkeeper_style .configkeeper_tab_header {
+    border: 1px solid #1C6CA7;
+    color: #1C6CA7;
+    width: 80px;
+    float: left;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+#configkeeper_style .active_tab {
+    background-color: #1C6CA7;
+    color: #fff;
+}
+
+.rolprio_intro {
+    display: block;
+    clear: both;
+}
+
+.rolnaamHeader {
+    margin-left: 15px;
+    font-size: 1.3em;
+    display: block;
+    clear: both;
+}
+
+.tdEditLink {
+    padding-left: 2px;
+}
+
+/* <Twitter plugin styling> */
+.configprio_left {
+    float: left;
+    width: 400px;
+}
+
+.configprio_right {
+    float: left;
+    width: 450px;
+    margin-left: 25px;
+    height: 450px;
+    overflow: auto;
+}
+
+.tweet .tweet_list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tweet .tweet_list .tweet_avatar img {
+    float: left;
+    vertical-align: top;
+}
+
+.tweet .tweet_list .tweet_time, .tweet .tweet_list .tweet_text {
+    float: left;
+    display: block;
+    margin-bottom: 3px;
+    margin-left: 5px;
+    width: 365px;
+}
+
+.tweet .tweet_list li {
+    margin-bottom: 1em;
+    float: left;
+    clear: both;
+    background-color: #FFF0C5;
+    width: 420px;
+    padding: 5px;
+}
+
+.tweet_list li {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px 8px 8px 8px;
+    -webkit-box-shadow: #666 0px 2px 3px;
+    -moz-box-shadow: #666 0px 2px 3px;
+    box-shadow: #666 0px 2px 3px;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FFF0C5), to(#FFE1A3));
+    background: -moz-linear-gradient(#FFF0C5, #FFE1A3);
+    background: -ms-linear-gradient(top, #FFF0C5, #FFE1A3);
+    background: -o-linear-gradient(top, #FFF0C5, #FFE1A3);
+    background: linear-gradient(#FFF0C5, #FFE1A3);
+}
+/* </Twitter plugin styling> */
+
+#rechten_block {
+    margin-top: 50px;
+}
+
+#textBox {
+    color: #000;
+    border: 1px #D30E00 solid;
+    padding: 10px;
+    background-color: #FFB69B;
+    margin-bottom: 10px;
+    float: left;
+    width: 630px;
+    display: none;
+}

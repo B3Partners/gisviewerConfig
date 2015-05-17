@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <form-beans>
+        <form-bean name="themaForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="themaID" type="java.lang.String"/>
+            <form-property name="themaCode" type="java.lang.String"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="metadatalink" type="java.lang.String"/>
+            <form-property name="belangnr" type="java.lang.String"/>
+            <form-property name="clusterID" type="java.lang.String"/>
+            <form-property name="opmerkingen" type="java.lang.String"/>
+            <form-property name="analyse_thema" type="java.lang.Boolean"/>
+            <form-property name="locatie_thema" type="java.lang.Boolean"/>
+            <form-property name="wms_url" type="java.lang.String"/>
+            <form-property name="wms_layers" type="java.lang.String"/>
+            <form-property name="wms_layers_real" type="java.lang.String"/>
+            <form-property name="wms_querylayers" type="java.lang.String"/>
+            <form-property name="wms_querylayers_real" type="java.lang.String"/>
+            <form-property name="wms_legendlayer" type="java.lang.String"/>
+            <form-property name="wms_legendlayer_real" type="java.lang.String"/>
+            <form-property name="update_frequentie_in_dagen" type="java.lang.String"/>
+            <form-property name="view_geomtype" type="java.lang.String"/>
+            <form-property name="visible" type="java.lang.Boolean"/>
+            <form-property name="themadataobjecten" type="java.lang.String[]"/>
+            <form-property name="thema_maptip" type="java.lang.String"/>
+            <form-property name="sldattribuut" type="java.lang.String"/>
+            <form-property name="uitgebreid" type="java.lang.Boolean"/>
+            <form-property name="layoutadmindata" type="java.lang.String"/>
+            <form-property name="style" type="java.lang.String"/>
+            <form-property name="gegevensbron" type="java.lang.String"/>
+            <form-property name="info_tekst" type="java.lang.String"/>
+        </form-bean>
+        <form-bean name="clusterForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="clusterID" type="java.lang.String"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="omschrijving" type="java.lang.String"/>
+            <form-property name="belangnr" type="java.lang.String"/>
+            <form-property name="metadatalink" type="java.lang.String"/>
+            <form-property name="parentID" type="java.lang.String"/>
+            <form-property name="default_cluster" type="java.lang.Boolean"/>
+            <form-property name="hide_legend" type="java.lang.Boolean"/>
+            <form-property name="hide_tree" type="java.lang.Boolean"/>
+            <form-property name="background_cluster" type="java.lang.Boolean"/>
+            <form-property name="extra_level" type="java.lang.Boolean"/>
+            <form-property name="callable" type="java.lang.Boolean"/>
+            <form-property name="default_visible" type="java.lang.Boolean"/>
+        </form-bean>
+        <form-bean name="connectieForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="bronId" type="java.lang.String"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="url" type="java.lang.String"/>
+            <form-property name="gebruikersnaam" type="java.lang.String"/>
+            <form-property name="wachtwoord" type="java.lang.String"/>
+            <form-property name="volgorde" type="java.lang.String"/>
+        </form-bean>
+        <form-bean name="themaDataForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="themaDataID" type="java.lang.String"/>
+            <form-property name="label" type="java.lang.String"/>
+            <form-property name="eenheid" type="java.lang.String"/>
+            <form-property name="omschrijving" type="java.lang.String"/>
+            <form-property name="uitgebreid" type="java.lang.Boolean"/>
+            <form-property name="basisregel" type="java.lang.Boolean"/>
+            <form-property name="editable" type="java.lang.Boolean"/>
+            <form-property name="defaultValues" type="java.lang.String"/>
+            <form-property name="voorbeelden" type="java.lang.String"/>
+            <form-property name="kolombreedte" type="java.lang.String"/>
+            <form-property name="waardeTypeID" type="java.lang.String"/>
+            <form-property name="dataTypeID" type="java.lang.String" initial="1" />
+            <form-property name="commando" type="java.lang.String"/>
+            <form-property name="kolomnaam" type="java.lang.String"/>
+            <form-property name="dataorder" type="java.lang.String"/>
+            <form-property name="gegevensbronID" type="java.lang.String"/>
+            <form-property name="basisregels" type="java.lang.Integer[]"/>
+            <form-property name="editables" type="java.lang.Integer[]"/>
+            <form-property name="volgordeVelden" type="java.util.HashMap"/>
+            <form-property name="labelVelden" type="java.util.HashMap"/>
+        </form-bean>
+        <form-bean name="zoekConfiguratieForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="zoekConfiguratieId" type="java.lang.String"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="featureType" type="java.lang.String"/>
+            <form-property name="parentBron" type="java.lang.String"/>
+            <form-property name="parentZoekConfiguratie" type="java.lang.String"/>
+        </form-bean>
+        <form-bean name="zoekConfiguratieVeldForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="zoekAttribuutId" type="java.lang.String"/>
+            <form-property name="resultaatAttribuutId" type="java.lang.String"/>
+            <form-property name="label" type="java.lang.String"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="type" type="java.lang.String"/>
+            <form-property name="volgorde" type="java.lang.String"/>
+            <form-property name="attribuutnaam" type="java.lang.String"/>
+            <form-property name="inputtype" type="java.lang.String"/>
+            <form-property name="inputsize" type="java.lang.String"/>
+            <form-property name="inputzoekconfiguratie" type="java.lang.String"/>
+            <form-property name="omschrijving" type="java.lang.String"/>
+            <form-property name="dropDownValues" type="java.lang.String"/>
+        </form-bean>
+        <form-bean name="wizardZoekConfiguratieForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="layersAan" type="java.lang.String[]"/>
+        </form-bean>
+
+        <form-bean name="configKeeperForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="appcode" type="java.lang.String"/>
+
+            <!-- kaartselectie props voor basisboom config -->
+            <form-property name="kaartgroepenAan" type="java.lang.String[]"/>
+            <form-property name="kaartlagenAan" type="java.lang.String[]"/>
+            <form-property name="kaartgroepenDefaultAan" type="java.lang.String[]"/>
+            <form-property name="kaartlagenDefaultAan" type="java.lang.String[]"/>
+            <form-property name="layersAan" type="java.lang.String[]"/>
+            <form-property name="layersDefaultAan" type="java.lang.String[]"/>
+            <form-property name="servicesAan" type="java.lang.String[]"/>
+            <form-property name="useLayerStyles" type="java.lang.String[]"/>
+            <form-property name="userLayerIds" type="java.lang.String[]"/>
+            <form-property name="useLayerSldParts" type="java.lang.String[]"/>
+            <form-property name="groupName" type="java.lang.String"/>
+            <form-property name="serviceUrl" type="java.lang.String"/>
+            <form-property name="sldUrl" type="java.lang.String"/>
+
+            <form-property name="cfg_useCookies" type="java.lang.Boolean"/>
+            <form-property name="cfg_objectInfoType" type="java.lang.String"/>
+            <form-property name="cfg_autoRedirect" type="java.lang.Integer"/>
+            <form-property name="cfg_tolerance" type="java.lang.Integer"/>
+            <form-property name="cfg_refreshDelay" type="java.lang.Integer"/>
+            <form-property name="cfg_minBboxZoeken" type="java.lang.Integer"/>
+            <form-property name="cfg_maxResults" type="java.lang.Integer"/>
+            <form-property name="cfg_defaultSearchRadius" type="java.lang.Integer"/>
+            <form-property name="cfg_expandAll" type="java.lang.Boolean"/>
+            <form-property name="cfg_multipleActiveThemas" type="java.lang.Boolean"/>
+            <form-property name="rolnaam" type="java.lang.String"/>
+            <form-property name="cfg_useInheritCheckbox" type="java.lang.Boolean"/>
+            <form-property name="cfg_showLegendInTree" type="java.lang.Boolean"/>
+            <form-property name="cfg_useMouseOverTabs" type="java.lang.Boolean"/>
+            <form-property name="cfg_layoutAdminData" type="java.lang.String"/>
+            
+            <!-- linker en rechter modules -->
+            <form-property name="cfg_tab1" type="java.lang.String"/>
+            <form-property name="cfg_tab2" type="java.lang.String"/>
+            <form-property name="cfg_tab3" type="java.lang.String"/>
+            <form-property name="cfg_tab4" type="java.lang.String"/>
+            <form-property name="cfg_tab5" type="java.lang.String"/>            
+            <form-property name="cfg_tab1_left" type="java.lang.String"/>
+            <form-property name="cfg_tab2_left" type="java.lang.String"/>
+            <form-property name="cfg_tab3_left" type="java.lang.String"/>
+            <form-property name="cfg_tab4_left" type="java.lang.String"/>
+            <form-property name="cfg_tab5_left" type="java.lang.String"/>
+            
+            <form-property name="cfg_zoekenid1" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid2" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid3" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid4" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid5" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid6" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid7" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid8" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid9" type="java.lang.String"/>
+            <form-property name="cfg_zoekenid10" type="java.lang.String"/>
+            <form-property name="cfg_zoeken_autoidentify" type="java.lang.Boolean"/>
+            <form-property name="cfg_planselectieid1" type="java.lang.String"/>
+            <form-property name="cfg_planselectieid2" type="java.lang.String"/>
+            <form-property name="cfg_meldingwelkomtekst" type="java.lang.String"/>
+            <form-property name="cfg_meldingprefix" type="java.lang.String"/>
+            <form-property name="cfg_meldingtype" type="java.lang.String"/>
+            <form-property name="cfg_meldingstatus" type="java.lang.String"/>
+            <form-property name="cfg_meldingemailmelder" type="java.lang.Boolean"/>
+            <form-property name="cfg_meldinglayoutemailmelder" type="java.lang.String"/>
+            <form-property name="cfg_meldingnaam" type="java.lang.String"/>
+            <form-property name="cfg_meldingemail" type="java.lang.String"/>
+            <form-property name="cfg_meldingemailbehandelaar" type="java.lang.Boolean"/>
+            <form-property name="cfg_meldinglayoutemailbehandelaar" type="java.lang.String"/>
+            <form-property name="cfg_meldinggegevensbron" type="java.lang.Integer"/>
+            <form-property name="cfg_meldingobjectsoort" type="java.lang.String"/>
+            <form-property name="cfg_meldingtekentoolicoon" type="java.lang.String"/>
+
+            <!-- Redlining config items -->
+            <form-property name="cfg_redliningkaartlaagid" type="java.lang.Integer"/>
+            <form-property name="cfg_redlininggegevensbron" type="java.lang.Integer"/>
+            
+            <!-- Tekenen config items -->
+            <form-property name="cfg_tekenGegevensbron" type="java.lang.Integer"/>
+            <form-property name="cfg_tekenTekstBoven" type="java.lang.String"/>
+            <form-property name="cfg_tekenTekstOnder" type="java.lang.String"/>
+            <form-property name="cfg_tekenTitel" type="java.lang.String"/>
+            <form-property name="cfg_tekenPlaatje" type="java.lang.String"/>
+            
+            <!-- Redlining config items -->
+            <form-property name="cfg_bagkaartlaagid" type="java.lang.Integer"/>
+            <form-property name="cfg_bagmaxbouwjaar" type="java.lang.Integer"/>
+            <form-property name="cfg_bagminbouwjaar" type="java.lang.Integer"/>
+            <form-property name="cfg_bagmaxopp" type="java.lang.Integer"/>
+            <form-property name="cfg_bagminopp" type="java.lang.Integer"/>
+            <form-property name="cfg_bagOppAttr" type="java.lang.String"/>
+            <form-property name="cfg_bagBouwjaarAttr" type="java.lang.String"/>
+            <form-property name="cfg_bagGebruiksfunctieAttr" type="java.lang.String"/>
+            <form-property name="cfg_bagGeomAttr" type="java.lang.String"/>
+
+            <!-- Viewer tools aan/uit -->
+            <form-property name="cfg_showRedliningTools" type="java.lang.Boolean"/>
+            <form-property name="cfg_showBufferTool" type="java.lang.Boolean"/>
+            <form-property name="cfg_showSelectBulkTool" type="java.lang.Boolean"/>
+            <form-property name="cfg_showNeedleTool" type="java.lang.Boolean"/>
+            <form-property name="cfg_showPrintTool" type="java.lang.Boolean"/>
+            <form-property name="cfg_showLayerSelectionTool" type="java.lang.Boolean"/>
+            <form-property name="cfg_showGPSTool" type="java.lang.Boolean"/>
+            <form-property name="cfg_GPSBuffer" type="java.lang.String"/>
+            <form-property name="cfg_showXYTool" type="java.lang.Boolean"/>
+            <form-property name="cfg_showEditTool" type="java.lang.Boolean"/>
+            <form-property name="cfg_layerGrouping" type="java.lang.String"/>
+            <form-property name="cfg_popupWidth" type="java.lang.String"/>
+            <form-property name="cfg_popupHeight" type="java.lang.String"/>
+            <form-property name="cfg_popupLeft" type="java.lang.String"/>
+            <form-property name="cfg_popupTop" type="java.lang.String"/>
+            <form-property name="cfg_defaultdataframehoogte" type="java.lang.String"/>
+
+            <!-- Viewer type en viewer template -->
+            <form-property name="cfg_viewerType" type="java.lang.String"/>
+            <form-property name="cfg_viewerTemplate" type="java.lang.String"/>
+
+            <form-property name="cfg_treeOrder" type="java.lang.String"/>
+            <form-property name="cfg_tabWidth" type="java.lang.Integer"/>
+            <form-property name="cfg_tabWidthLeft" type="java.lang.Integer"/>
+
+            <!-- opstart kaarten -->
+            <form-property name="cfg_opstartkaarten" type="java.lang.String[]"/>
+
+            <!-- email instellingen -->
+            <form-property name="cfg_smtpHost" type="java.lang.String"/>
+            <form-property name="cfg_fromMailAddress" type="java.lang.String"/>
+            <form-property name="cfg_mailSubject" type="java.lang.String"/>
+            
+            <!-- Algemeen form fields -->
+            <form-property name="cfg_activeTab" type="java.lang.String"/>
+            <form-property name="cfg_transSliderTab" type="java.lang.String"/>            
+            <form-property name="cfg_extent" type="java.lang.String"/>
+            <form-property name="cfg_fullextent" type="java.lang.String"/>                     
+            <form-property name="cfg_useUserWmsDropdown" type="java.lang.Boolean"/>            
+            <form-property name="cfg_datasetDownload" type="java.lang.Boolean"/>            
+            <form-property name="cfg_tilingResolutions" type="java.lang.String"/>
+            <form-property name="cfg_showServiceUrl" type="java.lang.Boolean"/>     
+        
+            <!-- info tab settings -->
+            <form-property name="cfg_showInfoTab" type="java.lang.String"/>
+        
+            <!-- Viewer top menu settings -->
+            <form-property name="cfg_helpUrl" type="java.lang.String"/>
+            <form-property name="cfg_showGoogleMapsIcon" type="java.lang.Boolean"/>
+            <form-property name="cfg_showBookmarkIcon" type="java.lang.Boolean"/>
+            <form-property name="cfg_contactUrl" type="java.lang.String"/>
+            <form-property name="cfg_logoutUrl" type="java.lang.String"/>
+            
+            <!-- Teken tab filter sld settings -->
+            <form-property name="cfg_tekenKaartlaagId" type="java.lang.Integer"/>
+            <form-property name="cfg_tekenFilterColumn" type="java.lang.String"/>
+            <form-property name="cfg_tekenFilterSld" type="java.lang.String"/>
+            
+        </form-bean>
+        
+        <form-bean name="configCyclomediaForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="appcode" type="java.lang.String"/>
+            
+            <form-property name="cfg_cyclo_apikey" type="java.lang.String"/>
+            <form-property name="cfg_cyclo_accountid" type="java.lang.String"/>
+            <form-property name="cfg_cyclo_wachtwoord" type="java.lang.String"/>
+            <form-property name="cfg_cyclo_privatebase64key" type="java.lang.String"/>
+            <form-property name="cfg_cyclo_keybestand" type="org.apache.struts.upload.FormFile"/>
+        </form-bean>
+
+        <form-bean name="kaartgroepForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="clusterID" type="java.lang.String"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="omschrijving" type="java.lang.String"/>
+            <form-property name="belangnr" type="java.lang.String"/>
+            <form-property name="metadatalink" type="java.lang.String"/>
+            <form-property name="parentID" type="java.lang.String"/>
+            <form-property name="default_cluster" type="java.lang.Boolean"/>
+            <form-property name="hide_legend" type="java.lang.Boolean"/>
+            <form-property name="hide_tree" type="java.lang.Boolean"/>
+            <form-property name="background_cluster" type="java.lang.Boolean"/>
+            <form-property name="extra_level" type="java.lang.Boolean"/>
+            <form-property name="callable" type="java.lang.Boolean"/>
+            <form-property name="default_visible" type="java.lang.Boolean"/>
+            <form-property name="exclusive_childs" type="java.lang.Boolean"/>
+        </form-bean>
+
+        <form-bean name="gegevensbronForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="gegevensbronID" type="java.lang.String"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="bron" type="java.lang.String"/>
+            <form-property name="admin_tabel" type="java.lang.String"/>
+            <form-property name="admin_pk" type="java.lang.String"/>
+            <form-property name="parentID" type="java.lang.String"/>
+            <form-property name="admin_fk" type="java.lang.String"/>
+            <!-- TODO form-property name="parent_pk" type="java.lang.String"/ -->
+            <form-property name="admin_query" type="java.lang.String"/>
+            <form-property name="admin_tabel_opmerkingen" type="java.lang.String"/>
+            <form-property name="volgordenr" type="java.lang.String"/>
+            <form-property name="editable" type="java.lang.Boolean"/>
+            <form-property name="geometryeditable" type="java.lang.Boolean"/>
+        </form-bean>
+        <form-bean name="cmsForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="tekstBlokID" type="java.lang.Integer"/>
+            <form-property name="titel" type="java.lang.String"/>
+            <form-property name="tekst" type="java.lang.String"/>
+            <form-property name="url" type="java.lang.String"/>
+            <form-property name="toonUrl" type="java.lang.Boolean"/>
+            <!-- <form-property name="pagina" type="java.lang.String"/> -->
+            <form-property name="volgordeNr" type="java.lang.Integer"/>
+            <form-property name="kleur" type="java.lang.String"/>
+            <form-property name="inlogIcon" type="java.lang.Boolean"/>
+            <form-property name="hoogte" type="java.lang.Integer"/>
+            <form-property name="cmsPagina" type="java.lang.Integer"/>
+        </form-bean>
+        
+        <form-bean name="applicatieForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="applicatieID" type="java.lang.Integer"/>
+            <form-property name="naam" type="java.lang.String"/>
+            <form-property name="gebruikersCode" type="java.lang.String"/>
+            <form-property name="appCode" type="java.lang.String"/>
+            <form-property name="parent" type="java.lang.Integer"/>
+            <form-property name="defaultApp" type="java.lang.Boolean"/>
+            <form-property name="readOnly" type="java.lang.Boolean"/>
+            <form-property name="email" type="java.lang.String"/>
+        </form-bean>
+        
+        <form-bean name="userWMSListForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="serviceId" type="java.lang.Integer"/>
+            <form-property name="name" type="java.lang.String"/>
+            <form-property name="groupname" type="java.lang.String"/>
+            <form-property name="url" type="java.lang.String"/>
+            <form-property name="sld_url" type="java.lang.String"/>
+        </form-bean>
+        
+        <form-bean name="cmsPaginaForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="cmsPaginaID" type="java.lang.Integer"/>
+            <form-property name="titel" type="java.lang.String"/>
+            <form-property name="tekst" type="java.lang.String"/>
+            <form-property name="thema" type="java.lang.String"/>
+            <form-property name="showPlainAndMapButton" type="java.lang.Boolean"/> 
+            <form-property name="cmsMenu" type="java.lang.Integer"/>
+            <form-property name="loginRequired" type="java.lang.Boolean"/>
+        </form-bean>
+        
+        <form-bean name="cmsMenuForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="cmsMenuID" type="java.lang.Integer"/>
+            <form-property name="titel" type="java.lang.String"/>
+            <form-property name="cmsMenuItemsAan" type="java.lang.String[]"/>
+        </form-bean>
+        
+        <form-bean name="cmsMenuItemForm" type="org.apache.struts.validator.DynaValidatorForm">
+            <form-property name="action" type="java.lang.String"/>
+            <form-property name="alt_action" type="java.lang.String"/>
+            <form-property name="cmsMenuItemID" type="java.lang.Integer"/>
+            <form-property name="titel" type="java.lang.String"/>
+            <form-property name="url" type="java.lang.String"/>
+            <form-property name="icon" type="java.lang.String"/>
+            <form-property name="volgordenr" type="java.lang.Integer"/>
+        </form-bean>
+        
+    </form-beans>
+    <global-exceptions>
+    </global-exceptions>
+    
+    <global-forwards>
+        <forward name="failure" path="/index.do"/>
+    </global-forwards>
+    
+    <action-mappings>
+        <action path="/index" type="nl.b3p.gis.viewer.services.IndexConfigAction">
+            <forward name="success" path="home"/>
+            <forward name="failure" path="messages"/>
+            <forward name="login" path="login"/>
+            <forward name="loginError" path="login"/>
+            <forward name="logout" path="/index.do" redirect="true"/>
+            <forward name="help" path="help"/>
+        </action>
+
+        <action path="/reset" type="nl.b3p.gis.viewer.services.ResetAction">
+            <forward name="success" path="reset"/>
+            <forward name="login" path="login"/>
+        </action>
+
+        <action path="/login" forward="/index.do?login=t"/>
+        <action path="/loginError" forward="/index.do?loginError=t"/>
+        <action path="/logout" forward="/index.do?logout=t"/>
+        <action path="/resetCache" forward="/index.do?resetCache=t"/>
+        <action path="/home" forward="home"/>
+        <action path="/help" forward="/index.do?help=t"/>
+        
+        <action path="/beheer" forward="/index.do"/>
+
+        <action path="/configThema" type="nl.b3p.gis.viewer.ConfigThemaAction" name="themaForm" scope="request" validate="false">
+            <forward name="success" path="configthema"/>
+            <forward name="failure" path="configthema"/>
+        </action>
+        <action path="/configCluster" type="nl.b3p.gis.viewer.ConfigClusterAction" name="clusterForm" scope="request" validate="false">
+            <forward name="success" path="configcluster"/>
+            <forward name="failure" path="configcluster"/>
+        </action>
+        <action path="/configConnectie" type="nl.b3p.gis.viewer.ConfigConnectieAction" name="connectieForm" scope="request" validate="false">
+            <forward name="success" path="configconnectie"/>
+            <forward name="failure" path="configconnectie"/>
+        </action>
+        <action path="/configThemaData" type="nl.b3p.gis.viewer.ConfigThemaDataAction" name="themaDataForm" scope="request" validate="false">
+            <forward name="success" path="configthemadata"/>
+            <forward name="failure" path="configthemadata"/>
+        </action>
+        <action path="/configZoekConfiguratie" type="nl.b3p.gis.viewer.ConfigZoekConfiguratieAction" name="zoekConfiguratieForm" scope="request" validate="false">
+            <forward name="success" path="configzoekconfiguratie"/>
+            <forward name="failure" path="configzoekconfiguratie"/>
+        </action>
+        <action path="/configZoekConfiguratieVeld" type="nl.b3p.gis.viewer.zoekconfiguratie.ConfigZoekConfiguratieVeldAction" name="zoekConfiguratieVeldForm" scope="request" validate="false">
+            <forward name="success" path="configzoekconfiguratieveld"/>
+            <forward name="failure" path="configzoekconfiguratieveld"/>
+        </action>
+        <action path="/wizardZoekConfiguratie" name="wizardZoekConfiguratieForm" type="nl.b3p.gis.viewer.zoekconfiguratie.WizardZoekConfiguratieAction" scope="request" validate="false">
+            <forward name="success" path="wizardzoekconfiguratie"/>
+            <forward name="failure" path="wizardzoekconfiguratie"/>
+            <forward name="step2" path="wizardzoekconfiguratie2"/>
+            <forward name="step3" path="wizardzoekconfiguratie3"/>
+            <forward name="step4" path="wizardzoekconfiguratie4"/>
+            <forward name="step5" path="wizardzoekconfiguratie5"/>
+            <forward name="saveStep5" path="wizardzoekconfiguratie"/>
+            <forward name="wizardDone" path="/configZoekConfiguratie.do"/>
+            <forward name="wizardCreateBron" path="/configConnectie.do?create=t"/>
+        </action>
+        
+        <action path="/configKeeper" type="nl.b3p.gis.viewer.ConfigKeeperAction" name="configKeeperForm" scope="request" validate="false">
+            <forward name="success" path="configKeeper"/>
+            <forward name="failure" path="configKeeper"/>
+        </action>
+        
+        <action path="/configCyclomedia" type="nl.b3p.gis.viewer.ConfigCyclomediaAction" name="configCyclomediaForm" scope="request" validate="false">
+            <forward name="success" path="configCyclomedia"/>
+            <forward name="failure" path="configCyclomedia"/>
+        </action>
+        
+        <action path="/configKaartGroep" type="nl.b3p.gis.viewer.ConfigKaartGroepAction" name="kaartgroepForm" scope="request" validate="false">
+            <forward name="success" path="configkaartgroep"/>
+            <forward name="failure" path="configkaartgroep"/>
+        </action>
+        <action path="/configGegevensbron" type="nl.b3p.gis.viewer.ConfigGegevensbronAction" name="gegevensbronForm" scope="request" validate="false">
+            <forward name="success" path="configgegevensbron"/>
+            <forward name="failure" path="configgegevensbron"/>
+        </action>
+        <action path="/configCMS" type="nl.b3p.gis.viewer.ConfigCMSAction" name="cmsForm" scope="request" validate="false">
+            <forward name="success" path="configcms"/>
+            <forward name="failure" path="configcms"/>
+        </action>
+        <action path="/configApplicatie" type="nl.b3p.gis.viewer.ConfigApplicatieAction" name="applicatieForm" scope="request" validate="false">
+            <forward name="success" path="configApplicatie"/>
+            <forward name="failure" path="configApplicatie"/>
+        </action>
+        <action path="/configUserWMSList" type="nl.b3p.gis.viewer.ConfigUserWMSList" name="userWMSListForm" scope="request" validate="false">
+            <forward name="success" path="configUserWMSList"/>
+            <forward name="failure" path="configUserWMSList"/>
+        </action>
+        <action path="/configCMSPagina" type="nl.b3p.gis.viewer.ConfigCMSPaginaAction" name="cmsPaginaForm" scope="request" validate="false">
+            <forward name="success" path="configcmspagina"/>
+            <forward name="failure" path="configcmspagina"/>
+        </action>
+        <action path="/configCMSMenu" type="nl.b3p.gis.viewer.ConfigCMSMenuAction" name="cmsMenuForm" scope="request" validate="false">
+            <forward name="success" path="configcmsmenu"/>
+            <forward name="failure" path="configcmsmenu"/>
+        </action>
+        <action path="/configCMSMenuItem" type="nl.b3p.gis.viewer.ConfigCMSMenuItemAction" name="cmsMenuItemForm" scope="request" validate="false">
+            <forward name="success" path="configcmsmenuitem"/>
+            <forward name="failure" path="configcmsmenuitem"/>
+        </action>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+    
+    <message-resources  parameter="ViewerResources" null="true" />
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+    
+</struts-config>
