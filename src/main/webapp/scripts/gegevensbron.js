@@ -87,20 +87,17 @@ function refreshFeatureList(element){
 }
 
 function handleFeatureList(list){
-    if (list != null && list[0] === "SERVICE_ERROR") {
-        var append = "request=GetCapabilities&service=WFS&version=1.0.0";
-        var serviceUrl = "<a href='" + list[1] + append + "'>Bekijk het verzoek</a>";
-
-        $j("#textBox").html("<p class='textBox'>Fout tijdens ophalen features. " + serviceUrl + "</p>");
-    } else {
-        $j("#textBox").html("");
-    }
-    
     dwr.util.removeAllOptions('admin_tabel_select');
     dwr.util.removeAllOptions('admin_pk_select');
     
     dwr.util.addOptions("admin_tabel_select",[""]);
-    dwr.util.addOptions("admin_tabel_select",list,"0","1");
+    
+    if (list != null && list[0] === "SERVICE_ERROR") {
+        $j("#textBox").html("<p class='textBox'>Fout tijdens ophalen features. Controleer de bijbehorende bron.</p>");
+    } else {
+        $j("#textBox").html("");
+        dwr.util.addOptions("admin_tabel_select",list,"0","1");
+    }
 
     var data = [ {value:"",label:"-Selecteer eerst een tabel-"} ];
     
