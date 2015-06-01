@@ -33,11 +33,11 @@
         <servlet-class>nl.b3p.gis.viewer.services.HibernateUtil</servlet-class>
         <init-param>
             <param-name>kburl</param-name>
-            <param-value>http://localhost:8084/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
+            <param-value>http://localhost:8080/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
         </init-param>
         <init-param>
             <param-name>internalKbUrl</param-name>
-            <param-value>http://localhost:8084/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
+            <param-value>http://localhost:8080/kaartenbalie/services/?_VIEWER_CONFIG=true&amp;</param-value>
         </init-param>
         <init-param>
             <param-name>anonymous_user</param-name>
@@ -45,11 +45,11 @@
         </init-param>
         <init-param>
             <param-name>cacheOnDisk</param-name>
-            <param-value>true</param-value>
+            <param-value>false</param-value>
         </init-param>
         <init-param>
             <param-name>cacheOnDiskPath</param-name>
-            <param-value>/home/boy/dev/xml/</param-value>
+            <param-value>/mnt/data/cache/</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -89,7 +89,12 @@
         <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
         <init-param>
             <param-name>debug</param-name>
-            <param-value>true</param-value>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
+            <!-- upgrade naar versie 3 of HttpOnly in tomcat uit zetten -->
+            <param-name>crossDomainSessionSecurity</param-name>
+            <param-value>false</param-value>
         </init-param>
     </servlet>
 
