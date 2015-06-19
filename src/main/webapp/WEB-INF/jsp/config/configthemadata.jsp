@@ -106,9 +106,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                             </c:choose>
                         </td>
                         <td><c:out value="${ci.dataorder}"/></td>
-                        <td><html:text property="volgordeVelden.${ci.id}" size="3" /></td>
+                        <td><html:text property="volgordeVelden(${ci.id})" size="3" /></td>
                         <td><c:out value="${ci.label}"/></td>
-                        <td><html:text property="labelVelden.${ci.id}" size="15" /></td>
+                        <td><html:text property="labelVelden(${ci.id})" size="15" /></td>
                         <c:set var="accolade" value="}"/>
                         <td>
                             <c:choose>
