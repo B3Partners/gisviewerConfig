@@ -100,6 +100,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <div class="tablabel sublabel" id="label_layerinfo">
             Laag informatie
         </div>
+        <div class="tablabel sublabel" id="label_edit">
+            Edit boom
+        </div>
+        <div class="tablabel sublabel" id="label_ziekte">
+            Edit ziekte en plagen
+        </div>
     </div>
 
     <div class="tabcontents">
@@ -1135,7 +1141,40 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             </div>
             <div class="configadvanced"></div>
         </div>
+        <div class="tabcontent content_edit">
+            <div class="configbasic">
 
+                <div class="configrow">
+                    <label><fmt:message key="cfg_meldinggegevensbron.label"/></label>
+
+                    <html:select property="cfg_editgegevensbron">
+                        <html:option value="0">-Kies een gegevensbron-</html:option>
+                        <c:forEach items="${meldingGegevensbronnen}" var="item">
+                            <html:option value="${item.id}">${item.naam}</html:option>
+                        </c:forEach>
+                    </html:select>
+
+                </div>
+            </div>
+            <div class="configadvanced"></div>
+        </div>
+        <div class="tabcontent content_ziekte">
+            <div class="configbasic">
+
+                <div class="configrow">
+                    <label><fmt:message key="cfg_meldinggegevensbron.label"/></label>
+
+                    <html:select property="cfg_editziektesgegevensbron">
+                        <html:option value="0">-Kies een gegevensbron-</html:option>
+                        <c:forEach items="${meldingGegevensbronnen}" var="item">
+                            <html:option value="${item.id}">${item.naam}</html:option>
+                        </c:forEach>
+                    </html:select>
+
+                </div>
+            </div>
+            <div class="configadvanced"></div>
+        </div>
         <div class="tabcontent content_tekenen">
             <div class="configbasic">
                 <div class="configrow">
