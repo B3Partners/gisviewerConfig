@@ -274,7 +274,11 @@
             <form-property name="cfg_tekenKaartlaagId" type="java.lang.Integer"/>
             <form-property name="cfg_tekenFilterColumn" type="java.lang.String"/>
             <form-property name="cfg_tekenFilterSld" type="java.lang.String"/>
-            
+                        
+            <!-- voor digitree edit tab -->
+            <form-property name="cfg_editgegevensbron" type="java.lang.Integer"/>
+            <form-property name="cfg_editziektesgegevensbron" type="java.lang.Integer"/> 
+
         </form-bean>
         
         <form-bean name="configCyclomediaForm" type="org.apache.struts.validator.DynaValidatorForm">
