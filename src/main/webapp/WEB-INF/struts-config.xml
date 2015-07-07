@@ -276,7 +276,7 @@
             <form-property name="cfg_tekenFilterSld" type="java.lang.String"/>
                         
             <!-- voor digitree edit tab -->
-            <form-property name="cfg_editgegevensbron" type="java.lang.Integer"/>
+            <form-property name="cfg_editboomgegevensbron" type="java.lang.Integer"/>
             <form-property name="cfg_editziektesgegevensbron" type="java.lang.Integer"/> 
 
         </form-bean>

@@ -100,12 +100,13 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <div class="tablabel sublabel" id="label_layerinfo">
             Laag informatie
         </div>
-        <div class="tablabel sublabel" id="label_edit">
+        <div class="tablabel sublabel" id="label_boom">
             Edit boom
         </div>
         <div class="tablabel sublabel" id="label_ziekte">
             Edit ziekte en plagen
         </div>
+
     </div>
 
     <div class="tabcontents">
@@ -631,6 +632,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <a href="#" onclick="resetModuleElements();">Modules opnieuw instellen</a>
             </p>
 
+            <c:set var="showExtraTabs" value="${true}"/>
             <div class="configbasic">
                 <p><b>Linkerkant</b></p>
 
@@ -641,6 +643,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
+                        <c:if test="${showExtraTabs}">
+                            <c:forEach items="${extraTabLabels}" var="item" varStatus="status">
+                                <html:option value="${extraTabValues[status.count-1]}">${item}</html:option>
+                            </c:forEach>
+                        </c:if>
                     </html:select>
                 </div>
                 <div class="configrow">
@@ -649,6 +656,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
+                        <c:if test="${showExtraTabs}">
+                            <c:forEach items="${extraTabLabels}" var="item" varStatus="status">
+                                <html:option value="${extraTabValues[status.count-1]}">${item}</html:option>
+                            </c:forEach>
+                        </c:if>
                     </html:select>
                 </div>
                 <div class="configrow">
@@ -657,6 +669,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
+                        <c:if test="${showExtraTabs}">
+                            <c:forEach items="${extraTabLabels}" var="item" varStatus="status">
+                                <html:option value="${extraTabValues[status.count-1]}">${item}</html:option>
+                            </c:forEach>
+                        </c:if>
                     </html:select>
                 </div>
                 <div class="configrow">
@@ -665,6 +682,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
+                        <c:if test="${showExtraTabs}">
+                            <c:forEach items="${extraTabLabels}" var="item" varStatus="status">
+                                <html:option value="${extraTabValues[status.count-1]}">${item}</html:option>
+                            </c:forEach>
+                        </c:if>
                     </html:select>
                 </div>
                 <div class="configrow">
@@ -673,6 +695,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
+                        <c:if test="${showExtraTabs}">
+                            <c:forEach items="${extraTabLabels}" var="item" varStatus="status">
+                                <html:option value="${extraTabValues[status.count-1]}">${item}</html:option>
+                            </c:forEach>
+                        </c:if>
                     </html:select>
                 </div>
 
@@ -685,6 +712,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
+                        <c:if test="${showExtraTabs}">
+                            <c:forEach items="${extraTabLabels}" var="item" varStatus="status">
+                                <html:option value="${extraTabValues[status.count-1]}">${item}</html:option>
+                            </c:forEach>
+                        </c:if>
                     </html:select>
                 </div>
                 <div class="configrow">
@@ -693,6 +725,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
+                        <c:if test="${showExtraTabs}">
+                            <c:forEach items="${extraTabLabels}" var="item" varStatus="status">
+                                <html:option value="${extraTabValues[status.count-1]}">${item}</html:option>
+                            </c:forEach>
+                        </c:if>
                     </html:select>
                 </div>
                 <div class="configrow">
@@ -701,6 +738,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
+                        <c:if test="${showExtraTabs}">
+                            <c:forEach items="${extraTabLabels}" var="item" varStatus="status">
+                                <html:option value="${extraTabValues[status.count-1]}">${item}</html:option>
+                            </c:forEach>
+                        </c:if>
                     </html:select>
                 </div>
                 <div class="configrow">
@@ -709,6 +751,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
+                        <c:if test="${showExtraTabs}">
+                            <c:forEach items="${extraTabLabels}" var="item" varStatus="status">
+                                <html:option value="${extraTabValues[status.count-1]}">${item}</html:option>
+                            </c:forEach>
+                        </c:if>
                     </html:select>
                 </div>
                 <div class="configrow">
@@ -717,6 +764,11 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
+                        <c:if test="${showExtraTabs}">
+                            <c:forEach items="${extraTabLabels}" var="item" varStatus="status">
+                                <html:option value="${extraTabValues[status.count-1]}">${item}</html:option>
+                            </c:forEach>
+                        </c:if>
                     </html:select>
                 </div>
             </div>
@@ -751,10 +803,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                 <div class="configrow">
                     <label><fmt:message key="cfg_activeTab.label"/></label>
-                    <html:select property="cfg_activeTab" styleClass="tabblad_select">
+                    <html:select property="cfg_activeTab">
                         <c:forEach items="${tabLabels}" var="item" varStatus="status">
                             <html:option value="${tabValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
+                        <c:if test="${showExtraTabs}">
+                            <c:forEach items="${extraTabLabels}" var="item" varStatus="status">
+                                <html:option value="${extraTabLabels[status.count-1]}">${item}</html:option>
+                            </c:forEach>
+                        </c:if>
                     </html:select>
                     <a class="helpLink" href="#" id="helpLink_help_cfg_activeTab">(?)</a>
                     <div id="help_cfg_activeTab" style="display: none;" title="<fmt:message key="cfg_activeTab.label"/>">
@@ -765,7 +822,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 <!-- Transparantie slider tabblad -->
                 <div class="configrow">
                     <label><fmt:message key="cfg_transSliderTab.label"/></label>
-                    <html:select property="cfg_transSliderTab" styleClass="tabblad_select">
+                    <html:select property="cfg_transSliderTab">
                         <c:forEach items="${tabSliderLabels}" var="item" varStatus="status">
                             <html:option value="${tabSliderValues[status.count-1]}">${item}</html:option>
                         </c:forEach>
@@ -1141,15 +1198,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             </div>
             <div class="configadvanced"></div>
         </div>
-        <div class="tabcontent content_edit">
+        <div class="tabcontent content_boom">
             <div class="configbasic">
 
                 <div class="configrow">
                     <label><fmt:message key="cfg_meldinggegevensbron.label"/></label>
 
-                    <html:select property="cfg_editgegevensbron">
+                    <html:select property="cfg_editboomgegevensbron">
                         <html:option value="0">-Kies een gegevensbron-</html:option>
-                        <c:forEach items="${meldingGegevensbronnen}" var="item">
+                        <c:forEach items="${tekenGegevensbronnen}" var="item">
                             <html:option value="${item.id}">${item.naam}</html:option>
                         </c:forEach>
                     </html:select>
@@ -1166,7 +1223,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                     <html:select property="cfg_editziektesgegevensbron">
                         <html:option value="0">-Kies een gegevensbron-</html:option>
-                        <c:forEach items="${meldingGegevensbronnen}" var="item">
+                        <c:forEach items="${tekenGegevensbronnen}" var="item">
                             <html:option value="${item.id}">${item.naam}</html:option>
                         </c:forEach>
                     </html:select>
