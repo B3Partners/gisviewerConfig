@@ -56,12 +56,20 @@ function showModules() {
         if(labelselect != "leeg") {
             var module = $j("#label_" + labelselect);
             if(module && module.hasClass("sublabel")) {
+                // Wanneer de module niet onder tablabels valt, verplaats de module dan naar tablabels
+                // Komt voor wanneer er via een deploy structuur extra labels worden toegevoegd
+                if(!module.parent().hasClass('tablabels')) {
+                    $j('.tablabels').find('.emptylabel').first().before(module);
+                    // De inhoud van de extra tab valt dan waarschijnlijk ook niet onder de juiste DIV,
+                    // dus verplaatsen we deze ook naar tabcontents
+                    $j('.tabcontents').append($j(".content_" + module.attr("id").replace("label_", "")));
+                }
                 /* Wanneer een label wordt gevonden met id #label_ + geselecteerde waarde, toon deze */
                 module.show();
             } else {
                 /* Wanneer er geen label wordt gevonden, zijn hiervoor geen configuratie instellingen */
                 /* Maak dan een nieuwe label + content aan met de melding dat er geen config instellingen zijn */
-                var $label = $j('<div class="tablabel sublabel" id="label_'+labelselect+'">'+$j("option:selected", this).text()+'</div>');
+                var $label = $j('<div class="tablabel sublabel emptylabel" id="label_'+labelselect+'">'+$j("option:selected", this).text()+'</div>');
                 $label.click(function() {
                     labelClick($j(this));
                 }).css({

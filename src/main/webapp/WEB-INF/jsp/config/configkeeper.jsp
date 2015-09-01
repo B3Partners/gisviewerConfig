@@ -1135,7 +1135,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
             </div>
             <div class="configadvanced"></div>
         </div>
-
         <div class="tabcontent content_tekenen">
             <div class="configbasic">
                 <div class="configrow">
@@ -1305,6 +1304,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         </div>
     </div>
     <div class="clearBoth"></div>
+    <jsp:include page="configkeeper-extra.jsp"></jsp:include>
 </html:form>
 
 <script type="text/javascript">
