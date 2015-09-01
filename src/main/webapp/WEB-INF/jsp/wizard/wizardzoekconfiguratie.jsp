@@ -35,6 +35,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <c:forEach items="${bronnen}" var="b">
             <input type="radio" name="bronId" value="${b.id}"/><c:out value="${b}"/><br/>
         </c:forEach>
+        <input type="radio" name="bronId" value=""><fmt:message key="wizardzoekconfiguratie.antwoord.geenbron"/><br/>
         <input type="radio" name="bronId" value="new"><fmt:message key="wizardzoekconfiguratie.antwoord.nieuwebron"/>
     </div>
     
