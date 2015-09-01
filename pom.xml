@@ -41,6 +41,11 @@
             <artifactId>dwr</artifactId>
             <version>2.0.11-RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>digitree-gisviewer-extras</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
