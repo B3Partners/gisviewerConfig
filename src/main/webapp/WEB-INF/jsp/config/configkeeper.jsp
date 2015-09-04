@@ -219,6 +219,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
                 <!-- Setting for Viewer top menu -->
                 <div class="configrow">
+                    <label><fmt:message key="cfg_homeUrl.label"/></label>
+                    <html:text property="cfg_homeUrl" size="30"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_homeUrl">(?)</a>
+                    <div id="help_cfg_homeUrl" style="display: none;" title="<fmt:message key="cfg_homeUrl.label"/>">
+                        <fmt:message key="cfg_homeUrl.uitleg"/>
+                    </div>
+                </div>
+                
+                <div class="configrow">
                     <label><fmt:message key="cfg_helpUrl.label"/></label>
                     <html:text property="cfg_helpUrl" size="30"/>
                     <a class="helpLink" href="#" id="helpLink_help_cfg_helpUrl">(?)</a>

@@ -264,6 +264,7 @@
             <form-property name="cfg_showInfoTab" type="java.lang.String"/>
         
             <!-- Viewer top menu settings -->
+            <form-property name="cfg_homeUrl" type="java.lang.String"/>
             <form-property name="cfg_helpUrl" type="java.lang.String"/>
             <form-property name="cfg_showGoogleMapsIcon" type="java.lang.Boolean"/>
             <form-property name="cfg_showBookmarkIcon" type="java.lang.Boolean"/>
