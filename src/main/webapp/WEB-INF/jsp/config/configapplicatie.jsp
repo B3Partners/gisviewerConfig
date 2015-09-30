@@ -29,7 +29,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <div class="infobalk_description">APPLICATIES</div>
     <div class="infobalk_actions"><tiles:insert name="loginblock"/></div>
 </div>
-<c:set var="appUrl" value='http://${pageContext.request.serverName}:${pageContext.request.serverPort}/gisviewer/viewer.do?appCode='/>
+<c:set var="appUrl" value='${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}/gisviewer/viewer.do?appCode='/>
 <c:if test="${!empty applicaties}">
     <table id="applicatieTable" class="dataTable">
         <thead>
