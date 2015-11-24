@@ -42,7 +42,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     <html:hidden property="appcode" />
 
     <html:hidden property="cfg_multipleActiveThemas" />
-    <html:hidden property="cfg_autoRedirect" />
 
     <div class="ie7clear"></div>
     <div style="float: left; clear: both; width: 920px; margin-left: 15px; margin-bottom: 5px; margin-top: 25px;">
@@ -527,6 +526,15 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <a class="helpLink" href="#" id="helpLink_help_cfg_popupTop">(?)</a>
                     <div id="help_cfg_popupTop" style="display: none;" title="<fmt:message key="cfg_popupTop.label"/>">
                         <fmt:message key="cfg_popupTop.uitleg"/>
+                    </div>
+                </div>
+                    
+                <div class="configrow">
+                    <label><fmt:message key="cfg_autoRedirect.label"/></label>
+                    <html:text property="cfg_autoRedirect" size="5"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_autoRedirect">(?)</a>
+                    <div id="help_cfg_autoRedirect" style="display: none;" title="<fmt:message key="cfg_autoRedirect.label"/>">
+                        <fmt:message key="cfg_autoRedirect.uitleg"/>
                     </div>
                 </div>
             </div>
