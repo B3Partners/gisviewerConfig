@@ -1346,6 +1346,19 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                         <fmt:message key="cfg_externeWegvakidAttr.uitleg"/>
                     </div>
                 </div>
+                <div class="configadvanced">
+                    <%--
+                        stukje van tekenmodule overgenomen, met exact dezelfde keys. Dit, zodat in het SldServlet deze meegenomen kan worden als sldPart
+                    --%>
+                    <div class="configrow">
+                        <label><fmt:message key="cfg_tekenFilterSld.label"/></label>
+                        <html:textarea property="cfg_tekenFilterSld" cols="60" rows="12" />
+                        <a class="helpLink" href="#" id="helpLink_help_cfg_tekenFilterSld">(?)</a>
+                        <div id="help_cfg_tekenFilterSld" style="display: none;" title="<fmt:message key="cfg_tekenFilterSld.label"/>">
+                            <fmt:message key="cfg_tekenFilterSld.uitleg"/>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
