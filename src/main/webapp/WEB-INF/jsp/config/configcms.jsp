@@ -19,7 +19,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <%@include file="/WEB-INF/jsp/taglibs.jsp" %>
 <%@ page isELIgnored="false"%>
 
-<script type="text/javascript" src="<html:rewrite page="/scripts/ckeditor/ckeditor.js"/>"></script>
+<script type="text/javascript" src="<html:rewrite page="/scripts/ckeditor4/ckeditor.js"/>"></script>
 
 <c:set var="form" value="${cmsForm}"/>
 <c:set var="action" value="${form.map.action}"/>

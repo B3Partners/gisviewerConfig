@@ -24,7 +24,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <script type='text/javascript' src='dwr/util.js'></script>
 <script type="text/javascript" src='dwr/interface/JCrossWebAppUtil.js'></script>
 
-<script type="text/javascript" src="<html:rewrite page="/scripts/ckeditor/ckeditor.js"/>"></script>
+<script type="text/javascript" src="<html:rewrite page="/scripts/ckeditor4/ckeditor.js"/>"></script>
 
 <c:set var="form" value="${cmsPaginaForm}"/>
 <c:set var="action" value="${form.map.action}"/>

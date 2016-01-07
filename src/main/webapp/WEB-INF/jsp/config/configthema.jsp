@@ -32,7 +32,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <script type="text/javascript" src='dwr/interface/JConfigListsUtil.js'></script>
 <script type="text/javascript" src="<html:rewrite page="/scripts/configthema.js"/>"></script>
 
-<script type="text/javascript" src="<html:rewrite page="/scripts/ckeditor/ckeditor.js"/>"></script>
+<script type="text/javascript" src="<html:rewrite page="/scripts/ckeditor4/ckeditor.js"/>"></script>
 
 <div class="infobalk">
     <div class="infobalk_description"><fmt:message key="configthema.infobalk"/></div>
