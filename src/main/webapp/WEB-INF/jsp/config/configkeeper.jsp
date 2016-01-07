@@ -616,7 +616,23 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <div id="help_cfg_showGPSTool" style="display: none;" title="<fmt:message key="cfg_showGPSTool.label"/>">
                         <fmt:message key="cfg_showGPSTool.uitleg"/>
                     </div>
-                </div>                
+                </div>
+                <div class="configrow">
+                    <label><fmt:message key="cfg_useOwnCyclomedia.label"/></label>
+                    <html:checkbox property="cfg_useOwnCyclomedia" styleClass="toggleNextRow" />
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_useOwnCyclomedia">(?)</a>
+                    <div id="help_cfg_useOwnCyclomedia" style="display: none;" title="<fmt:message key="cfg_useOwnCyclomedia.label"/>">
+                        <fmt:message key="cfg_useOwnCyclomedia.uitleg"/>
+                    </div>
+                </div>
+                <div class="configrow" style="display: none;">
+                    <label><fmt:message key="cfg_ownCyclomediaUrl.label"/></label>
+                    <html:text property="cfg_ownCyclomediaUrl" size="35"/>
+                    <a class="helpLink" href="#" id="helpLink_help_cfg_ownCyclomediaUrl">(?)</a>
+                    <div id="help_cfg_ownCyclomediaUrl" style="display: none;" title="<fmt:message key="cfg_ownCyclomediaUrl.label"/>">
+                        <fmt:message key="cfg_ownCyclomediaUrl.uitleg"/>
+                    </div>
+                </div>
             </div>
             <div class="configadvanced">
                 <div class="configrow">

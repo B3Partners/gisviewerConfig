@@ -186,6 +186,16 @@ $j(document).ready(function() {
     showModules();
     $j(".tabblad_select").change(showModules);
     document.getElementById("gpsbuffer").style.display = $j("[name=cfg_showGPSTool]")[0].checked ? "block" : "none";
-
+    function toggleNextRow($checkbox) {
+        var $nextrow = $checkbox.closest(".configrow").next();
+        $nextrow.css("display", $checkbox.is(":checked") ? "block" : "none");
+    }
+    jQuery('.toggleNextRow').each(function() {
+        var $checkbox = jQuery(this);
+        toggleNextRow($checkbox);
+        $checkbox.bind("change", function() {
+            toggleNextRow($checkbox);
+        });
+    });
     fillSelectedModuleValues();
 });
