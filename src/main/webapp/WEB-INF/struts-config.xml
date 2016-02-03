@@ -216,11 +216,6 @@
             <form-property name="cfg_bagGebruiksfunctieAttr" type="java.lang.String"/>
             <form-property name="cfg_bagGeomAttr" type="java.lang.String"/>
 
-            <!-- Externe informatie ophalen config items-->
-            <form-property name="cfg_externelaagid" type="java.lang.Integer"/>
-            <form-property name="cfg_externeWegvakidAttr" type="java.lang.String"/>
-
-
             <!-- Viewer tools aan/uit -->
             <form-property name="cfg_showRedliningTools" type="java.lang.Boolean"/>
             <form-property name="cfg_showBufferTool" type="java.lang.Boolean"/>

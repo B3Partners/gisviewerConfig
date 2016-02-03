@@ -99,9 +99,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <div class="tablabel sublabel" id="label_layerinfo">
             Laag informatie
         </div>
-        <div class="tablabel sublabel" id="label_externeinformatie">
-            Externe laag informatie
-        </div>
     </div>
 
     <div class="tabcontents">
@@ -1334,45 +1331,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                     <a class="helpLink" href="#" id="helpLink_help_cfg_bagminopp">(?)</a>
                     <div id="help_cfg_bagminopp" style="display: none;" title="<fmt:message key="cfg_bagminopp.label"/>">
                         <fmt:message key="cfg_bagminopp.uitleg"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="tabcontent content_externeinformatie">
-            <div class="configbasic">
-                <div class="configrow">
-                    <label><fmt:message key="cfg_externeWegvakLaag.label"/></label>
-                    <html:select property="cfg_externelaagid">
-                        <html:option value="0">-Kies een gegevensbron-</html:option>
-                        <c:forEach items="${redliningKaartlagen}" var="item">
-                            <html:option value="${item.id}">${item.naam}</html:option>
-                        </c:forEach>
-                    </html:select>
-                    <a class="helpLink" href="#" id="helpLink_help_cfg_externeWegvakidAttr">(?)</a>
-                    <div id="help_cfg_externeWegvakidAttr" style="display: none;" title="<fmt:message key="cfg_externeWegvakidAttr.label"/>">
-                        <fmt:message key="cfg_externeWegvakidAttr.uitleg"/>
-                    </div>
-                </div>
-                <div class="configrow">
-                    <label><fmt:message key="cfg_externeWegvakidAttr.label"/></label>
-                    <html:text property="cfg_externeWegvakidAttr" size="30" />
-                    <a class="helpLink" href="#" id="helpLink_help_cfg_externeWegvakidAttr">(?)</a>
-                    <div id="help_cfg_externeWegvakidAttrr" style="display: none;" title="<fmt:message key="cfg_externeWegvakidAttr.label"/>">
-                        <fmt:message key="cfg_externeWegvakidAttr.uitleg"/>
-                    </div>
-                </div>
-                <div class="configadvanced">
-                    <%--
-                        stukje van tekenmodule overgenomen, met exact dezelfde keys. Dit, zodat in het SldServlet deze meegenomen kan worden als sldPart
-                    --%>
-                    <div class="configrow">
-                        <label><fmt:message key="cfg_tekenFilterSld.label"/></label>
-                        <html:textarea property="cfg_tekenFilterSld" cols="60" rows="12" />
-                        <a class="helpLink" href="#" id="helpLink_help_cfg_tekenFilterSld">(?)</a>
-                        <div id="help_cfg_tekenFilterSld" style="display: none;" title="<fmt:message key="cfg_tekenFilterSld.label"/>">
-                            <fmt:message key="cfg_tekenFilterSld.uitleg"/>
-                        </div>
                     </div>
                 </div>
             </div>
