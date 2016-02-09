@@ -282,6 +282,8 @@
             <form-property name="cfg_tekenKaartlaagId" type="java.lang.Integer"/>
             <form-property name="cfg_tekenFilterColumn" type="java.lang.String"/>
             <form-property name="cfg_tekenFilterSld" type="java.lang.String"/>
+
+            <form-property name="cfg_highlightFilterSld" type="java.lang.String"/>
             
         </form-bean>
         
