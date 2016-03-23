@@ -3,7 +3,7 @@
 
     <groupId>nl.b3p</groupId>
     <artifactId>gisviewerConfig</artifactId>
-    <version>4.2.2-SNAPSHOT</version>
+    <version>4.2.2</version>
     <packaging>war</packaging>
 
     <name>gisviewerConfig</name>
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>b3p-gisviewerConfig</artifactId>
-            <version>${project.version}</version>
+            <version>4.2.2</version>
         </dependency>
         <dependency>
             <groupId>commons-logging</groupId>
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>nl.b3p</groupId>
             <artifactId>b3p-gisviewer</artifactId>
-            <version>${project.version}</version>
+            <version>4.2.2</version>
         </dependency>
 
         <dependency>
@@ -68,7 +68,7 @@
         <connection>scm:git:git@github.com:B3Partners/gisviewerConfig.git</connection>
         <developerConnection>scm:git:git@github.com:B3Partners/gisviewerConfig.git</developerConnection>
         <url>https://github.com/B3Partners/gisviewerConfig</url>
-      <tag>gisviewerConfig-${project.version}</tag>
+      <tag>gisviewerConfig-4.2.2</tag>
     </scm>
     <distributionManagement>
         <repository>
