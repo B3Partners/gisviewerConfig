@@ -1335,6 +1335,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
     </div>
     <div class="clearBoth"></div>
     <jsp:include page="configkeeper-extra.jsp"></jsp:include>
