@@ -279,7 +279,10 @@
             <form-property name="cfg_tekenFilterSld" type="java.lang.String"/>
 
             <form-property name="cfg_highlightFilterSld" type="java.lang.String"/>
-            
+
+
+            <form-property name="cfg_externelaagid" type="java.lang.Integer"/>
+            <form-property name="cfg_externeWegvakidAttr" type="java.lang.String"/>
         </form-bean>
         
         <form-bean name="configCyclomediaForm" type="org.apache.struts.validator.DynaValidatorForm">

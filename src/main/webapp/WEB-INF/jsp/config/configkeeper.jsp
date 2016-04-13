@@ -99,6 +99,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
         <div class="tablabel sublabel" id="label_layerinfo">
             Laag informatie
         </div>
+        <div class="tablabel sublabel" id="label_externeinformatie">
+            Externe laag informatie
+        </div>
     </div>
 
     <div class="tabcontents">
@@ -1335,10 +1338,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> master
+        
     </div>
     <div class="clearBoth"></div>
     <jsp:include page="configkeeper-extra.jsp"></jsp:include>
